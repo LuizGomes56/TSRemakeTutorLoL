@@ -1,0 +1,111 @@
+{
+    "Zac": {
+        "spells": {
+            "Q": [
+                [
+                    "((40 + (0.04 * maxHP) + (0.3 * currentAP)) * magicMod)"
+                ], 
+                [
+                    "((55 + (0.04 * maxHP) + (0.3 * currentAP)) * magicMod)"
+                ],  
+                [
+                    "((70 + (0.04 * maxHP) + (0.3 * currentAP)) * magicMod)"
+                ], 
+                [
+                    "((85 + (0.04 * maxHP) + (0.3 * currentAP)) * magicMod)"
+                ], 
+                [
+                    "((100 + (0.04 * maxHP) + (0.3 * currentAP)) * magicMod)"
+                ]
+            ],
+            "W": [
+                [
+                    "((40 + (0.04 * expectedHealth + (0.03 * currentAP/100))) * magicMod)"
+                ],
+                [
+                    "((50 + (0.05 * expectedHealth + (0.03 * currentAP/100))) * magicMod)"
+                ],
+                [
+                    "((60 + (0.06 * expectedHealth + (0.03 * currentAP/100)))* magicMod)"
+                ],
+                [
+                    "((70 + (0.07 * expectedHealth + (0.03 * currentAP/100))) * magicMod)"
+                ],
+                [
+                    "((80 + (0.08 * expectedHealth + (0.03 * currentAP/100))) * magicMod)"
+                ]
+            ],
+            "E": [
+                [
+                    "((60 + (0.8 * currentAP)) * magicMod)"
+                ],
+                [
+                    "((105 + (0.8 * currentAP)) * magicMod)"
+                ],
+                [
+                    "((150 + (0.8 * currentAP)) * magicMod)"
+                ],
+                [
+                    "((195 + (0.8 * currentAP)) * magicMod)"
+                ],
+                [
+                    "((240 + (0.8 * currentAP)) * magicMod)"
+                ]
+            ],
+            "R": [
+                [
+                    "(140 + (0.4 *  currentAP)) * magicMod"
+                    
+                ],
+                [
+                    "(210 + (0.4 *  currentAP)) * magicMod"
+                ],
+                [
+                    "(280 + (0.4 *  currentAP)) * magicMod"
+                ]
+            ]
+        },
+        "type": {
+            "Q": "magic",
+            "W": "magic",
+            "E": "magic",
+            "R": "magic"
+        },
+        "aoe": {
+            "Q": "false",
+            "W": "true",
+            "E": "true",
+            "R": "true"
+        },
+        "variation": {
+            "Q":[
+                [
+                    "2 * ((40 + (0.04 * maxHP) + (0.3 * currentAP)) * magicMod)"
+                ],
+                [
+                    "2 * ((55 + (0.04 * maxHP) + (0.3 * currentAP)) * magicMod)"
+                ],
+                [
+                    "2 * ((70 + (0.04 * maxHP) + (0.3 * currentAP)) * magicMod)"
+                ],
+                [
+                    "2 * ((85 + (0.04 * maxHP) + (0.3 * currentAP)) * magicMod)"
+                ],
+                [
+                    "2 * ((100 + (0.04 * maxHP) + (0.3 * currentAP)) * magicMod)"
+                ]
+            ],
+            "R":[
+                [
+                    "(70 + (0.2 * currentAP) * 3) * magicMod"
+                ],
+                [
+                    "(105 + (0.2 * currentAP) * 3) * magicMod"
+                ],
+                [
+                    "(140 + (0.2 * currentAP) * 3) * magicMod"
+                ]
+            ]
+        }
+    }
+}

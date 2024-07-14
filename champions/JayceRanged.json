@@ -1,0 +1,96 @@
+{
+    "JayceRanged": {
+        "spells": {
+            "Q": [
+                [
+                    "(55 + 1.2 * bonusAD) * physicalMod"
+                ], 
+                [
+                    "(110 + 1.2 * bonusAD) * physicalMod"
+                ], 
+                [
+                    "(165 + 1.2 * bonusAD) * physicalMod"
+                ],
+                [
+                    "(220 + 1.2 * bonusAD) * physicalMod"
+                ],
+                [
+                    "(275 + 1.2 * bonusAD) * physicalMod"
+                ],
+                [
+                    "(330 + 1.2 * bonusAD) * physicalMod"
+                ]
+            ],
+            "W": [
+                [
+                    "(0.7 * currentAD) * physicalMod"
+                ],
+                [
+                    "(0.78 * currentAD) * physicalMod"
+                ],
+                [
+                    "(0.86 * currentAD) * physicalMod"
+                ],
+                [
+                    "(0.94 * currentAD) * physicalMod"
+                ],
+                [
+                    "(1.02 * currentAD) * physicalMod"
+                ],
+                [
+                    "(1.1 * currentAD) * physicalMod"
+                ]
+            ]
+        },
+        "type": {
+            "Q": "physical",
+            "W": "physical"
+        },
+        "aoe": {
+            "Q": "true",
+            "W": "false"
+        },
+        "variation": {
+            "Q": [
+                [
+                    "1.4 * (55 + 1.2 * bonusAD) * physicalMod"
+                ], 
+                [
+                    "1.4 * (110 + 1.2 * bonusAD) * physicalMod"
+                ], 
+                [
+                    "1.4 * (165 + 1.2 * bonusAD) * physicalMod"
+                ],
+                [
+                    "1.4 * (220 + 1.2 * bonusAD) * physicalMod"
+                ],
+                [
+                    "1.4 * (275 + 1.2 * bonusAD) * physicalMod"
+                ],
+                [
+                    "1.4 * (330 + 1.2 * bonusAD) * physicalMod"
+                ]
+            ],
+            "W": [
+                [
+                    "3 * (0.7 * currentAD) * physicalMod"
+                ],
+                [
+                    "3 * (0.78 * currentAD) * physicalMod"
+                ],
+                [
+                    "3 * (0.86 * currentAD) * physicalMod"
+                ],
+                [
+                    "3 * (0.94 * currentAD) * physicalMod"
+                ],
+                [
+                    "3 * (1.02 * currentAD) * physicalMod"
+                ],
+                [
+                    "3 * (1.1 * currentAD) * physicalMod"
+                ]
+            ]
+        }
+    }
+}

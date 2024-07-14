@@ -1,0 +1,726 @@
+{
+    "type": "mythicPassives",
+    "version": "13.14.1",
+    "data": {
+        "2065": {
+            "name": "Shurelya's Battlesong",
+            "passive": {
+                "Ability Haste": 5
+            }
+        },
+        "7020": {
+            "name": "Shurelya's Battlesong [ORNN]",
+            "passive": {
+                "Ability Haste": 5
+            }
+        },
+        "222065": {
+            "name": "Shurelya's Battlesong [ARENA]",
+            "passive": {
+                "Ability Haste": 5
+            }
+        },
+        "227020": {
+            "name": "Shurelya's Battlesong [ORNN] [ARENA]",
+            "passive": {
+                "Ability Haste": 5
+            }
+        },
+        "4644": {
+            "name": "Crown of the Shattered Queen",
+            "passive": {
+                "Ability Power": 8,
+                "Move Speed": "1%"
+            }
+        },
+        "7024": {
+            "name": "Crown of the Shattered Queen [ORNN]",
+            "passive": {
+                "Ability Power": 8,
+                "Move Speed": "1%"
+            }
+        },
+        "224644": {
+            "name": "Crown of the Shattered Queen [ARENA]",
+            "passive": {
+                "Ability Power": 8,
+                "Move Speed": "2.5%"
+            }
+        },
+        "227024": {
+            "name": "Crown of the Shattered Queen [ORNN] [ARENA]",
+            "passive": {
+                "Ability Power": 8,
+                "Move Speed": "2.5%"
+            }
+        },
+        "6632": {
+            "name": "Divine Sunderer",
+            "passive": {
+                "Armor Penetration": "3%",
+                "Magic Penetration": "3%"
+            }
+        },
+        "7017": {
+            "name": "Divine Sunderer [ORNN]",
+            "passive": {
+                "Armor Penetration": "3%",
+                "Magic Penetration": "3%"
+            }
+        },
+        "226632": {
+            "name": "Divine Sunderer [ARENA]",
+            "passive": {
+                "Armor Penetration": "3%",
+                "Magic Penetration": "3%"
+            }
+        },
+        "227017": {
+            "name": "Divine Sunderer [ORNN] [ARENA]",
+            "passive": {
+                "Armor Penetration": "3%",
+                "Magic Penetration": "3%"
+            }
+        },
+        "6691": {
+            "name": "Duskblade of Draktharr",
+            "passive": {
+                "Ability Haste": 5,
+                "Move Speed": 5
+            }
+        },
+        "7002": {
+            "name": "Duskblade of Draktharr [ORNN]",
+            "passive": {
+                "Ability Haste": 5,
+                "Move Speed": 5
+            }
+        },
+        "226691": {
+            "name": "Duskblade of Draktharr [ARENA]",
+            "passive": {
+                "Ability Haste": 7,
+                "Move Speed": 5
+            }
+        },
+        "227002": {
+            "name": "Duskblade of Draktharr [ORNN] [ARENA]",
+            "passive": {
+                "Ability Haste": 7,
+                "Move Speed": 5
+            }
+        },
+        "6620": {
+            "name": "Echoes of Helia",
+            "passive": {
+                "Ability Haste": 5
+            }
+        },
+        "7033": {
+            "name": "Echoes of Helia [ORNN]",
+            "passive": {
+                "Ability Haste": 5
+            }
+        },
+        "226620": {
+            "name": "Echoes of Helia [ARENA]",
+            "passive": {
+                "Ability Haste": 5
+            }
+        },
+        "227033": {
+            "name": "Echoes of Helia [ORNN] [ARENA]",
+            "passive": {
+                "Ability Haste": 5
+            }
+        },
+        "6692": {
+            "name": "Eclipse",
+            "passive": {
+                "Armor Penetration": "4%",
+                "Move Speed": 5
+            }
+        },
+        "7001": {
+            "name": "Eclipse [ORNN]",
+            "passive": {
+                "Armor Penetration": "4%",
+                "Move Speed": 5
+            }
+        },
+        "226692": {
+            "name": "Eclipse [ARENA]",
+            "passive": {
+                "Armor Penetration": "5%",
+                "Move Speed": 5
+            }
+        },
+        "227001": {
+            "name": "Eclipse [ORNN] [ARENA]",
+            "passive": {
+                "Armor Penetration": "5%",
+                "Move Speed": 5
+            }
+        },
+        "3001": {
+            "name": "Evenshroud",
+            "passive": {
+                "Armor": 5,
+                "Magic Resistance": 5
+            }
+        },
+        "7023": {
+            "name": "Evenshroud [ORNN]",
+            "passive": {
+                "Armor": 5,
+                "Magic Resistance": 5
+            }
+        },
+        "223001": {
+            "name": "Evenshroud [ARENA]",
+            "passive": {
+                "Armor": 5,
+                "Magic Resistance": 5
+            }
+        },
+        "227023": {
+            "name": "Evenshroud [ORNN] [ARENA]",
+            "passive": {
+                "Armor": 5,
+                "Magic Resistance": 5
+            }
+        },
+        "6656": {
+            "name": "Everfrost",
+            "passive": {
+                "Ability Power": 10
+            }
+        },
+        "7014": {
+            "name": "Everfrost [ORNN]",
+            "passive": {
+                "Ability Power": 10
+            }
+        },
+        "226656": {
+            "name": "Everfrost [ARENA]",
+            "passive": {
+                "Ability Power": 10
+            }
+        },
+        "227014": {
+            "name": "Everfrost [ORNN] [ARENA]",
+            "passive": {
+                "Ability Power": 10
+            }
+        },
+        "6630": {
+            "name": "Goredrinker",
+            "passive": {
+                "Health": 75,
+                "Ability Haste": 3
+            }
+        },
+        "7015": {
+            "name": "Goredrinker [ORNN]",
+            "passive": {
+                "Health": 75,
+                "Ability Haste": 3
+            }
+        },
+        "226630": {
+            "name": "Goredrinker [ARENA]",
+            "passive": {
+                "Health": 50,
+                "Ability Haste": 3
+            }
+        },
+        "227015": {
+            "name": "Goredrinker [ORNN] [ARENA]",
+            "passive": {
+                "Health": 50,
+                "Ability Haste": 3
+            }
+        },
+        "3124": {
+            "name": "Guinsoo's Rageblade",
+            "passive": {
+                "Magic Penetration": "6%",
+                "Armor Penetration": "5%"
+            }
+        },
+        "7030": {
+            "name": "Guinsoo's Rageblade [ORNN]",
+            "passive": {
+                "Magic Penetration": "6%",
+                "Armor Penetration": "5%"
+            }
+        },
+        "223124": {
+            "name": "Guinsoo's Rageblade [ARENA]",
+            "passive": {
+                "Magic Penetration": "6%",
+                "Armor Penetration": "5%"
+            }
+        },
+        "227030": {
+            "name": "Guinsoo's Rageblade [ORNN] [ARENA]",
+            "passive": {
+                "Magic Penetration": "6%",
+                "Armor Penetration": "5%"
+            }
+        },
+        "3084": {
+            "name": "Heartsteel REVIEW",
+            "passive": {
+                "Maximum Health": "1%"
+            }
+        },
+        "7025": {
+            "name": "Heartsteel [ORNN] REVIEW",
+            "passive": {
+                "Maximum Health": "1%"
+            }
+        },
+        "223084": {
+            "name": "Heartsteel [ARENA] REVIEW",
+            "passive": {
+                "Maximum Health": "1%"
+            }
+        },
+        "227025": {
+            "name": "Heartsteel [ORNN] [ARENA] REVIEW",
+            "passive": {
+                "Maximum Health": "1%"
+            }
+        },
+        "6662": {
+            "name": "Iceborn Gauntlet",
+            "passive": {
+                "Health": 50
+            }
+        },
+        "7005": {
+            "name": "Iceborn Gauntlet [ORNN]",
+            "passive": {
+                "Health": 50
+            }
+        },
+        "226662": {
+            "name": "Iceborn Gauntlet [ARENA]",
+            "passive": {
+                "Health": 50
+            }
+        },
+        "227005": {
+            "name": "Iceborn Gauntlet [ORNN] [ARENA]",
+            "passive": {
+                "Health": 50
+            }
+        },
+        "3031": {
+            "name": "Infinity Edge",
+            "passive": {
+                "Attack Damage": 5
+            }
+        },
+        "7031": {
+            "name": "Infinity Edge [ORNN]",
+            "passive": {
+                "Attack Damage": 5
+            }
+        },
+        "223031": {
+            "name": "Infinity Edge [ARENA]",
+            "passive": {
+                "Attack Damage": 5
+            }
+        },
+        "227031": {
+            "name": "Infinity Edge [ORNN] [ARENA]",
+            "passive": {
+                "Attack Damage": 5
+            }
+        },
+        "6665": {
+            "name": "Jak'Sho, The Protean",
+            "passive": {
+                "Armor": 5,
+                "Magic Resistance": 5
+            }
+        },
+        "7026": {
+            "name": "Jak'Sho, The Protean [ORNN]",
+            "passive": {
+                "Armor": 5,
+                "Magic Resistance": 5
+            }
+        },
+        "226665": {
+            "name": "Jak'Sho, The Protean [ARENA]",
+            "passive": {
+                "Armor": 5,
+                "Magic Resistance": 5
+            }
+        },
+        "227026": {
+            "name": "Jak'Sho, The Protean [ORNN] [ARENA]",
+            "passive": {
+                "Armor": 5,
+                "Magic Resistance": 5
+            }
+        },
+        "6653": {
+            "name": "Liandry's Anguish",
+            "passive": {
+                "Ability Haste": 5
+            }
+        },
+        "7012": {
+            "name": "Liandry's Anguish [ORNN]",
+            "passive": {
+                "Ability Haste": 5
+            }
+        },
+        "226653": {
+            "name": "Liandry's Anguish [ARENA]",
+            "passive": {
+                "Ability Haste": 5
+            }
+        },
+        "227012": {
+            "name": "Liandry's Anguish [ORNN] [ARENA]",
+            "passive": {
+                "Ability Haste": 5
+            }
+        },
+        "3190": {
+            "name": "Locket of the Iron Solari",
+            "passive": {
+                "Armor": 2,
+                "Magic Resistance": 2
+            }
+        },
+        "7019": {
+            "name": "Locket of the Iron Solari [ORNN]",
+            "passive": {
+                "Armor": 2,
+                "Magic Resistance": 2
+            }
+        },
+        "223190": {
+            "name": "Locket of the Iron Solari [ARENA]",
+            "passive": {
+                "Armor": 2,
+                "Magic Resistance": 2
+            }
+        },
+        "227019": {
+            "name": "Locket of the Iron Solari [ORNN] [ARENA]",
+            "passive": {
+                "Armor": 2,
+                "Magic Resistance": 2
+            }
+        },
+        "6617": {
+            "name": "Moonstone Renewer",
+            "passive": {
+                "Heal and Shield Power": "5%"
+            }
+        },
+        "7021": {
+            "name": "Moonstone Renewer [ORNN]",
+            "passive": {
+                "Heal and Shield Power": "5%"
+            }
+        },
+        "226617": {
+            "name": "Moonstone Renewer [ARENA]",
+            "passive": {
+                "Heal and Shield Power": "5%"
+            }
+        },
+        "227021": {
+            "name": "Moonstone Renewer [ORNN] [ARENA]",
+            "passive": {
+                "Heal and Shield Power": "5%"
+            }
+        },
+        "6675": {
+            "name": "Navori Quickblades",
+            "passive": {
+                "Attack Damage": 5
+            }
+        },
+        "7032": {
+            "name": "Navori Quickblades [ORNN]",
+            "passive": {
+                "Attack Damage": 5
+            }
+        },
+        "226675": {
+            "name": "Navori Quickblades [ARENA]",
+            "passive": {
+                "Attack Damage": 5
+            }
+        },
+        "227032": {
+            "name": "Navori Quickblades [ORNN] [ARENA]",
+            "passive": {
+                "Attack Damage": 5
+            }
+        },
+        "4636": {
+            "name": "Night Harvester",
+            "passive": {
+                "Ability Haste": 5
+            }
+        },
+        "7010": {
+            "name": "Night Harvester [ORNN]",
+            "passive": {
+                "Ability Haste": 5
+            }
+        },
+        "224636": {
+            "name": "Night Harvester [ARENA]",
+            "passive": {
+                "Ability Haste": 5
+            }
+        },
+        "227010": {
+            "name": "Night Harvester [ORNN] [ARENA]",
+            "passive": {
+                "Ability Haste": 5
+            }
+        },
+        "6667": {
+            "name": "Radiant Virtue",
+            "passive": {
+                "Health": 75
+            }
+        },
+        "7027": {
+            "name": "Radiant Virtue [ORNN]",
+            "passive": {
+                "Health": 75
+            }
+        },
+        "226667": {
+            "name": "Radiant Virtue [ARENA]",
+            "passive": {
+                "Health": 75
+            }
+        },
+        "227027": {
+            "name": "Radiant Virtue [ORNN] [ARENA]",
+            "passive": {
+                "Health": 75
+            }
+        },
+        "4633": {
+            "name": "Riftmaker",
+            "passive": {
+                "Ability Power": 8,
+                "Omnivamp": "2%"
+            }
+        },
+        "7009": {
+            "name": "Riftmaker [ORNN]",
+            "passive": {
+                "Ability Power": 8,
+                "Omnivamp": "2%"
+            }
+        },
+        "224633": {
+            "name": "Riftmaker [ARENA]",
+            "passive": {
+                "Ability Power": 8,
+                "Omnivamp": "2%"
+            }
+        },
+        "227009": {
+            "name": "Riftmaker [ORNN] [ARENA]",
+            "passive": {
+                "Ability Power": 8,
+                "Omnivamp": "2%"
+            }
+        },
+        "6657": {
+            "name": "Rod of Ages",
+            "passive": {
+                "Ability Haste": 5
+            }
+        },
+        "7028": {
+            "name": "Rod of Ages [ORNN]",
+            "passive": {
+                "Ability Haste": 5
+            }
+        },
+        "226657": {
+            "name": "Rod of Ages [ARENA]",
+            "passive": {
+                "Ability Haste": 5
+            }
+        },
+        "227028": {
+            "name": "Rod of Ages [ORNN] [ARENA]",
+            "passive": {
+                "Ability Haste": 5
+            }
+        },
+        "6631": {
+            "name": "Stridebreaker",
+            "passive": {
+                "Move Speed": "2%"
+            }
+        },
+        "7016": {
+            "name": "Stridebreaker [ORNN]",
+            "passive": {
+                "Move Speed": "2%"
+            }
+        },
+        "226631": {
+            "name": "Stridebreaker [ARENA]",
+            "passive": {
+                "Move Speed": "2%"
+            }
+        },
+        "227016": {
+            "name": "Stridebreaker [ORNN] [ARENA]",
+            "passive": {
+                "Move Speed": "2%"
+            }
+        },
+        "3078": {
+            "name": "Trinity Force",
+            "passive": {
+                "Attack Damage": 3,
+                "Move Speed": 3,
+                "Ability Haste": 3
+            }
+        },
+        "7018": {
+            "name": "Trinity Force [ORNN]",
+            "passive": {
+                "Attack Damage": 3,
+                "Move Speed": 3,
+                "Ability Haste": 3
+            }
+        },
+        "223078": {
+            "name": "Trinity Force [ARENA]",
+            "passive": {
+                "Attack Damage": 3,
+                "Move Speed": 3,
+                "Ability Haste": 3
+            }
+        },
+        "227018": {
+            "name": "Trinity Force [ORNN] [ARENA]",
+            "passive": {
+                "Attack Damage": 3,
+                "Move Speed": 3,
+                "Ability Haste": 3
+            }
+        },
+        "3142": {
+            "name": "Youmuu's Ghostblade",
+            "passive": {
+                "Attack Damage": 7
+            }
+        },
+        "7029": {
+            "name": "Youmuu's Ghostblade [ORNN]",
+            "passive": {
+                "Attack Damage": 7
+            }
+        },
+        "223142": {
+            "name": "Youmuu's Ghostblade [ARENA]",
+            "passive": {
+                "Attack Damage": 12
+            }
+        },
+        "227029": {
+            "name": "Youmuu's Ghostblade [ORNN] [ARENA]",
+            "passive": {
+                "Attack Damage": 12
+            }
+        },
+        "3152": {
+            "name": "Hextech Rocketbelt",
+            "passive": {
+                "Magic Penetration": 5
+            }
+        },
+        "7011": {
+            "name": "Hextech Rocketbelt [ORNN]",
+            "passive": {
+                "Magic Penetration": 5
+            }
+        },
+        "223152": {
+            "name": "Hextech Rocketbelt [ARENA]",
+            "passive": {
+                "Magic Penetration": 5
+            }
+        },
+        "227011": {
+            "name": "Hextech Rocketbelt [ORNN] [ARENA]",
+            "passive": {
+                "Magic Penetration": 5
+            }
+        },
+        "6655": {
+            "name": "Luden's Tempest",
+            "passive": {
+                "Magic Penetration": 5
+            }
+        },
+        "7013": {
+            "name": "Luden's Tempest [ORNN]",
+            "passive": {
+                "Magic Penetration": 5
+            }
+        },
+        "226655": {
+            "name": "Luden's Tempest [ARENA]",
+            "passive": {
+                "Magic Penetration": 5
+            }
+        },
+        "227013": {
+            "name": "Luden's Tempest [ORNN] [ARENA]",
+            "passive": {
+                "Magic Penetration": 5
+            }
+        },
+        "6671": {
+            "name": "Galeforce",
+            "passive": {
+                "Attack Damage": 5
+            }
+        },
+        "7006": {
+            "name": "Galeforce [ORNN]",
+            "passive": {
+                "Attack Damage": 5
+            }
+        },
+        "226671": {
+            "name": "Galeforce [ARENA]",
+            "passive": {
+                "Attack Damage": 5
+            }
+        },
+        "227006": {
+            "name": "Galeforce [ORNN] [ARENA]",
+            "passive": {
+                "Attack Damage": 5
+            }
+        }
+    }
+}

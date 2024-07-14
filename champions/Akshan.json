@@ -1,0 +1,166 @@
+{
+    "Akshan": {
+        "spells": {
+            "P": [
+                [
+                    "(10 + 0.6 * currentAP) * magicMod"
+                ],
+                [
+                    "(15 + 0.6 * currentAP) * magicMod"
+                ],
+                [
+                    "(20 + 0.6 * currentAP) * magicMod"
+                ],
+                [
+                    "(25 + 0.6 * currentAP) * magicMod"
+                ],
+                [
+                    "(30 + 0.6 * currentAP) * magicMod"
+                ],
+                [
+                    "(35 + 0.6 * currentAP) * magicMod"
+                ],
+                [
+                    "(40 + 0.6 * currentAP) * magicMod"
+                ],
+                [
+                    "(45 + 0.6 * currentAP) * magicMod"
+                ],
+                [
+                    "(55 + 0.6 * currentAP) * magicMod"
+                ],
+                [
+                    "(65 + 0.6 * currentAP) * magicMod"
+                ],
+                [
+                    "(75 + 0.6 * currentAP) * magicMod"
+                ],
+                [
+                    "(85 + 0.6 * currentAP) * magicMod"
+                ],
+                [
+                    "(95 + 0.6 * currentAP) * magicMod"
+                ],
+                [
+                    "(105 + 0.6 * currentAP) * magicMod"
+                ],
+                [
+                    "(120 + 0.6 * currentAP) * magicMod"
+                ],
+                [
+                    "(135 + 0.6 * currentAP) * magicMod"
+                ],
+                [
+                    "(150 + 0.6 * currentAP) * magicMod"
+                ],
+                [
+                    "(165 + 0.6 * currentAP) * magicMod"
+                ]
+            ],
+            "Q": [
+                [
+                    "(5 + (0.8 * currentAD)) * physicalMod"
+                ], 
+                [
+                    "(25 + (0.8 * currentAD)) * physicalMod"
+                ],
+                [
+                    "(45 + (0.8 * currentAD)) * physicalMod"
+                ],
+                [
+                    "(65 + (0.8 * currentAD)) * physicalMod"
+                ],
+                [
+                    "(85 + (0.8 * currentAD)) * physicalMod"
+                ]
+            ],
+            "W": [
+                [
+                    "(40 + (0.55 * currentAP)) * magicMod"
+                ],
+                [
+                    "(65 + (0.55 * currentAP)) * magicMod"
+                ],
+                [
+                    "(90 + (0.55 * currentAP)) * magicMod"
+                ],
+                [
+                    "(115 + (0.55 * currentAP)) * magicMod"
+                ],
+                [
+                    "(140 + (0.55 * currentAP)) * magicMod"
+                ]
+            ],
+            "E": [
+                [
+                    "(25 + (0.175 * bonusAD)) * physicalMod"
+                ],
+                [
+                    "(40 + (0.175 * bonusAD)) * physicalMod"
+                ],
+                [
+                    "(55 + (0.175 * bonusAD)) * physicalMod"
+                ],
+                [
+                    "(70 + (0.175 * bonusAD)) * physicalMod"
+                ],
+                [
+                    "(85 + (0.175 * bonusAD)) * physicalMod"
+                ]
+            ],
+            "R": [
+                [
+                    "((20 + (0.1 * currentAD)) * (1 + critChance)) * physicalMod"
+                ],
+                [
+                    "((25 + (0.1 * currentAD)) * (1 + critChance)) * physicalMod"
+                ],
+                [
+                    "((30 + (0.1 * currentAD)) * (1 + critChance)) * physicalMod"
+                ]
+            ]
+        },
+        "type": {
+            "P": "magic",
+            "Q": "physical",
+            "E": "physical",
+            "R": "physical"
+        },
+        "aoe": {
+            "P": "false",
+            "Q": "true",
+            "E": "true",
+            "R": "false"
+        },
+        "variation": {
+            "Q": [
+                [
+                    "2 * (5 + (0.8 * currentAD)) * physicalMod"
+                ], 
+                [
+                    "2 * (25 + (0.8 * currentAD)) * physicalMod"
+                ],
+                [
+                    "2 * (45 + (0.8 * currentAD)) * physicalMod"
+                ],
+                [
+                    "2 * (65 + (0.8 * currentAD)) * physicalMod"
+                ],
+                [
+                    "2 * (85 + (0.8 * currentAD)) * physicalMod"
+                ]
+            ],
+            "R": [
+                [
+                    "15 * ((20 + (0.1 * currentAD)) * (1 + critChance)) * physicalMod"
+                ],
+                [
+                    "15 * ((25 + (0.1 * currentAD)) * (1 + critChance)) * physicalMod"
+                ],
+                [
+                    "15 * ((30 + (0.1 * currentAD)) * (1 + critChance)) * physicalMod"
+                ]
+            ]
+        }
+    }
+}

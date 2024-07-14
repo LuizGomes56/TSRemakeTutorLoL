@@ -1,0 +1,132 @@
+{
+    "Katarina": {
+        "spells": {
+            "P": [
+                [
+                    "(68 + 0.6 * bonusAD + 0.7 * currentAP) * magicMod"
+                ],
+                [
+                    "(72 + 0.6 * bonusAD + 0.7 * currentAP) * magicMod"
+                ],
+                [
+                    "(77 + 0.6 * bonusAD + 0.7 * currentAP) * magicMod"
+                ],
+                [
+                    "(82 + 0.6 * bonusAD + 0.7 * currentAP) * magicMod"
+                ],
+                [
+                    "(89 + 0.6 * bonusAD + 0.7 * currentAP) * magicMod"
+                ],
+                [
+                    "(96 + 0.6 * bonusAD + 0.8 * currentAP) * magicMod"
+                ],
+                [
+                    "(103 + 0.6 * bonusAD + 0.8 * currentAP) * magicMod"
+                ],
+                [
+                    "(112 + 0.6 * bonusAD + 0.8 * currentAP) * magicMod"
+                ],
+                [
+                    "(121 + 0.6 * bonusAD + 0.8 * currentAP) * magicMod"
+                ],
+                [
+                    "(131 + 0.6 * bonusAD + 0.8 * currentAP) * magicMod"
+                ],
+                [
+                    "(142 + 0.6 * bonusAD + 0.9 * currentAP) * magicMod"
+                ],
+                [
+                    "(154 + 0.6 * bonusAD + 0.9 * currentAP) * magicMod"
+                ],
+                [
+                    "(166 + 0.6 * bonusAD + 0.9 * currentAP) * magicMod"
+                ],
+                [
+                    "(180 + 0.6 * bonusAD + 0.9 * currentAP) * magicMod"
+                ],
+                [
+                    "(194 + 0.6 * bonusAD + 0.9 * currentAP) * magicMod"
+                ],
+                [
+                    "(208 + 0.6 * bonusAD + currentAP) * magicMod"
+                ],
+                [
+                    "(224 + 0.6 * bonusAD + currentAP) * magicMod"
+                ],
+                [
+                    "(240 + 0.6 * bonusAD + currentAP) * magicMod"
+                ]
+            ],
+            "Q": [
+                [
+                    "(80 + 0.35 * currentAP) * magicMod"
+                ],
+                [
+                    "(110 + 0.35 * currentAP) * magicMod"
+                ], 
+                [
+                    "(140 + 0.35 * currentAP) * magicMod"
+                ],
+                [
+                    "(170 + 0.35 * currentAP) * magicMod"
+                ],
+                [
+                    "(200 + 0.35 * currentAP) * magicMod"
+                ]
+            ],
+            "E": [
+                [
+                    "(20 + 0.25 * currentAP + 0.4 * currentAD) * magicMod"
+                ],
+                [
+                    "(35 + 0.25 * currentAP + 0.4 * currentAD) * magicMod"
+                ],
+                [
+                    "(50 + 0.25 * currentAP + 0.4 * currentAD) * magicMod"
+                ],
+                [
+                    "(65 + 0.25 * currentAP + 0.4 * currentAD) * magicMod"
+                ],
+                [
+                    "(80 + 0.25 * currentAP + 0.4 * currentAD) * magicMod"
+                ]
+            ],
+            "R": [
+                [
+                    "(25 + 0.19 * currentAP) * magicMod + 0.16 * bonusAD * physicalMod"
+                ],
+                [
+                    "(37.5 + 0.19 * currentAP) * magicMod + 0.16 * bonusAD * physicalMod"
+                ],
+                [
+                    "(50 + 0.19 * currentAP) * magicMod + 0.16 * bonusAD * physicalMod"
+                ]
+            ]
+        },
+        "type": {
+            "P": "magic",
+            "Q": "magic",
+            "E": "magic",
+            "R": "magic"
+        },
+        "aoe": {
+            "P": "true",
+            "Q": "true",
+            "E": "false",
+            "R": "true"
+        },
+        "variation": {
+            "R": [
+                [
+                    "(375 + 2.85 * currentAP) * magicMod + 2.4 * bonusAD * physicalMod"
+                ],
+                [
+                    "(562.5 + 2.85 * currentAP) * magicMod + 2.4 * bonusAD * physicalMod"
+                ],
+                [
+                    "(750 + 2.85 * currentAP) * magicMod + 2.4 * bonusAD * physicalMod"
+                ]
+            ]
+        }
+    }
+}

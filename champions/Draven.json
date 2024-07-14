@@ -1,0 +1,74 @@
+{
+    "Draven": {
+        "spells": {
+            "Q": [
+                [
+                    "(45 + 0.75 * bonusAD) * physicalMod"
+                ], 
+                [
+                    "(50 + 0.85 * bonusAD) * physicalMod"
+                ], 
+                [
+                    "(55 + 0.95 * bonusAD) * physicalMod"
+                ],
+                [
+                    "(60 + 1.05 * bonusAD) * physicalMod"
+                ],
+                [
+                    "(65 + 1.15 * bonusAD) * physicalMod"
+                ]
+            ],
+            "E": [
+                [
+                    "(75 + 0.5 * bonusAD) * physicalMod"
+                ],
+                [
+                    "(110 + 0.5 * bonusAD) * physicalMod"
+                ],
+                [
+                    "(145 + 0.5 * bonusAD) * physicalMod"
+                ],
+                [
+                    "(180 + 0.5 * bonusAD) * physicalMod"
+                ],
+                [
+                    "(215 + 0.5 * bonusAD) * physicalMod"
+                ]
+            ],
+            "R": [
+                [
+                    "(175 + 1.1 * bonusAD) * physicalMod"
+                ],
+                [
+                    "(275 + 1.3 * bonusAD) * physicalMod"
+                ],
+                [
+                    "(375 + 1.5 * bonusAD) * physicalMod"
+                ]
+            ]
+        },
+        "type": {
+            "Q": "physical",
+            "E": "physical",
+            "R": "physical"
+        },
+        "aoe": {
+            "Q": "false",
+            "E": "true",
+            "R": "true"
+        },
+        "variation": {
+            "R": [
+                [
+                    "2 * (175 + 1.1 * bonusAD) * physicalMod"
+                ],
+                [
+                    "2 * (275 + 1.3 * bonusAD) * physicalMod"
+                ],
+                [
+                    "2 * (375 + 1.5 * bonusAD) * physicalMod"
+                ]
+            ]
+        }
+    }
+}

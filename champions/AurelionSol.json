@@ -1,0 +1,214 @@
+{
+    "AurelionSol": {
+        "spells": {
+            "Q": [
+                [
+                    "(5.625 + 0.06875 * currentAP) * magicMod"
+                ], 
+                [
+                    "(7.5 + 0.06875 * currentAP) * magicMod"
+                ], 
+                [
+                    "(9.375 + 0.06875 * currentAP) * magicMod"
+                ],
+                [
+                    "(11.25 + 0.06875 * currentAP) * magicMod"
+                ],
+                [
+                    "(13.125 + 0.06875 * currentAP) * magicMod"
+                ]
+            ],
+            "E": [
+                [
+                    "(2.5 + (0.05 * currentAP)) * magicMod"
+                ],
+                [
+                    "(3.75 + (0.05 * currentAP)) * magicMod"
+                ],
+                [
+                    "(5 + (0.05 * currentAP)) * magicMod"
+                ],
+                [
+                    "(6.25 + (0.05 * currentAP)) * magicMod"
+                ],
+                [
+                    "(7.5 + (0.05 * currentAP)) * magicMod"
+                ]
+            ],
+            "R": [
+                [
+                    "(150 + (0.65 * currentAP)) * magicMod"
+                ],
+                [
+                    "(250 + (0.65 * currentAP)) * magicMod"
+                ],
+                [
+                    "(350 + (0.65 * currentAP)) * magicMod"
+                ]
+            ]
+        },
+        "type": {
+            "Q": "magic",
+            "E": "magic",
+            "R": "magic"
+        },
+        "aoe": {
+            "Q": "true",
+            "E": "true",
+            "R": "true"
+        },
+        "variation": {
+            "Q": [
+                [
+                    "(55 + 0.035 * currentAP) * magicMod"
+                ], 
+                [
+                    "(65 + 0.035 * currentAP) * magicMod"
+                ], 
+                [
+                    "(75 + 0.035 * currentAP) * magicMod"
+                ],
+                [
+                    "(85 + 0.035 * currentAP) * magicMod"
+                ],
+                [
+                    "(95 + 0.035 * currentAP) * magicMod"
+                ]
+            ],
+            "E": [
+                [
+                    "20 * (2.5 + (0.05 * currentAP)) * magicMod"
+                ],
+                [
+                    "20 * (3.75 + (0.05 * currentAP)) * magicMod"
+                ],
+                [
+                    "20 * (5 + (0.05 * currentAP)) * magicMod"
+                ],
+                [
+                    "20 * (6.25 + (0.05 * currentAP)) * magicMod"
+                ],
+                [
+                    "20 * (7.5 + (0.05 * currentAP)) * magicMod"
+                ]
+            ],
+            "R": [
+                [
+                    "(187.5 + (0.8125 * currentAP)) * magicMod"
+                ],
+                [
+                    "(312.5 + (0.8125 * currentAP)) * magicMod"
+                ],
+                [
+                    "(437.5 + (0.8125 * currentAP)) * magicMod"
+                ]
+            ]
+        },
+        "calculator": {
+            "spells": {
+                "Q": [
+                    [
+                        "(5.625 + 0.06875 * currentAP) * magicMod"
+                    ], 
+                    [
+                        "(7.5 + 0.06875 * currentAP) * magicMod"
+                    ], 
+                    [
+                        "(9.375 + 0.06875 * currentAP) * magicMod"
+                    ],
+                    [
+                        "(11.25 + 0.06875 * currentAP) * magicMod"
+                    ],
+                    [
+                        "(13.125 + 0.06875 * currentAP) * magicMod"
+                    ]
+                ],
+                "E": [
+                    [
+                        "(2.5 + (0.05 * currentAP)) * magicMod"
+                    ],
+                    [
+                        "(3.75 + (0.05 * currentAP)) * magicMod"
+                    ],
+                    [
+                        "(5 + (0.05 * currentAP)) * magicMod"
+                    ],
+                    [
+                        "(6.25 + (0.05 * currentAP)) * magicMod"
+                    ],
+                    [
+                        "(7.5 + (0.05 * currentAP)) * magicMod"
+                    ]
+                ],
+                "R": [
+                    [
+                        "(150 + (0.65 * currentAP)) * magicMod"
+                    ],
+                    [
+                        "(250 + (0.65 * currentAP)) * magicMod"
+                    ],
+                    [
+                        "(350 + (0.65 * currentAP)) * magicMod"
+                    ]
+                ]
+            },
+            "type": {
+                "Q": "magic",
+                "E": "magic",
+                "R": "magic"
+            },
+            "aoe": {
+                "Q": "true",
+                "E": "true",
+                "R": "true"
+            },
+            "variation": {
+                "Q": [
+                    [
+                        "(55 + 0.035 * currentAP + (0.00031 * stack * expectedHealth)) * magicMod"
+                    ], 
+                    [
+                        "(65 + 0.035 * currentAP + (0.00031 * stack * expectedHealth)) * magicMod"
+                    ], 
+                    [
+                        "(75 + 0.035 * currentAP + (0.00031 * stack * expectedHealth)) * magicMod"
+                    ],
+                    [
+                        "(85 + 0.035 * currentAP + (0.00031 * stack * expectedHealth)) * magicMod"
+                    ],
+                    [
+                        "(95 + 0.035 * currentAP + (0.00031 * stack * expectedHealth)) * magicMod"
+                    ]
+                ],
+                "E": [
+                    [
+                        "20 * (2.5 + (0.05 * currentAP)) * magicMod"
+                    ],
+                    [
+                        "20 * (3.75 + (0.05 * currentAP)) * magicMod"
+                    ],
+                    [
+                        "20 * (5 + (0.05 * currentAP)) * magicMod"
+                    ],
+                    [
+                        "20 * (6.25 + (0.05 * currentAP)) * magicMod"
+                    ],
+                    [
+                        "20 * (7.5 + (0.05 * currentAP)) * magicMod"
+                    ]
+                ],
+                "R": [
+                    [
+                        "(187.5 + (0.8125 * currentAP)) * magicMod"
+                    ],
+                    [
+                        "(312.5 + (0.8125 * currentAP)) * magicMod"
+                    ],
+                    [
+                        "(437.5 + (0.8125 * currentAP)) * magicMod"
+                    ]
+                ]
+            }
+        }
+    }
+}

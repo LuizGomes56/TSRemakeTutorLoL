@@ -1,0 +1,93 @@
+{
+    "Blitzcrank": {
+        "spells": {
+            "Q": [
+                [
+                    "(105 + (1.2 * currentAP)) * magicMod"
+                ], 
+                [
+                    "(150 + (1.2 * currentAP)) * magicMod"
+                ], 
+                [
+                    "(195 + (1.2 * currentAP)) * magicMod"
+                ],
+                [
+                    "(240 + (1.2 * currentAP)) * magicMod"
+                ],
+                [
+                    "(285 + (1.2 * currentAP)) * magicMod"
+                ]
+            ],
+            "W": [
+                [
+                    "(0.01 * expectedHealth) * magicMod"
+                ], 
+                [
+                    "(0.01 * expectedHealth) * magicMod"
+                ], 
+                [
+                    "(0.01 * expectedHealth) * magicMod"
+                ],
+                [
+                    "(0.01 * expectedHealth) * magicMod"
+                ],
+                [
+                    "(0.01 * expectedHealth) * magicMod"
+                ]
+            ],
+            "E": [
+                [
+                    "(1.8 * currentAD + (0.25 * currentAP)) * physicalMod"
+                ],
+                [
+                    "(1.8 * currentAD + (0.25 * currentAP)) * physicalMod"
+                ],
+                [
+                    "(1.8 * currentAD + (0.25 * currentAP)) * physicalMod"
+                ],
+                [
+                    "(1.8 * currentAD + (0.25 * currentAP)) * physicalMod"
+                ],
+                [
+                    "(1.8 * currentAD + (0.25 * currentAP)) * physicalMod"
+                ]
+            ],
+            "R": [
+                [
+                    "(50 + 0.3 * currentAP + 0.02 * maxMana) * magicMod"
+                ],
+                [
+                    "(100 + 0.4 * currentAP + 0.02 * maxMana) * magicMod"
+                ],
+                [
+                    "(150 + 0.5 * currentAP + 0.02 * maxMana) * magicMod"
+                ]
+            ]
+        },
+        "type": {
+            "Q": "magic",
+            "W": "magic",
+            "E": "physical",
+            "R": "magic"
+        },
+        "aoe": {
+            "Q": "false",
+            "W": "false",
+            "E": "false",
+            "R": "true"
+        },
+        "variation": {
+            "R": [
+                [
+                    "(275 + currentAP) * magicMod"
+                ],
+                [
+                    "(400 + currentAP) * magicMod"
+                ],
+                [
+                    "(525 + currentAP) * magicMod"
+                ]
+            ]
+        }
+    }
+}

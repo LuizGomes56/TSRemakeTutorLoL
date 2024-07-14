@@ -1,0 +1,106 @@
+{
+    "Renata": {
+        "spells": {
+            "P": [
+                [
+                    "((0.00875 + 0.00125 * level + 0.02 * currentAP / 100) * expectedHealth) * magicMod"
+                ],
+                [
+                    "((0.00875 + 0.00125 * level + 0.02 * currentAP / 100) * expectedHealth) * magicMod"
+                ],
+                [
+                    "((0.00875 + 0.00125 * level + 0.02 * currentAP / 100) * expectedHealth) * magicMod"
+                ],
+                [
+                    "((0.00875 + 0.00125 * level + 0.02 * currentAP / 100) * expectedHealth) * magicMod"
+                ],
+                [
+                    "((0.00875 + 0.00125 * level + 0.02 * currentAP / 100) * expectedHealth) * magicMod"
+                ],
+                [
+                    "((0.00875 + 0.00125 * level + 0.02 * currentAP / 100) * expectedHealth) * magicMod"
+                ],
+                [
+                    "((0.00875 + 0.00125 * level + 0.02 * currentAP / 100) * expectedHealth) * magicMod"
+                ],
+                [
+                    "((0.00875 + 0.00125 * level + 0.02 * currentAP / 100) * expectedHealth) * magicMod"
+                ],
+                [
+                    "((0.02 + 0.02 * currentAP / 100) * expectedHealth) * magicMod"
+                ],
+                [
+                    "((0.02 + 0.02 * currentAP / 100) * expectedHealth) * magicMod"
+                ],
+                [
+                    "((0.02 + 0.02 * currentAP / 100) * expectedHealth) * magicMod"
+                ],
+                [
+                    "((0.02 + 0.02 * currentAP / 100) * expectedHealth) * magicMod"
+                ],
+                [
+                    "((0.02 + 0.02 * currentAP / 100) * expectedHealth) * magicMod"
+                ],
+                [
+                    "((0.02 + 0.02 * currentAP / 100) * expectedHealth) * magicMod"
+                ],
+                [
+                    "((0.02 + 0.02 * currentAP / 100) * expectedHealth) * magicMod"
+                ],
+                [
+                    "((0.02 + 0.02 * currentAP / 100) * expectedHealth) * magicMod"
+                ],
+                [
+                    "((0.02 + 0.02 * currentAP / 100) * expectedHealth) * magicMod"
+                ],
+                [
+                    "((0.02 + 0.02 * currentAP / 100) * expectedHealth) * magicMod"
+                ]
+            ],
+            "Q": [
+                [
+                    "(80 + 0.8 * currentAP) * magicMod"
+                ], 
+                [
+                    "(125 + 0.8 * currentAP) * magicMod"
+                ],  
+                [
+                    "(170 + 0.8 * currentAP) * magicMod"
+                ], 
+                [
+                    "(215 + 0.8 * currentAP) * magicMod"
+                ], 
+                [
+                    "(260 + 0.8 * currentAP) * magicMod"
+                ]
+            ],
+            "E": [
+                [
+                    "(65 + 0.55 * currentAP) * magicMod"
+                ],
+                [
+                    "(95 + 0.55 * currentAP) * magicMod"
+                ],
+                [
+                    "(125 + 0.55 * currentAP) * magicMod"
+                ],
+                [
+                    "(155 + 0.55 * currentAP) * magicMod"
+                ],
+                [
+                    "(185 + 0.55 * currentAP) * magicMod"
+                ]
+            ]
+        },
+        "type": {
+            "P": "magic",
+            "Q": "magic",
+            "E": "magic"
+        },
+        "aoe": {
+            "P": "false",
+            "Q": "false",
+            "E": "true"
+        }
+    }
+}

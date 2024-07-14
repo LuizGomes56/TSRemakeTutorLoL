@@ -1,0 +1,68 @@
+{
+    "Singed": {
+        "spells": {
+            "Q": [
+                [
+                    "(5 + (0.1125 * currentAP)) * magicMod"
+
+                ], 
+                [
+                    "(7.5 + (0.1125 * currentAP)) * magicMod"
+                ],  
+                [
+                    "(10 + (0.1125 * currentAP)) * magicMod"
+                ], 
+                [
+                    "(12.5 + (0.1125 * currentAP)) * magicMod"
+                ], 
+                [
+                    "(15 + (0.1125 * currentAP)) * magicMod"
+                ]
+            ],
+            "E": [
+                [
+                    "(50 + (0.6 * currentAP) + (0.06 * expectedHealth)) * magicMod"
+                ],
+                [
+                    "(60 + (0.6 * currentAP) + (0.065 * expectedHealth)) * magicMod"
+                ],
+                [
+                    "(70 + (0.6 * currentAP) + (0.07 * expectedHealth)) * magicMod"
+                ],
+                [
+                    "(80 + (0.6 * currentAP) + (0.075 * expectedHealth)) * magicMod"
+                ],
+                [
+                    "(90 + (0.6 * currentAP) + (0.08 * expectedHealth)) * magicMod"
+                ]
+            ]
+        },
+        "type": {
+            "Q": "magic",
+            "E": "magic"
+        },
+        "aoe": {
+            "Q": "true",
+            "E": "false"
+        },
+        "variation": {
+            "Q": [
+                [
+                    "(5 + (0.1125 * currentAP) * 8) * magicMod"
+                ],
+                [
+                    "(7.5 + (0.1125 * currentAP) * 8) * magicMod"
+                ],
+                [
+                    "(10 + (0.1125 * currentAP) * 8) * magicMod"
+                ],
+                [
+                    "(12.5 + (0.1125 * currentAP) * 8) * magicMod"
+                ],
+                [
+                    "(15 + (0.1125 * currentAP) * 8) * magicMod"
+                ]
+            ]
+        }
+    }
+}

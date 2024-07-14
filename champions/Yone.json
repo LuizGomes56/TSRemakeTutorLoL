@@ -1,0 +1,83 @@
+{
+    "Yone": {
+        "spells": {
+            "Q": [
+                [
+                    "((20 + (1.05 * currentAD)) * physicalMod * steelcapsEffect) - attackReductionEffect"
+                ], 
+                [
+                    "((40 + (1.05 * currentAD)) * physicalMod * steelcapsEffect) - attackReductionEffect"
+                ],  
+                [
+                    "((60 + (1.05 * currentAD)) * physicalMod * steelcapsEffect) - attackReductionEffect"
+                ], 
+                [
+                    "((80 + (1.05 * currentAD)) * physicalMod * steelcapsEffect) - attackReductionEffect"
+                ], 
+                [
+                    "((100 + (1.05 * currentAD)) * physicalMod * steelcapsEffect) - attackReductionEffect"
+                ]
+            ],
+            "W": [
+                [
+                    "(10 + (0.055 * expectedHealth)) * magicMod + (10 + (0.055 * expectedHealth)) * physicalMod"
+                ],
+                [
+                    "(20 + (0.06 * expectedHealth)) * magicMod + (20 + (0.06 * expectedHealth)) * physicalMod"
+                ],
+                [
+                    "(30 + (0.065 * expectedHealth)) * magicMod + (30 + (0.065 * expectedHealth)) * physicalMod"
+                ],
+                [
+                    "(40 + (0.07 * expectedHealth)) * magicMod + (40 + (0.07 * expectedHealth)) * physicalMod"
+                    
+                ],
+                [
+                    "(50 + (0.075 * expectedHealth)) * magicMod + (50 + (0.075 * expectedHealth)) * physicalMod"
+                    
+                ]
+            ],
+            "E": [
+                [
+                    "0.25 * damage"
+                ],
+                [
+                    "0.27.5 * damage"
+                ],
+                [
+                    "0.30 * damage"
+                ],
+                [
+                    "0.32.5 * damage"
+                ],
+                [
+                    "0.35 * damage"
+                ]
+            ],
+            "R": [
+                [
+                    "(100 + (0.4 * currentAD)) * magicMod + (100 + (0.4 * currentAD)) * physicalMod" 
+                    
+                ],
+                [
+                    "(200 + (0.4 * currentAD)) * magicMod + (200 + (0.4 * currentAD)) * physicalMod" 
+                ],
+                [
+                    "(300 + (0.4 * currentAD)) * magicMod + (300 + (0.4 * currentAD)) * physicalMod" 
+                ]
+            ]
+        },
+        "type": {
+            "Q": "physical",
+            "W": "mixed",
+            "E": "true",
+            "R": "mixed"
+        },
+        "aoe": {
+            "Q": "true",
+            "W": "true",
+            "E": "false",
+            "R": "true"
+        }
+    }
+}

@@ -1,0 +1,120 @@
+{
+    "ShyvaDragon": {
+        "spells": {
+            "Q": [
+                [
+                    "(0.35 * currentAP) * physicalMod"
+                ], 
+                [
+                    "(0.35 * currentAP) * physicalMod"
+                ],  
+                [
+                    "(0.35 * currentAP) * physicalMod"
+                ], 
+                [
+                    "(0.35 * currentAP) * physicalMod"
+                ], 
+                [
+                    "(0.35 * currentAP) * physicalMod"
+                ]
+            ],
+            "W": [
+                [
+                    "((10 + (0.15 * bonusAD)) * magicMod)"
+                ],
+                [
+                    "((16.25 + (0.15 * bonusAD)) * magicMod)"
+                ],
+                [
+                    "((22.5 + (0.15 * bonusAD)) * magicMod)"
+                ],
+                [
+                    "((28.75 + (0.15 * bonusAD)) * magicMod)"
+                ],
+                [
+                    "((35 + (0.15 * bonusAD)) * magicMod)"
+                ]
+            ],
+            "E": [
+                [
+                    "(60 + (1.2 * currentAP) + (0.7 * currentAD)) * magicMod"
+                ],
+                [
+                    "(100 + (1.2 * currentAP) + (0.7 * currentAD)) * magicMod"
+                ],
+                [
+                    "(140 + (1.2 * currentAP) + (0.7 * currentAD)) * magicMod"
+                ],
+                [
+                    "(180 + (1.2 * currentAP) + (0.7 * currentAD)) * magicMod"
+                ],
+                [
+                    "(220 + (1.2 * currentAP) + (0.7 * currentAD)) * magicMod"
+                ]
+            ]
+        },
+        "type": {
+            "Q": "physical",
+            "W": "magic",
+            "E": "magic"
+        },
+        "aoe": {
+            "Q": "false",
+            "W": "true",
+            "E": "true"
+        },
+        "variation": {
+            "Q": [
+                [
+                    "((0.20 * currentAD) + (0.25 * currentAP)) * physicalMod"
+                ],
+                [
+                    "((0.35 * currentAD) + (0.25 * currentAP)) * physicalMod"
+                ],
+                [
+                    "((0.50 * currentAD) + (0.25 * currentAP)) * physicalMod"
+                ],
+                [
+                    "((0.65 * currentAD) + (0.25 * currentAP)) * physicalMod"
+                ],
+                [
+                    "((0.80 * currentAD) + (0.25 * currentAP)) * physicalMod"
+                ]
+            ],
+            "W": [
+                [
+                    "((10 + (0.15 * bonusAD)) * 6) * magicMod"
+                ],
+                [
+                    "((16.25 + (0.15 * bonusAD)) * 6) * magicMod"
+                ],
+                [
+                    "((22.5 + (0.15 * bonusAD)) * 6) * magicMod"
+                ],
+                [
+                    "((28.75 + (0.15 * bonusAD)) * 6) * magicMod"
+                ],
+                [
+                    "((35 + (0.15 * bonusAD)) * 6) * magicMod"
+                ]
+            ],
+            "E": [
+                [
+                    "((5 * (level - 6) + 75) + (60 + (1.2 * currentAP) + (0.7 * currentAD)) + (8 * (2.5 * (level - 6) + 30))) * magicMod"
+                ],
+                [
+                    "((5 * (level - 6) + 75) + (100 + (1.2 * currentAP) + (0.7 * currentAD)) + (8 * (2.5 * (level - 6) + 30))) * magicMod"
+                ],
+                [
+                    "((5 * (level - 6) + 75) + (140 + (1.2 * currentAP) + (0.7 * currentAD)) + (8 * (2.5 * (level - 6) + 30))) * magicMod"
+                ],
+                [
+                    "((5 * (level - 6) + 75) + (180 + (1.2 * currentAP) + (0.7 * currentAD)) + (8 * (2.5 * (level - 6) + 30))) * magicMod"
+                ],
+                [
+                    "((5 * (level - 6) + 75) + (220 + (1.2 * currentAP) + (0.7 * currentAD)) + (8 * (2.5 * (level - 6) + 30))) * magicMod"
+                ]
+            ]
+        }
+    }
+}

@@ -1,0 +1,114 @@
+{
+  "type": "champion",
+  "version": "13.13.1",
+  "data": {
+    "TargetDummy": {
+      "id": "TargetDummy",
+      "name": "TargetDummy",
+      "skins": [
+        {
+          "id": "518000",
+          "num": 0,
+          "name": "default",
+          "chromas": false
+        }
+      ],
+      "stats": {
+        "hp": 940,
+        "hpperlevel": 0,
+        "mp": 0,
+        "mpperlevel": 0,
+        "movespeed": 0,
+        "armor": 0,
+        "armorperlevel": 0,
+        "spellblock": 0,
+        "spellblockperlevel": 0,
+        "attackrange": 0,
+        "hpregen": 0,
+        "hpregenperlevel": 0,
+        "mpregen": 0,
+        "mpregenperlevel": 0,
+        "crit": 0,
+        "critperlevel": 0,
+        "attackdamage": 0,
+        "attackdamageperlevel": 0,
+        "attackspeedperlevel": 0,
+        "attackspeed": 0
+      },
+      "spells": [
+        {
+          "id": "NeekoQ",
+          "name": "Blooming Burst",
+          "maxrank": 5,
+          "cooldown": [
+            9,
+            8.5,
+            8,
+            7.5,
+            7
+          ],
+          "image": {
+            "full": "NeekoQ.png",
+            "sprite": "spell8.png",
+            "group": "spell",
+            "x": 288,
+            "y": 144,
+            "w": 48,
+            "h": 48
+          }
+        },
+        {
+          "id": "NeekoW",
+          "name": "Shapesplitter",
+          "image": {
+            "full": "NeekoW.png",
+            "sprite": "spell8.png",
+            "group": "spell",
+            "x": 336,
+            "y": 144,
+            "w": 48,
+            "h": 48
+          }
+        },
+        {
+          "id": "NeekoE",
+          "name": "Tangle-Barbs",
+          "rangeBurn": "1000",
+          "image": {
+            "full": "NeekoE.png",
+            "sprite": "spell8.png",
+            "group": "spell",
+            "x": 384,
+            "y": 144,
+            "w": 48,
+            "h": 48
+          }
+        },
+        {
+          "id": "NeekoR",
+          "image": {
+            "full": "NeekoR.png",
+            "sprite": "spell8.png",
+            "group": "spell",
+            "x": 432,
+            "y": 144,
+            "w": 48,
+            "h": 48
+          }
+        }
+      ],
+      "passive": {
+        "name": "Inherent Glamour",
+        "image": {
+          "full": "NeekoP.png",
+          "sprite": "passive2.png",
+          "group": "passive",
+          "x": 240,
+          "y": 96,
+          "w": 48,
+          "h": 48
+        }
+      }
+    }
+  }
+}

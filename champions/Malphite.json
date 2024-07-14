@@ -1,0 +1,80 @@
+{
+    "Malphite": {
+        "spells": {
+            "Q": [
+                [
+                    "(70 + 0.6 * currentAP) * magicMod"
+                ],
+                [
+                    "(120 + 0.6 * currentAP) * magicMod"
+                ], 
+                [
+                    "(170 + 0.6 * currentAP) * magicMod"
+                ],
+                [
+                    "(220 + 0.6 * currentAP) * magicMod"
+                ],
+                [
+                    "(270 + 0.6 * currentAP) * magicMod"
+                ]
+            ],
+            "W": [
+                [
+                    "(30 + 0.2 * currentAP + 0.15 * currentArmor) * physicalMod"
+                ],
+                [
+                    "(40 + 0.2 * currentAP + 0.15 * currentArmor) * physicalMod"
+                ],
+                [
+                    "(50 + 0.2 * currentAP + 0.15 * currentArmor) * physicalMod"
+                ],
+                [
+                    "(60 + 0.2 * currentAP + 0.15 * currentArmor) * physicalMod"
+                ],
+                [
+                    "(70 + 0.2 * currentAP + 0.15 * currentArmor) * physicalMod"
+                ]
+            ],
+            "E": [
+                [
+                    "(70 + 0.6 * currentAP + 0.4 * currentArmor) * magicMod"
+                ],
+                [
+                    "(110 + 0.6 * currentAP + 0.4 * currentArmor) * magicMod"
+                ],
+                [
+                    "(150 + 0.6 * currentAP + 0.4 * currentArmor) * magicMod"
+                ],
+                [
+                    "(190 + 0.6 * currentAP + 0.4 * currentArmor) * magicMod"
+                ],
+                [
+                    "(230 + 0.6 * currentAP + 0.4 * currentArmor) * magicMod"
+                ]
+            ],
+            "R": [
+                [
+                    "(200 + 0.9 * currentAP) * magicMod"
+                ],
+                [
+                    "(300 + 0.9 * currentAP) * magicMod"
+                ],
+                [
+                    "(400 + 0.9 * currentAP) * magicMod"
+                ]
+            ]
+        },
+        "type": {
+            "Q": "magic",
+            "W": "physical",
+            "E": "magic",
+            "R": "magic"
+        },
+        "aoe": {
+            "Q": "false",
+            "W": "false",
+            "E": "true",
+            "R": "true"
+        }
+    }
+}

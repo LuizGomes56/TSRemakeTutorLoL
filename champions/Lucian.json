@@ -1,0 +1,132 @@
+{
+    "Lucian": {
+        "spells": {
+            "P": [
+                [
+                    "(0.5 * currentAD) * physicalMod"
+                ],
+                [
+                    "(0.5 * currentAD) * physicalMod"
+                ],
+                [
+                    "(0.5 * currentAD) * physicalMod"
+                ],
+                [
+                    "(0.5 * currentAD) * physicalMod"
+                ],
+                [
+                    "(0.5 * currentAD) * physicalMod"
+                ],
+                [
+                    "(0.5 * currentAD) * physicalMod"
+                ],
+                [
+                    "(0.55 * currentAD) * physicalMod"
+                ],
+                [
+                    "(0.55 * currentAD) * physicalMod"
+                ],
+                [
+                    "(0.55 * currentAD) * physicalMod"
+                ],
+                [
+                    "(0.55 * currentAD) * physicalMod"
+                ],
+                [
+                    "(0.55 * currentAD) * physicalMod"
+                ],
+                [
+                    "(0.55 * currentAD) * physicalMod"
+                ],
+                [
+                    "(0.6 * currentAD) * physicalMod"
+                ],
+                [
+                    "(0.6 * currentAD) * physicalMod"
+                ],
+                [
+                    "(0.6 * currentAD) * physicalMod"
+                ],
+                [
+                    "(0.6 * currentAD) * physicalMod"
+                ],
+                [
+                    "(0.6 * currentAD) * physicalMod"
+                ],
+                [
+                    "(0.6 * currentAD) * physicalMod"
+                ]
+            ],
+            "Q": [
+                [
+                    "(95 + 0.6 * bonusAD) * physicalMod"
+                ],
+                [
+                    "(125 + 0.75 * bonusAD) * physicalMod"
+                ], 
+                [
+                    "(155 + 0.9 * bonusAD) * physicalMod"
+                ],
+                [
+                    "(185 + 1.05 * bonusAD) * physicalMod"
+                ],
+                [
+                    "(215 + 1.2 * bonusAD) * physicalMod"
+                ]
+            ],
+            "W": [
+                [
+                    "(75 + 0.9 * currentAP) * magicMod"
+                ],
+                [
+                    "(110 + 0.9 * currentAP) * magicMod"
+                ],
+                [
+                    "(145 + 0.9 * currentAP) * magicMod"
+                ],
+                [
+                    "(180 + 0.9 * currentAP) * magicMod"
+                ],
+                [
+                    "(215 + 0.9 * currentAP) * magicMod"
+                ]
+            ],
+            "R": [
+                [
+                    "(15 + 0.25 * currentAD + 0.15 * currentAP) * physicalMod"
+                ],
+                [
+                    "(30 + 0.25 * currentAD + 0.15 * currentAP) * physicalMod"
+                ],
+                [
+                    "(45 + 0.25 * currentAD + 0.15 * currentAP) * physicalMod"
+                ]
+            ]
+        },
+        "type": {
+            "P": "physical",
+            "Q": "physical",
+            "W": "magic",
+            "R": "physical"
+        },
+        "aoe": {
+            "P": "false",
+            "Q": "true",
+            "W": "true",
+            "R": "true"
+        },
+        "variation": {
+            "R": [
+                [
+                    "(22 + critChance * 100 / 4) * (15 + 0.25 * currentAD + 0.15 * currentAP) * physicalMod"
+                ],
+                [
+                    "(22 + critChance * 100 / 4) * (30 + 0.25 * currentAD + 0.15 * currentAP) * physicalMod"
+                ],
+                [
+                    "(22 + critChance * 100 / 4) * (45 + 0.25 * currentAD + 0.15 * currentAP) * physicalMod"
+                ]
+            ]
+        }
+    }
+}

@@ -1,0 +1,150 @@
+{
+    "Zed": {
+        "spells": {
+            "P": [
+                [
+                    "(0.06 * expectedHealth) * magicMod"
+                ],
+                [
+                    "(0.06 * expectedHealth) * magicMod"
+                ],
+                [
+                    "(0.06 * expectedHealth) * magicMod"
+                ],
+                [
+                    "(0.06 * expectedHealth) * magicMod"
+                ],
+                [
+                    "(0.06 * expectedHealth) * magicMod"
+                ],
+                [
+                    "(0.06 * expectedHealth) * magicMod"
+                ],
+                [
+                    "(0.08 * expectedHealth) * magicMod"
+                ],
+                [
+                    "(0.08 * expectedHealth) * magicMod"
+                ],
+                [
+                    "(0.08 * expectedHealth) * magicMod"
+                ],
+                [
+                    "(0.08 * expectedHealth) * magicMod"
+                ],
+                [
+                    "(0.08 * expectedHealth) * magicMod"
+                ],
+                [
+                    "(0.08 * expectedHealth) * magicMod"
+                ],
+                [
+                    "(0.08 * expectedHealth) * magicMod"
+                ],
+                [
+                    "(0.08 * expectedHealth) * magicMod"
+                ],
+                [
+                    "(0.08 * expectedHealth) * magicMod"
+                ],
+                [
+                    "(0.08 * expectedHealth) * magicMod"
+                ],
+                [
+                    "(0.1 * expectedHealth) * magicMod"
+                ],
+                [
+                    "(0.1 * expectedHealth) * magicMod"
+                ]
+            ],
+            "Q": [
+                [
+                    "((70 + (1.05 * currentAD) * 0.6) * physicalMod)"
+                ], 
+                [
+                    "((105 + (1.05 * currentAD) * 0.6) * physicalMod)"
+                ],  
+                [
+                    "((140 + (1.05 * currentAD) * 0.6) * physicalMod)"
+                ], 
+                [
+                    "((175 + (1.05 * currentAD) * 0.6) * physicalMod)"
+                ], 
+                [
+                    "((210 + (1.05 * currentAD) * 0.6) * physicalMod)"
+                ]
+            ],
+            "E": [
+                [
+                    "(65 + (0.65 * currentAD)) * physicalMod"
+                ],
+                [
+                    "(85 + (0.5 * currentAD)) * physicalMod"
+                ],
+                [
+                    "(105 + (0.5 * currentAD)) * physicalMod"
+                ],
+                [
+                    "(125 + (0.5 * currentAD)) * physicalMod"
+                ],
+                [
+                    "(145 + (0.5 * currentAD)) * physicalMod"
+                ]
+            ],
+            "R": [
+                [
+                    "(0.65 * currentAD) * physicalMod"
+                    
+                ],
+                [
+                    "(0.65 * currentAD) * physicalMod"
+                ],
+                [
+                    "(0.65 * currentAD) * physicalMod"
+                ]
+            ]
+        },
+        "type": {
+            "P": "magic",
+            "Q": "physical",
+            "E": "physical",
+            "R": "physical"
+        },
+        "aoe": {
+            "P": "false",
+            "Q": "true",
+            "E": "true",
+            "R": "false"
+        },
+        "variation": {
+            "Q":[
+                [
+                    "(((70 + 1.05 * currentAD) * 0.4) * physicalMod)"
+                ],
+                [
+                    "(((105 + 1.05 * currentAD) * 0.4) * physicalMod)"
+                ],
+                [
+                    "(((140 + 1.05 * currentAD) * 0.4) * physicalMod)"
+                ],
+                [
+                    "(((175 + 1.05 * currentAD) * 0.4) * physicalMod)"
+                ],
+                [
+                    "(((210 + 1.05 * currentAD) * 0.4) * physicalMod)"
+                ]
+            ],
+            "R":[
+                [
+                    "((0.65 * currentAD) * (0.25 * 5)) * physicalMod"
+                ],
+                [
+                    "((0.65 * currentAD) * ( 0.4 * 5)) * physicalMod"
+                ],
+                [
+                    "((0.65 * currentAD) * ( 0.55 * 5)) * physicalMod"
+                ]
+            ]
+        }
+    }
+}

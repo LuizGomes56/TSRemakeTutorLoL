@@ -1,0 +1,138 @@
+{
+    "Azir": {
+        "spells": {
+            "P": [
+                [
+                    "(230 + 0.4 * currentAP) * magicMod"
+                ],
+                [
+                    "(230 + 0.4 * currentAP) * magicMod"
+                ],
+                [
+                    "(230 + 0.4 * currentAP) * magicMod"
+                ],
+                [
+                    "(230 + 0.4 * currentAP) * magicMod"
+                ],
+                [
+                    "(230 + 0.4 * currentAP) * magicMod"
+                ],
+                [
+                    "(230 + 0.4 * currentAP) * magicMod"
+                ],
+                [
+                    "(245 + 0.4 * currentAP) * magicMod"
+                ],
+                [
+                    "(260 + 0.4 * currentAP) * magicMod"
+                ],
+                [
+                    "(275 + 0.4 * currentAP) * magicMod"
+                ],
+                [
+                    "(290 + 0.4 * currentAP) * magicMod"
+                ],
+                [
+                    "(305 + 0.4 * currentAP) * magicMod"
+                ],
+                [
+                    "(320 + 0.4 * currentAP) * magicMod"
+                ],
+                [
+                    "(335 + 0.4 * currentAP) * magicMod"
+                ],
+                [
+                    "(350 + 0.4 * currentAP) * magicMod"
+                ],
+                [
+                    "(365 + 0.4 * currentAP) * magicMod"
+                ],
+                [
+                    "(380 + 0.4 * currentAP) * magicMod"
+                ],
+                [
+                    "(395 + 0.4 * currentAP) * magicMod"
+                ],
+                [
+                    "(410 + 0.4 * currentAP) * magicMod"
+                ]
+            ],
+            "Q": [
+                [
+                    "(60 + 0.35 * currentAP) * magicMod"
+                ], 
+                [
+                    "(80 + 0.35 * currentAP) * magicMod"
+                ],  
+                [
+                    "(100 + 0.35 * currentAP) * magicMod"
+                ], 
+                [
+                    "(120 + 0.35 * currentAP) * magicMod"
+                ], 
+                [
+                    "(140 + 0.35 * currentAP) * magicMod"
+                ]
+            ],
+            "W": [
+                [
+                    "(50 + 0.55 * currentAP + 5.1 * level) * magicMod"
+                ],
+                [
+                    "(65 + 0.55 * currentAP + 5.1 * level) * magicMod"
+                ],
+                [
+                    "(80 + 0.55 * currentAP + 5.1 * level) * magicMod"
+                ],
+                [
+                    "(95 + 0.55 * currentAP + 5.1 * level) * magicMod"
+                ],
+                [
+                    "(110 + 0.55 * currentAP + 5.1 * level) * magicMod"
+                ]
+            ],
+            "E": [
+                [
+                    "(60 + 0.4 * currentAP) * magicMod"
+                ],
+                [
+                    "(100 + 0.4 * currentAP) * magicMod"
+                ],
+                [
+                    "(140 + 0.4 * currentAP) * magicMod"
+                ],
+                [
+                    "(180 + 0.4 * currentAP) * magicMod"
+                ],
+                [
+                    "(220 + 0.4 * currentAP) * magicMod"
+                ]
+            ],
+            "R": [
+                [
+                    "(200 + 0.75 * currentAP) * magicMod"
+                ],
+                [
+                    "(400 + 0.75 * currentAP) * magicMod"
+                ],
+                [
+                    "(600 + 0.75 * currentAP) * magicMod"
+                ]
+            ]
+        },
+        "type": {
+            "P": "magic",
+            "Q": "magic",
+            "W": "magic",
+            "E": "magic",
+            "R": "magic"
+        },
+        "aoe": {
+            "P": "false",
+            "Q": "true",
+            "W": "true",
+            "E": "false",
+            "R": "true"
+        }
+    }
+}

@@ -1,0 +1,157 @@
+{
+    "Caitlyn": {
+        "spells": {
+            "P": [
+                [
+                    "0.6 * currentAD * physicalMod"
+                ],
+                [
+                    "0.6 * currentAD * physicalMod"
+                ],
+                [
+                    "0.6 * currentAD * physicalMod"
+                ],
+                [
+                    "0.6 * currentAD * physicalMod"
+                ],
+                [
+                    "0.6 * currentAD * physicalMod"
+                ],
+                [
+                    "0.6 * currentAD * physicalMod"
+                ],
+                [
+                    "0.9 * currentAD * physicalMod"
+                ],
+                [
+                    "0.9 * currentAD * physicalMod"
+                ],
+                [
+                    "0.9 * currentAD * physicalMod"
+                ],
+                [
+                    "0.9 * currentAD * physicalMod"
+                ],
+                [
+                    "0.9 * currentAD * physicalMod"
+                ],
+                [
+                    "0.9 * currentAD * physicalMod"
+                ],
+                [
+                    "1.2 * currentAD * physicalMod"
+                ],
+                [
+                    "1.2 * currentAD * physicalMod"
+                ],
+                [
+                    "1.2 * currentAD * physicalMod"
+                ],
+                [
+                    "1.2 * currentAD * physicalMod"
+                ],
+                [
+                    "1.2 * currentAD * physicalMod"
+                ],
+                [
+                    "1.2 * currentAD * physicalMod"
+                ]
+            ],
+            "Q": [
+                [
+                    "0.5 * (50 + (1.25 * currentAD)) * physicalMod"
+                ], 
+                [
+                    "0.5 * (90 + (1.45 * currentAD)) * physicalMod"
+                ], 
+                [
+                    "0.5 * (130 + (1.65 * currentAD)) * physicalMod"
+                ],
+                [
+                    "0.5 * (170 + (1.85 * currentAD)) * physicalMod"
+                ],
+                [
+                    "0.5 * (210 + (2.05 * currentAD)) * physicalMod"
+                ]
+            ],
+            "W": [
+                [
+                    "(40 + (0.4 * bonusAD)) * physicalMod"
+                ],
+                [
+                    "(85 + (0.5 * bonusAD)) * physicalMod"
+                ],
+                [
+                    "(130 + (0.6 * bonusAD)) * physicalMod"
+                ],
+                [
+                    "(175 + (0.7 * bonusAD)) * physicalMod"
+                ],
+                [
+                    "(220 + (0.8 * bonusAD)) * physicalMod"
+                ]
+            ],
+            "E": [
+                [
+                    "(80 + (0.8 * currentAP)) * magicMod"
+                ],
+                [
+                    "(130 + (0.8 * currentAP)) * magicMod"
+                ],
+                [
+                    "(180 + (0.8 * currentAP)) * magicMod"
+                ],
+                [
+                    "(230 + (0.8 * currentAP)) * magicMod"
+                ],
+                [
+                    "(280 + (0.8 * currentAP)) * magicMod"
+                ]
+            ],
+            "R": [
+                [
+                    "(1 + critChance / 2) * (300 + 1.7 * bonusAD) * physicalMod"
+                ],
+                [
+                    "(1 + critChance / 2) * (500 + 1.7 * bonusAD) * physicalMod"
+                ],
+                [
+                    "(1 + critChance / 2) * (700 + 1.7 * bonusAD) * physicalMod"
+                ]
+            ]
+        },
+        "type": {
+            "P": "physical",
+            "Q": "physical",
+            "W": "physical",
+            "E": "magic",
+            "R": "physical"
+        },
+        "aoe": {
+            "P": "false",
+            "Q": "true",
+            "W": "false",
+            "E": "false",
+            "R": "false"
+        },
+        "variation": {
+            "Q": [
+                [
+                    "(50 + (1.25 * currentAD)) * physicalMod"
+                ], 
+                [
+                    "(90 + (1.45 * currentAD)) * physicalMod"
+                ], 
+                [
+                    "(130 + (1.65 * currentAD)) * physicalMod"
+                ],
+                [
+                    "(170 + (1.85 * currentAD)) * physicalMod"
+                ],
+                [
+                    "(210 + (2.05 * currentAD)) * physicalMod"
+                ]
+            ]
+        }
+    }
+}

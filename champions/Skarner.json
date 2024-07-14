@@ -1,0 +1,92 @@
+{
+    "Skarner": {
+        "spells": {
+            "Q": [
+                [
+                    "(((0.01 * expectedHealth) + (0.02 * currentAD)) * physicalMod)"
+                ], 
+                [
+                    "(((0.015 * expectedHealth) + (0.02 * currentAD)) * physicalMod)"
+                ],  
+                [
+                    "(((0.02 * expectedHealth) + (0.02 * currentAD)) * physicalMod)"
+                ], 
+                [
+                    "(((0.025 * expectedHealth) + (0.02 * currentAD)) * physicalMod)"
+                ], 
+                [
+                    "(((0.03 * expectedHealth) + (0.02 * currentAD)) * physicalMod)"
+                ]
+            ],
+            "E": [
+                [
+                    "(40 + (0.2 * currentAP)) * magicMod"
+                ],
+                [
+                    "(65 + (0.2 * currentAP)) * magicMod"
+                ],
+                [
+                    "(90 + (0.2 * currentAP)) * magicMod"
+                ],
+                [
+                    "(115 + (0.2 * currentAP)) * magicMod"
+                ],
+                [
+                    "(140 + (0.2 * currentAP)) * magicMod"
+                ]
+            ],
+            "R": [
+                [
+                    "((20 + (0.5 * currentAP)) * magicMod) + (0.6 * currentAD * physicalMod)"
+                ],
+                [
+                    "((60 + (0.5 * currentAP)) * magicMod) + (0.6 * currentAD * physicalMod)"
+                ],
+                [
+                    "((100 + (0.5 * currentAP)) * magicMod) + (0.6 * currentAD * physicalMod)"
+                ]
+            ]
+        },
+        "type": {
+            "Q": "mixed",
+            "E": "magic",
+            "R": "mixed"
+
+        },
+        "aoe": {
+            "Q": "true",
+            "E": "true",
+            "R": "false"
+        },
+        "variation": {
+            "Q": [
+                [
+                    "(((0.01 * expectedHealth) + (0.02 * currentAD) + (0.3 * currentAP)) * magicMod)"
+                ], 
+                [
+                    "(((0.015 * expectedHealth) + (0.02 * currentAD) + (0.3 * currentAP)) * magicMod)"
+                ],  
+                [
+                    "(((0.02 * expectedHealth) + (0.02 * currentAD) + (0.3 * currentAP)) * magicMod)"
+                ], 
+                [
+                    "(((0.025 * expectedHealth) + (0.02 * currentAD) + (0.3 * currentAP)) * magicMod)"
+                ], 
+                [
+                    "(((0.03 * expectedHealth) + (0.02 * currentAD) + (0.3 * currentAP)) * magicMod)"
+                ]
+            ],
+            "R": [
+                [
+                    "(2 * ((20 + (0.5 * currentAP)) * magicMod)) + (2 * 0.6 * currentAD * physicalMod)"
+                ],
+                [
+                    "(2 * ((60 + (0.5 * currentAP)) * magicMod)) + (2 * 0.6 * currentAD * physicalMod)"
+                ],
+                [
+                    "(2 * ((100 + (0.5 * currentAP)) * magicMod)) + (2 * 0.6 * currentAD * physicalMod)"
+                ]
+            ]
+        }
+    }
+}

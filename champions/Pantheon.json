@@ -1,0 +1,144 @@
+{
+    "Pantheon": {
+        "spells": {
+            "Q": [
+                [
+                    "(35 + 0.575 * bonusAD) * physicalMod"
+                ],
+                [
+                    "(50 + 0.575 * bonusAD) * physicalMod"
+                ],
+                [
+                    "(65 + 0.575 * bonusAD) * physicalMod"
+                ],
+                [
+                    "(80 + 0.575 * bonusAD) * physicalMod"
+                ],
+                [
+                    "(95 + 0.575 * bonusAD) * physicalMod"
+                ]
+            ],
+            "W": [
+                [
+                    "(60 +  currentAP) * physicalMod"
+                ],
+                [
+                    "(100 +  currentAP) * physicalMod"
+                ],
+                [
+                    "(140 +  currentAP) * physicalMod"
+                ],
+                [
+                    "(180 +  currentAP) * physicalMod"
+                ],
+                [
+                    "(220 +  currentAP) * physicalMod"
+                ]
+            ],
+            "E": [
+                [
+                    "0.083 * currentAD * physicalMod"
+                ],
+                [
+                    "0.083 * currentAD * physicalMod"
+                ],
+                [
+                    "0.083 * currentAD * physicalMod"
+                ],
+                [
+                    "0.083 * currentAD * physicalMod"
+                ],
+                [
+                    "0.083 * currentAD * physicalMod"
+                ]
+            ],
+            "R": [
+                [
+                    "(150 + 0.5 * currentAP) * magicMod"
+                ],
+                [
+                    "(250 + 0.5 * currentAP) * magicMod"
+                ],
+                [
+                    "(350 + 0.5 * currentAP) * magicMod"
+                ]
+            ]
+        },
+        "type": {
+            "Q": "physical",
+            "W": "physical",
+            "E": "physical",
+            "R": "mixed"
+        },
+        "aoe": {
+            "Q": "true",
+            "W": "false",
+            "E": "true",
+            "R": "true"
+        },
+        "variation": {
+            "Q": [
+                [
+                    "(120 + 1.725 * bonusAD + 20 + 220 / 17 * (level - 1) + 1.15 * bonusAD) * physicalMod"
+                ],
+                [
+                    "(180 + 1.725 * bonusAD + 20 + 220 / 17 * (level - 1) + 1.15 * bonusAD) * physicalMod"
+                ],
+                [
+                    "(240 + 1.725 * bonusAD + 20 + 220 / 17 * (level - 1) + 1.15 * bonusAD) * physicalMod"
+                ],
+                [
+                    "(300 + 1.725 * bonusAD + 20 + 220 / 17 * (level - 1) + 1.15 * bonusAD) * physicalMod"
+                ],
+                [
+                    "(360 + 1.725 * bonusAD + 20 + 220 / 17 * (level - 1) + 1.15 * bonusAD) * physicalMod"
+                ]
+            ],
+            "W": [
+                [
+                    "((0.4 + 0.15 / 17 * (level - 1)) * 3 * currentAD) * physicalMod"
+                ],
+                [
+                    "((0.4 + 0.15 / 17 * (level - 1)) * 3 * currentAD) * physicalMod"
+                ],
+                [
+                    "((0.4 + 0.15 / 17 * (level - 1)) * 3 * currentAD) * physicalMod"
+                ],
+                [
+                    "((0.4 + 0.15 / 17 * (level - 1)) * 3 * currentAD) * physicalMod"
+                ],
+                [
+                    "((0.4 + 0.15 / 17 * (level - 1)) * 3 * currentAD) * physicalMod"
+                ]
+            ],
+            "E": [
+                [
+                    "0.083 * currentAD * 17 * physicalMod"
+                ],
+                [
+                    "0.083 * currentAD * 17 * physicalMod"
+                ],
+                [
+                    "0.083 * currentAD * 17 * physicalMod"
+                ],
+                [
+                    "0.083 * currentAD * 17 * physicalMod"
+                ],
+                [
+                    "0.083 * currentAD * 17 * physicalMod"
+                ]
+            ],
+            "R": [
+                [
+                    "(150 + 0.5 * currentAP) * magicMod + (40 + 30 * 3 + 1.15 * bonusAD) * physicalMod"
+                ],
+                [
+                    "(250 + 0.5 * currentAP) * magicMod + (40 + 30 * 5 + 1.15 * bonusAD) * physicalMod"
+                ],
+                [
+                    "(350 + 0.5 * currentAP) * magicMod + (40 + 30 * 5 + 1.15 * bonusAD) * physicalMod"
+                ]
+            ]
+        }
+    }
+}

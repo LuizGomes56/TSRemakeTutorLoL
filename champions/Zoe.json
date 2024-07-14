@@ -1,0 +1,178 @@
+{
+    "Zoe": {
+        "spells": {
+            "P": [
+                [
+                    "(16 + (0.2 * currentAP)) * magicMod"
+                ],
+                [
+                    "(20 + (0.2 * currentAP)) * magicMod"
+                ],
+                [
+                    "(24 + (0.2 * currentAP)) * magicMod"
+                ],
+                [
+                    "(28 + (0.2 * currentAP)) * magicMod"
+                ],
+                [
+                    "(32 + (0.2 * currentAP)) * magicMod"
+                ],
+                [
+                    "(36+ (0.2 * currentAP)) * magicMod"
+                ],
+                [
+                    "(42 + (0.2 * currentAP)) * magicMod"
+                ],
+                [
+                    "(48 + (0.2 * currentAP)) * magicMod"
+                ],
+                [
+                    "(54 + (0.2 * currentAP)) * magicMod"
+                ],
+                [
+                    "(60 + (0.2 * currentAP)) * magicMod"
+                ],
+                [
+                    "(66 + (0.2 * currentAP)) * magicMod"
+                ],
+                [
+                    "(74 + (0.2 * currentAP)) * magicMod"
+                ],
+                [
+                    "(82 + (0.2 * currentAP)) * magicMod"
+                ],
+                [
+                    "(90 + (0.2 * currentAP)) * magicMod"
+                ],
+                [
+                    "(100 + (0.2 * currentAP)) * magicMod"
+                ],
+                [
+                    "(110 + (0.2 * currentAP)) * magicMod"
+                ],
+                [
+                    "(120 + (0.2 * currentAP)) * magicMod"
+                ],
+                [
+                    "(130 + (0.2 * currentAP)) * magicMod"
+                ]
+            ],
+            "Q": [
+                [
+                    "((50 + (0.6 * currentAP) * 0.8) * magicMod)"
+                ], 
+                [
+                    "((80 + (0.6 * currentAP) * 0.8) * magicMod)"
+                ],  
+                [
+                    "((110 + (0.6 * currentAP) * 0.8) * magicMod)"
+                ], 
+                [
+                    "((140 + (0.6 * currentAP) * 0.8) * magicMod)"
+                ], 
+                [
+                    "((170 + (0.6 * currentAP) * 0.8) * magicMod)"
+                ]
+            ],
+            "W": [
+                [
+                    "((25 + (0.133 * currentAP)) * magicMod)"
+                ], 
+                [
+                    "((35 + (0.133 * currentAP)) * magicMod)"
+                ],  
+                [
+                    "((45 + (0.133 * currentAP)) * magicMod)"
+                ], 
+                [
+                    "((55 + (0.133 * currentAP)) * magicMod)"
+                ], 
+                [
+                    "((65 + (0.133 * currentAP)) * magicMod)"
+                ]
+            ],
+            "E": [
+                [
+                    "(70 + (0.45 * currentAP)) * magicMod"
+                ],
+                [
+                    "(110 + (0.45 * currentAP)) * magicMod"
+                ],
+                [
+                    "(150 + (0.45 * currentAP)) * magicMod"
+                ],
+                [
+                    "(190 + (0.45 * currentAP)) * magicMod"
+                ],
+                [
+                    "(230 + (0.45 * currentAP)) * magicMod"
+                ]
+            ]
+        },
+        "type": {
+            "P": "magic",
+            "Q": "magic",
+            "W": "magic",
+            "E": "magic"
+        },
+        "aoe": {
+            "P": "false",
+            "Q": "true",
+            "W": "false",
+            "E": "false"
+        },
+        "variation": {
+            "Q":[
+                [
+                    "(50 + (0.6 * currentAP) * 1.5) * magicMod"
+                ],
+                [
+                    "(80 + (0.6 * currentAP) * 1.5) * magicMod"
+                ],
+                [
+                    "(110 + (0.6 * currentAP) * 1.5) * magicMod"
+                ],
+                [
+                    "(140 + (0.6 * currentAP) * 1.5) * magicMod"
+                ],
+                [
+                    "(170 + (0.6 * currentAP) * 1.5) * magicMod"
+                ]
+            ],
+            "W": [
+                [
+                    "(25 + (0.133 * currentAP)) * magicMod * 2"
+                ],
+                [
+                    "(35 + (0.133 * currentAP)) * magicMod * 2"
+                ],
+                [
+                    "(45 + (0.133 * currentAP)) * magicMod * 2"
+                ],
+                [
+                    "(55 + (0.133 * currentAP)) * magicMod * 2"
+                ],
+                [
+                    "(65 + (0.133 * currentAP)) * magicMod * 2"
+                ]
+            ],
+            "E": [
+                [
+                    "70 + (0.45 * currentAP) * (100/(100 + expectedMR * (1 - 0.2)))"
+                ],
+                [
+                    "110 + (0.45 * currentAP) * (100/(100 + expectedMR * (1 - 0.225)))"
+                ],
+                [
+                    "150 + (0.45 * currentAP) * (100/(100 + expectedMR * (1 - 0.25)))"
+                ],
+                [
+                    "190 + (0.45 * currentAP) * (100/(100 + expectedMR * (1 - 0.275)))"
+                ],
+                [
+                    "230 + (0.45 * currentAP) * (100/(100 + expectedMR * (1 - 0.3)))"
+                ]
+            ]
+        }
+    }
+}

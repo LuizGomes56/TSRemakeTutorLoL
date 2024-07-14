@@ -1,0 +1,86 @@
+{
+    "TwistedFate": {
+        "spells": {
+            "Q": [
+                [
+                    "((60 + (0.9 * currentAP) + (0.5 * bonusAD)) * magicMod)"
+                ], 
+                [
+                    "((100 + (0.9 * currentAP) + (0.5 * bonusAD)) * magicMod)"
+                ], 
+                [
+                    "((120 + (0.9 * currentAP) + (0.5 * bonusAD)) * magicMod)"
+                ],
+                [
+                    "((160 + (0.9 * currentAP) + (0.5 * bonusAD)) * magicMod)"
+                ],
+                [
+                    "((200 + (0.9 * currentAP) + (0.5 * bonusAD)) * magicMod)"
+                ]
+            ],
+            "W": [
+                [
+                    "(15 + (0.5 * currentAP) + currentAD) * magicMod"
+                ],
+                [
+                    "(22.5 + (0.5 * currentAP) + currentAD) * magicMod"
+                ],
+                [
+                    "(30 + (0.5 * currentAP) + currentAD) * magicMod"
+                ],
+                [
+                    "(37.5 + (0.5 * currentAP) + currentAD) * magicMod"
+                ],
+                [
+                    "(45 + (0.5 * currentAP) + currentAD) * magicMod"
+                ]
+            ],
+            "E": [
+                [
+                    "(65 + 0.4 * currentAP + 0.2 * bonusAD) * magicMod"
+                ],
+                [
+                    "(90 + 0.4 * currentAP + 0.2 * bonusAD) * magicMod"
+                ],
+                [
+                    "(115 + 0.4 * currentAP + 0.2 * bonusAD) * magicMod"
+                ],
+                [
+                    "(140 + 0.4 * currentAP + 0.2 * bonusAD) * magicMod"
+                ],
+                [
+                    "(165 + 0.4 * currentAP + 0.2 * bonusAD) * magicMod"
+                ]
+            ]
+        },
+        "type": {
+            "Q": "magic",
+            "W": "magic",
+            "E": "magic"
+        },
+        "aoe": {
+            "Q": "true",
+            "W": "false",
+            "E": "false"
+        },
+        "variation": {
+            "W": [
+                [
+                    "(40 + currentAP + currentAD) * magicMod"
+                ],
+                [
+                    "(60 + currentAP + currentAD) * magicMod"
+                ],
+                [
+                    "(80 + currentAP + currentAD) * magicMod"
+                ],
+                [
+                    "(100 + currentAP + currentAD) * magicMod"
+                ],
+                [
+                    "(120 + currentAP + currentAD) * magicMod"
+                ]
+            ]
+        }
+    }
+}

@@ -1,0 +1,181 @@
+{
+    "Lulu": {
+        "spells": {
+            "P": [
+                [
+                    "1 / 3 * (3 + 6 * level) * magicMod"
+                ],
+                [
+                    "1 / 3 * (3 + 6 * level) * magicMod"
+                ],
+                [
+                    "1 / 3 * (3 + 6 * level) * magicMod"
+                ],
+                [
+                    "1 / 3 * (3 + 6 * level) * magicMod"
+                ],
+                [
+                    "1 / 3 * (3 + 6 * level) * magicMod"
+                ],
+                [
+                    "1 / 3 * (3 + 6 * level) * magicMod"
+                ],
+                [
+                    "1 / 3 * (3 + 6 * level) * magicMod"
+                ],
+                [
+                    "1 / 3 * (3 + 6 * level) * magicMod"
+                ],
+                [
+                    "1 / 3 * (3 + 6 * level) * magicMod"
+                ],
+                [
+                    "1 / 3 * (3 + 6 * level) * magicMod"
+                ],
+                [
+                    "1 / 3 * (3 + 6 * level) * magicMod"
+                ],
+                [
+                    "1 / 3 * (3 + 6 * level) * magicMod"
+                ],
+                [
+                    "1 / 3 * (3 + 6 * level) * magicMod"
+                ],
+                [
+                    "1 / 3 * (3 + 6 * level) * magicMod"
+                ],
+                [
+                    "1 / 3 * (3 + 6 * level) * magicMod"
+                ],
+                [
+                    "1 / 3 * (3 + 6 * level) * magicMod"
+                ],
+                [
+                    "1 / 3 * (3 + 6 * level) * magicMod"
+                ],
+                [
+                    "1 / 3 * (3 + 6 * level) * magicMod"
+                ]
+            ],
+            "Q": [
+                [
+                    "(70 + 0.5 * currentAP) * magicMod"
+                ],
+                [
+                    "(105 + 0.5 * currentAP) * magicMod"
+                ], 
+                [
+                    "(140 + 0.5 * currentAP) * magicMod"
+                ],
+                [
+                    "(175 + 0.5 * currentAP) * magicMod"
+                ],
+                [
+                    "(210 + 0.5 * currentAP) * magicMod"
+                ]
+            ],
+            "E": [
+                [
+                    "(80 + 0.5 * currentAP) * magicMod"
+                ],
+                [
+                    "(125 + 0.5 * currentAP) * magicMod"
+                ],
+                [
+                    "(170 + 0.5 * currentAP) * magicMod"
+                ],
+                [
+                    "(215 + 0.5 * currentAP) * magicMod"
+                ],
+                [
+                    "(260 + 0.5 * currentAP) * magicMod"
+                ]
+            ]
+        },
+        "type": {
+            "P": "magic",
+            "Q": "magic",
+            "E": "magic"
+        },
+        "aoe": {
+            "P": "false",
+            "Q": "true",
+            "E": "false"
+        },
+        "variation": {
+            "P": [
+                [
+                    "(3 + 6 * level) * magicMod"
+                ],
+                [
+                    "(3 + 6 * level) * magicMod"
+                ],
+                [
+                    "(3 + 6 * level) * magicMod"
+                ],
+                [
+                    "(3 + 6 * level) * magicMod"
+                ],
+                [
+                    "(3 + 6 * level) * magicMod"
+                ],
+                [
+                    "(3 + 6 * level) * magicMod"
+                ],
+                [
+                    "(3 + 6 * level) * magicMod"
+                ],
+                [
+                    "(3 + 6 * level) * magicMod"
+                ],
+                [
+                    "(3 + 6 * level) * magicMod"
+                ],
+                [
+                    "(3 + 6 * level) * magicMod"
+                ],
+                [
+                    "(3 + 6 * level) * magicMod"
+                ],
+                [
+                    "(3 + 6 * level) * magicMod"
+                ],
+                [
+                    "(3 + 6 * level) * magicMod"
+                ],
+                [
+                    "(3 + 6 * level) * magicMod"
+                ],
+                [
+                    "(3 + 6 * level) * magicMod"
+                ],
+                [
+                    "(3 + 6 * level) * magicMod"
+                ],
+                [
+                    "(3 + 6 * level) * magicMod"
+                ],
+                [
+                    "(3 + 6 * level) * magicMod"
+                ]
+            ],
+            "Q": [
+                [
+                    "(70 + 0.5 * currentAP) * 1.5 * magicMod"
+                ],
+                [
+                    "(105 + 0.5 * currentAP) * 1.5 * magicMod"
+                ],
+                [
+                    "(140 + 0.5 * currentAP) * 1.5 * magicMod"
+                ],
+                [
+                    "(175 + 0.5 * currentAP) * 1.5 * magicMod"
+                ],
+                [
+                    "(210 + 0.5 * currentAP) * 1.5 * magicMod"
+                ]
+            ]
+        }
+    }
+}

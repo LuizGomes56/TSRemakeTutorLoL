@@ -1,0 +1,23 @@
+{
+    "Aphelios": {
+        "spells": {
+            "R": [
+                [
+                    "(125 + 0.2 * bonusAD + currentAP) * physicalMod"
+                ],
+                [
+                    "(175 + 0.2 * bonusAD + currentAP) * physicalMod"
+                ],
+                [
+                    "(225 + 0.2 * bonusAD + currentAP) * physicalMod"
+                ]
+            ]
+        },
+        "type": {
+            "R": "physical"
+        },
+        "aoe": {
+            "R": "true"
+        }
+    }
+}

@@ -1,0 +1,93 @@
+{
+    "Syndra": {
+        "spells": {
+            "Q": [
+                [
+                    "(75 + (0.7 * currentAP)) * magicMod"
+                ], 
+                [
+                    "(110 + (0.7 * currentAP)) * magicMod"
+                ], 
+                [
+                    "(145 + (0.7 * currentAP)) * magicMod"
+                ],
+                [
+                    "(180 + (0.7 * currentAP)) * magicMod"
+                ],
+                [
+                    "(215 + (0.7 * currentAP)) * magicMod"
+                ]
+            ],
+            "W": [
+                [
+                    "((70 + (0.7 * currentAP)) * magicMod)"
+                ],
+                [
+                    "((110 + (0.7 * currentAP)) * magicMod)"
+                ],
+                [
+                    "((150 + (0.7 * currentAP)) * magicMod)"
+                ],
+                [
+                    "((190 + (0.7 * currentAP)) * magicMod)"
+                ],
+                [
+                    "((230 + (0.7 * currentAP)) * magicMod)"
+                ]
+            ],
+            "E": [
+                [
+                    "(75 + (0.45 * currentAP)) * magicMod"
+                ],
+                [
+                    "(115 + (0.45 * currentAP)) * magicMod"
+                ],
+                [
+                    "(155 + (0.45 * currentAP)) * magicMod"
+                ],
+                [
+                    "(195 + (0.45 * currentAP)) * magicMod"
+                ],
+                [
+                    "(235 + (0.45 * currentAP)) * magicMod"
+                ]
+            ],
+            "R": [
+                [
+                    "(3 * (90 + (0.17 * currentAP)) * magicMod)"
+                ],
+                [
+                    "(3 * (130 + (0.17 * currentAP)) * magicMod)"
+                ],
+                [
+                    "(3 * (170 + (0.17 * currentAP)) * magicMod)"
+                ]
+            ]
+        },
+        "type": {
+            "Q": "magic",
+            "W": "magic",
+            "E": "magic",
+            "R": "magic"
+        },
+        "aoe": {
+            "Q": "true",
+            "W": "true",
+            "E": "true",
+            "R": "false"
+        },
+        "variation": {
+            "R": [
+                [
+                    "(7 * (90 + (0.17 * currentAP)) * magicMod)"
+                ],
+                [
+                    "(7 * (130 + (0.17 * currentAP)) * magicMod)"
+                ],
+                [
+                    "(7 * (170 + (0.17 * currentAP)) * magicMod)"
+                ]
+            ]
+        }
+    }
+}

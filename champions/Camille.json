@@ -1,0 +1,127 @@
+{
+    "Camille": {
+        "spells": {
+            "Q": [
+                [
+                    "0.2 * currentAD * physicalMod"
+                ],
+                [
+                    "0.25 * currentAD * physicalMod"
+                ],
+                [
+                    "0.3 * currentAD * physicalMod"
+                ],
+                [
+                    "0.35 * currentAD * physicalMod"
+                ],
+                [
+                    "0.4 * currentAD * physicalMod"
+                ]
+            ],
+            "W": [
+                [
+                    "(70 + 0.6 * bonusAD) * physicalMod"
+                ],
+                [
+                    "(100 + 0.6 * bonusAD) * physicalMod"
+                ],
+                [
+                    "(130 + 0.6 * bonusAD) * physicalMod"
+                ],
+                [
+                    "(160 + 0.6 * bonusAD) * physicalMod"
+                ],
+                [
+                    "(190 + 0.6 * bonusAD) * physicalMod"
+                ]
+            ],
+            "E": [
+                [
+                    "(60 + 0.9 * bonusAD) * physicalMod"
+                ],
+                [
+                    "(90 + 0.9 * bonusAD) * physicalMod"
+                ],
+                [
+                    "(120 + 0.9 * bonusAD) * physicalMod"
+                ],
+                [
+                    "(150 + 0.9 * bonusAD) * physicalMod"
+                ],
+                [
+                    "(180 + 0.9 * bonusAD) * physicalMod"
+                ]
+            ],
+            "R": [
+                [
+                    "20 * magicMod"
+                ],
+                [
+                    "30 * magicMod"
+                ],
+                [
+                    "40 * magicMod"
+                ]
+            ]
+        },
+        "type": {
+            "Q": "mixed",
+            "W": "physical",
+            "E": "physical",
+            "R": "magic"
+        },
+        "aoe": {
+            "Q": "false",
+            "W": "true",
+            "E": "false",
+            "R": "false"
+        },
+        "variation": {
+            "Q": [
+                [
+                    "((0.4 + (0.6 / 17 * (level - 1))) * 0.4 * currentAD) + ((1 - (0.4 + (0.6 / 17 * (level - 1)))) * 0.4 * currentAD * physicalMod)"
+                ],
+                [
+                    "((0.4 + (0.6 / 17 * (level - 1))) * 0.5 * currentAD) + ((1 - (0.4 + (0.6 / 17 * (level - 1)))) * 0.5 * currentAD * physicalMod)"
+                ],
+                [
+                    "((0.4 + (0.6 / 17 * (level - 1))) * 0.6 * currentAD) + ((1 - (0.4 + (0.6 / 17 * (level - 1)))) * 0.6 * currentAD * physicalMod)"
+                ],
+                [
+                    "((0.4 + (0.6 / 17 * (level - 1))) * 0.7 * currentAD) + ((1 - (0.4 + (0.6 / 17 * (level - 1)))) * 0.7 * currentAD * physicalMod)"
+                ],
+                [
+                    "((0.4 + (0.6 / 17 * (level - 1))) * 0.8 * currentAD) + ((1 - (0.4 + (0.6 / 17 * (level - 1)))) * 0.8 * currentAD * physicalMod)"
+                ]
+            ],
+            "W": [
+                [
+                    "((70 + (0.6 * bonusAD) + (0.05 + 25 * bonusAD / 10000) * expectedHealth)) * physicalMod"
+                ],
+                [
+                    "((100 + (0.6 * bonusAD) + (0.055 + 25 * bonusAD / 10000) * expectedHealth)) * physicalMod"
+                ],
+                [
+                    "((130 + (0.6 * bonusAD) + (0.06 + 25 * bonusAD / 10000) * expectedHealth)) * physicalMod"
+                ],
+                [
+                    "((160 + (0.6 * bonusAD) + (0.065 + 25 * bonusAD / 10000) * expectedHealth)) * physicalMod"
+                ],
+                [
+                    "((190 + (0.6 * bonusAD) + (0.07 + 25 * bonusAD / 10000) * expectedHealth)) * physicalMod"
+                ]
+            ],
+            "R": [
+                [
+                    "(5 + 0.04 * expectedHealth) * magicMod"
+                ],
+                [
+                    "(10 + 0.06 * expectedHealth) * magicMod"
+                ],
+                [
+                    "(15 + 0.08 * expectedHealth) * magicMod"
+                ]
+            ]
+        }
+    }
+}

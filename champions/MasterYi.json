@@ -1,0 +1,125 @@
+{
+    "MasterYi": {
+        "spells": {
+            "P": [
+                [
+                    "(0.5 * currentAD) * physicalMod"
+                ],
+                [
+                    "(0.5 * currentAD) * physicalMod"
+                ],
+                [
+                    "(0.5 * currentAD) * physicalMod"
+                ],
+                [
+                    "(0.5 * currentAD) * physicalMod"
+                ],
+                [
+                    "(0.5 * currentAD) * physicalMod"
+                ],
+                [
+                    "(0.5 * currentAD) * physicalMod"
+                ],
+                [
+                    "(0.5 * currentAD) * physicalMod"
+                ],
+                [
+                    "(0.5 * currentAD) * physicalMod"
+                ],
+                [
+                    "(0.5 * currentAD) * physicalMod"
+                ],
+                [
+                    "(0.5 * currentAD) * physicalMod"
+                ],
+                [
+                    "(0.5 * currentAD) * physicalMod"
+                ],
+                [
+                    "(0.5 * currentAD) * physicalMod"
+                ],
+                [
+                    "(0.5 * currentAD) * physicalMod"
+                ],
+                [
+                    "(0.5 * currentAD) * physicalMod"
+                ],
+                [
+                    "(0.5 * currentAD) * physicalMod"
+                ],
+                [
+                    "(0.5 * currentAD) * physicalMod"
+                ],
+                [
+                    "(0.5 * currentAD) * physicalMod"
+                ],
+                [
+                    "(0.5 * currentAD) * physicalMod"
+                ]
+            ],
+            "Q": [
+                [
+                    "(30 + 0.5 * currentAD) * physicalMod"
+                ],
+                [
+                    "(60 + 0.5 * currentAD) * physicalMod"
+                ], 
+                [
+                    "(90 + 0.5 * currentAD) * physicalMod"
+                ],
+                [
+                    "(120 + 0.5 * currentAD) * physicalMod"
+                ],
+                [
+                    "(150 + 0.5 * currentAD) * physicalMod"
+                ]
+            ],
+            "E": [
+                [
+                    "(30 + 0.3 * bonusAD)"
+                ],
+                [
+                    "(35 + 0.3 * bonusAD)"
+                ],
+                [
+                    "(40 + 0.3 * bonusAD)"
+                ],
+                [
+                    "(45 + 0.3 * bonusAD)"
+                ],
+                [
+                    "(50 + 0.3 * bonusAD)"
+                ]
+            ]
+        },
+        "type": {
+            "P": "physical",
+            "Q": "physical",
+            "E": "true"
+        },
+        "aoe": {
+            "P": "false",
+            "Q": "true",
+            "E": "true"
+        },
+        "variation": {
+            "Q": [
+                [
+                    "(52.5 + 0.875 * currentAD) * physicalMod"
+                ],
+                [
+                    "(105 + 0.875 * currentAD) * physicalMod"
+                ], 
+                [
+                    "(157.5 + 0.875 * currentAD) * physicalMod"
+                ],
+                [
+                    "(210 + 0.875 * currentAD) * physicalMod"
+                ],
+                [
+                    "(262.5 + 0.875 * currentAD) * physicalMod"
+                ]
+            ]
+        }
+    }
+}

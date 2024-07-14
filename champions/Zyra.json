@@ -1,0 +1,120 @@
+{
+    "Zyra": {
+        "spells": {
+            "P": [
+                [
+                    "(16 + (4 * level) + (0.18 * currentAP)) * magicMod"
+                ],
+                [
+                    "(16 + (4 * level) + (0.18 * currentAP)) * magicMod"
+                ],
+                [
+                    "(16 + (4 * level) + (0.18 * currentAP)) * magicMod"
+                ],
+                [
+                    "(16 + (4 * level) + (0.18 * currentAP)) * magicMod"
+                ],
+                [
+                    "(16 + (4 * level) + (0.18 * currentAP)) * magicMod"
+                ],
+                [
+                    "(16 + (4 * level) + (0.18 * currentAP)) * magicMod"
+                ],
+                [
+                    "(16 + (4 * level) + (0.18 * currentAP)) * magicMod"
+                ],
+                [
+                    "(16 + (4 * level) + (0.18 * currentAP)) * magicMod"
+                ],
+                [
+                    "(16 + (4 * level) + (0.18 * currentAP)) * magicMod"
+                ],
+                [
+                    "(16 + (4 * level) + (0.18 * currentAP)) * magicMod"
+                ],
+                [
+                    "(16 + (4 * level) + (0.18 * currentAP)) * magicMod"
+                ],
+                [
+                    "(16 + (4 * level) + (0.18 * currentAP)) * magicMod"
+                ],
+                [
+                    "(16 + (4 * level) + (0.18 * currentAP)) * magicMod"
+                ],
+                [
+                    "(16 + (4 * level) + (0.18 * currentAP)) * magicMod"
+                ],
+                [
+                    "(16 + (4 * level) + (0.18 * currentAP)) * magicMod"
+                ],
+                [
+                    "(16 + (4 * level) + (0.18 * currentAP)) * magicMod"
+                ],
+                [
+                    "(16 + (4 * level) + (0.18 * currentAP)) * magicMod"
+                ],
+                [
+                    "(16 + (4 * level) + (0.18 * currentAP)) * magicMod"
+                ]
+            ],
+            "Q": [
+                [
+                    "(60 + (0.65 * currentAP)) * magicMod"
+                ], 
+                [
+                    "(100 + (0.65 * currentAP)) * magicMod"
+                ],  
+                [
+                    "(140 + (0.65 * currentAP)) * magicMod"
+                ], 
+                [
+                    "(180 + (0.65 * currentAP)) * magicMod"
+                ], 
+                [
+                    "(2220 + (0.65 * currentAP)) * magicMod"
+                ]
+            ],
+            "E": [
+                [
+                    "(60 + (0.6 * currentAP)) * magicMod"
+                ],
+                [
+                    "(95 + (0.6 * currentAP)) * magicMod"
+                ],
+                [
+                    "(130 + (0.6 * currentAP)) * magicMod"
+                ],
+                [
+                    "(165 + (0.6 * currentAP)) * magicMod"
+                ],
+                [
+                    "(200 + (0.6 * currentAP)) * magicMod"
+                ]
+            ],
+            "R": [
+                [
+                    "(180 + (0.7 * currentAP)) * magicMod"
+                    
+                ],
+                [
+                    "(265 + (0.7 * currentAP)) * magicMod"
+                ],
+                [
+                    "(350 + (0.7 * currentAP)) * magicMod"
+                ]
+            ]
+        },
+        "type": {
+            "P": "magic",
+            "Q": "magic",
+            "E": "magic",
+            "R": "magic"
+        },
+        "aoe": {
+            "P": "false",
+            "Q": "true",
+            "E": "true",
+            "R": "true"
+        }
+    }
+}

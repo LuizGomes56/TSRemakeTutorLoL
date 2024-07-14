@@ -1,0 +1,74 @@
+{
+    "Veigar": {
+        "spells": {
+            "Q": [
+                [
+                    "(80 + 0.5 * currentAP) * magicMod"
+                ], 
+                [
+                    "(120 + 0.55 * currentAP) * magicMod"
+                ], 
+                [
+                    "(160 + 0.6 * currentAP) * magicMod"
+                ],
+                [
+                    "(200 + 0.65 * currentAP) * magicMod"
+                ],
+                [
+                    "(240 + 0.7 * currentAP) * magicMod"
+                ]
+            ],
+            "W": [
+                [
+                    "(85 + 0.7 * currentAP) * magicMod"
+                ],
+                [
+                    "(140 + 0.8 * currentAP) * magicMod"
+                ],
+                [
+                    "(195 + 0.9 * currentAP) * magicMod"
+                ],
+                [
+                    "(250 + currentAP) * magicMod"
+                ],
+                [
+                    "(305 + 1.1 * currentAP) * magicMod"
+                ]
+            ],
+            "R": [
+                [
+                    "(175 + 0.65 * currentAP) * magicMod"
+                ],
+                [
+                    "(250 + 0.7 * currentAP) * magicMod"
+                ],
+                [
+                    "(325 + 0.75 * currentAP) * magicMod"
+                ]
+            ]
+        },
+        "type": {
+            "Q": "magic",
+            "W": "magic",
+            "R": "magic"
+        },
+        "aoe": {
+            "Q": "false",
+            "W": "true",
+            "R": "false"
+        },
+        "variation": {
+            "R": [
+                [
+                    "2 * (175 + 0.65 * currentAP) * magicMod"
+                ],
+                [
+                    "2 * (250 + 0.7 * currentAP) * magicMod"
+                ],
+                [
+                    "2 * (325 + 0.75 * currentAP) * magicMod"
+                ]
+            ]
+        }
+    }
+}

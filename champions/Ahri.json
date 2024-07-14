@@ -1,0 +1,127 @@
+{
+    "Ahri": {
+        "spells": {
+            "Q": [
+                [
+                    "(40 + 0.5 * currentAP) * magicMod"
+                ], 
+                [
+                    "(65 + 0.5 * currentAP) * magicMod"
+                ],  
+                [
+                    "(90 + 0.5 * currentAP) * magicMod"
+                ], 
+                [
+                    "(115 + 0.5 * currentAP) * magicMod"
+                ], 
+                [
+                    "(140 + 0.5 * currentAP) * magicMod"
+                ]
+            ],
+            "W": [
+                [
+                    "(50 + 0.3 * currentAP) * magicMod"
+                ],
+                [
+                    "(75 + 0.3 * currentAP) * magicMod"
+                ],
+                [
+                    "(100 + 0.3 * currentAP) * magicMod"
+                ],
+                [
+                    "(125 + 0.3 * currentAP) * magicMod"
+                ],
+                [
+                    "(150 + 0.3 * currentAP) * magicMod"
+                ]
+            ],
+            "E": [
+                [
+                    "(80 + 0.6 * currentAP) * magicMod"
+                ],
+                [
+                    "(110 + 0.6 * currentAP) * magicMod"
+                ],
+                [
+                    "(140 + 0.6 * currentAP) * magicMod"
+                ],
+                [
+                    "170 + 0.6 * currentAP) * magicMod"
+                ],
+                [
+                    "(200 + 0.6 * currentAP) * magicMod"
+                ]
+            ],
+            "R": [
+                [
+                    "(60 + 0.35 * currentAP) * magicMod"
+                ],
+                [
+                    "(90 + 0.35 * currentAP) * magicMod"
+                ],
+                [
+                    "(120 + 0.35 * currentAP) * magicMod"
+                ]
+            ]
+        },
+        "type": {
+            "Q": "magic",
+            "W": "magic",
+            "E": "magic",
+            "R": "magic"
+        },
+        "aoe": {
+            "Q": "true",
+            "W": "false",
+            "E": "false",
+            "R": "false"
+        },
+        "variation": {
+            "Q": [
+                [
+                    "(40 + 0.5 * currentAP) * magicMod + (40 + 0.5 * currentAP)"
+                ], 
+                [
+                    "(65 + 0.5 * currentAP) * magicMod + (65 + 0.5 * currentAP)"
+                ],  
+                [
+                    "(90 + 0.5 * currentAP) * magicMod + (90 + 0.5 * currentAP)"
+                ], 
+                [
+                    "(115 + 0.5 * currentAP) * magicMod + (115 + 0.5 * currentAP)"
+                ], 
+                [
+                    "(140 + 0.5 * currentAP) * magicMod + (140 + 0.5 * currentAP)"
+                ]
+            ],
+            "W": [
+                [
+                    "(80 + 0.48 * currentAP) * magicMod"
+                ],
+                [
+                    "(120 + 0.48 * currentAP) * magicMod"
+                ],
+                [
+                    "(160 + 0.48 * currentAP) * magicMod"
+                ],
+                [
+                    "(200 + 0.48 * currentAP) * magicMod"
+                ],
+                [
+                    "(240 + 0.48 * currentAP) * magicMod"
+                ]
+            ],
+            "R": [
+                [
+                    "3 * (60 + 0.35 * currentAP) * magicMod"
+                ],
+                [
+                    "3 * (90 + 0.35 * currentAP) * magicMod"
+                ],
+                [
+                    "3 * (120 + 0.35 * currentAP) * magicMod"
+                ]
+            ]
+        }
+    }
+}

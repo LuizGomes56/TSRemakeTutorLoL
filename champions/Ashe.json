@@ -1,0 +1,74 @@
+{
+    "Ashe": {
+        "spells": {
+            "Q": [
+                [
+                    "(currentAD * 1.05) * physicalMod"
+                ], 
+                [
+                    "(currentAD * 1.1) * physicalMod"
+                ],  
+                [
+                    "(currentAD * 1.15) * physicalMod"
+                ], 
+                [
+                    "(currentAD * 1.2) * physicalMod"
+                ], 
+                [
+                    "(currentAD * 1.25) * physicalMod"
+                ]
+            ],
+            "W": [
+                [
+                    "(20 + currentAD) * physicalMod"
+                ],
+                [
+                    "(35 + currentAD) * physicalMod"
+                ],
+                [
+                    "(50 + currentAD) * physicalMod"
+                ],
+                [
+                    "(65 + currentAD) * physicalMod"
+                ],
+                [
+                    "(80 + currentAD) * physicalMod"
+                ]
+            ],
+            "R": [
+                [
+                    "(200 + 1.2 * currentAP) * magicMod"
+                ],
+                [
+                    "(400 + 1.2 * currentAP) * magicMod"
+                ],
+                [
+                    "(600 + 1.2 * currentAP) * magicMod"
+                ]
+            ]
+        },
+        "type": {
+            "Q": "physical",
+            "W": "physical",
+            "R": "magic"
+        },
+        "aoe": {
+            "Q": "false",
+            "W": "true",
+            "R": "true"
+        },
+        "variation": {
+            "R": [
+                [
+                    "0.5 * (200 + 1.2 * currentAP) * magicMod"
+                ],
+                [
+                    "0.5 * (400 + 1.2 * currentAP) * magicMod"
+                ],
+                [
+                    "0.5 * (600 + 1.2 * currentAP) * magicMod"
+                ]
+            ]
+        }
+    }
+}

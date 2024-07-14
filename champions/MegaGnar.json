@@ -1,0 +1,93 @@
+{
+    "MegaGnar": {
+        "spells": {
+            "Q": [
+                [
+                    "(45 + 1.4 * currentAD) * physicalMod"
+                ], 
+                [
+                    "(90 + 1.4 * currentAD) * physicalMod"
+                ], 
+                [
+                    "(135 + 1.4 * currentAD) * physicalMod"
+                ],
+                [
+                    "(180 + 1.4 * currentAD) * physicalMod"
+                ],
+                [
+                    "(225 + 1.4 * currentAD) * physicalMod"
+                ]
+            ],
+            "W": [
+                [
+                    "(45 + currentAD) * physicalMod"
+                ],
+                [
+                    "(75 + currentAD) * physicalMod"
+                ],
+                [
+                    "(105 + currentAD) * physicalMod"
+                ],
+                [
+                    "(135 + currentAD) * physicalMod"
+                ],
+                [
+                    "(165 + currentAD) * physicalMod"
+                ]
+            ],
+            "E": [
+                [
+                    "(80 + 0.06 * maxHP) * physicalMod"
+                ],
+                [
+                    "(115 + 0.06 * maxHP) * physicalMod"
+                ],
+                [
+                    "(150 + 0.06 * maxHP) * physicalMod"
+                ],
+                [
+                    "(185 + 0.06 * maxHP) * physicalMod"
+                ],
+                [
+                    "(220 + 0.06 * maxHP) * physicalMod"
+                ]
+            ],
+            "R": [
+                [
+                    "(200 + 0.5 * bonusAD + currentAP) * physicalMod"
+                ],
+                [
+                    "(300 + 0.5 * bonusAD + currentAP) * physicalMod"
+                ],
+                [
+                    "(400 + 0.5 * bonusAD + currentAP) * physicalMod"
+                ]
+            ]
+        },
+        "type": {
+            "Q": "physical",
+            "W": "physical",
+            "E": "physical",
+            "R": "physical"
+        },
+        "aoe": {
+            "Q": "true",
+            "W": "false",
+            "E": "false",
+            "R": "true"
+        },
+        "variation": {
+            "R": [
+                [
+                    "(300 + 1.5 * currentAP + 0.75 * bonusAD) * physicalMod"
+                ],
+                [
+                    "(450 + 1.5 * currentAP + 0.75 * bonusAD) * physicalMod"
+                ],
+                [
+                    "(600 + 1.5 * currentAP + 0.75 * bonusAD) * physicalMod"
+                ]
+            ]
+        }
+    }
+}

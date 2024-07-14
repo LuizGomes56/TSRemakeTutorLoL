@@ -1,0 +1,67 @@
+{
+    "Janna": {
+        "spells": {
+            "Q": [
+                [
+                    "(55 + (0.5 * currentAP)) * magicMod"
+                ], 
+                [
+                    "(90 + (0.5 * currentAP)) * magicMod"
+                ],
+                [
+                    "(125 + (0.5 * currentAP)) * magicMod"
+                ],
+                [
+                    "(160 + (0.5 * currentAP)) * magicMod"
+                ],
+                [
+                    "(195 + (0.5 * currentAP)) * magicMod"
+                ]
+            ],
+            "W": [
+                [
+                    "(55 + (0.6 * currentAP)) * magicMod"
+                ],
+                [
+                    "(90 + (0.6 * currentAP)) * magicMod"
+                ],
+                [
+                    "(125 + (0.6 * currentAP)) * magicMod"
+                ],
+                [
+                    "(160 + (0.6 * currentAP)) * magicMod"
+                ],
+                [
+                    "(195 + (0.6 * currentAP)) * magicMod"
+                ]
+            ]
+        },
+        "type": {
+            "Q": "magic",
+            "W": "magic"
+        },
+        "aoe": {
+            "Q": "true",
+            "W": "false"
+        },
+        "variation": {
+            "Q": [
+                [
+                    "(85 + (0.8 * currentAP)) * magicMod"
+                ],
+                [
+                    "(135 + (0.8 * currentAP)) * magicMod"
+                ],
+                [
+                    "(185 + (0.8 * currentAP)) * magicMod"
+                ],
+                [
+                    "(235 + (0.8 * currentAP)) * magicMod"
+                ],
+                [
+                    "(285 + (0.8 * currentAP)) * magicMod"
+                ]
+            ]
+        }
+    }
+}

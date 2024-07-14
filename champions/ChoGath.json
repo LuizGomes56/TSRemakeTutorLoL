@@ -1,0 +1,196 @@
+{
+    "Chogath": {
+        "spells": {
+            "Q": [
+                [
+                    "(80 +  currentAP) * magicMod"
+                ], 
+                [
+                    "(140 +  currentAP) * magicMod"
+                ], 
+                [
+                    "(200 +  currentAP) * magicMod"
+                ],
+                [
+                    "(260 +  currentAP) * magicMod"
+                ],
+                [
+                    "(320 +  currentAP) * magicMod"
+                ]
+            ],
+            "W": [
+                [
+                    "(80 + (0.7 * currentAP)) * magicMod"
+                ],
+                [
+                    "(135 + (0.7 * currentAP)) * magicMod"
+                ],
+                [
+                    "(190 + (0.7 * currentAP)) * magicMod"
+                ],
+                [
+                    "(245 + (0.7 * currentAP)) * magicMod"
+                ],
+                [
+                    "(300 + (0.7 * currentAP)) * magicMod"
+                ]
+            ],
+            "E": [
+                [
+                    "(22 + (0.3 * currentAP) + (0.03 * expectedHealth)) * magicMod"
+                ],
+                [
+                    "(37 + (0.3 * currentAP) + (0.03 * expectedHealth)) * magicMod"
+                ],
+                [
+                    "(52 + (0.3 * currentAP) + (0.03 * expectedHealth)) * magicMod"
+                ],
+                [
+                    "(67 + (0.3 * currentAP) + (0.03 * expectedHealth)) * magicMod"
+                ],
+                [
+                    "(82 + (0.3 * currentAP) + (0.03 * expectedHealth)) * magicMod"
+                ]
+            ],
+            "R": [
+                [
+                    "300 + (0.5 * currentAP) + (0.1 * bonusHP)"
+                ],
+                [
+                    "475 + (0.5 * currentAP) + (0.1 * bonusHP)"
+                ],
+                [
+                    "650 + (0.5 * currentAP) + (0.1 * bonusHP)"
+                ]
+            ]
+        },
+        "type": {
+            "Q": "magic",
+            "W": "magic",
+            "E": "magic",
+            "R": "true"
+        },
+        "aoe": {
+            "Q": "true",
+            "W": "true",
+            "E": "true",
+            "R": "false"
+        },
+        "variation": {
+            "E": [
+                [
+                    "3 * (22 + (0.3 * currentAP) + (0.03 * expectedHealth)) * magicMod"
+                ],
+                [
+                    "3 * (37 + (0.3 * currentAP) + (0.03 * expectedHealth)) * magicMod"
+                ],
+                [
+                    "3 * (52 + (0.3 * currentAP) + (0.03 * expectedHealth)) * magicMod"
+                ],
+                [
+                    "3 * (67 + (0.3 * currentAP) + (0.03 * expectedHealth)) * magicMod"
+                ],
+                [
+                    "3 * (82 + (0.3 * currentAP) + (0.03 * expectedHealth)) * magicMod"
+                ]
+            ]
+        },
+        "calculator": {
+            "spells": {
+                "Q": [
+                    [
+                        "(80 +  currentAP) * magicMod"
+                    ], 
+                    [
+                        "(140 +  currentAP) * magicMod"
+                    ], 
+                    [
+                        "(200 +  currentAP) * magicMod"
+                    ],
+                    [
+                        "(260 +  currentAP) * magicMod"
+                    ],
+                    [
+                        "(320 +  currentAP) * magicMod"
+                    ]
+                ],
+                "W": [
+                    [
+                        "(80 + (0.7 * currentAP)) * magicMod"
+                    ],
+                    [
+                        "(135 + (0.7 * currentAP)) * magicMod"
+                    ],
+                    [
+                        "(190 + (0.7 * currentAP)) * magicMod"
+                    ],
+                    [
+                        "(245 + (0.7 * currentAP)) * magicMod"
+                    ],
+                    [
+                        "(300 + (0.7 * currentAP)) * magicMod"
+                    ]
+                ],
+                "E": [
+                    [
+                        "(22 + (0.3 * currentAP) + ((0.03 + 0.005 * stack) * expectedHealth)) * magicMod"
+                    ],
+                    [
+                        "(37 + (0.3 * currentAP) + ((0.03 + 0.005 * stack) * expectedHealth)) * magicMod"
+                    ],
+                    [
+                        "(52 + (0.3 * currentAP) + ((0.03 + 0.005 * stack) * expectedHealth)) * magicMod"
+                    ],
+                    [
+                        "(67 + (0.3 * currentAP) + ((0.03 + 0.005 * stack) * expectedHealth)) * magicMod"
+                    ],
+                    [
+                        "(82 + (0.3 * currentAP) + ((0.03 + 0.005 * stack) * expectedHealth)) * magicMod"
+                    ]
+                ],
+                "R": [
+                    [
+                        "300 + (0.5 * currentAP) + (0.1 * bonusHP)"
+                    ],
+                    [
+                        "475 + (0.5 * currentAP) + (0.1 * bonusHP)"
+                    ],
+                    [
+                        "650 + (0.5 * currentAP) + (0.1 * bonusHP)"
+                    ]
+                ]
+            },
+            "type": {
+                "Q": "magic",
+                "W": "magic",
+                "E": "magic",
+                "R": "true"
+            },
+            "aoe": {
+                "Q": "true",
+                "W": "true",
+                "E": "true",
+                "R": "false"
+            },
+            "variation": {
+                "E": [
+                    [
+                        "3 * (22 + (0.3 * currentAP) + ((0.03 + 0.005 * stack) * expectedHealth)) * magicMod"
+                    ],
+                    [
+                        "3 * (37 + (0.3 * currentAP) + ((0.03 + 0.005 * stack) * expectedHealth)) * magicMod"
+                    ],
+                    [
+                        "3 * (52 + (0.3 * currentAP) + ((0.03 + 0.005 * stack) * expectedHealth)) * magicMod"
+                    ],
+                    [
+                        "3 * (67 + (0.3 * currentAP) + ((0.03 + 0.005 * stack) * expectedHealth)) * magicMod"
+                    ],
+                    [
+                        "3 * (82 + (0.3 * currentAP) + ((0.03 + 0.005 * stack) * expectedHealth)) * magicMod"
+                    ]
+                ]
+            }
+        }
+    }
+}

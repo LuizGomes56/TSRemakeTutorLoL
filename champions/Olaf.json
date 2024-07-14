@@ -1,0 +1,48 @@
+{
+    "Olaf": {
+        "spells": {
+            "Q": [
+                [
+                    "(65 + bonusAD) * (100 / (100 + expectedArmor * 0.8))"
+                ],
+                [
+                    "(115 + bonusAD) * (100 / (100 + expectedArmor * 0.8))"
+                ],
+                [
+                    "(165 + bonusAD) * (100 / (100 + expectedArmor * 0.8))"
+                ],
+                [
+                    "(215 + bonusAD) * (100 / (100 + expectedArmor * 0.8))"
+                ],
+                [
+                    "(265 + bonusAD) * (100 / (100 + expectedArmor * 0.8))"
+                ]
+            ],
+            "E": [
+                [
+                    "(70 + 0.5 * currentAD)"
+                ],
+                [
+                    "(115 + 0.5 * currentAD)"
+                ],
+                [
+                    "(160 + 0.5 * currentAD)"
+                ],
+                [
+                    "(205 + 0.5 * currentAD)"
+                ],
+                [
+                    "(250 + 0.5 * currentAD)"
+                ]
+            ]
+        },
+        "type": {
+            "Q": "physical",
+            "E": "true"
+        },
+        "aoe": {
+            "Q": "true",
+            "E": "false"
+        }
+    }
+}

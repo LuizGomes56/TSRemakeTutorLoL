@@ -1,0 +1,84 @@
+{
+    "Nidalee": {
+        "spells": {
+            "Q": [
+                [
+                    "(70 + 0.5 * currentAP) * magicMod"
+                ],
+                [
+                    "(90 + 0.5 * currentAP) * magicMod"
+                ], 
+                [
+                    "(110 + 0.5 * currentAP) * magicMod"
+                ],
+                [
+                    "(130 + 0.5 * currentAP) * magicMod"
+                ],
+                [
+                    "(150 + 0.5 * currentAP) * magicMod"
+                ]
+            ],
+            "W": [
+                [
+                    "(10 + 0.05 * currentAP) * magicMod"
+                ],
+                [
+                    "(20 + 0.05 * currentAP) * magicMod"
+                ],
+                [
+                    "(30 + 0.05 * currentAP) * magicMod"
+                ],
+                [
+                    "(40 + 0.05 * currentAP) * magicMod"
+                ],
+                [
+                    "(50 + 0.05 * currentAP) * magicMod"
+                ]
+            ]
+        },
+        "type": {
+            "Q": "magic",
+            "W": "magic"
+        },
+        "aoe": {
+            "Q": "false",
+            "W": "false"
+        },
+        "variation": {
+            "Q": [
+                [
+                    "3 * (70 + 0.5 * currentAP) * magicMod"
+                ],
+                [
+                    "3 * (90 + 0.5 * currentAP) * magicMod"
+                ], 
+                [
+                    "3 * (110 + 0.5 * currentAP) * magicMod"
+                ],
+                [
+                    "3 * (130 + 0.5 * currentAP) * magicMod"
+                ],
+                [
+                    "3 * (150 + 0.5 * currentAP) * magicMod"
+                ]
+            ],
+            "W": [
+                [
+                    "(10 + 0.05 * currentAP) * 4 * magicMod"
+                ],
+                [
+                    "(20 + 0.05 * currentAP) * 4 * magicMod"
+                ],
+                [
+                    "(30 + 0.05 * currentAP) * 4 * magicMod"
+                ],
+                [
+                    "(40 + 0.05 * currentAP) * 4 * magicMod"
+                ],
+                [
+                    "(50 + 0.05 * currentAP) * 4 * magicMod"
+                ]
+            ]
+        }
+    }
+}

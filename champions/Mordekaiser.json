@@ -1,0 +1,140 @@
+{
+    "Mordekaiser": {
+        "spells": {
+            "P": [
+                [
+                    "(0.3 * currentAP + 4.4 + 0.6 * level + ((0.01 + 0.04 / 17 * (level - 1)) * expectedHealth)) * magicMod"
+                ],
+                [
+                    "(0.3 * currentAP + 4.4 + 0.6 * level + ((0.01 + 0.04 / 17 * (level - 1)) * expectedHealth)) * magicMod"
+                ],
+                [
+                    "(0.3 * currentAP + 4.4 + 0.6 * level + ((0.01 + 0.04 / 17 * (level - 1)) * expectedHealth)) * magicMod"
+                ],
+                [
+                    "(0.3 * currentAP + 4.4 + 0.6 * level + ((0.01 + 0.04 / 17 * (level - 1)) * expectedHealth)) * magicMod"
+                ],
+                [
+                    "(0.3 * currentAP + 4.4 + 0.6 * level + ((0.01 + 0.04 / 17 * (level - 1)) * expectedHealth)) * magicMod"
+                ],
+                [
+                    "(0.3 * currentAP + 4.4 + 0.6 * level + ((0.01 + 0.04 / 17 * (level - 1)) * expectedHealth)) * magicMod"
+                ],
+                [
+                    "(0.3 * currentAP + 4.4 + 0.6 * level + ((0.01 + 0.04 / 17 * (level - 1)) * expectedHealth)) * magicMod"
+                ],
+                [
+                    "(0.3 * currentAP + 4.4 + 0.6 * level + ((0.01 + 0.04 / 17 * (level - 1)) * expectedHealth)) * magicMod"
+                ],
+                [
+                    "(0.3 * currentAP + 4.4 + 0.6 * level + ((0.01 + 0.04 / 17 * (level - 1)) * expectedHealth)) * magicMod"
+                ],
+                [
+                    "(0.3 * currentAP + 4.4 + 0.6 * level + ((0.01 + 0.04 / 17 * (level - 1)) * expectedHealth)) * magicMod"
+                ],
+                [
+                    "(0.3 * currentAP + 4.4 + 0.6 * level + ((0.01 + 0.04 / 17 * (level - 1)) * expectedHealth)) * magicMod"
+                ],
+                [
+                    "(0.3 * currentAP + 4.4 + 0.6 * level + ((0.01 + 0.04 / 17 * (level - 1)) * expectedHealth)) * magicMod"
+                ],
+                [
+                    "(0.3 * currentAP + 4.4 + 0.6 * level + ((0.01 + 0.04 / 17 * (level - 1)) * expectedHealth)) * magicMod"
+                ],
+                [
+                    "(0.3 * currentAP + 4.4 + 0.6 * level + ((0.01 + 0.04 / 17 * (level - 1)) * expectedHealth)) * magicMod"
+                ],
+                [
+                    "(0.3 * currentAP + 4.4 + 0.6 * level + ((0.01 + 0.04 / 17 * (level - 1)) * expectedHealth)) * magicMod"
+                ],
+                [
+                    "(0.3 * currentAP + 4.4 + 0.6 * level + ((0.01 + 0.04 / 17 * (level - 1)) * expectedHealth)) * magicMod"
+                ],
+                [
+                    "(0.3 * currentAP + 4.4 + 0.6 * level + ((0.01 + 0.04 / 17 * (level - 1)) * expectedHealth)) * magicMod"
+                ],
+                [
+                    "(0.3 * currentAP + 4.4 + 0.6 * level + ((0.01 + 0.04 / 17 * (level - 1)) * expectedHealth)) * magicMod"
+                ]
+            ],
+            "Q": [
+                [
+                    "(5 + 134 / 18 * level + 75 + 0.7 * currentAP) * magicMod"
+                ],
+                [
+                    "(5 + 134 / 18 * level + 95 + 0.7 * currentAP) * magicMod"
+                ], 
+                [
+                    "(5 + 134 / 18 * level + 115 + 0.7 * currentAP) * magicMod"
+                ],
+                [
+                    "(5 + 134 / 18 * level + 135 + 0.7 * currentAP) * magicMod"
+                ],
+                [
+                    "(5 + 134 / 18 * level + 155 + 0.7 * currentAP) * magicMod"
+                ]
+            ],
+            "E": [
+                [
+                    "(70 + 0.6 * currentAP) * magicMod"
+                ],
+                [
+                    "(85 + 0.6 * currentAP) * magicMod"
+                ],
+                [
+                    "(100 + 0.6 * currentAP) * magicMod"
+                ],
+                [
+                    "(115 + 0.6 * currentAP) * magicMod"
+                ],
+                [
+                    "(130 + 0.6 * currentAP) * magicMod"
+                ]
+            ],
+            "R": [
+                [
+                    "0.1 * expectedHealth"
+                ],
+                [
+                    "0.1 * expectedHealth"
+                ],
+                [
+                    "0.1 * expectedHealth"
+                ]
+            ]
+        },
+        "type": {
+            "P": "magic",
+            "Q": "magic",
+            "W": "magic",
+            "E": "magic",
+            "R": "magic"
+        },
+        "aoe": {
+            "P": "false",
+            "Q": "true",
+            "W": "true",
+            "E": "true",
+            "R": "true"
+        },
+        "variation": {
+            "Q": [
+                [
+                    "1.4 * (5 + 134 / 18 * level + 75 + 0.6 * currentAP) * magicMod"
+                ],
+                [
+                    "1.45 * (5 + 134 / 18 * level + 95 + 0.6 * currentAP) * magicMod"
+                ], 
+                [
+                    "1.5 * (5 + 134 / 18 * level + 115 + 0.6 * currentAP) * magicMod"
+                ],
+                [
+                    "1.55 * (5 + 134 / 18 * level + 135 + 0.6 * currentAP) * magicMod"
+                ],
+                [
+                    "1.6 * (5 + 134 / 18 * level + 155 + 0.6 * currentAP) * magicMod"
+                ]
+            ]
+        }
+    }
+}

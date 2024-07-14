@@ -1,0 +1,91 @@
+{
+    "Viego": {
+        "spells": {
+            "Q": [
+                [
+                    "(15 + (0.7 * currentAD)) * (1 + critChance) * physicalMod"
+                ], 
+                [
+                    "(30 + (0.7 * currentAD)) * (1 + critChance) * physicalMod"
+                ],  
+                [
+                    "(45 + (0.7 * currentAD)) * (1 + critChance) * physicalMod"
+                ], 
+                [
+                    "(60 + (0.7 * currentAD)) * (1 + critChance) * physicalMod"
+                ], 
+                [
+                    "(75 + (0.7 * currentAD)) * (1 + critChance) * physicalMod"
+                ]
+            ],
+            "W": [
+                [
+                    "(80 + currentAP) * magicMod"
+                ],
+                [
+                    "(135 + currentAP) * magicMod"
+                ],
+                [
+                    "(190 + currentAP) * magicMod"
+                ],
+                [
+                    "(245 + currentAP) * magicMod"
+                ],
+                [
+                    "(300 + currentAP) * magicMod"
+                ]
+            ],
+            "R": [
+                [
+                    "((1.2 * (1 + critChance) * currentAD)) * physicalMod"
+                ],
+                [
+                    "((1.2 * (1 + critChance) * currentAD)) * physicalMod"
+                ],
+                [
+                    "((1.2 * (1 + critChance) * currentAD)) * physicalMod"
+                ]
+            ]
+        },
+        "type": {
+            "Q": "physical",
+            "W": "magic",
+            "R": "physical"
+        },
+        "aoe": {
+            "Q": "true",
+            "W": "false",
+            "R": "true"
+        },
+        "variation": {
+            "Q": [
+                [
+                    "(0.2 * currentAD) + (0.15 * currentAP)"
+                ],
+                [
+                    "(0.2 * currentAD) + (0.15 * currentAP)"
+                ],
+                [
+                    "(0.2 * currentAD) + (0.15 * currentAP)"
+                ],
+                [
+                    "(0.2 * currentAD) + (0.15 * currentAP)"
+                ],
+                [
+                    "(0.2 * currentAD) + (0.15 * currentAP)"
+                ]
+            ],
+            "R": [
+                [
+                    "((1.2 * (1 + critChance) * currentAD) + ((0.12 + 5 * bonusAD / 10000) * expectedHealth)) * physicalMod"
+                ],
+                [
+                    "((1.2 * (1 + critChance) * currentAD) + ((0.16 + 5 * bonusAD / 10000) * expectedHealth)) * physicalMod"
+                ],
+                [
+                    "((1.2 * (1 + critChance) * currentAD) + ((0.2 + 5 * bonusAD / 10000) * expectedHealth)) * physicalMod"
+                ]
+            ]
+        }
+    }
+}

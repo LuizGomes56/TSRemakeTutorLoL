@@ -1,0 +1,157 @@
+{
+    "Jax": {
+        "spells": {
+            "P": [
+                [
+                    "0"
+                ],
+                [
+                    "0"
+                ],
+                [
+                    "0"
+                ],
+                [
+                    "0"
+                ],
+                [
+                    "0"
+                ],
+                [
+                    "(60 + (0.6 * currentAP)) * magicMod"
+                ],
+                [
+                    "(60 + (0.6 * currentAP)) * magicMod"
+                ],
+                [
+                    "(60 + (0.6 * currentAP)) * magicMod"
+                ],
+                [
+                    "(60 + (0.6 * currentAP)) * magicMod"
+                ],
+                [
+                    "(60 + (0.6 * currentAP)) * magicMod"
+                ],
+                [
+                    "(110 + (0.6 * currentAP)) * magicMod"
+                ],
+                [
+                    "(110 + (0.6 * currentAP)) * magicMod"
+                ],
+                [
+                    "(110 + (0.6 * currentAP)) * magicMod"
+                ],
+                [
+                    "(110 + (0.6 * currentAP)) * magicMod"
+                ],
+                [
+                    "(110 + (0.6 * currentAP)) * magicMod"
+                ],
+                [
+                    "(160 + (0.6 * currentAP)) * magicMod"
+                ],
+                [
+                    "(160 + (0.6 * currentAP)) * magicMod"
+                ],
+                [
+                    "(160 + (0.6 * currentAP)) * magicMod"
+                ]
+            ],
+            "Q": [
+                [
+                    "(65 + bonusAD) * physicalMod"
+                ], 
+                [
+                    "(105 + bonusAD) * physicalMod"
+                ], 
+                [
+                    "(145 + bonusAD) * physicalMod"
+                ],
+                [
+                    "(185 + bonusAD) * physicalMod"
+                ],
+                [
+                    "(225 + bonusAD) * physicalMod"
+                ]
+            ],
+            "W": [
+                [
+                    "(50 + (0.6 * currentAP)) * magicMod"
+                ],
+                [
+                    "(85 + (0.6 * currentAP)) * magicMod"
+                ],
+                [
+                    "(120 + (0.6 * currentAP)) * magicMod"
+                ],
+                [
+                    "(155 + (0.6 * currentAP)) * magicMod"
+                ],
+                [
+                    "(190 + (0.6 * currentAP)) * magicMod"
+                ]
+            ],
+            "E": [
+                [
+                    "(40 + (0.7 * currentAP) + (0.035 * expectedHealth)) * magicMod"
+                ],
+                [
+                    "(70 + (0.7 * currentAP) + (0.035 * expectedHealth)) * magicMod"
+                ],
+                [
+                    "(100 + (0.7 * currentAP) + (0.035 * expectedHealth)) * magicMod"
+                ],
+                [
+                    "(130 + (0.7 * currentAP) + (0.035 * expectedHealth)) * magicMod"
+                ],
+                [
+                    "(160 + (0.7 * currentAP) + (0.035 * expectedHealth)) * magicMod"
+                ]
+            ],
+            "R": [
+                [
+                    "(150 + currentAP) * magicMod"
+                ],
+                [
+                    "(250 + currentAP) * magicMod"
+                ],
+                [
+                    "(350 + currentAP) * magicMod"
+                ]
+            ]
+        },
+        "type": {
+            "P": "magic",
+            "Q": "physical",
+            "W": "magic",
+            "E": "magic",
+            "R": "magic"
+        },
+        "aoe": {
+            "P": "false",
+            "Q": "false",
+            "W": "false",
+            "E": "true",
+            "R": "true"
+        },
+        "variation": {
+            "E": [
+                [
+                    "2 * (40 + (0.7 * currentAP) + (0.035 * expectedHealth)) * magicMod"
+                ],
+                [
+                    "2 * (70 + (0.7 * currentAP) + (0.035 * expectedHealth)) * magicMod"
+                ],
+                [
+                    "2 * (100 + (0.7 * currentAP) + (0.035 * expectedHealth)) * magicMod"
+                ],
+                [
+                    "2 * (130 + (0.7 * currentAP) + (0.035 * expectedHealth)) * magicMod"
+                ],
+                [
+                    "2 * (160 + (0.7 * currentAP) + (0.035 * expectedHealth)) * magicMod"
+                ]
+            ]
+        }
+    }
+}

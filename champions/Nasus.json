@@ -1,0 +1,180 @@
+{
+    "Nasus": {
+        "spells": {
+            "Q": [
+                [
+                    "(30 + currentAD) * physicalMod"
+                ],
+                [
+                    "(50 + currentAD) * physicalMod"
+                ], 
+                [
+                    "(70 + currentAD) * physicalMod"
+                ],
+                [
+                    "(90 + currentAD) * physicalMod"
+                ],
+                [
+                    "(110 + currentAD) * physicalMod"
+                ]
+            ],
+            "E": [
+                [
+                    "(55 + 0.6 * currentAP) * magicMod"
+                ],
+                [
+                    "(95 + 0.6 * currentAP) * magicMod"
+                ],
+                [
+                    "(135 + 0.6 * currentAP) * magicMod"
+                ],
+                [
+                    "(175 + 0.6 * currentAP) * magicMod"
+                ],
+                [
+                    "(215 + 0.6 * currentAP) * magicMod"
+                ]
+            ],
+            "R": [
+                [
+                    "((0.015 + 5 * currentAP / 100000) * expectedHealth) * magicMod"
+                ],
+                [
+                    "((0.02 + 5 * currentAP / 100000) * expectedHealth) * magicMod"
+                ],
+                [
+                    "((0.025 + 5 * currentAP / 100000) * expectedHealth) * magicMod"
+                ]
+            ]
+        },
+        "type": {
+            "Q": "physical",
+            "E": "magic",
+            "R": "magic"
+        },
+        "aoe": {
+            "Q": "false",
+            "E": "true",
+            "R": "true"
+        },
+        "variation": {
+            "E": [
+                [
+                    "2 * (55 + 0.6 * currentAP) * magicMod"
+                ],
+                [
+                    "2 * (95 + 0.6 * currentAP) * magicMod"
+                ],
+                [
+                    "2 * (135 + 0.6 * currentAP) * magicMod"
+                ],
+                [
+                    "2 * (175 + 0.6 * currentAP) * magicMod"
+                ],
+                [
+                    "2 * (215 + 0.6 * currentAP) * magicMod"
+                ]
+            ],
+            "R": [
+                [
+                    "30 * ((0.015 + 5 * currentAP / 100000) * expectedHealth) * magicMod"
+                ],
+                [
+                    "30 * ((0.02 + 5 * currentAP / 100000) * expectedHealth) * magicMod"
+                ],
+                [
+                    "30 * ((0.025 + 5 * currentAP / 100000) * expectedHealth) * magicMod"
+                ]
+            ]
+        },
+        "calculator": {
+            "spells": {
+                "Q": [
+                    [
+                        "(40 + currentAD + stack) * physicalMod"
+                    ],
+                    [
+                        "(60 + currentAD + stack) * physicalMod"
+                    ], 
+                    [
+                        "(80 + currentAD + stack) * physicalMod"
+                    ],
+                    [
+                        "(100 + currentAD + stack) * physicalMod"
+                    ],
+                    [
+                        "(120 + currentAD + stack) * physicalMod"
+                    ]
+                ],
+                "E": [
+                    [
+                        "(55 + 0.6 * currentAP) * magicMod"
+                    ],
+                    [
+                        "(95 + 0.6 * currentAP) * magicMod"
+                    ],
+                    [
+                        "(135 + 0.6 * currentAP) * magicMod"
+                    ],
+                    [
+                        "(175 + 0.6 * currentAP) * magicMod"
+                    ],
+                    [
+                        "(215 + 0.6 * currentAP) * magicMod"
+                    ]
+                ],
+                "R": [
+                    [
+                        "((0.015 + 5 * currentAP / 100000) * expectedHealth) * magicMod"
+                    ],
+                    [
+                        "((0.02 + 5 * currentAP / 100000) * expectedHealth) * magicMod"
+                    ],
+                    [
+                        "((0.025 + 5 * currentAP / 100000) * expectedHealth) * magicMod"
+                    ]
+                ]
+            },
+            "type": {
+                "Q": "physical",
+                "E": "magic",
+                "R": "magic"
+            },
+            "aoe": {
+                "Q": "false",
+                "E": "true",
+                "R": "true"
+            },
+            "variation": {
+                "E": [
+                    [
+                        "2 * (55 + 0.6 * currentAP) * magicMod"
+                    ],
+                    [
+                        "2 * (95 + 0.6 * currentAP) * magicMod"
+                    ],
+                    [
+                        "2 * (135 + 0.6 * currentAP) * magicMod"
+                    ],
+                    [
+                        "2 * (175 + 0.6 * currentAP) * magicMod"
+                    ],
+                    [
+                        "2 * (215 + 0.6 * currentAP) * magicMod"
+                    ]
+                ],
+                "R": [
+                    [
+                        "30 * ((0.015 + 5 * currentAP / 100000) * expectedHealth) * magicMod"
+                    ],
+                    [
+                        "30 * ((0.02 + 5 * currentAP / 100000) * expectedHealth) * magicMod"
+                    ],
+                    [
+                        "30 * ((0.025 + 5 * currentAP / 100000) * expectedHealth) * magicMod"
+                    ]
+                ]
+            }
+        }
+    }
+}

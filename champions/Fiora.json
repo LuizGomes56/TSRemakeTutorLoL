@@ -1,0 +1,151 @@
+{
+    "Fiora": {
+        "spells": {
+            "P": [
+                [
+                    "(0.03 + (0.0004 * bonusAD)) * expectedHealth"
+                ],
+                [
+                    "(0.03 + (0.0004 * bonusAD)) * expectedHealth"
+                ],
+                [
+                    "(0.03 + (0.0004 * bonusAD)) * expectedHealth"
+                ],
+                [
+                    "(0.03 + (0.0004 * bonusAD)) * expectedHealth"
+                ],
+                [
+                    "(0.03 + (0.0004 * bonusAD)) * expectedHealth"
+                ],
+                [
+                    "(0.03 + (0.0004 * bonusAD)) * expectedHealth"
+                ],
+                [
+                    "(0.03 + (0.0004 * bonusAD)) * expectedHealth"
+                ],
+                [
+                    "(0.03 + (0.0004 * bonusAD)) * expectedHealth"
+                ],
+                [
+                    "(0.03 + (0.0004 * bonusAD)) * expectedHealth"
+                ],
+                [
+                    "(0.03 + (0.0004 * bonusAD)) * expectedHealth"
+                ],
+                [
+                    "(0.03 + (0.0004 * bonusAD)) * expectedHealth"
+                ],
+                [
+                    "(0.03 + (0.0004 * bonusAD)) * expectedHealth"
+                ],
+                [
+                    "(0.03 + (0.0004 * bonusAD)) * expectedHealth"
+                ],
+                [
+                    "(0.03 + (0.0004 * bonusAD)) * expectedHealth"
+                ],
+                [
+                    "(0.03 + (0.0004 * bonusAD)) * expectedHealth"
+                ],
+                [
+                    "(0.03 + (0.0004 * bonusAD)) * expectedHealth"
+                ],
+                [
+                    "(0.03 + (0.0004 * bonusAD)) * expectedHealth"
+                ],
+                [
+                    "(0.03 + (0.0004 * bonusAD)) * expectedHealth"
+                ]
+            ],
+            "Q": [
+                [
+                    "(70 + (0.9 * bonusAD)) * physicalMod"
+                ], 
+                [
+                    "(80 + (0.95 * bonusAD)) * physicalMod"
+                ], 
+                [
+                    "(90 + bonusAD) * physicalMod"
+                ],
+                [
+                    "(100 + (1.05 * bonusAD)) * physicalMod"
+                ],
+                [
+                    "(110 + (1.1 * bonusAD)) * physicalMod"
+                ]
+            ],
+            "W": [
+                [
+                    "(110 + currentAP) * magicMod"
+                ],
+                [
+                    "(150 + currentAP) * magicMod"
+                ],
+                [
+                    "(190 + currentAP) * magicMod"
+                ],
+                [
+                    "(230 + currentAP) * magicMod"
+                ],
+                [
+                    "(270 + currentAP) * magicMod"
+                ]
+            ],
+            "E": [
+                [
+                    "(currentAD * 1.6) * physicalMod"
+                ],
+                [
+                    "(currentAD * 1.7) * physicalMod"
+                ],
+                [
+                    "(currentAD * 1.8) * physicalMod"
+                ],
+                [
+                    "(currentAD * 1.9) * physicalMod"
+                ],
+                [
+                    "(currentAD * 2) * physicalMod"
+                ]
+            ],
+            "R": [
+                [
+                    "(0.03 + (0.0004 * bonusAD)) * expectedHealth"
+                ],
+                [
+                    "(0.03 + (0.0004 * bonusAD)) * expectedHealth"
+                ],
+                [
+                    "(0.03 + (0.0004 * bonusAD)) * expectedHealth"
+                ]
+            ]
+        },
+        "type": {
+            "P": "true",
+            "Q": "physical",
+            "W": "magic",
+            "E": "physical",
+            "R": "true"
+        },
+        "aoe": {
+            "P": "false",
+            "Q": "false",
+            "W": "true",
+            "E": "false",
+            "R": "false"
+        },
+        "variation": {
+            "R": [
+                [
+                    "4 * (0.03 + (0.0004 * bonusAD)) * expectedHealth"
+                ],
+                [
+                    "4 * (0.03 + (0.0004 * bonusAD)) * expectedHealth"
+                ],
+                [
+                    "4 * (0.03 + (0.0004 * bonusAD)) * expectedHealth"
+                ]
+            ]
+        }
+    }
+}

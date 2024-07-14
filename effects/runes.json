@@ -1,0 +1,63 @@
+{
+  "type": "runes",
+  "version": "14.2.1",
+  "data": {
+    "8112": {
+      "name": "Electrocute",
+      "type": "adaptative",
+      "effect": "(30 + ((190 / 17) * (level - 1)) + (0.1 * bonusAD) + (0.05 * currentAP)) * adaptative"
+    },
+    "8439": {
+      "name": "Aftershock",
+      "type": "adaptative",
+      "effect": "(25 + ((95 / 17) * (level - 1)) + (0.08 * bonusHP)) * magicMod"
+    },
+    "8128": {
+      "name": "Dark Harvest",
+      "type": "adaptative",
+      "effect": "(20 + ((60 / 17) * (level - 1)) + (0.1 * bonusAD) + (0.05 * currentAP)) * adaptative"
+    },
+    "8005": {
+      "name": "Press The Attack",
+      "type": "adaptative",
+      "effect": "(40 + ((120 / 17) * (level - 1))) * adaptative",
+      "effect2": "0.08"
+    },
+    "8143": {
+      "name": "Sudden Impact",
+      "type": "true",
+      "effect": "20 + (60 / 17 * (level - 1)"
+    },
+    "8214": {
+      "name": "Aery",
+      "type": "adaptative",
+      "effect": "(10 + ((40 / 17) * (level - 1)) + (0.1 * bonusAD) + (0.05 * currentAP)) * adaptative"
+    },
+    "8124": {
+      "name": "Predator",
+      "type": "adaptative",
+      "effect": "(20 + ((160 / 17) * (level - 1)) + ((0.25 * bonusAD + 0.15 * currentAP))) * adaptative"
+    },
+    "8229": {
+      "name": "Comet",
+      "type": "adaptative",
+      "effect": "(30 + ((100 / 17) * (level - 1)) + ((0.1 * bonusAD) + (0.05 * currentAP))) * adaptative"
+    },
+    "8126": {
+      "name": "Cheap Shot",
+      "type": "true",
+      "effect": "10 + ((35 / 17) * (level - 1))"
+    },
+    "8237": {
+      "name": "Scorch",
+      "type": "magic",
+      "effect": "(20 + ((20 / 17) * (level - 1))) * magicMod"
+    },
+    "8437": {
+      "name": "Grasp",
+      "type": "magic",
+      "melee": "(0.035 * maxHP) * magicMod",
+      "ranged": "(0.021 * maxHP) * magicMod"
+    }
+  }
+}

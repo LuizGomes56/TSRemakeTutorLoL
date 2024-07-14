@@ -1,0 +1,185 @@
+{
+    "Shaco": {
+        "spells": {
+            "P": [
+                [
+                    "((20 + 15 / 17 * (level - 1)) + (0.25 * bonusAD)) * physicalMod"
+                ],
+                [
+                    "((20 + 15 / 17 * (level - 1)) + (0.25 * bonusAD)) * physicalMod"
+                ],
+                [
+                    "((20 + 15 / 17 * (level - 1)) + (0.25 * bonusAD)) * physicalMod"
+                ],
+                [
+                    "((20 + 15 / 17 * (level - 1)) + (0.25 * bonusAD)) * physicalMod"
+                ],
+                [
+                    "((20 + 15 / 17 * (level - 1)) + (0.25 * bonusAD)) * physicalMod"
+                ],
+                [
+                    "((20 + 15 / 17 * (level - 1)) + (0.25 * bonusAD)) * physicalMod"
+                ],
+                [
+                    "((20 + 15 / 17 * (level - 1)) + (0.25 * bonusAD)) * physicalMod"
+                ],
+                [
+                    "((20 + 15 / 17 * (level - 1)) + (0.25 * bonusAD)) * physicalMod"
+                ],
+                [
+                    "((20 + 15 / 17 * (level - 1)) + (0.25 * bonusAD)) * physicalMod"
+                ],
+                [
+                    "((20 + 15 / 17 * (level - 1)) + (0.25 * bonusAD)) * physicalMod"
+                ],
+                [
+                    "((20 + 15 / 17 * (level - 1)) + (0.25 * bonusAD)) * physicalMod"
+                ],
+                [
+                    "((20 + 15 / 17 * (level - 1)) + (0.25 * bonusAD)) * physicalMod"
+                ],
+                [
+                    "((20 + 15 / 17 * (level - 1)) + (0.25 * bonusAD)) * physicalMod"
+                ],
+                [
+                    "((20 + 15 / 17 * (level - 1)) + (0.25 * bonusAD)) * physicalMod"
+                ],
+                [
+                    "((20 + 15 / 17 * (level - 1)) + (0.25 * bonusAD)) * physicalMod"
+                ],
+                [
+                    "((20 + 15 / 17 * (level - 1)) + (0.25 * bonusAD)) * physicalMod"
+                ],
+                [
+                    "((20 + 15 / 17 * (level - 1)) + (0.25 * bonusAD)) * physicalMod"
+                ],
+                [
+                    "((20 + 15 / 17 * (level - 1)) + (0.25 * bonusAD)) * physicalMod"
+                ]
+            ],
+            "Q": [
+                [
+                    "((25 + (0.6 * bonusAD)) * physicalMod)"
+                ], 
+                [
+                    "((35 + (0.6 * bonusAD)) * physicalMod)"
+                ],  
+                [
+                    "((45 + (0.6 * bonusAD)) * physicalMod)"
+                ], 
+                [
+                    "((55 + (0.6 * bonusAD)) * physicalMod)"
+                ], 
+                [
+                    "((65 + (0.6 * bonusAD)) * physicalMod)"
+                ]
+            ],
+            "W": [
+                [
+                    "(10 + (0.12 * currentAP)) * magicMod"
+                ],
+                [
+                    "(15 + (0.12 * currentAP)) * magicMod"
+                ],
+                [
+                    "(20 + (0.12 * currentAP)) * magicMod"
+                ],
+                [
+                    "(25 + (0.12 * currentAP)) * magicMod"
+                ],
+                [
+                    "(30 + (0.12 * currentAP)) * magicMod"
+                ]
+            ],
+            "E": [
+                [
+                    "(70 + (0.6 * currentAP) + (0.8 * bonusAD)) * magicMod"
+                ],
+                [
+                    "(95 + (0.6 * currentAP) + (0.8 * bonusAD)) * magicMod"
+                ],
+                [
+                    "(120 + (0.6 * currentAP) + (0.8 * bonusAD)) * magicMod"
+                ],
+                [
+                    "(145 + (0.6 * currentAP) + (0.8 * bonusAD)) * magicMod"
+                ],
+                [
+                    "(170 + (0.6 * currentAP) + (0.8 * bonusAD)) * magicMod"
+                ]
+            ],
+            "R": [
+                [
+                    "(150 + (0.7 * currentAP)) * magicMod"
+                ],
+                [
+                    "(225 + (0.7 * currentAP)) * magicMod"
+                ],
+                [
+                    "(300 + (0.7 * currentAP)) * magicMod"
+                ]
+            ]
+        },
+        "type": {
+            "P": "physical",
+            "Q": "physical",
+            "W": "magic",
+            "E": "magic",
+            "R": "magic"
+        },
+        "aoe": {
+            "P": "false",
+            "Q": "false",
+            "W": "true",
+            "E": "false",
+            "R": "true"
+        },
+        "variation": {
+            "W": [
+                [
+                    "(25 + (0.18 * currentAP) * 10) * magicMod"
+                ],
+                [
+                    "(40 + (0.18 * currentAP) * 10) * magicMod"
+                ],
+                [
+                    "(55 + (0.18 * currentAP) * 10) * magicMod"
+                ],
+                [
+                    "(70 + (0.18 * currentAP) * 10) * magicMod"
+                ],
+                [
+                    "(85 + (0.18 * currentAP) * 10) * magicMod"
+                ]
+            ],
+            "E": [
+                [
+                    "1.5 * (70 + (0.6 * currentAP) + (0.8 * bonusAD)) * magicMod"
+                ],
+                [
+                    "1.5 * (95 + (0.6 * currentAP) + (0.8 * bonusAD)) * magicMod"
+                ],
+                [
+                    "1.5 * (120 + (0.6 * currentAP) + (0.8 * bonusAD)) * magicMod"
+                ],
+                [
+                    "1.5 * (145 + (0.6 * currentAP) + (0.8 * bonusAD)) * magicMod"
+                ],
+                [
+                    "1.5 * (170 + (0.6 * currentAP) + (0.8 * bonusAD)) * magicMod"
+                ]
+            ],
+            "R": [
+                [
+                    "(25 + (0.15 * currentAP) * 10) * magicMod"
+                ],
+                [
+                    "(50 + (0.15 * currentAP) * 10) * magicMod"
+                ],
+                [
+                    "(75 + (0.15 * currentAP) * 10) * magicMod"
+                ]
+            ]
+        }
+    }
+}

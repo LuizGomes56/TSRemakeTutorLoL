@@ -1,0 +1,80 @@
+{
+    "Yasuo": {
+        "spells": {
+            "Q": [
+                [
+                    "((20 + (1.05 * currentAD)) * physicalMod * steelcapsEffect) - attackReductionEffect"
+                ], 
+                [
+                    "((45 + (1.05 * currentAD)) * physicalMod * steelcapsEffect) - attackReductionEffect"
+                ],  
+                [
+                    "((70 + (1.05 * currentAD)) * physicalMod * steelcapsEffect) - attackReductionEffect"
+                ], 
+                [
+                    "((95 + (1.05 * currentAD)) * physicalMod * steelcapsEffect) - attackReductionEffect"
+                ], 
+                [
+                    "((120 + (1.05 * currentAD)) * physicalMod * steelcapsEffect) - attackReductionEffect"
+                ]
+            ],
+            "E": [
+                [
+                    "((60 + (0.6 * currentAP) + (bonusAD * 0.2)) * magicMod)"
+                ],
+                [
+                    "((70 + (0.6 * currentAP) + (bonusAD * 0.2)) * magicMod)"
+                ],
+                [
+                    "((80 + (0.6 * currentAP) + (bonusAD * 0.2)) * magicMod)"
+                ],
+                [
+                    "((90 + (0.6 * currentAP) + (bonusAD * 0.2)) * magicMod)"
+                ],
+                [
+                    "((100 + (0.6 * currentAP) + (bonusAD * 0.2)) * magicMod)"
+                ]
+            ],
+            "R": [
+                [
+                    "(200 + (1.5 * bonusAD)) * physicalMod"
+                ],
+                [
+                    "(350 + (1.5 * bonusAD)) * physicalMod"
+                ],
+                [
+                    "(500 + (1.5 * bonusAD)) * physicalMod"
+                ]
+            ]
+        },
+        "type": {
+            "Q": "physical",
+            "E": "magic",
+            "R": "physical"
+        },
+        "aoe": {
+            "Q": "true",
+            "E": "false",
+            "R": "false"
+        },
+        "variation": {
+            "E": [
+                [
+                    "(1 + 0.6 + 0.4 / 17 * (level - 1)) * ((60 + (0.6 * currentAP) + (bonusAD * 0.2)) * magicMod)"
+                ],
+                [
+                    "(1 + 0.6 + 0.4 / 17 * (level - 1)) * ((70 + (0.6 * currentAP) + (bonusAD * 0.2)) * magicMod)"
+                ],
+                [
+                    "(1 + 0.6 + 0.4 / 17 * (level - 1)) * ((80 + (0.6 * currentAP) + (bonusAD * 0.2)) * magicMod)"
+                ],
+                [
+                    "(1 + 0.6 + 0.4 / 17 * (level - 1)) * ((90 + (0.6 * currentAP) + (bonusAD * 0.2)) * magicMod)"
+                ],
+                [
+                    "(1 + 0.6 + 0.4 / 17 * (level - 1)) * ((100 + (0.6 * currentAP) + (bonusAD * 0.2)) * magicMod)"
+                ]
+            ]
+        }
+    }
+}

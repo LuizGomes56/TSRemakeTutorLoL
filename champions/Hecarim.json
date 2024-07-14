@@ -1,0 +1,133 @@
+{
+    "Hecarim": {
+        "spells": {
+            "Q": [
+                [
+                    "(60 + (0.9 * bonusAD)) * physicalMod"
+                ], 
+                [
+                    "(85 + (0.9 * bonusAD)) * physicalMod"
+                ],  
+                [
+                    "(110 + (0.9 * bonusAD)) * physicalMod"
+                ], 
+                [
+                    "(135 + (0.9 * bonusAD)) * physicalMod"
+                ], 
+                [
+                    "(160 + (0.9 * bonusAD)) * physicalMod"
+                ]
+            ],
+            "W": [
+                [
+                    "(20 + (0.2 * currentAP)) * magicMod"
+                ],
+                [
+                    "(30 + (0.2 * currentAP)) * magicMod"
+                ],
+                [
+                    "(40 + (0.2 * currentAP)) * magicMod"
+                ],
+                [
+                    "(50 + (0.2 * currentAP)) * magicMod"
+                ],
+                [
+                    "(60 + (0.2 * currentAP)) * magicMod"
+                ]
+            ],
+            "E": [
+                [
+                    "(30 + (0.5 * bonusAD)) * physicalMod"
+                ],
+                [
+                    "(45 + (0.5 * bonusAD)) * physicalMod"
+                ],
+                [
+                    "(60 + (0.5 * bonusAD)) * physicalMod"
+                ],
+                [
+                    "(75 + (0.5 * bonusAD)) * physicalMod"
+                ],
+                [
+                    "(90 + (0.5 * bonusAD)) * physicalMod"
+                ]
+            ],
+            "R": [
+                [
+                    "(150 + currentAP) * magicMod"
+                ],
+                [
+                    "(250 + currentAP) * magicMod"
+                ],
+                [
+                    "(350 + currentAP) * magicMod"
+                ]
+            ]
+        },
+        "type": {
+            "Q": "physical",
+            "W": "magic",
+            "E": "physical",
+            "R": "magic"
+        },
+        "aoe": {
+            "Q": "true",
+            "W": "true",
+            "E": "false",
+            "R": "true"
+        },
+        "variation": {
+            "Q": [
+                [
+                    "(1.09 + 12 * bonusAD / 10000) * (60 + (0.9 * bonusAD)) * physicalMod"
+                ], 
+                [
+                    "(1.09 + 12 * bonusAD / 10000) * (85 + (0.9 * bonusAD)) * physicalMod"
+                ],  
+                [
+                    "(1.09 + 12 * bonusAD / 10000) * (110 + (0.9 * bonusAD)) * physicalMod"
+                ], 
+                [
+                    "(1.09 + 12 * bonusAD / 10000) * (135 + (0.9 * bonusAD)) * physicalMod"
+                ], 
+                [
+                    "(1.09 + 12 * bonusAD / 10000) * (160 + (0.9 * bonusAD)) * physicalMod"
+                ]
+            ],
+            "W": [
+                [
+                    "4 * (20 + (0.2 * currentAP)) * magicMod"
+                ],
+                [
+                    "4 * (30 + (0.2 * currentAP)) * magicMod"
+                ],
+                [
+                    "4 * (40 + (0.2 * currentAP)) * magicMod"
+                ],
+                [
+                    "4 * (50 + (0.2 * currentAP)) * magicMod"
+                ],
+                [
+                    "4 * (60 + (0.2 * currentAP)) * magicMod"
+                ]
+            ],
+            "E": [
+                [
+                    "2 * (30 + (0.5 * bonusAD)) * physicalMod"
+                ],
+                [
+                    "2 * (45 + (0.5 * bonusAD)) * physicalMod"
+                ],
+                [
+                    "2 * (60 + (0.5 * bonusAD)) * physicalMod"
+                ],
+                [
+                    "2 * (75 + (0.5 * bonusAD)) * physicalMod"
+                ],
+                [
+                    "2 * (90 + (0.5 * bonusAD)) * physicalMod"
+                ]
+            ]
+        }
+    }
+}

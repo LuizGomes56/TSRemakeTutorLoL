@@ -1,0 +1,80 @@
+{
+    "Amumu": {
+        "spells": {
+            "Q": [
+                [
+                    "(70 + 0.85 * currentAP) * magicMod"
+                ], 
+                [
+                    "(95 + 0.85 * currentAP) * magicMod"
+                ],  
+                [
+                    "(120 + 0.85 * currentAP) * magicMod"
+                ], 
+                [
+                    "(145 + 0.85 * currentAP) * magicMod"
+                ], 
+                [
+                    "(170 + 0.85 * currentAP) * magicMod"
+                ]
+            ],
+            "W": [
+                [
+                    "(7 + (0.005 + 25 * currentAP / 1000000) * expectedHealth) * magicMod"
+                ],
+                [
+                    "(7 + (0.00625 + 25 * currentAP / 1000000) * expectedHealth) * magicMod"
+                ],
+                [
+                    "(7 + (0.0075 + 25 * currentAP / 1000000) * expectedHealth) * magicMod"
+                ],
+                [
+                    "(7 + (0.00875 + 25 * currentAP / 1000000) * expectedHealth) * magicMod"
+                ],
+                [
+                    "(7 + (0.01 + 25 * currentAP / 1000000) * expectedHealth) * magicMod"
+                ]
+            ],
+            "E": [
+                [
+                    "(65 + 0.5 * currentAP) * magicMod"
+                ],
+                [
+                    "(100 + 0.5 * currentAP) * magicMod"
+                ],
+                [
+                    "(135 + 0.5 * currentAP) * magicMod"
+                ],
+                [
+                    "(170 + 0.5 * currentAP) * magicMod"
+                ],
+                [
+                    "(205 + 0.5 * currentAP) * magicMod"
+                ]
+            ],
+            "R": [
+                [
+                    "(200 + 0.8 * currentAP) * magicMod"
+                ],
+                [
+                    "(300 + 0.8 * currentAP) * magicMod"
+                ],
+                [
+                    "(400 + 0.8 * currentAP) * magicMod"
+                ]
+            ]
+        },
+        "type": {
+            "Q": "magic",
+            "W": "magic",
+            "E": "magic",
+            "R": "magic"
+        },
+        "aoe": {
+            "Q": "false",
+            "W": "true",
+            "E": "true",
+            "R": "true"
+        }
+    }
+}

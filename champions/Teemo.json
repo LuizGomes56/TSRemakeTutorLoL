@@ -1,0 +1,91 @@
+{
+    "Teemo": {
+        "spells": {
+            "Q": [
+                [
+                    "(80 + (0.8 * currentAP)) * magicMod"
+                ],
+                [
+                    "(125 + (0.8 * currentAP)) * magicMod"
+                ],
+                [
+                    "(170 + (0.8 * currentAP)) * magicMod"
+                ],
+                [
+                    "(215 + (0.8 * currentAP)) * magicMod"
+                ],
+                [
+                    "(260 + (0.8 * currentAP)) * magicMod"
+                ]
+            ],
+            "E": [
+                [
+                    "(14 + (0.3 * currentAP)) * magicMod"
+                ],
+                [
+                    "(27 + (0.3 * currentAP)) * magicMod"
+                ],
+                [
+                    "(40 + (0.3 * currentAP)) * magicMod"
+                ],
+                [
+                    "(53 + (0.3 * currentAP)) * magicMod"
+                ],
+                [
+                    "(66 + (0.3 * currentAP)) * magicMod"
+                ]
+            ],
+            "R": [
+                [
+                    "((50 + (0.1375 * currentAP)) * magicMod)"
+                ],
+                [
+                    "((81.25 + (0.1375 * currentAP)) * magicMod)"
+                ],
+                [
+                    "((112.5 + (0.1375 * currentAP)) * magicMod)"
+                ]
+            ]
+        },
+        "type": {
+            "Q": "magic",
+            "E": "magic",
+            "R": "magic"
+        },
+        "aoe": {
+            "Q": "false",
+            "E": "false",
+            "R": "true"
+        },
+        "variation": {
+            "E": [
+                [
+                    "(24 + (0.4 * currentAP)) * magicMod"
+                ],
+                [
+                    "(48 + (0.4 * currentAP)) * magicMod"
+                ],
+                [
+                    "(72 + (0.4 * currentAP)) * magicMod"
+                ],  
+                [
+                    "(96 + (0.4 * currentAP)) * magicMod"
+                ], 
+                [
+                    "(120 + (0.4 * currentAP)) * magicMod"
+                ] 
+            ],
+            "R": [
+                [
+                    "(200 + 0.55 * currentAP) * magicMod"
+                ],
+                [
+                    "(325 + 0.55 * currentAP) * magicMod"
+                ],
+                [
+                    "(450 + 0.55 * currentAP) * magicMod"
+                ]
+            ]
+        }
+    }
+}

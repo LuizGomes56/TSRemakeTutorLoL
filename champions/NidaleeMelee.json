@@ -1,0 +1,86 @@
+{
+    "NidaleeMelee": {
+        "spells": {
+            "Q": [
+                [
+                    "(5 + 0.4 * currentAP + 0.75 * currentAD) * magicMod"
+                ],
+                [
+                    "(30 + 0.4 * currentAP + 0.75 * currentAD) * magicMod"
+                ], 
+                [
+                    "(55 + 0.4 * currentAP + 0.75 * currentAD) * magicMod"
+                ],
+                [
+                    "(80 + 0.4 * currentAP + 0.75 * currentAD) * magicMod"
+                ],
+                [
+                    "(105 + 0.4 * currentAP + 0.75 * currentAD) * magicMod"
+                ]
+            ],
+            "W": [
+                [
+                    "(60 + 0.3 * currentAP) * magicMod"
+                ],
+                [
+                    "(110 + 0.3 * currentAP) * magicMod"
+                ],
+                [
+                    "(160 + 0.3 * currentAP) * magicMod"
+                ],
+                [
+                    "(210 + 0.3 * currentAP) * magicMod"
+                ],
+                [
+                    "(260 + 0.3 * currentAP) * magicMod"
+                ]
+            ],
+            "E": [
+                [
+                    "(80 + 0.4 * bonusAD + 0.45 * currentAP) * magicMod"
+                ],
+                [
+                    "(140 + 0.4 * bonusAD + 0.45 * currentAP) * magicMod"
+                ],
+                [
+                    "(200 + 0.4 * bonusAD + 0.45 * currentAP) * magicMod"
+                ],
+                [
+                    "(260 + 0.4 * bonusAD + 0.45 * currentAP) * magicMod"
+                ],
+                [
+                    "(320 + 0.4 * bonusAD + 0.45 * currentAP) * magicMod"
+                ]
+            ]
+        },
+        "type": {
+            "Q": "magic",
+            "W": "magic",
+            "E": "magic"
+        },
+        "aoe": {
+            "Q": "false",
+            "W": "true",
+            "E": "true"
+        },
+        "variation": {
+            "Q": [
+                [
+                    "(13 + 1.04 * currentAP + 1.95 * currentAD) * magicMod"
+                ],
+                [
+                    "(87.75 + 1.17 * currentAP + 2.19375 * currentAD) * magicMod"
+                ],
+                [
+                    "(178.75 + 1.3 * currentAP + 2.4375 * currentAD) * magicMod"
+                ],
+                [
+                    "(286 + 1.43 * currentAP + 2.68125 * currentAD) * magicMod"
+                ],
+                [
+                    "(375.25 + 1.56 * currentAP + 2.925 * currentAD) * magicMod"
+                ]
+            ]
+        }
+    }
+}
