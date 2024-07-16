@@ -158,8 +158,8 @@ const Evaluate = (x: string | null | undefined, y: string | null | undefined, z:
     let t = w ? { ...r, ...w } : r;
 
     for (const [k, v] of Object.entries(t)) {
-        if (x) x = x.replace(new RegExp(k, 'g'), String(v));
-        if (y) y = y.replace(new RegExp(k, 'g'), String(v));
+        if (x) { x = x.replace(new RegExp(k, 'g'), String(v)); };
+        if (y) { y = y.replace(new RegExp(k, 'g'), String(v)); };
     }
 
     let n = x ? eval(x) : null;

@@ -1,12 +1,9 @@
-import { Router, Response } from 'express';
-// import gamesRouter from './games.route';
+import { Router } from 'express';
+import gameRouter from './game.route';
+// import lolRouter from './lol.route';
 
 const router = Router();
 
-router.post('/', (res: Response) => {
-    res.send('API running');
-});
-
-// router.use('/games', gamesRouter);
+router.use('/game', gameRouter);
 
 export default router;

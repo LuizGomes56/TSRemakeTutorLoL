@@ -18,7 +18,7 @@ export interface StatProps {
 
 export interface LocalAbilityProps {
     min: number;
-    max: number | null;
+    max?: number | null;
     type: string;
     area?: boolean;
 }
