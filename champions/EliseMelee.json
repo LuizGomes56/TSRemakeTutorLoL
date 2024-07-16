@@ -1,106 +1,47 @@
 {
-    "EliseMelee": {
-        "spells": {
-            "P": [
-                [
-                    "(12 + (0.2 * currentAP)) * magicMod"
-                ],
-                [
-                    "(12 + (0.2 * currentAP)) * magicMod"
-                ],
-                [
-                    "(12 + (0.2 * currentAP)) * magicMod"
-                ],
-                [
-                    "(12 + (0.2 * currentAP)) * magicMod"
-                ],
-                [
-                    "(12 + (0.2 * currentAP)) * magicMod"
-                ],
-                [
-                    "(22 + (0.2 * currentAP)) * magicMod"
-                ],
-                [
-                    "(22 + (0.2 * currentAP)) * magicMod"
-                ],
-                [
-                    "(22 + (0.2 * currentAP)) * magicMod"
-                ],
-                [
-                    "(22 + (0.2 * currentAP)) * magicMod"
-                ],
-                [
-                    "(22 + (0.2 * currentAP)) * magicMod"
-                ],
-                [
-                    "(32 + (0.2 * currentAP)) * magicMod"
-                ],
-                [
-                    "(32 + (0.2 * currentAP)) * magicMod"
-                ],
-                [
-                    "(32 + (0.2 * currentAP)) * magicMod"
-                ],
-                [
-                    "(32 + (0.2 * currentAP)) * magicMod"
-                ],
-                [
-                    "(32 + (0.2 * currentAP)) * magicMod"
-                ],
-                [
-                    "(42 + (0.2 * currentAP)) * magicMod"
-                ],
-                [
-                    "(42 + (0.2 * currentAP)) * magicMod"
-                ],
-                [
-                    "(42 + (0.2 * currentAP)) * magicMod"
-                ]
-            ],
-            "Q": [
-                [
-                    "60 * magicMod"
-                ],
-                [
-                    "90 * magicMod"
-                ],
-                [
-                    "120 * magicMod"
-                ],
-                [
-                    "150 * magicMod"
-                ],
-                [
-                    "180 * magicMod"
-                ]
-            ]
-        },
-        "type": {
-            "P": "magic",
-            "Q": "magic"
-        },
-        "aoe": {
-            "P": "false",
-            "Q": "false"
-        },
-        "variation" : {
-            "Q": [
-                [
-                    "(60 + ((0.08 + 3 * currentAP / 10000) * expectedHealth)) * magicMod"
-                ], 
-                [
-                    "(90 + ((0.08 + 3 * currentAP / 10000) * expectedHealth)) * magicMod"
-                ], 
-                [
-                    "(120 + ((0.08 + 3 * currentAP / 10000) * expectedHealth)) * magicMod"
-                ],
-                [
-                    "(150 + ((0.08 + 3 * currentAP / 10000) * expectedHealth)) * magicMod"
-                ],
-                [
-                    "(180 + ((0.08 + 3 * currentAP / 10000) * expectedHealth)) * magicMod"
-                ]
-            ]
-        }
+  "EliseMelee": {
+    "P": {
+      "type": "magic",
+      "area": false,
+      "min": [
+        "(12 + (0.2 * currentAP)) * magicMod",
+        "(12 + (0.2 * currentAP)) * magicMod",
+        "(12 + (0.2 * currentAP)) * magicMod",
+        "(12 + (0.2 * currentAP)) * magicMod",
+        "(12 + (0.2 * currentAP)) * magicMod",
+        "(22 + (0.2 * currentAP)) * magicMod",
+        "(22 + (0.2 * currentAP)) * magicMod",
+        "(22 + (0.2 * currentAP)) * magicMod",
+        "(22 + (0.2 * currentAP)) * magicMod",
+        "(22 + (0.2 * currentAP)) * magicMod",
+        "(32 + (0.2 * currentAP)) * magicMod",
+        "(32 + (0.2 * currentAP)) * magicMod",
+        "(32 + (0.2 * currentAP)) * magicMod",
+        "(32 + (0.2 * currentAP)) * magicMod",
+        "(32 + (0.2 * currentAP)) * magicMod",
+        "(42 + (0.2 * currentAP)) * magicMod",
+        "(42 + (0.2 * currentAP)) * magicMod",
+        "(42 + (0.2 * currentAP)) * magicMod"
+      ],
+      "max": []
+    },
+    "Q": {
+      "type": "magic",
+      "area": false,
+      "min": [
+        "60 * magicMod",
+        "90 * magicMod",
+        "120 * magicMod",
+        "150 * magicMod",
+        "180 * magicMod"
+      ],
+      "max": [
+        "(60 + ((0.08 + 3 * currentAP / 10000) * expectedHealth)) * magicMod",
+        "(90 + ((0.08 + 3 * currentAP / 10000) * expectedHealth)) * magicMod",
+        "(120 + ((0.08 + 3 * currentAP / 10000) * expectedHealth)) * magicMod",
+        "(150 + ((0.08 + 3 * currentAP / 10000) * expectedHealth)) * magicMod",
+        "(180 + ((0.08 + 3 * currentAP / 10000) * expectedHealth)) * magicMod"
+      ]
     }
+  }
 }

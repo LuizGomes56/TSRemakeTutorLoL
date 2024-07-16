@@ -1,166 +1,79 @@
 {
-    "Talon": {
-        "spells": {
-            "P": [
-                [
-                    "(80 + 200 / 17 * (level - 1) + 2.1 * bonusAD) * physicalMod"
-                ],
-                [
-                    "(80 + 200 / 17 * (level - 1) + 2.1 * bonusAD) * physicalMod"
-                ],
-                [
-                    "(80 + 200 / 17 * (level - 1) + 2.1 * bonusAD) * physicalMod"
-                ],
-                [
-                    "(80 + 200 / 17 * (level - 1) + 2.1 * bonusAD) * physicalMod"
-                ],
-                [
-                    "(80 + 200 / 17 * (level - 1) + 2.1 * bonusAD) * physicalMod"
-                ],
-                [
-                    "(80 + 200 / 17 * (level - 1) + 2.1 * bonusAD) * physicalMod"
-                ],
-                [
-                    "(80 + 200 / 17 * (level - 1) + 2.1 * bonusAD) * physicalMod"
-                ],
-                [
-                    "(80 + 200 / 17 * (level - 1) + 2.1 * bonusAD) * physicalMod"
-                ],
-                [
-                    "(80 + 200 / 17 * (level - 1) + 2.1 * bonusAD) * physicalMod"
-                ],
-                [
-                    "(80 + 200 / 17 * (level - 1) + 2.1 * bonusAD) * physicalMod"
-                ],
-                [
-                    "(80 + 200 / 17 * (level - 1) + 2.1 * bonusAD) * physicalMod"
-                ],
-                [
-                    "(80 + 200 / 17 * (level - 1) + 2.1 * bonusAD) * physicalMod"
-                ],
-                [
-                    "(80 + 200 / 17 * (level - 1) + 2.1 * bonusAD) * physicalMod"
-                ],
-                [
-                    "(80 + 200 / 17 * (level - 1) + 2.1 * bonusAD) * physicalMod"
-                ],
-                [
-                    "(80 + 200 / 17 * (level - 1) + 2.1 * bonusAD) * physicalMod"
-                ],
-                [
-                    "(80 + 200 / 17 * (level - 1) + 2.1 * bonusAD) * physicalMod"
-                ],
-                [
-                    "(80 + 200 / 17 * (level - 1) + 2.1 * bonusAD) * physicalMod"
-                ],
-                [
-                    "(80 + 200 / 17 * (level - 1) + 2.1 * bonusAD) * physicalMod"
-                ]
-            ],
-            "Q": [
-                [
-                    "(65 + bonusAD) * physicalMod"
-                ],
-                [
-                    "(85 + bonusAD) * physicalMod"
-                ],
-                [
-                    "(105 + bonusAD) * physicalMod"
-                ],
-                [
-                    "(125 + bonusAD) * physicalMod"
-                ],
-                [
-                    "(145 + bonusAD) * physicalMod"
-                ]
-            ],
-            "W": [
-                [
-                    "(40 + 0.4 * bonusAD) * physicalMod"
-                ],
-                [
-                    "(50 + 0.4 * bonusAD) * physicalMod"
-                ],
-                [
-                    "(60 + 0.4 * bonusAD) * physicalMod"
-                ],
-                [
-                    "(70 + 0.4 * bonusAD) * physicalMod"
-                ],
-                [
-                    "(80 + 0.4 * bonusAD) * physicalMod"
-                ]
-            ],
-            "R": [
-                [
-                    "(90 + bonusAD) * physicalMod"
-                ],
-                [
-                    "(135 + bonusAD) * physicalMod"
-                ],
-                [
-                    "(180 + bonusAD) * physicalMod"
-                ]
-            ]
-        },
-        "type": {
-            "P": "physical",
-            "Q": "physical",
-            "W": "physical",
-            "R": "physical"
-        },
-        "aoe": {
-            "P": "false",
-            "Q": "false",
-            "W": "true",
-            "R": "true"
-        },
-        "variation": {
-            "Q": [
-                [
-                    "1.5 * (65 + bonusAD) * physicalMod"
-                ],
-                [
-                    "1.5 * (85 + bonusAD) * physicalMod"
-                ],
-                [
-                    "1.5 * (105 + bonusAD) * physicalMod"
-                ],
-                [
-                    "1.5 * (125 + bonusAD) * physicalMod"
-                ],
-                [
-                    "1.5 * (145 + bonusAD) * physicalMod"
-                ]
-            ],
-            "W": [
-                [
-                    "(90 + 1.2 * bonusAD) * physicalMod"
-                ],
-                [
-                    "(130 + 1.2 * bonusAD) * physicalMod"
-                ],
-                [
-                    "(170 + 1.2 * bonusAD) * physicalMod"
-                ],  
-                [
-                    "(210 + 1.2 * bonusAD) * physicalMod"
-                ], 
-                [
-                    "(250 + 1.2 * bonusAD) * physicalMod"
-                ] 
-            ],
-            "R": [
-                [
-                    "2 * (90 + bonusAD) * physicalMod"
-                ],
-                [
-                    "2 * (135 + bonusAD) * physicalMod"
-                ],
-                [
-                    "2 * (180 + bonusAD) * physicalMod"
-                ]
-            ]
-        }
+  "Talon": {
+    "P": {
+      "type": "physical",
+      "area": false,
+      "min": [
+        "(80 + 200 / 17 * (level - 1) + 2.1 * bonusAD) * physicalMod",
+        "(80 + 200 / 17 * (level - 1) + 2.1 * bonusAD) * physicalMod",
+        "(80 + 200 / 17 * (level - 1) + 2.1 * bonusAD) * physicalMod",
+        "(80 + 200 / 17 * (level - 1) + 2.1 * bonusAD) * physicalMod",
+        "(80 + 200 / 17 * (level - 1) + 2.1 * bonusAD) * physicalMod",
+        "(80 + 200 / 17 * (level - 1) + 2.1 * bonusAD) * physicalMod",
+        "(80 + 200 / 17 * (level - 1) + 2.1 * bonusAD) * physicalMod",
+        "(80 + 200 / 17 * (level - 1) + 2.1 * bonusAD) * physicalMod",
+        "(80 + 200 / 17 * (level - 1) + 2.1 * bonusAD) * physicalMod",
+        "(80 + 200 / 17 * (level - 1) + 2.1 * bonusAD) * physicalMod",
+        "(80 + 200 / 17 * (level - 1) + 2.1 * bonusAD) * physicalMod",
+        "(80 + 200 / 17 * (level - 1) + 2.1 * bonusAD) * physicalMod",
+        "(80 + 200 / 17 * (level - 1) + 2.1 * bonusAD) * physicalMod",
+        "(80 + 200 / 17 * (level - 1) + 2.1 * bonusAD) * physicalMod",
+        "(80 + 200 / 17 * (level - 1) + 2.1 * bonusAD) * physicalMod",
+        "(80 + 200 / 17 * (level - 1) + 2.1 * bonusAD) * physicalMod",
+        "(80 + 200 / 17 * (level - 1) + 2.1 * bonusAD) * physicalMod",
+        "(80 + 200 / 17 * (level - 1) + 2.1 * bonusAD) * physicalMod"
+      ],
+      "max": []
+    },
+    "Q": {
+      "type": "physical",
+      "area": false,
+      "min": [
+        "(65 + bonusAD) * physicalMod",
+        "(85 + bonusAD) * physicalMod",
+        "(105 + bonusAD) * physicalMod",
+        "(125 + bonusAD) * physicalMod",
+        "(145 + bonusAD) * physicalMod"
+      ],
+      "max": [
+        "1.5 * (65 + bonusAD) * physicalMod",
+        "1.5 * (85 + bonusAD) * physicalMod",
+        "1.5 * (105 + bonusAD) * physicalMod",
+        "1.5 * (125 + bonusAD) * physicalMod",
+        "1.5 * (145 + bonusAD) * physicalMod"
+      ]
+    },
+    "W": {
+      "type": "physical",
+      "area": true,
+      "min": [
+        "(40 + 0.4 * bonusAD) * physicalMod",
+        "(50 + 0.4 * bonusAD) * physicalMod",
+        "(60 + 0.4 * bonusAD) * physicalMod",
+        "(70 + 0.4 * bonusAD) * physicalMod",
+        "(80 + 0.4 * bonusAD) * physicalMod"
+      ],
+      "max": [
+        "(90 + 1.2 * bonusAD) * physicalMod",
+        "(130 + 1.2 * bonusAD) * physicalMod",
+        "(170 + 1.2 * bonusAD) * physicalMod",
+        "(210 + 1.2 * bonusAD) * physicalMod",
+        "(250 + 1.2 * bonusAD) * physicalMod"
+      ]
+    },
+    "R": {
+      "type": "physical",
+      "area": true,
+      "min": [
+        "(90 + bonusAD) * physicalMod",
+        "(135 + bonusAD) * physicalMod",
+        "(180 + bonusAD) * physicalMod"
+      ],
+      "max": [
+        "2 * (90 + bonusAD) * physicalMod",
+        "2 * (135 + bonusAD) * physicalMod",
+        "2 * (180 + bonusAD) * physicalMod"
+      ]
     }
+  }
 }

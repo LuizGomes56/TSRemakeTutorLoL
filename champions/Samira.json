@@ -1,224 +1,104 @@
 {
-    "Samira": {
-        "spells": {
-            "P": [
-                [
-                    "((1 + level) + ((0.035 + 0.07 / 17 * (level - 1)) * currentAD)) * magicMod"
-                ],
-                [
-                    "((1 + level) + ((0.035 + 0.07 / 17 * (level - 1)) * currentAD)) * magicMod"
-                ],
-                [
-                    "((1 + level) + ((0.035 + 0.07 / 17 * (level - 1)) * currentAD)) * magicMod"
-                ],
-                [
-                    "((1 + level) + ((0.035 + 0.07 / 17 * (level - 1)) * currentAD)) * magicMod"
-                ],
-                [
-                    "((1 + level) + ((0.035 + 0.07 / 17 * (level - 1)) * currentAD)) * magicMod"
-                ],
-                [
-                    "((1 + level) + ((0.035 + 0.07 / 17 * (level - 1)) * currentAD)) * magicMod"
-                ],
-                [
-                    "((1 + level) + ((0.035 + 0.07 / 17 * (level - 1)) * currentAD)) * magicMod"
-                ],
-                [
-                    "((1 + level) + ((0.035 + 0.07 / 17 * (level - 1)) * currentAD)) * magicMod"
-                ],
-                [
-                    "((1 + level) + ((0.035 + 0.07 / 17 * (level - 1)) * currentAD)) * magicMod"
-                ],
-                [
-                    "((1 + level) + ((0.035 + 0.07 / 17 * (level - 1)) * currentAD)) * magicMod"
-                ],
-                [
-                    "((1 + level) + ((0.035 + 0.07 / 17 * (level - 1)) * currentAD)) * magicMod"
-                ],
-                [
-                    "((1 + level) + ((0.035 + 0.07 / 17 * (level - 1)) * currentAD)) * magicMod"
-                ],
-                [
-                    "((1 + level) + ((0.035 + 0.07 / 17 * (level - 1)) * currentAD)) * magicMod"
-                ],
-                [
-                    "((1 + level) + ((0.035 + 0.07 / 17 * (level - 1)) * currentAD)) * magicMod"
-                ],
-                [
-                    "(((1 + level) + ((0.035 + 0.07 / 17 * (level - 1)) * currentAD)) * magicMod"
-                ],
-                [
-                    "((1 + level) + ((0.035 + 0.07 / 17 * (level - 1)) * currentAD)) * magicMod"
-                ],
-                [
-                    "((1 + level) + ((0.035 + 0.07 / 17 * (level - 1)) * currentAD)) * magicMod"
-                ],
-                [
-                    "((1 + level) + ((0.035 + 0.07 / 17 * (level - 1)) * currentAD)) * magicMod"
-                ]
-            ],
-            "Q": [
-                [
-                    "(0 + 0.85 * currentAD) * physicalMod"
-                ],
-                [
-                    "(5 + 0.95 * currentAD) * physicalMod"
-                ],
-                [
-                    "(10 + 1.05 * currentAD) * physicalMod"
-                ],
-                [
-                    "(15 + 1.15 * currentAD) * physicalMod"
-                ],
-                [
-                    "(20 + 1.25 * currentAD) * physicalMod"
-                ]
-            ],
-            "W": [
-                [
-                    "(20 + (0.8 * bonusAD)) * physicalMod"
-                ],
-                [
-                    "(35 + (0.8 * bonusAD)) * physicalMod"
-                ],
-                [
-                    "(50 + (0.8 * bonusAD)) * physicalMod"
-                ],
-                [
-                    "(65 + (0.8 * bonusAD)) * physicalMod"
-                ],
-                [
-                    "(80 + (0.8 * bonusAD)) * physicalMod"
-                ]
-            ],
-            "E": [
-                [
-                    "(50 + (0.2 * bonusAD)) * magicMod"
-                ],
-                [
-                    "(60 + (0.2 * bonusAD)) * magicMod"
-                ],
-                [
-                    "(70 + (0.2 * bonusAD)) * magicMod"
-                ],
-                [
-                    "(80 + (0.2 * bonusAD)) * magicMod"
-                ],
-                [
-                    "(90 + (0.2 * bonusAD)) * magicMod"
-                ]
-            ],
-            "R": [
-                [
-                    "(5 + (0.5 * currentAD)) * physicalMod"
-                ],
-                [
-                    "(15 + (0.5 * currentAD)) * physicalMod"
-                ],
-                [
-                    "(25 + (0.5 * currentAD)) * physicalMod"
-                ]
-            ]
-        },
-        "type": {
-            "P": "magic",
-            "Q": "physical",
-            "W": "physical",
-            "E": "magic",
-            "R": "physical"
-        },
-        "aoe": {
-            "P": "false",
-            "Q": "true",
-            "W": "true",
-            "E": "true",
-            "R": "true"
-        },
-        "variation": {
-            "P": [
-                [
-                    "2 * ((1 + level) + ((0.035 + 0.07 / 17 * (level - 1)) * currentAD)) * magicMod"
-                ],
-                [
-                    "2 * ((1 + level) + ((0.035 + 0.07 / 17 * (level - 1)) * currentAD)) * magicMod"
-                ],
-                [
-                    "2 * ((1 + level) + ((0.035 + 0.07 / 17 * (level - 1)) * currentAD)) * magicMod"
-                ],
-                [
-                    "2 * ((1 + level) + ((0.035 + 0.07 / 17 * (level - 1)) * currentAD)) * magicMod"
-                ],
-                [
-                    "2 * ((1 + level) + ((0.035 + 0.07 / 17 * (level - 1)) * currentAD)) * magicMod"
-                ],
-                [
-                    "2 * ((1 + level) + ((0.035 + 0.07 / 17 * (level - 1)) * currentAD)) * magicMod"
-                ],
-                [
-                    "2 * ((1 + level) + ((0.035 + 0.07 / 17 * (level - 1)) * currentAD)) * magicMod"
-                ],
-                [
-                    "2 * ((1 + level) + ((0.035 + 0.07 / 17 * (level - 1)) * currentAD)) * magicMod"
-                ],
-                [
-                    "2 * ((1 + level) + ((0.035 + 0.07 / 17 * (level - 1)) * currentAD)) * magicMod"
-                ],
-                [
-                    "2 * ((1 + level) + ((0.035 + 0.07 / 17 * (level - 1)) * currentAD)) * magicMod"
-                ],
-                [
-                    "2 * ((1 + level) + ((0.035 + 0.07 / 17 * (level - 1)) * currentAD)) * magicMod"
-                ],
-                [
-                    "2 * ((1 + level) + ((0.035 + 0.07 / 17 * (level - 1)) * currentAD)) * magicMod"
-                ],
-                [
-                    "2 * ((1 + level) + ((0.035 + 0.07 / 17 * (level - 1)) * currentAD)) * magicMod"
-                ],
-                [
-                    "2 * ((1 + level) + ((0.035 + 0.07 / 17 * (level - 1)) * currentAD)) * magicMod"
-                ],
-                [
-                    "(2 * ((1 + level) + ((0.035 + 0.07 / 17 * (level - 1)) * currentAD)) * magicMod"
-                ],
-                [
-                    "2 * ((1 + level) + ((0.035 + 0.07 / 17 * (level - 1)) * currentAD)) * magicMod"
-                ],
-                [
-                    "2 * ((1 + level) + ((0.035 + 0.07 / 17 * (level - 1)) * currentAD)) * magicMod"
-                ],
-                [
-                    "2 * ((1 + level) + ((0.035 + 0.07 / 17 * (level - 1)) * currentAD)) * magicMod"
-                ]
-            ],
-            "W": [
-                [
-                    "2 * (20 + (0.8 * bonusAD)) * physicalMod"
-                ],
-                [
-                    "2 * (35 + (0.8 * bonusAD)) * physicalMod"
-                ],
-                [
-                    "2 * (50 + (0.8 * bonusAD)) * physicalMod"
-                ],
-                [
-                    "2 * (65 + (0.8 * bonusAD)) * physicalMod"
-                ],
-                [
-                    "2 * (80 + (0.8 * bonusAD)) * physicalMod"
-                ]
-            ],
-            "R": [
-                [
-                    "(5 + (0.5 * currentAD)) * 10 * physicalMod"
-                ],
-                [
-                    "(15 + (0.5 * currentAD)) * 10 * physicalMod"
-                ],
-                [
-                    "(25 + (0.5 * currentAD)) * 10 * physicalMod"
-                ]
-            ]
-        }
+  "Samira": {
+    "P": {
+      "type": "magic",
+      "area": false,
+      "min": [
+        "((1 + level) + ((0.035 + 0.07 / 17 * (level - 1)) * currentAD)) * magicMod",
+        "((1 + level) + ((0.035 + 0.07 / 17 * (level - 1)) * currentAD)) * magicMod",
+        "((1 + level) + ((0.035 + 0.07 / 17 * (level - 1)) * currentAD)) * magicMod",
+        "((1 + level) + ((0.035 + 0.07 / 17 * (level - 1)) * currentAD)) * magicMod",
+        "((1 + level) + ((0.035 + 0.07 / 17 * (level - 1)) * currentAD)) * magicMod",
+        "((1 + level) + ((0.035 + 0.07 / 17 * (level - 1)) * currentAD)) * magicMod",
+        "((1 + level) + ((0.035 + 0.07 / 17 * (level - 1)) * currentAD)) * magicMod",
+        "((1 + level) + ((0.035 + 0.07 / 17 * (level - 1)) * currentAD)) * magicMod",
+        "((1 + level) + ((0.035 + 0.07 / 17 * (level - 1)) * currentAD)) * magicMod",
+        "((1 + level) + ((0.035 + 0.07 / 17 * (level - 1)) * currentAD)) * magicMod",
+        "((1 + level) + ((0.035 + 0.07 / 17 * (level - 1)) * currentAD)) * magicMod",
+        "((1 + level) + ((0.035 + 0.07 / 17 * (level - 1)) * currentAD)) * magicMod",
+        "((1 + level) + ((0.035 + 0.07 / 17 * (level - 1)) * currentAD)) * magicMod",
+        "((1 + level) + ((0.035 + 0.07 / 17 * (level - 1)) * currentAD)) * magicMod",
+        "(((1 + level) + ((0.035 + 0.07 / 17 * (level - 1)) * currentAD)) * magicMod",
+        "((1 + level) + ((0.035 + 0.07 / 17 * (level - 1)) * currentAD)) * magicMod",
+        "((1 + level) + ((0.035 + 0.07 / 17 * (level - 1)) * currentAD)) * magicMod",
+        "((1 + level) + ((0.035 + 0.07 / 17 * (level - 1)) * currentAD)) * magicMod"
+      ],
+      "max": [
+        "2 * ((1 + level) + ((0.035 + 0.07 / 17 * (level - 1)) * currentAD)) * magicMod",
+        "2 * ((1 + level) + ((0.035 + 0.07 / 17 * (level - 1)) * currentAD)) * magicMod",
+        "2 * ((1 + level) + ((0.035 + 0.07 / 17 * (level - 1)) * currentAD)) * magicMod",
+        "2 * ((1 + level) + ((0.035 + 0.07 / 17 * (level - 1)) * currentAD)) * magicMod",
+        "2 * ((1 + level) + ((0.035 + 0.07 / 17 * (level - 1)) * currentAD)) * magicMod",
+        "2 * ((1 + level) + ((0.035 + 0.07 / 17 * (level - 1)) * currentAD)) * magicMod",
+        "2 * ((1 + level) + ((0.035 + 0.07 / 17 * (level - 1)) * currentAD)) * magicMod",
+        "2 * ((1 + level) + ((0.035 + 0.07 / 17 * (level - 1)) * currentAD)) * magicMod",
+        "2 * ((1 + level) + ((0.035 + 0.07 / 17 * (level - 1)) * currentAD)) * magicMod",
+        "2 * ((1 + level) + ((0.035 + 0.07 / 17 * (level - 1)) * currentAD)) * magicMod",
+        "2 * ((1 + level) + ((0.035 + 0.07 / 17 * (level - 1)) * currentAD)) * magicMod",
+        "2 * ((1 + level) + ((0.035 + 0.07 / 17 * (level - 1)) * currentAD)) * magicMod",
+        "2 * ((1 + level) + ((0.035 + 0.07 / 17 * (level - 1)) * currentAD)) * magicMod",
+        "2 * ((1 + level) + ((0.035 + 0.07 / 17 * (level - 1)) * currentAD)) * magicMod",
+        "(2 * ((1 + level) + ((0.035 + 0.07 / 17 * (level - 1)) * currentAD)) * magicMod",
+        "2 * ((1 + level) + ((0.035 + 0.07 / 17 * (level - 1)) * currentAD)) * magicMod",
+        "2 * ((1 + level) + ((0.035 + 0.07 / 17 * (level - 1)) * currentAD)) * magicMod",
+        "2 * ((1 + level) + ((0.035 + 0.07 / 17 * (level - 1)) * currentAD)) * magicMod"
+      ]
+    },
+    "Q": {
+      "type": "physical",
+      "area": true,
+      "min": [
+        "(0 + 0.85 * currentAD) * physicalMod",
+        "(5 + 0.95 * currentAD) * physicalMod",
+        "(10 + 1.05 * currentAD) * physicalMod",
+        "(15 + 1.15 * currentAD) * physicalMod",
+        "(20 + 1.25 * currentAD) * physicalMod"
+      ],
+      "max": []
+    },
+    "W": {
+      "type": "physical",
+      "area": true,
+      "min": [
+        "(20 + (0.8 * bonusAD)) * physicalMod",
+        "(35 + (0.8 * bonusAD)) * physicalMod",
+        "(50 + (0.8 * bonusAD)) * physicalMod",
+        "(65 + (0.8 * bonusAD)) * physicalMod",
+        "(80 + (0.8 * bonusAD)) * physicalMod"
+      ],
+      "max": [
+        "2 * (20 + (0.8 * bonusAD)) * physicalMod",
+        "2 * (35 + (0.8 * bonusAD)) * physicalMod",
+        "2 * (50 + (0.8 * bonusAD)) * physicalMod",
+        "2 * (65 + (0.8 * bonusAD)) * physicalMod",
+        "2 * (80 + (0.8 * bonusAD)) * physicalMod"
+      ]
+    },
+    "E": {
+      "type": "magic",
+      "area": true,
+      "min": [
+        "(50 + (0.2 * bonusAD)) * magicMod",
+        "(60 + (0.2 * bonusAD)) * magicMod",
+        "(70 + (0.2 * bonusAD)) * magicMod",
+        "(80 + (0.2 * bonusAD)) * magicMod",
+        "(90 + (0.2 * bonusAD)) * magicMod"
+      ],
+      "max": []
+    },
+    "R": {
+      "type": "physical",
+      "area": true,
+      "min": [
+        "(5 + (0.5 * currentAD)) * physicalMod",
+        "(15 + (0.5 * currentAD)) * physicalMod",
+        "(25 + (0.5 * currentAD)) * physicalMod"
+      ],
+      "max": [
+        "(5 + (0.5 * currentAD)) * 10 * physicalMod",
+        "(15 + (0.5 * currentAD)) * 10 * physicalMod",
+        "(25 + (0.5 * currentAD)) * 10 * physicalMod"
+      ]
     }
+  }
 }

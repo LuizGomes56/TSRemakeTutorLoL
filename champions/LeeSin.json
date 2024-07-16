@@ -1,91 +1,48 @@
 {
-    "LeeSin": {
-        "spells": {
-            "Q": [
-                [
-                    "((55 + (1.15 * bonusAD)) * physicalMod)"
-                ],
-                [
-                    "((80 + (1.15 * bonusAD)) * physicalMod)"
-                ], 
-                [
-                    "((105 + (1.15 * bonusAD)) * physicalMod)"
-                ],
-                [
-                    "((130 + (1.15 * bonusAD)) * physicalMod)"
-                ],
-                [
-                    "((155 + (1.15 * bonusAD)) * physicalMod)"
-                ]
-            ],
-            "E": [
-                [
-                    "(35 + currentAD) * magicMod"
-                ],
-                [
-                    "(60 + currentAD) * magicMod"
-                ],
-                [
-                    "(85 + currentAD) * magicMod"
-                ],
-                [
-                    "(110 + currentAD) * magicMod"
-                ],
-                [
-                    "(135 + currentAD) * magicMod"
-                ]
-            ],
-            "R": [
-                [
-                    "((175 + (2 * bonusAD)) * physicalMod)"
-                ],
-                [
-                    "((400 + (2 * bonusAD)) * physicalMod)"
-                ],
-                [
-                    "((625 + (2 * bonusAD)) * physicalMod)"
-                ]
-            ]
-        },
-        "type": {
-            "Q": "physical",
-            "E": "magic",
-            "R": "physical"
-        },
-        "aoe": {
-            "Q": "false",
-            "E": "true",
-            "R": "false"
-        },
-        "variation": {
-            "Q": [
-                [
-                    "3 * ((55 + (1.15 * bonusAD)) * physicalMod)"
-                ],
-                [
-                    "3 * ((80 + (1.15 * bonusAD)) * physicalMod)"
-                ], 
-                [
-                    "3 * ((105 + (1.15 * bonusAD)) * physicalMod)"
-                ],
-                [
-                    "3 * ((130 + (1.15 * bonusAD)) * physicalMod)"
-                ],
-                [
-                    "3 * ((155 + (1.15 * bonusAD)) * physicalMod)"
-                ]
-            ],
-            "R": [
-                [
-                    "(175 + (2 * bonusAD) + (0.12 * expectedBonusHealth)) * physicalMod"
-                ],
-                [
-                    "(400 + (2 * bonusAD) + (0.15 * expectedBonusHealth)) * physicalMod"
-                ],
-                [
-                    "(625 + (2 * bonusAD) + (0.18 * expectedBonusHealth)) * physicalMod"
-                ]
-            ]
-        }
+  "LeeSin": {
+    "Q": {
+      "type": "physical",
+      "area": false,
+      "min": [
+        "((55 + (1.15 * bonusAD)) * physicalMod)",
+        "((80 + (1.15 * bonusAD)) * physicalMod)",
+        "((105 + (1.15 * bonusAD)) * physicalMod)",
+        "((130 + (1.15 * bonusAD)) * physicalMod)",
+        "((155 + (1.15 * bonusAD)) * physicalMod)"
+      ],
+      "max": [
+        "3 * ((55 + (1.15 * bonusAD)) * physicalMod)",
+        "3 * ((80 + (1.15 * bonusAD)) * physicalMod)",
+        "3 * ((105 + (1.15 * bonusAD)) * physicalMod)",
+        "3 * ((130 + (1.15 * bonusAD)) * physicalMod)",
+        "3 * ((155 + (1.15 * bonusAD)) * physicalMod)"
+      ]
+    },
+    "E": {
+      "type": "magic",
+      "area": true,
+      "min": [
+        "(35 + currentAD) * magicMod",
+        "(60 + currentAD) * magicMod",
+        "(85 + currentAD) * magicMod",
+        "(110 + currentAD) * magicMod",
+        "(135 + currentAD) * magicMod"
+      ],
+      "max": []
+    },
+    "R": {
+      "type": "physical",
+      "area": false,
+      "min": [
+        "((175 + (2 * bonusAD)) * physicalMod)",
+        "((400 + (2 * bonusAD)) * physicalMod)",
+        "((625 + (2 * bonusAD)) * physicalMod)"
+      ],
+      "max": [
+        "(175 + (2 * bonusAD) + (0.12 * expectedBonusHealth)) * physicalMod",
+        "(400 + (2 * bonusAD) + (0.15 * expectedBonusHealth)) * physicalMod",
+        "(625 + (2 * bonusAD) + (0.18 * expectedBonusHealth)) * physicalMod"
+      ]
     }
+  }
 }

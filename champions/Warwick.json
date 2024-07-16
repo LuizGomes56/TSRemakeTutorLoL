@@ -1,100 +1,51 @@
 {
-    "Warwick": {
-        "spells": {
-            "P": [
-                [
-                    "(12 + (0.15 * bonusAD) + (0.10 * currentAP)) * magicMod"
-                ],
-                [
-                    "(14 + (0.15 * bonusAD) + (0.10 * currentAP)) * magicMod"
-                ],
-                [
-                    "(16 + (0.15 * bonusAD) + (0.10 * currentAP)) * magicMod"
-                ],
-                [
-                    "(18 + (0.15 * bonusAD) + (0.10 * currentAP)) * magicMod"
-                ],
-                [
-                    "(20 + (0.15 * bonusAD) + (0.10 * currentAP)) * magicMod"
-                ],
-                [
-                    "(22 + (0.15 * bonusAD) + (0.10 * currentAP)) * magicMod"
-                ],
-                [
-                    "(24 + (0.15 * bonusAD) + (0.10 * currentAP)) * magicMod"
-                ],
-                [
-                    "(26 + (0.15 * bonusAD) + (0.10 * currentAP)) * magicMod"
-                ],
-                [
-                    "(28 + (0.15 * bonusAD) + (0.10 * currentAP)) * magicMod"
-                ],
-                [
-                    "(30 + (0.15 * bonusAD) + (0.10 * currentAP)) * magicMod"
-                ],
-                [
-                    "(32 + (0.15 * bonusAD) + (0.10 * currentAP)) * magicMod"
-                ],
-                [
-                    "(34 + (0.15 * bonusAD) + (0.10 * currentAP)) * magicMod"
-                ],
-                [
-                    "(36 + (0.15 * bonusAD) + (0.10 * currentAP)) * magicMod"
-                ],
-                [
-                    "(38 + (0.15 * bonusAD) + (0.10 * currentAP)) * magicMod"
-                ],
-                [
-                    "(40 + (0.15 * bonusAD) + (0.10 * currentAP)) * magicMod"
-                ],
-                [
-                    "(42 + (0.15 * bonusAD) + (0.10 * currentAP)) * magicMod"
-                ],
-                [
-                    "(44 + (0.15 * bonusAD) + (0.10 * currentAP)) * magicMod"
-                ],
-                [
-                    "(46 + (0.15 * bonusAD) + (0.10 * currentAP)) * magicMod"
-                ]
-            ],
-            "Q": [
-                [
-                    "((currentAP) + (1.2 * currentAD) + (0.06 * expectedHealth)) * magicMod"
-                ], 
-                [
-                    "((currentAP) + (1.2 * currentAD) + (0.07 * expectedHealth)) * magicMod"
-                ],  
-                [
-                    "((currentAP) + (1.2 * currentAD) + (0.08 * expectedHealth)) * magicMod"
-                ], 
-                [
-                    "((currentAP) + (1.2 * currentAD) + (0.09 * expectedHealth)) * magicMod"
-                ], 
-                [
-                    "((currentAP) + (1.2 * currentAD) + (0.10 * expectedHealth)) * magicMod"
-                ]
-            ],
-            "R": [
-                [
-                    "(175 + (1.67 * bonusAD)) * magicMod" 
-                ],
-                [
-                    "(350 + (1.67 * bonusAD)) * magicMod"
-                ],
-                [
-                    "(525 + (1.67 * bonusAD)) * magicMod"
-                ]
-            ]
-        },
-        "type": {
-            "P": "magic",
-            "Q": "magic",
-            "R": "magic"
-        },
-        "aoe": {
-            "P": "false",
-            "Q": "false",
-            "R": "false"
-        }
+  "Warwick": {
+    "P": {
+      "type": "magic",
+      "area": false,
+      "min": [
+        "(12 + (0.15 * bonusAD) + (0.10 * currentAP)) * magicMod",
+        "(14 + (0.15 * bonusAD) + (0.10 * currentAP)) * magicMod",
+        "(16 + (0.15 * bonusAD) + (0.10 * currentAP)) * magicMod",
+        "(18 + (0.15 * bonusAD) + (0.10 * currentAP)) * magicMod",
+        "(20 + (0.15 * bonusAD) + (0.10 * currentAP)) * magicMod",
+        "(22 + (0.15 * bonusAD) + (0.10 * currentAP)) * magicMod",
+        "(24 + (0.15 * bonusAD) + (0.10 * currentAP)) * magicMod",
+        "(26 + (0.15 * bonusAD) + (0.10 * currentAP)) * magicMod",
+        "(28 + (0.15 * bonusAD) + (0.10 * currentAP)) * magicMod",
+        "(30 + (0.15 * bonusAD) + (0.10 * currentAP)) * magicMod",
+        "(32 + (0.15 * bonusAD) + (0.10 * currentAP)) * magicMod",
+        "(34 + (0.15 * bonusAD) + (0.10 * currentAP)) * magicMod",
+        "(36 + (0.15 * bonusAD) + (0.10 * currentAP)) * magicMod",
+        "(38 + (0.15 * bonusAD) + (0.10 * currentAP)) * magicMod",
+        "(40 + (0.15 * bonusAD) + (0.10 * currentAP)) * magicMod",
+        "(42 + (0.15 * bonusAD) + (0.10 * currentAP)) * magicMod",
+        "(44 + (0.15 * bonusAD) + (0.10 * currentAP)) * magicMod",
+        "(46 + (0.15 * bonusAD) + (0.10 * currentAP)) * magicMod"
+      ],
+      "max": []
+    },
+    "Q": {
+      "type": "magic",
+      "area": false,
+      "min": [
+        "((currentAP) + (1.2 * currentAD) + (0.06 * expectedHealth)) * magicMod",
+        "((currentAP) + (1.2 * currentAD) + (0.07 * expectedHealth)) * magicMod",
+        "((currentAP) + (1.2 * currentAD) + (0.08 * expectedHealth)) * magicMod",
+        "((currentAP) + (1.2 * currentAD) + (0.09 * expectedHealth)) * magicMod",
+        "((currentAP) + (1.2 * currentAD) + (0.10 * expectedHealth)) * magicMod"
+      ],
+      "max": []
+    },
+    "R": {
+      "type": "magic",
+      "area": false,
+      "min": [
+        "(175 + (1.67 * bonusAD)) * magicMod",
+        "(350 + (1.67 * bonusAD)) * magicMod",
+        "(525 + (1.67 * bonusAD)) * magicMod"
+      ],
+      "max": []
     }
+  }
 }

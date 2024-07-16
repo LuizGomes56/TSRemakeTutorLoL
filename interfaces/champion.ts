@@ -39,6 +39,7 @@ export interface Stats {
 }
 
 export interface Champion {
+    version: string;
     id: string;
     key: string;
     name: string;
@@ -56,4 +57,25 @@ export interface RequestChampion {
     format: string;
     version: string;
     data: Record<string, Champion>;
+}
+
+export interface LocalChampionProps {
+    type: string;
+    area: boolean;
+    min: string[];
+    max: string[];
+}
+
+interface ChampionFile {
+    A?: LocalChampionProps;
+    C?: LocalChampionProps;
+    P?: LocalChampionProps;
+    Q?: LocalChampionProps;
+    W?: LocalChampionProps;
+    E?: LocalChampionProps;
+    R?: LocalChampionProps;
+}
+
+export interface ChampionData {
+    [key: string]: ChampionFile;
 }

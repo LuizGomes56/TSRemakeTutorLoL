@@ -1,133 +1,68 @@
 {
-    "Vladimir": {
-        "spells": {
-            "Q": [
-                [
-                    "((80 + (0.6 * currentAP)) * magicMod)"
-                ],
-                [
-                    "((100 + (0.6 * currentAP)) * magicMod)"
-                ],
-                [
-                    "((120 + (0.6 * currentAP)) * magicMod)"
-                ],
-                [
-                    "((140 + (0.6 * currentAP)) * magicMod)"
-                ],
-                [
-                    "((160 + (0.6 * currentAP)) * magicMod)"
-                ]
-            ],
-            "W": [
-                [
-                    "((20 + (0.025 * bonusHP)) * magicMod)"
-                ],
-                [
-                    "((33.75 + (0.025 * bonusHP)) * magicMod)"
-                ],
-                [
-                    "((47.5 + (0.025 * bonusHP)) * magicMod)"
-                ],
-                [
-                    "((61.25 + (0.025 * bonusHP)) * magicMod)"
-                ],
-                [
-                    "((75 + (0.025 * bonusHP)) * magicMod)"
-                ]
-            ],
-            "E": [
-                [
-                    "((30 + (0.015 * maxHP) + (0.35 * currentAP)) * magicMod)"
-                ],
-                [
-                    "((45 + (0.015 * maxHP) + (0.35 * currentAP)) * magicMod)"
-                ],
-                [
-                    "((60 + (0.015 * maxHP) + (0.35 * currentAP)) * magicMod)"
-                ],
-                [
-                    "((75 + (0.015 * maxHP) + (0.35 * currentAP)) * magicMod)"
-                ],
-                [
-                    "((90 + (0.015 * maxHP) + (0.35 * currentAP)) * magicMod)"
-                ]
-            ],
-            "R": [
-                [
-                    "((150 + (0.7 * currentAP * 1.1)) * magicMod)"
-                ],
-                [
-                    "((250 + (0.7 * currentAP * 1.1)) * magicMod)"
-                ],
-                [
-                    "((350 + (0.7 * currentAP * 1.1)) * magicMod)"
-                ]
-            ]
-        },
-        "type": {
-            "Q": "magic",
-            "W": "magic",
-            "E": "magic",
-            "R": "magic"
-        },
-        "aoe": {
-            "Q": "false",
-            "W": "true",
-            "E": "true",
-            "R": "false"
-        },
-        "variation": {
-            "Q": [
-                [
-                    "((148 + (1.11 * currentAP)) * magicMod)"
-                ],
-                [
-                    "((185 + (1.11 * currentAP)) * magicMod)"
-                ],
-                [
-                    "((222 + (1.11 * currentAP)) * magicMod)"
-                ],
-                [
-                    "((259 + (1.11 * currentAP)) * magicMod)"
-                ],
-                [
-                    "((296 + (1.11 * currentAP)) * magicMod)"
-                ]
-            ],
-            "W": [
-                [
-                    "(((20 + (0.025 * bonusHP)) * 3) * magicMod)"
-                ],
-                [
-                    "(((33.75 + (0.025 * bonusHP)) * 3) * magicMod)"
-                ],
-                [
-                    "(((47.5 + (0.025 * bonusHP)) * 3) * magicMod)"
-                ],
-                [
-                    "(((61.25 + (0.025 * bonusHP)) * 3) * magicMod)"
-                ],
-                [
-                    "(((75 + (0.025 * bonusHP)) * 3) * magicMod)"
-                ]
-            ],
-            "E": [
-                [
-                    "((30 + (0.045 * maxHP) + (0.45 * currentAP)) * magicMod)"
-                ],
-                [
-                    "((45 + (0.045 * maxHP) + (0.45 * currentAP)) * magicMod)"
-                ],
-                [
-                    "((60 + (0.045 * maxHP) + (0.45 * currentAP)) * magicMod)"
-                ],
-                [
-                    "((75 + (0.045 * maxHP) + (0.45 * currentAP)) * magicMod)"
-                ],
-                [
-                    "((90 + (0.045 * maxHP) + (0.45 * currentAP)) * magicMod)"
-                ]
-            ]
-        }
+  "Vladimir": {
+    "Q": {
+      "type": "magic",
+      "area": false,
+      "min": [
+        "((80 + (0.6 * currentAP)) * magicMod)",
+        "((100 + (0.6 * currentAP)) * magicMod)",
+        "((120 + (0.6 * currentAP)) * magicMod)",
+        "((140 + (0.6 * currentAP)) * magicMod)",
+        "((160 + (0.6 * currentAP)) * magicMod)"
+      ],
+      "max": [
+        "((148 + (1.11 * currentAP)) * magicMod)",
+        "((185 + (1.11 * currentAP)) * magicMod)",
+        "((222 + (1.11 * currentAP)) * magicMod)",
+        "((259 + (1.11 * currentAP)) * magicMod)",
+        "((296 + (1.11 * currentAP)) * magicMod)"
+      ]
+    },
+    "W": {
+      "type": "magic",
+      "area": true,
+      "min": [
+        "((20 + (0.025 * bonusHP)) * magicMod)",
+        "((33.75 + (0.025 * bonusHP)) * magicMod)",
+        "((47.5 + (0.025 * bonusHP)) * magicMod)",
+        "((61.25 + (0.025 * bonusHP)) * magicMod)",
+        "((75 + (0.025 * bonusHP)) * magicMod)"
+      ],
+      "max": [
+        "(((20 + (0.025 * bonusHP)) * 3) * magicMod)",
+        "(((33.75 + (0.025 * bonusHP)) * 3) * magicMod)",
+        "(((47.5 + (0.025 * bonusHP)) * 3) * magicMod)",
+        "(((61.25 + (0.025 * bonusHP)) * 3) * magicMod)",
+        "(((75 + (0.025 * bonusHP)) * 3) * magicMod)"
+      ]
+    },
+    "E": {
+      "type": "magic",
+      "area": true,
+      "min": [
+        "((30 + (0.015 * maxHP) + (0.35 * currentAP)) * magicMod)",
+        "((45 + (0.015 * maxHP) + (0.35 * currentAP)) * magicMod)",
+        "((60 + (0.015 * maxHP) + (0.35 * currentAP)) * magicMod)",
+        "((75 + (0.015 * maxHP) + (0.35 * currentAP)) * magicMod)",
+        "((90 + (0.015 * maxHP) + (0.35 * currentAP)) * magicMod)"
+      ],
+      "max": [
+        "((30 + (0.045 * maxHP) + (0.45 * currentAP)) * magicMod)",
+        "((45 + (0.045 * maxHP) + (0.45 * currentAP)) * magicMod)",
+        "((60 + (0.045 * maxHP) + (0.45 * currentAP)) * magicMod)",
+        "((75 + (0.045 * maxHP) + (0.45 * currentAP)) * magicMod)",
+        "((90 + (0.045 * maxHP) + (0.45 * currentAP)) * magicMod)"
+      ]
+    },
+    "R": {
+      "type": "magic",
+      "area": false,
+      "min": [
+        "((150 + (0.7 * currentAP * 1.1)) * magicMod)",
+        "((250 + (0.7 * currentAP * 1.1)) * magicMod)",
+        "((350 + (0.7 * currentAP * 1.1)) * magicMod)"
+      ],
+      "max": []
     }
+  }
 }

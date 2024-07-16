@@ -1,86 +1,46 @@
 {
-    "Alistar": {
-        "spells": {
-            "Q": [
-                [
-                    "(60 + 0.8 * currentAP) * magicMod"
-                ], 
-                [
-                    "(100 + 0.8 * currentAP) * magicMod"
-                ], 
-                [
-                    "(140 + 0.8 * currentAP) * magicMod"
-                ],
-                [
-                    "(180 + 0.8 * currentAP) * magicMod"
-                ],
-                [
-                    "(220 + 0.8 * currentAP) * magicMod"
-                ]
-            ],
-            "W": [
-                [
-                    "(55 + currentAP) * magicMod"
-                ],
-                [
-                    "(110 + currentAP) * magicMod"
-                ],
-                [
-                    "(165 + currentAP) * magicMod"
-                ],
-                [
-                    "(220 + currentAP) * magicMod"
-                ],
-                [
-                    "(275 + currentAP) * magicMod"
-                ]
-            ],
-            "E": [
-                [
-                    "(8 + 0.07 * currentAP) * magicMod"
-                ],
-                [
-                    "(11 + 0.07 * currentAP) * magicMod"
-                ],
-                [
-                    "(14 + 0.07 * currentAP) * magicMod"
-                ],
-                [
-                    "(17 + 0.07 * currentAP) * magicMod"
-                ],
-                [
-                    "(20 + 0.07 * currentAP) * magicMod"
-                ]
-            ]
-        },
-        "type": {
-            "Q": "magic",
-            "W": "magic",
-            "E": "magic"
-        },
-        "aoe": {
-            "Q": "true",
-            "W": "false",
-            "E": "true"
-        },
-        "variation": {
-            "E": [
-                [
-                    "(10 * (8 + 0.07 * currentAP) * magicMod) + ((5 + 15 * level) * magicMod)"
-                ],
-                [
-                    "(10 * (11 + 0.07 * currentAP) * magicMod) + ((5 + 15 * level) * magicMod)"
-                ],
-                [
-                    "(10 * (14 + 0.07 * currentAP) * magicMod) + ((5 + 15 * level) * magicMod)"
-                ],
-                [
-                    "(10 * (17 + 0.07 * currentAP) * magicMod) + ((5 + 15 * level) * magicMod)"
-                ],
-                [
-                    "(10 * (20 + 0.07 * currentAP) * magicMod) + ((5 + 15 * level) * magicMod)"
-                ]
-            ]
-        }
+  "Alistar": {
+    "Q": {
+      "type": "magic",
+      "area": true,
+      "min": [
+        "(60 + 0.8 * currentAP) * magicMod",
+        "(100 + 0.8 * currentAP) * magicMod",
+        "(140 + 0.8 * currentAP) * magicMod",
+        "(180 + 0.8 * currentAP) * magicMod",
+        "(220 + 0.8 * currentAP) * magicMod"
+      ],
+      "max": []
+    },
+    "W": {
+      "type": "magic",
+      "area": false,
+      "min": [
+        "(55 + currentAP) * magicMod",
+        "(110 + currentAP) * magicMod",
+        "(165 + currentAP) * magicMod",
+        "(220 + currentAP) * magicMod",
+        "(275 + currentAP) * magicMod"
+      ],
+      "max": []
+    },
+    "E": {
+      "type": "magic",
+      "area": true,
+      "min": [
+        "(8 + 0.07 * currentAP) * magicMod",
+        "(11 + 0.07 * currentAP) * magicMod",
+        "(14 + 0.07 * currentAP) * magicMod",
+        "(17 + 0.07 * currentAP) * magicMod",
+        "(20 + 0.07 * currentAP) * magicMod"
+      ],
+      "max": [
+        "(10 * (8 + 0.07 * currentAP) * magicMod) + ((5 + 15 * level) * magicMod)",
+        "(10 * (11 + 0.07 * currentAP) * magicMod) + ((5 + 15 * level) * magicMod)",
+        "(10 * (14 + 0.07 * currentAP) * magicMod) + ((5 + 15 * level) * magicMod)",
+        "(10 * (17 + 0.07 * currentAP) * magicMod) + ((5 + 15 * level) * magicMod)",
+        "(10 * (20 + 0.07 * currentAP) * magicMod) + ((5 + 15 * level) * magicMod)"
+      ]
     }
+  }
 }

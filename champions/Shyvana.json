@@ -1,116 +1,62 @@
 {
-    "Shyvana": {
-        "spells": {
-            "Q": [
-                [
-                    "(0.2 * currentAD + (0.25 * currentAP)) * physicalMod"
-                ], 
-                [
-                    "(0.4 * currentAD + (0.25 * currentAP)) * physicalMod"
-                ],  
-                [
-                    "(0.6 * currentAD + (0.25 * currentAP)) * physicalMod"
-                ], 
-                [
-                    "(0.8 * currentAD + (0.25 * currentAP)) * physicalMod"
-                ], 
-                [
-                    "(currentAD + (0.25 * currentAP)) * physicalMod"
-                ]
-            ],
-            "W": [
-                [
-                    "(10 + (0.15 * bonusAD) * magicMod)"
-                ],
-                [
-                    "(16.25 + (0.15 * bonusAD) * magicMod)"
-                ],
-                [
-                    "(22.5 + (0.15 * bonusAD) * magicMod)"
-                ],
-                [
-                    "(28.75 + (0.15 * bonusAD) * magicMod)"
-                ],
-                [
-                    "(35 + (0.15 * bonusAD) * magicMod)"
-                ]
-            ],
-            "E": [
-                [
-                    "(60 + (0.9 * currentAP) + (0.4 * currentAD)) * magicMod"
-                ],
-                [
-                    "(100 + (0.9 * currentAP) + (0.4 * currentAD)) * magicMod"
-                ],
-                [
-                    "(140 + (0.9 * currentAP) + (0.4 * currentAD)) * magicMod"
-                ],
-                [
-                    "(180 + (0.9 * currentAP) + (0.4 * currentAD)) * magicMod"
-                ],
-                [
-                    "(220 + (0.9 * currentAP) + (0.4 * currentAD)) * magicMod"
-                ]
-            ],
-            "R": [
-                [
-                    "(150 + (1.3 * currentAP)) * magicMod"
-                ],
-                [
-                    "(250 + (1.3 * currentAP)) * magicMod"
-                ],
-                [
-                    "(350 + (1.3 * currentAP)) * magicMod"
-                ]
-            ]
-        },
-        "type": {
-            "Q": "physical",
-            "W": "magic",
-            "E": "magic",
-            "R": "magic"
-        },
-        "aoe": {
-            "Q": "false",
-            "W": "true",
-            "E": "true",
-            "R": "true"
-        },
-        "variation": {
-            "Q": [
-                [
-                    "((0.20 * currentAD) + (0.25 * currentAP)) * physicalMod"
-                ],
-                [
-                    "((0.35 * currentAD) + (0.25 * currentAP)) * physicalMod"
-                ],
-                [
-                    "((0.50 * currentAD) + (0.25 * currentAP)) * physicalMod"
-                ],
-                [
-                    "((0.65 * currentAD) + (0.25 * currentAP)) * physicalMod"
-                ],
-                [
-                    "((0.80 * currentAD) + (0.25 * currentAP)) * physicalMod"
-                ]
-            ],
-            "W": [
-                [
-                    "((10 + (0.15 * bonusAD)) * 6) * magicMod"
-                ],
-                [
-                    "((16.25 + (0.15 * bonusAD)) * 6) * magicMod"
-                ],
-                [
-                    "((22.5 + (0.15 * bonusAD)) * 6) * magicMod"
-                ],
-                [
-                    "((28.75 + (0.15 * bonusAD)) * 6) * magicMod"
-                ],
-                [
-                    "((35 + (0.15 * bonusAD)) * 6) * magicMod"
-                ]
-            ]
-        }
+  "Shyvana": {
+    "Q": {
+      "type": "physical",
+      "area": false,
+      "min": [
+        "(0.2 * currentAD + (0.25 * currentAP)) * physicalMod",
+        "(0.4 * currentAD + (0.25 * currentAP)) * physicalMod",
+        "(0.6 * currentAD + (0.25 * currentAP)) * physicalMod",
+        "(0.8 * currentAD + (0.25 * currentAP)) * physicalMod",
+        "(currentAD + (0.25 * currentAP)) * physicalMod"
+      ],
+      "max": [
+        "((0.20 * currentAD) + (0.25 * currentAP)) * physicalMod",
+        "((0.35 * currentAD) + (0.25 * currentAP)) * physicalMod",
+        "((0.50 * currentAD) + (0.25 * currentAP)) * physicalMod",
+        "((0.65 * currentAD) + (0.25 * currentAP)) * physicalMod",
+        "((0.80 * currentAD) + (0.25 * currentAP)) * physicalMod"
+      ]
+    },
+    "W": {
+      "type": "magic",
+      "area": true,
+      "min": [
+        "(10 + (0.15 * bonusAD) * magicMod)",
+        "(16.25 + (0.15 * bonusAD) * magicMod)",
+        "(22.5 + (0.15 * bonusAD) * magicMod)",
+        "(28.75 + (0.15 * bonusAD) * magicMod)",
+        "(35 + (0.15 * bonusAD) * magicMod)"
+      ],
+      "max": [
+        "((10 + (0.15 * bonusAD)) * 6) * magicMod",
+        "((16.25 + (0.15 * bonusAD)) * 6) * magicMod",
+        "((22.5 + (0.15 * bonusAD)) * 6) * magicMod",
+        "((28.75 + (0.15 * bonusAD)) * 6) * magicMod",
+        "((35 + (0.15 * bonusAD)) * 6) * magicMod"
+      ]
+    },
+    "E": {
+      "type": "magic",
+      "area": true,
+      "min": [
+        "(60 + (0.9 * currentAP) + (0.4 * currentAD)) * magicMod",
+        "(100 + (0.9 * currentAP) + (0.4 * currentAD)) * magicMod",
+        "(140 + (0.9 * currentAP) + (0.4 * currentAD)) * magicMod",
+        "(180 + (0.9 * currentAP) + (0.4 * currentAD)) * magicMod",
+        "(220 + (0.9 * currentAP) + (0.4 * currentAD)) * magicMod"
+      ],
+      "max": []
+    },
+    "R": {
+      "type": "magic",
+      "area": true,
+      "min": [
+        "(150 + (1.3 * currentAP)) * magicMod",
+        "(250 + (1.3 * currentAP)) * magicMod",
+        "(350 + (1.3 * currentAP)) * magicMod"
+      ],
+      "max": []
     }
+  }
 }

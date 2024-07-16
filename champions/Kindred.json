@@ -1,204 +1,52 @@
 {
-    "Kindred": {
-        "spells": {
-            "Q": [
-                [
-                    "(40 + 0.75 * bonusAD) * physicalMod"
-                ], 
-                [
-                    "(65 + 0.75 * bonusAD) * physicalMod"
-                ], 
-                [
-                    "(90 + 0.75 * bonusAD) * physicalMod"
-                ],
-                [
-                    "(115 + 0.75 * bonusAD) * physicalMod"
-                ],
-                [
-                    "(140 + 0.75 * bonusAD) * physicalMod"
-                ]
-            ],
-            "W": [
-                [
-                    "(25 + 0.2 * bonusAD + 0.2 * currentAP) * magicMod"
-                ],
-                [
-                    "(30 + 0.2 * bonusAD + 0.2 * currentAP) * magicMod"
-                ],
-                [
-                    "(35 + 0.2 * bonusAD + 0.2 * currentAP) * magicMod"
-                ],
-                [
-                    "(40 + 0.2 * bonusAD + 0.2 * currentAP) * magicMod"
-                ],
-                [
-                    "(45 + 0.2 * bonusAD + 0.2 * currentAP) * magicMod"
-                ]
-            ],
-            "E": [
-                [
-                    "(80 + 0.8 * bonusAD) * physicalMod"
-                ],
-                [
-                    "(100 + 0.8 * bonusAD) * physicalMod"
-                ],
-                [
-                    "(120 + 0.8 * bonusAD) * physicalMod"
-                ],
-                [
-                    "(140 + 0.8 * bonusAD) * physicalMod"
-                ],
-                [
-                    "(160 + 0.8 * bonusAD) * physicalMod"
-                ]
-            ]
-        },
-        "type": {
-            "Q": "physical",
-            "W": "magic",
-            "E": "physical"
-        },
-        "aoe": {
-            "Q": "true",
-            "W": "true",
-            "E": "false"
-        },
-        "variation": {
-            "W": [
-                [
-                    "(25 + 0.2 * bonusAD + 0.2 * currentAP + 0.015 * expectedHealth) * magicMod"
-                ],
-                [
-                    "(30 + 0.2 * bonusAD + 0.2 * currentAP + 0.015 * expectedHealth) * magicMod"
-                ],
-                [
-                    "(35 + 0.2 * bonusAD + 0.2 * currentAP + 0.015 * expectedHealth) * magicMod"
-                ],
-                [
-                    "(40 + 0.2 * bonusAD + 0.2 * currentAP + 0.015 * expectedHealth) * magicMod"
-                ],
-                [
-                    "(45 + 0.2 * bonusAD + 0.2 * currentAP + 0.015 * expectedHealth) * magicMod"
-                ]
-            ],
-            "E": [
-                [
-                    "(80 + 0.8 * bonusAD + 0.075 * expectedHealth) * physicalMod"
-                ],
-                [
-                    "(100 + 0.8 * bonusAD + 0.075 * expectedHealth) * physicalMod"
-                ],
-                [
-                    "(120 + 0.8 * bonusAD + 0.075 * expectedHealth) * physicalMod"
-                ],
-                [
-                    "(140 + 0.8 * bonusAD + 0.075 * expectedHealth) * physicalMod"
-                ],
-                [
-                    "(160 + 0.8 * bonusAD + 0.075 * expectedHealth) * physicalMod"
-                ]
-            ]
-        },
-        "calculator": {
-            "spells": {
-                "Q": [
-                    [
-                        "(40 + 0.75 * bonusAD) * physicalMod"
-                    ], 
-                    [
-                        "(65 + 0.75 * bonusAD) * physicalMod"
-                    ], 
-                    [
-                        "(90 + 0.75 * bonusAD) * physicalMod"
-                    ],
-                    [
-                        "(115 + 0.75 * bonusAD) * physicalMod"
-                    ],
-                    [
-                        "(140 + 0.75 * bonusAD) * physicalMod"
-                    ]
-                ],
-                "W": [
-                    [
-                        "(25 + 0.2 * bonusAD + 0.2 * currentAP) * magicMod"
-                    ],
-                    [
-                        "(30 + 0.2 * bonusAD + 0.2 * currentAP) * magicMod"
-                    ],
-                    [
-                        "(35 + 0.2 * bonusAD + 0.2 * currentAP) * magicMod"
-                    ],
-                    [
-                        "(40 + 0.2 * bonusAD + 0.2 * currentAP) * magicMod"
-                    ],
-                    [
-                        "(45 + 0.2 * bonusAD + 0.2 * currentAP) * magicMod"
-                    ]
-                ],
-                "E": [
-                    [
-                        "(80 + 0.8 * bonusAD) * physicalMod"
-                    ],
-                    [
-                        "(100 + 0.8 * bonusAD) * physicalMod"
-                    ],
-                    [
-                        "(120 + 0.8 * bonusAD) * physicalMod"
-                    ],
-                    [
-                        "(140 + 0.8 * bonusAD) * physicalMod"
-                    ],
-                    [
-                        "(160 + 0.8 * bonusAD) * physicalMod"
-                    ]
-                ]
-            },
-            "type": {
-                "Q": "physical",
-                "W": "magic",
-                "E": "physical"
-            },
-            "aoe": {
-                "Q": "true",
-                "W": "true",
-                "E": "false"
-            },
-            "variation": {
-                "W": [
-                    [
-                        "(25 + 0.2 * bonusAD + 0.2 * currentAP + ((0.015 + stack / 100) * expectedHealth)) * magicMod"
-                    ],
-                    [
-                        "(30 + 0.2 * bonusAD + 0.2 * currentAP + ((0.015 + stack / 100) * expectedHealth)) * magicMod"
-                    ],
-                    [
-                        "(35 + 0.2 * bonusAD + 0.2 * currentAP + ((0.015 + stack / 100) * expectedHealth)) * magicMod"
-                    ],
-                    [
-                        "(40 + 0.2 * bonusAD + 0.2 * currentAP + ((0.015 + stack / 100) * expectedHealth)) * magicMod"
-                    ],
-                    [
-                        "(45 + 0.2 * bonusAD + 0.2 * currentAP + ((0.015 + stack / 100) * expectedHealth)) * magicMod"
-                    ]
-                ],
-                "E": [
-                    [
-                        "(80 + 0.8 * bonusAD + ((0.075 + 0.75 * stack / 100) * expectedHealth)) * physicalMod"
-                    ],
-                    [
-                        "(100 + 0.8 * bonusAD + ((0.075 + 0.75 * stack / 100) * expectedHealth)) * physicalMod"
-                    ],
-                    [
-                        "(120 + 0.8 * bonusAD + ((0.075 + 0.75 * stack / 100) * expectedHealth)) * physicalMod"
-                    ],
-                    [
-                        "(140 + 0.8 * bonusAD + ((0.075 + 0.75 * stack / 100) * expectedHealth)) * physicalMod"
-                    ],
-                    [
-                        "(160 + 0.8 * bonusAD + ((0.075 + 0.75 * stack / 100) * expectedHealth)) * physicalMod"
-                    ]
-                ]
-            }
-        }
+  "Kindred": {
+    "Q": {
+      "type": "physical",
+      "area": true,
+      "min": [
+        "(40 + 0.75 * bonusAD) * physicalMod",
+        "(65 + 0.75 * bonusAD) * physicalMod",
+        "(90 + 0.75 * bonusAD) * physicalMod",
+        "(115 + 0.75 * bonusAD) * physicalMod",
+        "(140 + 0.75 * bonusAD) * physicalMod"
+      ],
+      "max": []
+    },
+    "W": {
+      "type": "magic",
+      "area": true,
+      "min": [
+        "(25 + 0.2 * bonusAD + 0.2 * currentAP) * magicMod",
+        "(30 + 0.2 * bonusAD + 0.2 * currentAP) * magicMod",
+        "(35 + 0.2 * bonusAD + 0.2 * currentAP) * magicMod",
+        "(40 + 0.2 * bonusAD + 0.2 * currentAP) * magicMod",
+        "(45 + 0.2 * bonusAD + 0.2 * currentAP) * magicMod"
+      ],
+      "max": [
+        "(25 + 0.2 * bonusAD + 0.2 * currentAP + 0.015 * expectedHealth) * magicMod",
+        "(30 + 0.2 * bonusAD + 0.2 * currentAP + 0.015 * expectedHealth) * magicMod",
+        "(35 + 0.2 * bonusAD + 0.2 * currentAP + 0.015 * expectedHealth) * magicMod",
+        "(40 + 0.2 * bonusAD + 0.2 * currentAP + 0.015 * expectedHealth) * magicMod",
+        "(45 + 0.2 * bonusAD + 0.2 * currentAP + 0.015 * expectedHealth) * magicMod"
+      ]
+    },
+    "E": {
+      "type": "physical",
+      "area": false,
+      "min": [
+        "(80 + 0.8 * bonusAD) * physicalMod",
+        "(100 + 0.8 * bonusAD) * physicalMod",
+        "(120 + 0.8 * bonusAD) * physicalMod",
+        "(140 + 0.8 * bonusAD) * physicalMod",
+        "(160 + 0.8 * bonusAD) * physicalMod"
+      ],
+      "max": [
+        "(80 + 0.8 * bonusAD + 0.075 * expectedHealth) * physicalMod",
+        "(100 + 0.8 * bonusAD + 0.075 * expectedHealth) * physicalMod",
+        "(120 + 0.8 * bonusAD + 0.075 * expectedHealth) * physicalMod",
+        "(140 + 0.8 * bonusAD + 0.075 * expectedHealth) * physicalMod",
+        "(160 + 0.8 * bonusAD + 0.075 * expectedHealth) * physicalMod"
+      ]
     }
+  }
 }

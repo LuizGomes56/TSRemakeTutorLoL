@@ -1,99 +1,56 @@
 {
-    "Gragas": {
-        "spells": {
-            "Q": [
-                [
-                    "(80 + 0.8 * currentAP) * magicMod"
-                ],
-                [
-                    "(120 + 0.8 * currentAP) * magicMod"
-                ], 
-                [
-                    "(160 + 0.8 * currentAP) * magicMod"
-                ],
-                [
-                    "(200 + 0.8 * currentAP) * magicMod"
-                ],
-                [
-                    "(240 + 0.8 * currentAP) * magicMod"
-                ]
-            ],
-            "W": [
-                [
-                    "(20 + 0.7 * currentAP + 0.07 * expectedHealth) * magicMod"
-                ],
-                [
-                    "(50 + 0.7 * currentAP + 0.07 * expectedHealth) * magicMod"
-                ],
-                [
-                    "(80 + 0.7 * currentAP + 0.07 * expectedHealth) * magicMod"
-                ],
-                [
-                    "(110 + 0.7 * currentAP + 0.07 * expectedHealth) * magicMod"
-                ],
-                [
-                    "(140 + 0.7 * currentAP + 0.07 * expectedHealth) * magicMod"
-                ]
-            ],
-            "E": [
-                [
-                    "(80 + 0.6 * currentAP) * magicMod"
-                ],
-                [
-                    "(125 + 0.6 * currentAP) * magicMod"
-                ],
-                [
-                    "(170 + 0.6 * currentAP) * magicMod"
-                ],
-                [
-                    "(215 + 0.6 * currentAP) * magicMod"
-                ],
-                [
-                    "(260 + 0.6 * currentAP) * magicMod"
-                ]
-            ],
-            "R": [
-                [
-                    "(200 + 0.8 * currentAP) * magicMod"
-                ],
-                [
-                    "(300 + 0.8 * currentAP) * magicMod"
-                ],
-                [
-                    "(400 + 0.8 * currentAP) * magicMod"
-                ]
-            ]
-        },
-        "type": {
-            "Q": "magic",
-            "W": "magic",
-            "E": "magic",
-            "R": "magic"
-        },
-        "aoe": {
-            "Q": "true",
-            "W": "true",
-            "E": "true",
-            "R": "true"
-        },
-        "variation": {
-            "Q": [
-                [
-                    "1.5 * (80 + 0.8 * currentAP) * magicMod"
-                ],
-                [
-                    "1.5 * (120 + 0.8 * currentAP) * magicMod"
-                ], 
-                [
-                    "1.5 * (160 + 0.8 * currentAP) * magicMod"
-                ],
-                [
-                    "1.5 * (200 + 0.8 * currentAP) * magicMod"
-                ],
-                [
-                    "1.5 * (240 + 0.8 * currentAP) * magicMod"
-                ]
-            ]
-        }
+  "Gragas": {
+    "Q": {
+      "type": "magic",
+      "area": true,
+      "min": [
+        "(80 + 0.8 * currentAP) * magicMod",
+        "(120 + 0.8 * currentAP) * magicMod",
+        "(160 + 0.8 * currentAP) * magicMod",
+        "(200 + 0.8 * currentAP) * magicMod",
+        "(240 + 0.8 * currentAP) * magicMod"
+      ],
+      "max": [
+        "1.5 * (80 + 0.8 * currentAP) * magicMod",
+        "1.5 * (120 + 0.8 * currentAP) * magicMod",
+        "1.5 * (160 + 0.8 * currentAP) * magicMod",
+        "1.5 * (200 + 0.8 * currentAP) * magicMod",
+        "1.5 * (240 + 0.8 * currentAP) * magicMod"
+      ]
+    },
+    "W": {
+      "type": "magic",
+      "area": true,
+      "min": [
+        "(20 + 0.7 * currentAP + 0.07 * expectedHealth) * magicMod",
+        "(50 + 0.7 * currentAP + 0.07 * expectedHealth) * magicMod",
+        "(80 + 0.7 * currentAP + 0.07 * expectedHealth) * magicMod",
+        "(110 + 0.7 * currentAP + 0.07 * expectedHealth) * magicMod",
+        "(140 + 0.7 * currentAP + 0.07 * expectedHealth) * magicMod"
+      ],
+      "max": []
+    },
+    "E": {
+      "type": "magic",
+      "area": true,
+      "min": [
+        "(80 + 0.6 * currentAP) * magicMod",
+        "(125 + 0.6 * currentAP) * magicMod",
+        "(170 + 0.6 * currentAP) * magicMod",
+        "(215 + 0.6 * currentAP) * magicMod",
+        "(260 + 0.6 * currentAP) * magicMod"
+      ],
+      "max": []
+    },
+    "R": {
+      "type": "magic",
+      "area": true,
+      "min": [
+        "(200 + 0.8 * currentAP) * magicMod",
+        "(300 + 0.8 * currentAP) * magicMod",
+        "(400 + 0.8 * currentAP) * magicMod"
+      ],
+      "max": []
     }
+  }
 }

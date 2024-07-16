@@ -1,149 +1,73 @@
 {
-    "Gangplank": {
-        "spells": {
-            "P": [
-                [
-                    "(50 + (200 / 17 * (level - 1))) + (200 * critChance) + bonusAD"
-                ],
-                [
-                    "(50 + (200 / 17 * (level - 1))) + (200 * critChance) + bonusAD"
-                ],
-                [
-                    "(50 + (200 / 17 * (level - 1))) + (200 * critChance) + bonusAD"
-                ],
-                [
-                    "(50 + (200 / 17 * (level - 1))) + (200 * critChance) + bonusAD"
-                ],
-                [
-                    "(50 + (200 / 17 * (level - 1))) + (200 * critChance) + bonusAD"
-                ],
-                [
-                    "(50 + (200 / 17 * (level - 1))) + (200 * critChance) + bonusAD"
-                ],
-                [
-                    "(50 + (200 / 17 * (level - 1))) + (200 * critChance) + bonusAD"
-                ],
-                [
-                    "(50 + (200 / 17 * (level - 1))) + (200 * critChance) + bonusAD"
-                ],
-                [
-                    "(50 + (200 / 17 * (level - 1))) + (200 * critChance) + bonusAD"
-                ],
-                [
-                    "(50 + (200 / 17 * (level - 1))) + (200 * critChance) + bonusAD"
-                ],
-                [
-                    "(50 + (200 / 17 * (level - 1))) + (200 * critChance) + bonusAD"
-                ],
-                [
-                    "(50 + (200 / 17 * (level - 1))) + (200 * critChance) + bonusAD"
-                ],
-                [
-                    "(50 + (200 / 17 * (level - 1))) + (200 * critChance) + bonusAD"
-                ],
-                [
-                    "(50 + (200 / 17 * (level - 1))) + (200 * critChance) + bonusAD"
-                ],
-                [
-                    "(50 + (200 / 17 * (level - 1))) + (200 * critChance) + bonusAD"
-                ],
-                [
-                    "(50 + (200 / 17 * (level - 1))) + (200 * critChance) + bonusAD"
-                ],
-                [
-                    "(50 + (200 / 17 * (level - 1))) + (200 * critChance) + bonusAD"
-                ],
-                [
-                    "(50 + (200 / 17 * (level - 1))) + (200 * critChance) + bonusAD"
-                ]
-            ],
-            "Q": [
-                [
-                    "(10 + currentAD) * physicalMod"
-                ], 
-                [
-                    "(40 + currentAD) * physicalMod"
-                ], 
-                [
-                    "(70 + currentAD) * physicalMod"
-                ],
-                [
-                    "(100 + currentAD) * physicalMod"
-                ],
-                [
-                    "(130 + currentAD) * physicalMod"
-                ]
-            ],
-            "E": [
-                [
-                    "(currentAD + 75) * (100/(100 + expectedArmor * 0.6))"
-                ],
-                [
-                    "(currentAD + 105) * (100/(100 + expectedArmor * 0.6))"
-                ],
-                [
-                    "(currentAD + 135) * (100/(100 + expectedArmor * 0.6))"
-                ],
-                [
-                    "(currentAD + 165) * (100/(100 + expectedArmor * 0.6))"
-                ],
-                [
-                    "(currentAD + 195) * (100/(100 + expectedArmor * 0.6))"
-                ]
-            ],
-            "R": [
-                [
-                    "(40 + (0.1 * currentAP)) * magicMod"
-                ],
-                [
-                    "(70 + (0.1 * currentAP)) * magicMod"
-                ],
-                [
-                    "(100 + (0.1 * currentAP)) * magicMod"
-                ]
-            ]
-        },
-        "type": {
-            "P": "true",
-            "Q": "physical",
-            "E": "physical",
-            "R": "magic"
-        },
-        "aoe": {
-            "P": "false",
-            "Q": "false",
-            "E": "true",
-            "R": "true"
-        },
-        "variation": {
-            "E": [
-                [
-                    "(10 + currentAD + 75) * (100/(100 + expectedArmor * 0.6))"
-                ],
-                [
-                    "(40 + currentAD + 105) * (100/(100 + expectedArmor * 0.6))"
-                ],
-                [
-                    "(70 + currentAD + 135) * (100/(100 + expectedArmor * 0.6))"
-                ],
-                [
-                    "(100 + currentAD + 165) * (100/(100 + expectedArmor * 0.6))"
-                ],
-                [
-                    "(130 + currentAD + 195) * (100/(100 + expectedArmor * 0.6))"
-                ]
-            ],
-            "R": [
-                [
-                    "12 * (40 + (0.1 * currentAP)) * magicMod"
-                ],
-                [
-                    "12 * (70 + (0.1 * currentAP)) * magicMod"
-                ],
-                [
-                    "12 * (100 + (0.1 * currentAP)) * magicMod"
-                ]
-            ]
-        }
+  "Gangplank": {
+    "P": {
+      "type": "true",
+      "area": false,
+      "min": [
+        "(50 + (200 / 17 * (level - 1))) + (200 * critChance) + bonusAD",
+        "(50 + (200 / 17 * (level - 1))) + (200 * critChance) + bonusAD",
+        "(50 + (200 / 17 * (level - 1))) + (200 * critChance) + bonusAD",
+        "(50 + (200 / 17 * (level - 1))) + (200 * critChance) + bonusAD",
+        "(50 + (200 / 17 * (level - 1))) + (200 * critChance) + bonusAD",
+        "(50 + (200 / 17 * (level - 1))) + (200 * critChance) + bonusAD",
+        "(50 + (200 / 17 * (level - 1))) + (200 * critChance) + bonusAD",
+        "(50 + (200 / 17 * (level - 1))) + (200 * critChance) + bonusAD",
+        "(50 + (200 / 17 * (level - 1))) + (200 * critChance) + bonusAD",
+        "(50 + (200 / 17 * (level - 1))) + (200 * critChance) + bonusAD",
+        "(50 + (200 / 17 * (level - 1))) + (200 * critChance) + bonusAD",
+        "(50 + (200 / 17 * (level - 1))) + (200 * critChance) + bonusAD",
+        "(50 + (200 / 17 * (level - 1))) + (200 * critChance) + bonusAD",
+        "(50 + (200 / 17 * (level - 1))) + (200 * critChance) + bonusAD",
+        "(50 + (200 / 17 * (level - 1))) + (200 * critChance) + bonusAD",
+        "(50 + (200 / 17 * (level - 1))) + (200 * critChance) + bonusAD",
+        "(50 + (200 / 17 * (level - 1))) + (200 * critChance) + bonusAD",
+        "(50 + (200 / 17 * (level - 1))) + (200 * critChance) + bonusAD"
+      ],
+      "max": []
+    },
+    "Q": {
+      "type": "physical",
+      "area": false,
+      "min": [
+        "(10 + currentAD) * physicalMod",
+        "(40 + currentAD) * physicalMod",
+        "(70 + currentAD) * physicalMod",
+        "(100 + currentAD) * physicalMod",
+        "(130 + currentAD) * physicalMod"
+      ],
+      "max": []
+    },
+    "E": {
+      "type": "physical",
+      "area": true,
+      "min": [
+        "(currentAD + 75) * (100/(100 + expectedArmor * 0.6))",
+        "(currentAD + 105) * (100/(100 + expectedArmor * 0.6))",
+        "(currentAD + 135) * (100/(100 + expectedArmor * 0.6))",
+        "(currentAD + 165) * (100/(100 + expectedArmor * 0.6))",
+        "(currentAD + 195) * (100/(100 + expectedArmor * 0.6))"
+      ],
+      "max": [
+        "(10 + currentAD + 75) * (100/(100 + expectedArmor * 0.6))",
+        "(40 + currentAD + 105) * (100/(100 + expectedArmor * 0.6))",
+        "(70 + currentAD + 135) * (100/(100 + expectedArmor * 0.6))",
+        "(100 + currentAD + 165) * (100/(100 + expectedArmor * 0.6))",
+        "(130 + currentAD + 195) * (100/(100 + expectedArmor * 0.6))"
+      ]
+    },
+    "R": {
+      "type": "magic",
+      "area": true,
+      "min": [
+        "(40 + (0.1 * currentAP)) * magicMod",
+        "(70 + (0.1 * currentAP)) * magicMod",
+        "(100 + (0.1 * currentAP)) * magicMod"
+      ],
+      "max": [
+        "12 * (40 + (0.1 * currentAP)) * magicMod",
+        "12 * (70 + (0.1 * currentAP)) * magicMod",
+        "12 * (100 + (0.1 * currentAP)) * magicMod"
+      ]
     }
+  }
 }

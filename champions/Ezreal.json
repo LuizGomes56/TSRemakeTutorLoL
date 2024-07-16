@@ -1,80 +1,50 @@
 {
-    "Ezreal": {
-        "spells": {
-            "Q": [
-                [
-                    "(20 + (1.3 * currentAD) + (0.15 * currentAP)) * physicalMod"
-                ], 
-                [
-                    "(45 + (1.3 * currentAD) + (0.15 * currentAP)) * physicalMod"
-                ], 
-                [
-                    "(70 + (1.3 * currentAD) + (0.15 * currentAP)) * physicalMod"
-                ],
-                [
-                    "(95 + (1.3 * currentAD) + (0.15 * currentAP)) * physicalMod"
-                ],
-                [
-                    "(120 + (1.3 * currentAD) + (0.15 * currentAP)) * physicalMod"
-                ]
-            ],
-            "W": [
-                [
-                    "(80 + (0.6 * bonusAD) + (0.7 * currentAP)) * magicMod"
-                ],
-                [
-                    "(135 + (0.6 * bonusAD) + (0.75 * currentAP)) * magicMod"
-                ],
-                [
-                    "(190 + (0.6 * bonusAD) + (0.8 * currentAP)) * magicMod"
-                ],
-                [
-                    "(245 + (0.6 * bonusAD) + (0.85 * currentAP)) * magicMod"
-                ],
-                [
-                    "(300 + (0.6 * bonusAD) + (0.9 * currentAP)) * magicMod"
-                ]
-            ],
-            "E": [
-                [
-                    "(80 + bonusAD + (0.7 * currentAP)) * magicMod"
-                ],
-                [
-                    "(135 + bonusAD + (0.75 * currentAP)) * magicMod"
-                ],
-                [
-                    "(190 + bonusAD + (0.8 * currentAP)) * magicMod"
-                ],
-                [
-                    "(245 + bonusAD + (0.85 * currentAP)) * magicMod"
-                ],
-                [
-                    "(300 + bonusAD + (0.9 * currentAP)) * magicMod"
-                ]
-            ],
-            "R": [
-                [
-                    "(325 + bonusAD + (0.9 * currentAP)) * magicMod"
-                ],
-                [
-                    "(500 + bonusAD + (0.9 * currentAP)) * magicMod"
-                ],
-                [
-                    "(675 + bonusAD + (0.9 * currentAP)) * magicMod"
-                ]
-            ]
-        },
-        "type": {
-            "Q": "physical",
-            "W": "magic",
-            "E": "magic",
-            "R": "magic"
-        },
-        "aoe": {
-            "Q": "false",
-            "W": "false",
-            "E": "false",
-            "R": "true"
-        }
+  "Ezreal": {
+    "Q": {
+      "type": "physical",
+      "area": false,
+      "min": [
+        "(20 + (1.3 * currentAD) + (0.15 * currentAP)) * physicalMod",
+        "(45 + (1.3 * currentAD) + (0.15 * currentAP)) * physicalMod",
+        "(70 + (1.3 * currentAD) + (0.15 * currentAP)) * physicalMod",
+        "(95 + (1.3 * currentAD) + (0.15 * currentAP)) * physicalMod",
+        "(120 + (1.3 * currentAD) + (0.15 * currentAP)) * physicalMod"
+      ],
+      "max": []
+    },
+    "W": {
+      "type": "magic",
+      "area": false,
+      "min": [
+        "(80 + (0.6 * bonusAD) + (0.7 * currentAP)) * magicMod",
+        "(135 + (0.6 * bonusAD) + (0.75 * currentAP)) * magicMod",
+        "(190 + (0.6 * bonusAD) + (0.8 * currentAP)) * magicMod",
+        "(245 + (0.6 * bonusAD) + (0.85 * currentAP)) * magicMod",
+        "(300 + (0.6 * bonusAD) + (0.9 * currentAP)) * magicMod"
+      ],
+      "max": []
+    },
+    "E": {
+      "type": "magic",
+      "area": false,
+      "min": [
+        "(80 + bonusAD + (0.7 * currentAP)) * magicMod",
+        "(135 + bonusAD + (0.75 * currentAP)) * magicMod",
+        "(190 + bonusAD + (0.8 * currentAP)) * magicMod",
+        "(245 + bonusAD + (0.85 * currentAP)) * magicMod",
+        "(300 + bonusAD + (0.9 * currentAP)) * magicMod"
+      ],
+      "max": []
+    },
+    "R": {
+      "type": "magic",
+      "area": true,
+      "min": [
+        "(325 + bonusAD + (0.9 * currentAP)) * magicMod",
+        "(500 + bonusAD + (0.9 * currentAP)) * magicMod",
+        "(675 + bonusAD + (0.9 * currentAP)) * magicMod"
+      ],
+      "max": []
     }
+  }
 }

@@ -1,97 +1,50 @@
 {
-    "Karthus": {
-        "spells": {
-            "Q": [
-                [
-                    "(45 + 0.35 * currentAP) * magicMod"
-                ], 
-                [
-                    "(65 + 0.35 * currentAP) * magicMod"
-                ],  
-                [
-                    "(85 + 0.35 * currentAP) * magicMod"
-                ], 
-                [
-                    "(105 + 0.35 * currentAP) * magicMod"
-                ], 
-                [
-                    "(125 + 0.35 * currentAP) * magicMod"
-                ] 
-            ],
-            "E": [
-                [
-                    "0.25 * (30 + 0.2 * currentAP) * magicMod"
-                ],
-                [
-                    "0.25 * (50 + 0.2 * currentAP) * magicMod"
-                ],
-                [
-                    "0.25 * (70 + 0.2 * currentAP) * magicMod"
-                ],
-                [
-                    "0.25 * (90 + 0.2 * currentAP) * magicMod"
-                ],
-                [
-                    "0.25 * (110 + 0.2 * currentAP) * magicMod"
-                ]
-            ],
-            "R": [
-                [
-                    "(200 + 0.75 * currentAP) * magicMod"
-                ],
-                [
-                    "(350 + 0.75 * currentAP) * magicMod"
-                ],
-                [
-                    "(500 + 0.75 * currentAP) * magicMod"
-                ]
-            ]
-        },
-        "type": {
-            "Q": "magic",
-            "E": "magic",
-            "R": "magic"
-        },
-        "aoe": {
-            "Q": "true",
-            "E": "true",
-            "R": "true"
-        },
-        "variation": {
-            "Q": [
-                [
-                    "2 * (43 + 0.35 * currentAP) * magicMod"
-                ], 
-                [
-                    "2 * (61 + 0.35 * currentAP) * magicMod"
-                ],  
-                [
-                    "2 * (79 + 0.35 * currentAP) * magicMod"
-                ], 
-                [
-                    "2 * (97 + 0.35 * currentAP) * magicMod"
-                ], 
-                [
-                    "2 * (115 + 0.35 * currentAP) * magicMod"
-                ] 
-            ],
-            "E": [
-                [
-                    "(30 + 0.2 * currentAP) * magicMod"
-                ],
-                [
-                    "(50 + 0.2 * currentAP) * magicMod"
-                ],
-                [
-                    "(70 + 0.2 * currentAP) * magicMod"
-                ],
-                [
-                    "(90 + 0.2 * currentAP) * magicMod"
-                ],
-                [
-                    "(110 + 0.2 * currentAP) * magicMod"
-                ]
-            ]
-        }
+  "Karthus": {
+    "Q": {
+      "type": "magic",
+      "area": true,
+      "min": [
+        "(45 + 0.35 * currentAP) * magicMod",
+        "(65 + 0.35 * currentAP) * magicMod",
+        "(85 + 0.35 * currentAP) * magicMod",
+        "(105 + 0.35 * currentAP) * magicMod",
+        "(125 + 0.35 * currentAP) * magicMod"
+      ],
+      "max": [
+        "2 * (43 + 0.35 * currentAP) * magicMod",
+        "2 * (61 + 0.35 * currentAP) * magicMod",
+        "2 * (79 + 0.35 * currentAP) * magicMod",
+        "2 * (97 + 0.35 * currentAP) * magicMod",
+        "2 * (115 + 0.35 * currentAP) * magicMod"
+      ]
+    },
+    "E": {
+      "type": "magic",
+      "area": true,
+      "min": [
+        "0.25 * (30 + 0.2 * currentAP) * magicMod",
+        "0.25 * (50 + 0.2 * currentAP) * magicMod",
+        "0.25 * (70 + 0.2 * currentAP) * magicMod",
+        "0.25 * (90 + 0.2 * currentAP) * magicMod",
+        "0.25 * (110 + 0.2 * currentAP) * magicMod"
+      ],
+      "max": [
+        "(30 + 0.2 * currentAP) * magicMod",
+        "(50 + 0.2 * currentAP) * magicMod",
+        "(70 + 0.2 * currentAP) * magicMod",
+        "(90 + 0.2 * currentAP) * magicMod",
+        "(110 + 0.2 * currentAP) * magicMod"
+      ]
+    },
+    "R": {
+      "type": "magic",
+      "area": true,
+      "min": [
+        "(200 + 0.75 * currentAP) * magicMod",
+        "(350 + 0.75 * currentAP) * magicMod",
+        "(500 + 0.75 * currentAP) * magicMod"
+      ],
+      "max": []
     }
+  }
 }

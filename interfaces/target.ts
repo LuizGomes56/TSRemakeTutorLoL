@@ -16,18 +16,11 @@ export interface StatProps {
     abilityPower: number;
 }
 
-export interface AbilityProps {
+export interface LocalAbilityProps {
     min: number;
     max: number | null;
     type: string;
     area?: boolean;
-}
-
-export interface AttackProps {
-    min: number;
-    max: number | null;
-    type: string;
-    area: boolean;
 }
 
 export interface ItemProps {
@@ -35,37 +28,31 @@ export interface ItemProps {
     max: number | null;
     type: string;
     name: string;
-    area?: boolean;
-    onhit?: number;
+    onhit?: boolean;
 }
 
 export interface RuneProps {
     min: number;
-    max: number | null;
     type: string;
     name: string;
-    area?: boolean;
 }
 
 export interface Abilities {
-    Q: AbilityProps;
-    W: AbilityProps;
-    E: AbilityProps;
-    R: AbilityProps;
-    P: AbilityProps;
+    A: LocalAbilityProps;
+    C: LocalAbilityProps;
+    Q: LocalAbilityProps;
+    W: LocalAbilityProps;
+    E: LocalAbilityProps;
+    R: LocalAbilityProps;
+    P: LocalAbilityProps;
 }
 
-export interface Attacks {
-    A: AttackProps;
-    C: AttackProps;
-}
-
-export interface Items {
+interface Items {
     I: ItemProps;
     T: Record<string, ItemProps>;
 }
 
-export interface Runes {
+interface Runes {
     K: Record<string, RuneProps>;
 }
 
@@ -76,7 +63,7 @@ export interface InfoProps {
     value: number;
 }
 
-type ToolSection = Abilities & Attacks & Items & Runes;
+type ToolSection = Abilities & Items & Runes;
 
 export interface ToolProps {
     info: InfoProps;
@@ -84,46 +71,53 @@ export interface ToolProps {
     result: ToolSection;
 }
 
-export interface DataProps extends GameProps {
-    activePlayer: ActivePlayer & {
-        championName: string;
-        champion: Champion;
-        dragon: DragonProps;
-        items: string[];
-        baseStats: StatProps;
-        bonusStats: StatProps;
-        team: string;
-        relevant: {
-            abilities: {
-                min: string[];
-                max: string[];
-            };
-            items: string[];
-            runes: string[];
+export interface AbilityFilter {
+    min: string[];
+    max: string[];
+};
+
+export interface SpellProps {
+    name: string;
+    type: string;
+    min: number;
+    max?: number;
+}
+
+export interface ExtendsPlayer {
+    champion: Champion;
+    dragon: DragonProps;
+    bonusStats: StatProps;
+    baseStats: StatProps;
+    championStats: StatProps;
+    damage: {
+        abilities: Abilities;
+        items: Record<string, ItemProps> | {};
+        runes: Record<string, RuneProps> | {};
+        spell: Record<string, SpellProps> | {};
+        tool?: {
+            A: ToolProps;
+            B: ToolProps;
         };
     };
-    allPlayers: Array<Player & {
-        champion: Champion;
-        dragon: DragonProps;
-        bonusStats: StatProps;
-        baseStats: StatProps;
-        championStats: StatProps;
-        damage: {
-            abilities: {
-                P?: AbilityProps;
-                Q?: AbilityProps;
-                W?: AbilityProps;
-                E?: AbilityProps;
-                R?: AbilityProps;
-                A: AttackProps;
-                C: AttackProps;
-            };
-            items: Record<string, ItemProps>;
-            runes: Record<string, RuneProps>;
-            tool: {
-                A: ToolProps;
-                B: ToolProps;
-            };
-        };
-    }>;
+}
+
+export interface ExtendsActivePlayer {
+    championName: string;
+    champion: Champion;
+    dragon: DragonProps;
+    items: string[];
+    baseStats: StatProps;
+    bonusStats: StatProps;
+    team: string;
+    skin: number;
+    relevant: {
+        abilities: AbilityFilter;
+        items: string[];
+        runes: string[];
+        spell: string[];
+    };
+}
+export interface DataProps extends GameProps {
+    activePlayer: ActivePlayer & ExtendsActivePlayer;
+    allPlayers: Array<Player & ExtendsPlayer>;
 }

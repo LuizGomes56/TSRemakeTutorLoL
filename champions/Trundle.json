@@ -1,55 +1,30 @@
 {
-    "Trundle": {
-        "spells": {
-            "Q": [
-                [
-                    "(20 + (0.15 * currentAD)) * physicalMod"
-                ],
-                [
-                    "(40 + (0.25 * currentAD)) * physicalMod"
-                ],
-                [
-                    "(60 + (0.35 * currentAD)) * physicalMod"
-                ],
-                [
-                    "(80 + (0.45 * currentAD)) * physicalMod"
-                ],
-                [
-                    "(100 + (0.55 * currentAD)) * physicalMod"
-                ]
-            ],
-            "R": [
-                [
-                    "(0.1 * expectedHealth + (0.01 * currentAP/100)) * magicMod"
-                ],
-                [
-                    "(0.125 * expectedHealth + (0.01 * currentAP/100)) * magicMod"
-                ],
-                [
-                    "(0.15 * expectedHealth + (0.01 * currentAP/100)) * magicMod"
-                ]
-            ]
-        },
-        "type": {
-            "Q": "physical",
-            "R": "magic"
-        },
-        "aoe": {
-            "Q": "false",
-            "R": "false"
-        },
-        "variation": {
-            "R": [
-                [
-                    "2 * (0.1 * expectedHealth + (0.01 * currentAP/100)) * magicMod"
-                ],
-                [
-                    "2 * (0.125 * expectedHealth + (0.01 * currentAP/100)) * magicMod"
-                ],
-                [
-                    "2 * (0.15 * expectedHealth + (0.01 * currentAP/100)) * magicMod"
-                ]  
-            ]
-        }
+  "Trundle": {
+    "Q": {
+      "type": "physical",
+      "area": false,
+      "min": [
+        "(20 + (0.15 * currentAD)) * physicalMod",
+        "(40 + (0.25 * currentAD)) * physicalMod",
+        "(60 + (0.35 * currentAD)) * physicalMod",
+        "(80 + (0.45 * currentAD)) * physicalMod",
+        "(100 + (0.55 * currentAD)) * physicalMod"
+      ],
+      "max": []
+    },
+    "R": {
+      "type": "magic",
+      "area": false,
+      "min": [
+        "(0.1 * expectedHealth + (0.01 * currentAP/100)) * magicMod",
+        "(0.125 * expectedHealth + (0.01 * currentAP/100)) * magicMod",
+        "(0.15 * expectedHealth + (0.01 * currentAP/100)) * magicMod"
+      ],
+      "max": [
+        "2 * (0.1 * expectedHealth + (0.01 * currentAP/100)) * magicMod",
+        "2 * (0.125 * expectedHealth + (0.01 * currentAP/100)) * magicMod",
+        "2 * (0.15 * expectedHealth + (0.01 * currentAP/100)) * magicMod"
+      ]
     }
+  }
 }

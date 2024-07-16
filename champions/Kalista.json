@@ -1,67 +1,40 @@
 {
-    "Kalista": {
-        "spells": {
-            "Q": [
-                [
-                    "(20 + (1.05 * currentAD)) * physicalMod"
-                ],
-                [
-                    "(85 + (1.05 * currentAD)) * physicalMod"
-                ],
-                [
-                    "(150 + (1.05 * currentAD)) * physicalMod"
-                ],
-                [
-                    "(215 + (1.05 * currentAD)) * physicalMod"
-                ],
-                [
-                    "(280 + (1.05 * currentAD)) * physicalMod"
-                ]
-            ],
-            "W": [
-                [
-                    "(0.14 * expectedHealth) * magicMod"
-                ],
-                [
-                    "(0.15 * expectedHealth) * magicMod"
-                ],
-                [
-                    "(0.16 * expectedHealth) * magicMod"
-                ],
-                [
-                    "(0.17 * expectedHealth) * magicMod"
-                ],
-                [
-                    "(0.18 * expectedHealth) * magicMod"
-                ]
-            ],
-            "E": [
-                [
-                    "(10 + (0.7 * currentAD) + (0.2 * currentAP)) * physicalMod"
-                ],
-                [
-                    "(20 + (0.7 * currentAD) + (0.2 * currentAP)) * physicalMod"
-                ],
-                [
-                    "(30 + (0.7 * currentAD) + (0.2 * currentAP)) * physicalMod"
-                ],
-                [
-                    "(40 + (0.7 * currentAD) + (0.2 * currentAP)) * physicalMod"
-                ],
-                [
-                    "(50 + (0.7 * currentAD) + (0.2 * currentAP)) * physicalMod"
-                ]
-            ]
-        },
-        "type": {
-            "Q": "physical",
-            "W": "magic",
-            "E": "physical"
-        },
-        "aoe": {
-            "Q": "true",
-            "W": "false",
-            "E": "false"
-        }
+  "Kalista": {
+    "Q": {
+      "type": "physical",
+      "area": true,
+      "min": [
+        "(20 + (1.05 * currentAD)) * physicalMod",
+        "(85 + (1.05 * currentAD)) * physicalMod",
+        "(150 + (1.05 * currentAD)) * physicalMod",
+        "(215 + (1.05 * currentAD)) * physicalMod",
+        "(280 + (1.05 * currentAD)) * physicalMod"
+      ],
+      "max": []
+    },
+    "W": {
+      "type": "magic",
+      "area": false,
+      "min": [
+        "(0.14 * expectedHealth) * magicMod",
+        "(0.15 * expectedHealth) * magicMod",
+        "(0.16 * expectedHealth) * magicMod",
+        "(0.17 * expectedHealth) * magicMod",
+        "(0.18 * expectedHealth) * magicMod"
+      ],
+      "max": []
+    },
+    "E": {
+      "type": "physical",
+      "area": false,
+      "min": [
+        "(10 + (0.7 * currentAD) + (0.2 * currentAP)) * physicalMod",
+        "(20 + (0.7 * currentAD) + (0.2 * currentAP)) * physicalMod",
+        "(30 + (0.7 * currentAD) + (0.2 * currentAP)) * physicalMod",
+        "(40 + (0.7 * currentAD) + (0.2 * currentAP)) * physicalMod",
+        "(50 + (0.7 * currentAD) + (0.2 * currentAP)) * physicalMod"
+      ],
+      "max": []
     }
+  }
 }

@@ -1,144 +1,72 @@
 {
-    "Renekton": {
-        "spells": {
-            "Q": [
-                [
-                    "(60 + bonusAD) * physicalMod"
-                ],
-                [
-                    "(90 + bonusAD) * physicalMod"
-                ],
-                [
-                    "(120 + bonusAD) * physicalMod"
-                ],
-                [
-                    "(150 + bonusAD) * physicalMod"
-                ],
-                [
-                    "(180 + bonusAD) * physicalMod"
-                ]
-            ],
-            "W": [
-                [
-                    "2 * (5 + 0.75 * currentAD) * physicalMod"
-                ],
-                [
-                    "2 * (15 + 0.75 * currentAD) * physicalMod"
-                ],
-                [
-                    "2 * (25 + 0.75 * currentAD) * physicalMod"
-                ],
-                [
-                    "2 * (35 + 0.75 * currentAD) * physicalMod"
-                ],
-                [
-                    "2 * (45 + 0.75 * currentAD) * physicalMod"
-                ]
-            ],
-            "E": [
-                [
-                    "(40 + 0.9 * bonusAD) * physicalMod"
-                ],
-                [
-                    "(70 + 0.9 * bonusAD) * physicalMod"
-                ],
-                [
-                    "(100 + 0.9 * bonusAD) * physicalMod"
-                ],
-                [
-                    "(130 + 0.9 * bonusAD) * physicalMod"
-                ],
-                [
-                    "(160 + 0.9 * bonusAD) * physicalMod"
-                ]
-            ],
-            "R": [
-                [
-                    "(30 + 0.05 * bonusAD + 0.05 * currentAP) * magicMod"
-                ],
-                [
-                    "(60 + 0.05 * bonusAD + 0.05 * currentAP) * magicMod"
-                ],
-                [
-                    "(90 + 0.05 * bonusAD + 0.05 * currentAP) * magicMod"
-                ]
-            ]
-        },
-        "type": {
-            "Q": "physical",
-            "W": "physical",
-            "E": "physical",
-            "R": "magic"
-        },
-        "aoe": {
-            "Q": "true",
-            "W": "false",
-            "E": "true",
-            "R": "true"
-        },
-        "variation": {
-            "Q": [
-                [
-                    "(90 + 1.4 * bonusAD) * physicalMod"
-                ],
-                [
-                    "(135 + 1.4 * bonusAD) * physicalMod"
-                ],
-                [
-                    "(180 + 1.4 * bonusAD) * physicalMod"
-                ],
-                [
-                    "(225 + 1.4 * bonusAD) * physicalMod"
-                ],
-                [
-                    "(270 + 1.4 * bonusAD) * physicalMod"
-                ]
-            ],
-            "W": [
-                [
-                    "3 * (5 + 0.75 * currentAD) * physicalMod"
-                ],
-                [
-                    "3 * (15 + 0.75 * currentAD) * physicalMod"
-                ],
-                [
-                    "3 * (25 + 0.75 * currentAD) * physicalMod"
-                ],
-                [
-                    "3 * (35 + 0.75 * currentAD) * physicalMod"
-                ],
-                [
-                    "3 * (45 + 0.75 * currentAD) * physicalMod"
-                ]
-            ],
-            "E": [
-                [
-                    "(110 + 2.25 * bonusAD) * physicalMod"
-                ],
-                [
-                    "(185 + 2.25 * bonusAD) * physicalMod"
-                ],
-                [
-                    "(260 + 2.25 * bonusAD) * physicalMod"
-                ],
-                [
-                    "(335 + 2.25 * bonusAD) * physicalMod"
-                ],
-                [
-                    "(410 + 2.25 * bonusAD) * physicalMod"
-                ]
-            ],
-            "R": [
-                [
-                    "30 * (30 + 0.05 * bonusAD + 0.05 * currentAP) * magicMod"
-                ],
-                [
-                    "30 * (60 + 0.05 * bonusAD + 0.05 * currentAP) * magicMod"
-                ],
-                [
-                    "30 * (90 + 0.05 * bonusAD + 0.05 * currentAP) * magicMod"
-                ]
-            ]
-        }
+  "Renekton": {
+    "Q": {
+      "type": "physical",
+      "area": true,
+      "min": [
+        "(60 + bonusAD) * physicalMod",
+        "(90 + bonusAD) * physicalMod",
+        "(120 + bonusAD) * physicalMod",
+        "(150 + bonusAD) * physicalMod",
+        "(180 + bonusAD) * physicalMod"
+      ],
+      "max": [
+        "(90 + 1.4 * bonusAD) * physicalMod",
+        "(135 + 1.4 * bonusAD) * physicalMod",
+        "(180 + 1.4 * bonusAD) * physicalMod",
+        "(225 + 1.4 * bonusAD) * physicalMod",
+        "(270 + 1.4 * bonusAD) * physicalMod"
+      ]
+    },
+    "W": {
+      "type": "physical",
+      "area": false,
+      "min": [
+        "2 * (5 + 0.75 * currentAD) * physicalMod",
+        "2 * (15 + 0.75 * currentAD) * physicalMod",
+        "2 * (25 + 0.75 * currentAD) * physicalMod",
+        "2 * (35 + 0.75 * currentAD) * physicalMod",
+        "2 * (45 + 0.75 * currentAD) * physicalMod"
+      ],
+      "max": [
+        "3 * (5 + 0.75 * currentAD) * physicalMod",
+        "3 * (15 + 0.75 * currentAD) * physicalMod",
+        "3 * (25 + 0.75 * currentAD) * physicalMod",
+        "3 * (35 + 0.75 * currentAD) * physicalMod",
+        "3 * (45 + 0.75 * currentAD) * physicalMod"
+      ]
+    },
+    "E": {
+      "type": "physical",
+      "area": true,
+      "min": [
+        "(40 + 0.9 * bonusAD) * physicalMod",
+        "(70 + 0.9 * bonusAD) * physicalMod",
+        "(100 + 0.9 * bonusAD) * physicalMod",
+        "(130 + 0.9 * bonusAD) * physicalMod",
+        "(160 + 0.9 * bonusAD) * physicalMod"
+      ],
+      "max": [
+        "(110 + 2.25 * bonusAD) * physicalMod",
+        "(185 + 2.25 * bonusAD) * physicalMod",
+        "(260 + 2.25 * bonusAD) * physicalMod",
+        "(335 + 2.25 * bonusAD) * physicalMod",
+        "(410 + 2.25 * bonusAD) * physicalMod"
+      ]
+    },
+    "R": {
+      "type": "magic",
+      "area": true,
+      "min": [
+        "(30 + 0.05 * bonusAD + 0.05 * currentAP) * magicMod",
+        "(60 + 0.05 * bonusAD + 0.05 * currentAP) * magicMod",
+        "(90 + 0.05 * bonusAD + 0.05 * currentAP) * magicMod"
+      ],
+      "max": [
+        "30 * (30 + 0.05 * bonusAD + 0.05 * currentAP) * magicMod",
+        "30 * (60 + 0.05 * bonusAD + 0.05 * currentAP) * magicMod",
+        "30 * (90 + 0.05 * bonusAD + 0.05 * currentAP) * magicMod"
+      ]
     }
+  }
 }

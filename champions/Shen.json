@@ -1,67 +1,34 @@
 {
-    "Shen": {
-        "spells": {
-            "Q": [
-                [
-                    "(10 + (1.66 * level) + ((0.02 + (0.015 * currentAP/100)) * expectedHealth)) * magicMod"
-                ], 
-                [
-                    "(10 + (1.66 * level) + ((0.025 + (0.015 * currentAP/100)) * expectedHealth)) * magicMod"
-                ],  
-                [
-                    "(10 + (1.66 * level) + ((0.03 + (0.015 * currentAP/100)) * expectedHealth)) * magicMod"
-                ], 
-                [
-                    "(10 + (1.66 * level) + ((0.035 + (0.015 * currentAP/100)) * expectedHealth)) * magicMod"
-                ], 
-                [
-                    "(10 + (1.66 * level) + ((0.04 + (0.015 * currentAP/100)) * expectedHealth)) * magicMod"
-                ]
-            ],
-            "E": [
-                [
-                    "(60 + (0.15 * bonusHP)) * physicalMod"
-                ],
-                [
-                    "(85 + (0.15 * bonusHP)) * physicalMod"
-                ],
-                [
-                    "(110 + (0.15 * bonusHP)) * physicalMod"
-                ],
-                [
-                    "(135 + (0.15 * bonusHP)) * physicalMod"
-                ],
-                [
-                    "(160 + (0.15 * bonusHP)) * physicalMod"
-                ]
-            ]
-        },
-        "type": {
-            "Q": "magic",
-            "E": "physical"
-        },
-        "aoe": {
-            "Q": "false",
-            "E": "false"
-        },
-        "variation": {
-            "Q": [
-                [
-                    "(10 + (1.66 * level) + ((0.04 + (0.02 * currentAP/100)) * expectedHealth)) * magicMod"
-                ],
-                [
-                    "(10 + (1.66 * level) + ((0.045 + (0.02 * currentAP/100)) * expectedHealth)) * magicMod"
-                ],
-                [
-                    "(10 + (1.66 * level) + ((0.05 + (0.02 * currentAP/100)) * expectedHealth)) * magicMod"
-                ],
-                [
-                    "(10 + (1.66 * level) + ((0.055 + (0.02 * currentAP/100)) * expectedHealth)) * magicMod"
-                ],
-                [
-                    "(10 + (1.66 * level) + ((0.06 + (0.02 * currentAP/100)) * expectedHealth)) * magicMod"
-                ]
-            ]
-        }
+  "Shen": {
+    "Q": {
+      "type": "magic",
+      "area": false,
+      "min": [
+        "(10 + (1.66 * level) + ((0.02 + (0.015 * currentAP/100)) * expectedHealth)) * magicMod",
+        "(10 + (1.66 * level) + ((0.025 + (0.015 * currentAP/100)) * expectedHealth)) * magicMod",
+        "(10 + (1.66 * level) + ((0.03 + (0.015 * currentAP/100)) * expectedHealth)) * magicMod",
+        "(10 + (1.66 * level) + ((0.035 + (0.015 * currentAP/100)) * expectedHealth)) * magicMod",
+        "(10 + (1.66 * level) + ((0.04 + (0.015 * currentAP/100)) * expectedHealth)) * magicMod"
+      ],
+      "max": [
+        "(10 + (1.66 * level) + ((0.04 + (0.02 * currentAP/100)) * expectedHealth)) * magicMod",
+        "(10 + (1.66 * level) + ((0.045 + (0.02 * currentAP/100)) * expectedHealth)) * magicMod",
+        "(10 + (1.66 * level) + ((0.05 + (0.02 * currentAP/100)) * expectedHealth)) * magicMod",
+        "(10 + (1.66 * level) + ((0.055 + (0.02 * currentAP/100)) * expectedHealth)) * magicMod",
+        "(10 + (1.66 * level) + ((0.06 + (0.02 * currentAP/100)) * expectedHealth)) * magicMod"
+      ]
+    },
+    "E": {
+      "type": "physical",
+      "area": false,
+      "min": [
+        "(60 + (0.15 * bonusHP)) * physicalMod",
+        "(85 + (0.15 * bonusHP)) * physicalMod",
+        "(110 + (0.15 * bonusHP)) * physicalMod",
+        "(135 + (0.15 * bonusHP)) * physicalMod",
+        "(160 + (0.15 * bonusHP)) * physicalMod"
+      ],
+      "max": []
     }
+  }
 }

@@ -1,172 +1,41 @@
 {
-    "Bard": {
-        "spells": {
-            "P": [
-                [
-                    "(35 + 0.4 * currentAP) * magicMod"
-                ],
-                [
-                    "(35 + 0.4 * currentAP) * magicMod"
-                ],
-                [
-                    "(35 + 0.4 * currentAP) * magicMod"
-                ],
-                [
-                    "(35 + 0.4 * currentAP) * magicMod"
-                ],
-                [
-                    "(35 + 0.4 * currentAP) * magicMod"
-                ],
-                [
-                    "(35 + 0.4 * currentAP) * magicMod"
-                ],
-                [
-                    "(35 + 0.4 * currentAP) * magicMod"
-                ],
-                [
-                    "(35 + 0.4 * currentAP) * magicMod"
-                ],
-                [
-                    "(35 + 0.4 * currentAP) * magicMod"
-                ],
-                [
-                    "(35 + 0.4 * currentAP) * magicMod"
-                ],
-                [
-                    "(35 + 0.4 * currentAP) * magicMod"
-                ],
-                [
-                    "(35 + 0.4 * currentAP) * magicMod"
-                ],
-                [
-                    "(35 + 0.4 * currentAP) * magicMod"
-                ],
-                [
-                    "(35 + 0.4 * currentAP) * magicMod"
-                ],
-                [
-                    "(35 + 0.4 * currentAP) * magicMod"
-                ],
-                [
-                    "(35 + 0.4 * currentAP) * magicMod"
-                ],
-                [
-                    "(35 + 0.4 * currentAP) * magicMod"
-                ],
-                [
-                    "(35 + 0.4 * currentAP) * magicMod"
-                ]
-            ],
-            "Q": [
-                [
-                    "(80 + 0.8 * currentAP) * magicMod"
-                ],
-                [
-                    "(125 + 0.8 * currentAP) * magicMod"
-                ], 
-                [
-                    "(170 + 0.8 * currentAP) * magicMod"
-                ],
-                [
-                    "(215 + 0.8 * currentAP) * magicMod"
-                ],
-                [
-                    "(260 + 0.8 * currentAP) * magicMod"
-                ]
-            ]
-        },
-        "type": {
-            "P": "magic",
-            "Q": "magic"
-        },
-        "aoe": {
-            "P": "false",
-            "Q": "true"
-        },
-        "calculator": {
-            "spells": {
-                "P": [
-                    [
-                        "(35 + 0.4 * currentAP + stack * 2) * magicMod"
-                    ],
-                    [
-                        "(35 + 0.4 * currentAP + stack * 2) * magicMod"
-                    ],
-                    [
-                        "(35 + 0.4 * currentAP + stack * 2) * magicMod"
-                    ],
-                    [
-                        "(35 + 0.4 * currentAP + stack * 2) * magicMod"
-                    ],
-                    [
-                        "(35 + 0.4 * currentAP + stack * 2) * magicMod"
-                    ],
-                    [
-                        "(35 + 0.4 * currentAP + stack * 2) * magicMod"
-                    ],
-                    [
-                        "(35 + 0.4 * currentAP + stack * 2) * magicMod"
-                    ],
-                    [
-                        "(35 + 0.4 * currentAP + stack * 2) * magicMod"
-                    ],
-                    [
-                        "(35 + 0.4 * currentAP + stack * 2) * magicMod"
-                    ],
-                    [
-                        "(35 + 0.4 * currentAP + stack * 2) * magicMod"
-                    ],
-                    [
-                        "(35 + 0.4 * currentAP + stack * 2) * magicMod"
-                    ],
-                    [
-                        "(35 + 0.4 * currentAP + stack * 2) * magicMod"
-                    ],
-                    [
-                        "(35 + 0.4 * currentAP + stack * 2) * magicMod"
-                    ],
-                    [
-                        "(35 + 0.4 * currentAP + stack * 2) * magicMod"
-                    ],
-                    [
-                        "(35 + 0.4 * currentAP + stack * 2) * magicMod"
-                    ],
-                    [
-                        "(35 + 0.4 * currentAP + stack * 2) * magicMod"
-                    ],
-                    [
-                        "(35 + 0.4 * currentAP + stack * 2) * magicMod"
-                    ],
-                    [
-                        "(35 + 0.4 * currentAP + stack * 2) * magicMod"
-                    ]
-                ],
-                "Q": [
-                    [
-                        "(80 + 0.8 * currentAP) * magicMod"
-                    ],
-                    [
-                        "(125 + 0.8 * currentAP) * magicMod"
-                    ], 
-                    [
-                        "(170 + 0.8 * currentAP) * magicMod"
-                    ],
-                    [
-                        "(215 + 0.8 * currentAP) * magicMod"
-                    ],
-                    [
-                        "(260 + 0.8 * currentAP) * magicMod"
-                    ]
-                ]
-            },
-            "type": {
-                "P": "magic",
-                "Q": "magic"
-            },
-            "aoe": {
-                "P": "false",
-                "Q": "true"
-            }
-        }
+  "Bard": {
+    "P": {
+      "type": "magic",
+      "area": false,
+      "min": [
+        "(35 + 0.4 * currentAP) * magicMod",
+        "(35 + 0.4 * currentAP) * magicMod",
+        "(35 + 0.4 * currentAP) * magicMod",
+        "(35 + 0.4 * currentAP) * magicMod",
+        "(35 + 0.4 * currentAP) * magicMod",
+        "(35 + 0.4 * currentAP) * magicMod",
+        "(35 + 0.4 * currentAP) * magicMod",
+        "(35 + 0.4 * currentAP) * magicMod",
+        "(35 + 0.4 * currentAP) * magicMod",
+        "(35 + 0.4 * currentAP) * magicMod",
+        "(35 + 0.4 * currentAP) * magicMod",
+        "(35 + 0.4 * currentAP) * magicMod",
+        "(35 + 0.4 * currentAP) * magicMod",
+        "(35 + 0.4 * currentAP) * magicMod",
+        "(35 + 0.4 * currentAP) * magicMod",
+        "(35 + 0.4 * currentAP) * magicMod",
+        "(35 + 0.4 * currentAP) * magicMod",
+        "(35 + 0.4 * currentAP) * magicMod"
+      ],
+      "max": []
+    },
+    "Q": {
+      "type": "magic",
+      "area": true,
+      "min": [
+        "(80 + 0.8 * currentAP) * magicMod",
+        "(125 + 0.8 * currentAP) * magicMod",
+        "(170 + 0.8 * currentAP) * magicMod",
+        "(215 + 0.8 * currentAP) * magicMod",
+        "(260 + 0.8 * currentAP) * magicMod"
+      ],
+      "max": []
     }
+  }
 }

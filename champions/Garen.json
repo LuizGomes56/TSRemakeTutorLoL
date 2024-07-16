@@ -1,91 +1,48 @@
 {
-    "Garen": {
-        "spells": {
-            "Q": [
-                [
-                    "(30 + (0.5 * currentAD)) * physicalMod"
-                ], 
-                [
-                    "(60 + (0.5 * currentAD)) * physicalMod"
-                ], 
-                [
-                    "(90 + (0.5 * currentAD)) * physicalMod"
-                ],
-                [
-                    "(120 + (0.5 * currentAD)) * physicalMod"
-                ],
-                [
-                    "(150 + (0.5 * currentAD)) * physicalMod"
-                ]
-            ],
-            "E": [
-                [
-                    "(4 + (0.36 * currentAD) + (0.8 * (level - 1))) * physicalMod"
-                ],
-                [
-                    "(8 + (0.37 * currentAD) + (0.8 * (level - 1))) * physicalMod"
-                ],
-                [
-                    "(12 + (0.38 * currentAD) + (0.8 * (level - 1))) * physicalMod"
-                ],
-                [
-                    "(16 + (0.39 * currentAD) + (0.8 * (level - 1))) * physicalMod"
-                ],
-                [
-                    "(20 + (0.4 * currentAD) + (0.8 * (level - 1))) * physicalMod"
-                ]
-            ],
-            "R": [
-                [
-                    "150"
-                ],
-                [
-                    "300"
-                ],
-                [
-                    "450"
-                ]
-            ]
-        },
-        "type": {
-            "Q": "physical",
-            "E": "physical",
-            "R": "true"
-        },
-        "aoe": {
-            "Q": "false",
-            "E": "true",
-            "R": "false"
-        },
-        "variation": {
-            "E": [
-                [
-                    "1.25 * (4 + (0.32 * currentAD) + (0.8 * (level - 1))) * physicalMod"
-                ],
-                [
-                    "1.25 * (8 + (0.34 * currentAD) + (0.8 * (level - 1))) * physicalMod"
-                ],
-                [
-                    "1.25 * (12 + (0.36 * currentAD) + (0.8 * (level - 1))) * physicalMod"
-                ],
-                [
-                    "1.25 * (16 + (0.38 * currentAD) + (0.8 * (level - 1))) * physicalMod"
-                ],
-                [
-                    "1.25 * (20 + (0.4 * currentAD) + (0.8 * (level - 1))) * physicalMod"
-                ]
-            ],
-            "R": [
-                [
-                    "(150 + 0.25 * expectedHealth) * physicalMod"
-                ],
-                [
-                    "(300 + 0.30 * expectedHealth) * physicalMod"
-                ],
-                [
-                    "(450 + 0.35 * expectedHealth) * physicalMod"
-                ]
-            ]
-        }
+  "Garen": {
+    "Q": {
+      "type": "physical",
+      "area": false,
+      "min": [
+        "(30 + (0.5 * currentAD)) * physicalMod",
+        "(60 + (0.5 * currentAD)) * physicalMod",
+        "(90 + (0.5 * currentAD)) * physicalMod",
+        "(120 + (0.5 * currentAD)) * physicalMod",
+        "(150 + (0.5 * currentAD)) * physicalMod"
+      ],
+      "max": []
+    },
+    "E": {
+      "type": "physical",
+      "area": true,
+      "min": [
+        "(4 + (0.36 * currentAD) + (0.8 * (level - 1))) * physicalMod",
+        "(8 + (0.37 * currentAD) + (0.8 * (level - 1))) * physicalMod",
+        "(12 + (0.38 * currentAD) + (0.8 * (level - 1))) * physicalMod",
+        "(16 + (0.39 * currentAD) + (0.8 * (level - 1))) * physicalMod",
+        "(20 + (0.4 * currentAD) + (0.8 * (level - 1))) * physicalMod"
+      ],
+      "max": [
+        "1.25 * (4 + (0.32 * currentAD) + (0.8 * (level - 1))) * physicalMod",
+        "1.25 * (8 + (0.34 * currentAD) + (0.8 * (level - 1))) * physicalMod",
+        "1.25 * (12 + (0.36 * currentAD) + (0.8 * (level - 1))) * physicalMod",
+        "1.25 * (16 + (0.38 * currentAD) + (0.8 * (level - 1))) * physicalMod",
+        "1.25 * (20 + (0.4 * currentAD) + (0.8 * (level - 1))) * physicalMod"
+      ]
+    },
+    "R": {
+      "type": "true",
+      "area": false,
+      "min": [
+        "150",
+        "300",
+        "450"
+      ],
+      "max": [
+        "(150 + 0.25 * expectedHealth) * physicalMod",
+        "(300 + 0.30 * expectedHealth) * physicalMod",
+        "(450 + 0.35 * expectedHealth) * physicalMod"
+      ]
     }
+  }
 }

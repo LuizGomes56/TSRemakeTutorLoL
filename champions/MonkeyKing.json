@@ -1,74 +1,42 @@
 {
-    "MonkeyKing": {
-        "spells": {
-            "Q": [
-                [
-                    "(20 + 0.55 * bonusAD) * (100 / (100 + expectedArmor * 0.9))"
-                ], 
-                [
-                    "(45 + 0.55 * bonusAD) * (100 / (100 + expectedArmor * 0.85))"
-                ],  
-                [
-                    "(70 + 0.55 * bonusAD) * (100 / (100 + expectedArmor * 0.8))"
-                ], 
-                [
-                    "(95 + 0.55 * bonusAD) * (100 / (100 + expectedArmor * 0.75))"
-                ], 
-                [
-                    "(110 + 0.55 * bonusAD) * (100 / (100 + expectedArmor * 0.7))"
-                ]
-            ],
-            "E": [
-                [
-                    "(80 + currentAP) * magicMod"
-                ],
-                [
-                    "(110 + currentAP) * magicMod"
-                ],
-                [
-                    "(140 + currentAP) * magicMod"
-                ],
-                [
-                    "(170 + currentAP) * magicMod"
-                ],
-                [
-                    "(200 + currentAP) * magicMod"
-                ]
-            ],
-            "R": [
-                [
-                    "(0.34375 * currentAD + 0.01 * expectedHealth) * physicalMod"
-                ],
-                [
-                    "(0.34375 * currentAD + 0.015 * expectedHealth) * physicalMod"
-                ],
-                [
-                    "(0.34375 * currentAD + 0.02 * expectedHealth) * physicalMod"
-                ]
-            ]
-        },
-        "type": {
-            "Q": "physical",
-            "E": "magic",
-            "R": "physical"
-        },
-        "aoe": {
-            "Q": "false",
-            "E": "true",
-            "R": "true"
-        },
-        "variation": {
-            "R": [
-                [
-                    "(0.34375 * currentAD + 0.01 * expectedHealth) * 16 * physicalMod"
-                ],
-                [
-                    "(0.34375 * currentAD + 0.015 * expectedHealth) * 16 * physicalMod"
-                ],
-                [
-                    "(0.34375 * currentAD + 0.02 * expectedHealth) * 16 * physicalMod"
-                ]
-            ]
-        }
+  "MonkeyKing": {
+    "Q": {
+      "type": "physical",
+      "area": false,
+      "min": [
+        "(20 + 0.55 * bonusAD) * (100 / (100 + expectedArmor * 0.9))",
+        "(45 + 0.55 * bonusAD) * (100 / (100 + expectedArmor * 0.85))",
+        "(70 + 0.55 * bonusAD) * (100 / (100 + expectedArmor * 0.8))",
+        "(95 + 0.55 * bonusAD) * (100 / (100 + expectedArmor * 0.75))",
+        "(110 + 0.55 * bonusAD) * (100 / (100 + expectedArmor * 0.7))"
+      ],
+      "max": []
+    },
+    "E": {
+      "type": "magic",
+      "area": true,
+      "min": [
+        "(80 + currentAP) * magicMod",
+        "(110 + currentAP) * magicMod",
+        "(140 + currentAP) * magicMod",
+        "(170 + currentAP) * magicMod",
+        "(200 + currentAP) * magicMod"
+      ],
+      "max": []
+    },
+    "R": {
+      "type": "physical",
+      "area": true,
+      "min": [
+        "(0.34375 * currentAD + 0.01 * expectedHealth) * physicalMod",
+        "(0.34375 * currentAD + 0.015 * expectedHealth) * physicalMod",
+        "(0.34375 * currentAD + 0.02 * expectedHealth) * physicalMod"
+      ],
+      "max": [
+        "(0.34375 * currentAD + 0.01 * expectedHealth) * 16 * physicalMod",
+        "(0.34375 * currentAD + 0.015 * expectedHealth) * 16 * physicalMod",
+        "(0.34375 * currentAD + 0.02 * expectedHealth) * 16 * physicalMod"
+      ]
     }
+  }
 }

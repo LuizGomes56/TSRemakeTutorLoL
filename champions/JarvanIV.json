@@ -1,177 +1,82 @@
 {
-    "JarvanIV": {
-        "spells": {
-            "P": [
-                [
-                    "20"
-                ],
-                [
-                    "20"
-                ],
-                [
-                    "20"
-                ],
-                [
-                    "20"
-                ],
-                [
-                    "20"
-                ],
-                [
-                    "20"
-                ],
-                [
-                    "20"
-                ],
-                [
-                    "20"
-                ],
-                [
-                    "20"
-                ],
-                [
-                    "20"
-                ],
-                [
-                    "20"
-                ],
-                [
-                    "20"
-                ],
-                [
-                    "20"
-                ],
-                [
-                    "20"
-                ],
-                [
-                    "20"
-                ],
-                [
-                    "20"
-                ],
-                [
-                    "20"
-                ],
-                [
-                    "20"
-                ]
-            ],
-            "Q": [
-                [
-                    "(90 + 1.4 * bonusAD) * physicalMod"
-                ], 
-                [
-                    "(130 + 1.4 * bonusAD) * physicalMod"
-                ], 
-                [
-                    "(170 + 1.4 * bonusAD) * physicalMod"
-                ],
-                [
-                    "(210 + 1.4 * bonusAD) * physicalMod"
-                ],
-                [
-                    "(250 + 1.4 * bonusAD) * physicalMod"
-                ]
-            ],
-            "E": [
-                [
-                    "(80 + 0.8 * currentAP) * magicMod"
-                ],
-                [
-                    "(120 + 0.8 * currentAP) * magicMod"
-                ],
-                [
-                    "(160 + 0.8 * currentAP) * magicMod"
-                ],
-                [
-                    "(200 + 0.8 * currentAP) * magicMod"
-                ],
-                [
-                    "(240 + 0.8 * currentAP) * magicMod"
-                ]
-            ],
-            "R": [
-                [
-                    "(200 + 1.8 * bonusAD) * physicalMod"
-                ],
-                [
-                    "(325 + 1.8 * bonusAD) * physicalMod"
-                ],
-                [
-                    "(450 + 1.8 * bonusAD) * physicalMod"
-                ]
-            ]
-        },
-        "type": {
-            "P": "physical",
-            "Q": "physical",
-            "E": "magic",
-            "R": "physical"
-        },
-        "aoe": {
-            "P": "false",
-            "Q": "true",
-            "E": "true",
-            "R": "true"
-        },
-        "variation": {
-            "P": [
-                [
-                    "(0.07 * expectedHealth) * physicalMod"
-                ],
-                [
-                    "(0.07 * expectedHealth) * physicalMod"
-                ],
-                [
-                    "(0.07 * expectedHealth) * physicalMod"
-                ],
-                [
-                    "(0.07 * expectedHealth) * physicalMod"
-                ],
-                [
-                    "(0.07 * expectedHealth) * physicalMod"
-                ],
-                [
-                    "(0.07 * expectedHealth) * physicalMod"
-                ],
-                [
-                    "(0.07 * expectedHealth) * physicalMod"
-                ],
-                [
-                    "(0.07 * expectedHealth) * physicalMod"
-                ],
-                [
-                    "(0.07 * expectedHealth) * physicalMod"
-                ],
-                [
-                    "(0.07 * expectedHealth) * physicalMod"
-                ],
-                [
-                    "(0.07 * expectedHealth) * physicalMod"
-                ],
-                [
-                    "(0.07 * expectedHealth) * physicalMod"
-                ],
-                [
-                    "(0.07 * expectedHealth) * physicalMod"
-                ],
-                [
-                    "(0.07 * expectedHealth) * physicalMod"
-                ],
-                [
-                    "(0.07 * expectedHealth) * physicalMod"
-                ],
-                [
-                    "(0.07 * expectedHealth) * physicalMod"
-                ],
-                [
-                    "(0.07 * expectedHealth) * physicalMod"
-                ],
-                [
-                    "(0.07 * expectedHealth) * physicalMod"
-                ]
-            ]
-        }
+  "JarvanIV": {
+    "P": {
+      "type": "physical",
+      "area": false,
+      "min": [
+        "20",
+        "20",
+        "20",
+        "20",
+        "20",
+        "20",
+        "20",
+        "20",
+        "20",
+        "20",
+        "20",
+        "20",
+        "20",
+        "20",
+        "20",
+        "20",
+        "20",
+        "20"
+      ],
+      "max": [
+        "(0.07 * expectedHealth) * physicalMod",
+        "(0.07 * expectedHealth) * physicalMod",
+        "(0.07 * expectedHealth) * physicalMod",
+        "(0.07 * expectedHealth) * physicalMod",
+        "(0.07 * expectedHealth) * physicalMod",
+        "(0.07 * expectedHealth) * physicalMod",
+        "(0.07 * expectedHealth) * physicalMod",
+        "(0.07 * expectedHealth) * physicalMod",
+        "(0.07 * expectedHealth) * physicalMod",
+        "(0.07 * expectedHealth) * physicalMod",
+        "(0.07 * expectedHealth) * physicalMod",
+        "(0.07 * expectedHealth) * physicalMod",
+        "(0.07 * expectedHealth) * physicalMod",
+        "(0.07 * expectedHealth) * physicalMod",
+        "(0.07 * expectedHealth) * physicalMod",
+        "(0.07 * expectedHealth) * physicalMod",
+        "(0.07 * expectedHealth) * physicalMod",
+        "(0.07 * expectedHealth) * physicalMod"
+      ]
+    },
+    "Q": {
+      "type": "physical",
+      "area": true,
+      "min": [
+        "(90 + 1.4 * bonusAD) * physicalMod",
+        "(130 + 1.4 * bonusAD) * physicalMod",
+        "(170 + 1.4 * bonusAD) * physicalMod",
+        "(210 + 1.4 * bonusAD) * physicalMod",
+        "(250 + 1.4 * bonusAD) * physicalMod"
+      ],
+      "max": []
+    },
+    "E": {
+      "type": "magic",
+      "area": true,
+      "min": [
+        "(80 + 0.8 * currentAP) * magicMod",
+        "(120 + 0.8 * currentAP) * magicMod",
+        "(160 + 0.8 * currentAP) * magicMod",
+        "(200 + 0.8 * currentAP) * magicMod",
+        "(240 + 0.8 * currentAP) * magicMod"
+      ],
+      "max": []
+    },
+    "R": {
+      "type": "physical",
+      "area": true,
+      "min": [
+        "(200 + 1.8 * bonusAD) * physicalMod",
+        "(325 + 1.8 * bonusAD) * physicalMod",
+        "(450 + 1.8 * bonusAD) * physicalMod"
+      ],
+      "max": []
     }
+  }
 }

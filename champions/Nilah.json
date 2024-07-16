@@ -1,91 +1,48 @@
 {
-    "Nilah": {
-        "spells": {
-            "Q": [
-                [
-                    "(1 + 1.2 * critChance) * (5 + 0.9 * currentAD) * physicalMod"
-                ],
-                [
-                    "(1 + 1.2 * critChance) * (10 + 0.975 * currentAD) * physicalMod"
-                ],
-                [
-                    "(1 + 1.2 * critChance) * (15 + 1.05 * currentAD) * physicalMod"
-                ],
-                [
-                    "(1 + 1.2 * critChance) * (20 + 1.125 * currentAD) * physicalMod"
-                ],
-                [
-                    "(1 + 1.2 * critChance) * (25 + 1.2 * currentAD) * physicalMod"
-                ]
-            ],
-            "E": [
-                [
-                    "(65 + 0.2 * currentAD) * physicalMod"
-                ],
-                [
-                    "(90 + 0.2 * currentAD) * physicalMod"
-                ],
-                [
-                    "(115 + 0.2 * currentAD) * physicalMod"
-                ],
-                [
-                    "(140 + 0.2 * currentAD) * physicalMod"
-                ],
-                [
-                    "(165 + 0.2 * currentAD) * physicalMod"
-                ]
-            ],
-            "R": [
-                [
-                    "(60 + 0.8 * bonusAD) * physicalMod"
-                ],
-                [
-                    "(120 + 0.8 * bonusAD) * physicalMod"
-                ],
-                [
-                    "(180 + 0.8 * bonusAD) * physicalMod"
-                ]
-            ]
-        },
-        "type": {
-            "Q": "physical",
-            "E": "physical",
-            "R": "physical"
-        },
-        "aoe": {
-            "Q": "true",
-            "E": "true",
-            "R": "true"
-        },
-        "variation": {
-            "E": [
-                [
-                    "2 * (65 + 0.2 * currentAD) * physicalMod"
-                ],
-                [
-                    "2 * (90 + 0.2 * currentAD) * physicalMod"
-                ],
-                [
-                    "2 * (115 + 0.2 * currentAD) * physicalMod"
-                ],
-                [
-                    "2 * (140 + 0.2 * currentAD) * physicalMod"
-                ],
-                [
-                    "2 * (165 + 0.2 * currentAD) * physicalMod"
-                ]
-            ],
-            "R": [
-                [
-                    "(185 + 2 * bonusAD) * physicalMod"
-                ],
-                [
-                    "(345 + 2 * bonusAD) * physicalMod"
-                ],
-                [
-                    "(505 + 2 * bonusAD) * physicalMod"
-                ]
-            ]
-        }
+  "Nilah": {
+    "Q": {
+      "type": "physical",
+      "area": true,
+      "min": [
+        "(1 + 1.2 * critChance) * (5 + 0.9 * currentAD) * physicalMod",
+        "(1 + 1.2 * critChance) * (10 + 0.975 * currentAD) * physicalMod",
+        "(1 + 1.2 * critChance) * (15 + 1.05 * currentAD) * physicalMod",
+        "(1 + 1.2 * critChance) * (20 + 1.125 * currentAD) * physicalMod",
+        "(1 + 1.2 * critChance) * (25 + 1.2 * currentAD) * physicalMod"
+      ],
+      "max": []
+    },
+    "E": {
+      "type": "physical",
+      "area": true,
+      "min": [
+        "(65 + 0.2 * currentAD) * physicalMod",
+        "(90 + 0.2 * currentAD) * physicalMod",
+        "(115 + 0.2 * currentAD) * physicalMod",
+        "(140 + 0.2 * currentAD) * physicalMod",
+        "(165 + 0.2 * currentAD) * physicalMod"
+      ],
+      "max": [
+        "2 * (65 + 0.2 * currentAD) * physicalMod",
+        "2 * (90 + 0.2 * currentAD) * physicalMod",
+        "2 * (115 + 0.2 * currentAD) * physicalMod",
+        "2 * (140 + 0.2 * currentAD) * physicalMod",
+        "2 * (165 + 0.2 * currentAD) * physicalMod"
+      ]
+    },
+    "R": {
+      "type": "physical",
+      "area": true,
+      "min": [
+        "(60 + 0.8 * bonusAD) * physicalMod",
+        "(120 + 0.8 * bonusAD) * physicalMod",
+        "(180 + 0.8 * bonusAD) * physicalMod"
+      ],
+      "max": [
+        "(185 + 2 * bonusAD) * physicalMod",
+        "(345 + 2 * bonusAD) * physicalMod",
+        "(505 + 2 * bonusAD) * physicalMod"
+      ]
     }
+  }
 }

@@ -1,61 +1,38 @@
 {
-    "Thresh": {
-        "spells": {
-            "Q": [
-                [
-                    "(100 + (0.9 * currentAP)) * magicMod"
-                ],
-                [
-                    "(150 + (0.9 * currentAP)) * magicMod"
-                ],
-                [
-                    "(200 + (0.9 * currentAP)) * magicMod"
-                ],
-                [
-                    "(250 + (0.9 * currentAP)) * magicMod"
-                ],
-                [
-                    "(300 + (0.9 * currentAP)) * magicMod"
-                ]
-            ],
-            "E": [
-                [
-                    "(75 + (0.7 * currentAP)) * magicMod"
-                ],
-                [
-                    "(120 + (0.7 * currentAP)) * magicMod"
-                ],
-                [
-                    "(165 + (0.7 * currentAP)) * magicMod"
-                ],
-                [
-                    "(210 + (0.7 * currentAP)) * magicMod"
-                ],
-                [
-                    "(255 + (0.7 * currentAP)) * magicMod"
-                ]
-            ],
-            "R": [
-                [
-                    "((250 + currentAP) * magicMod)"
-                ],
-                [
-                    "((400 + currentAP) * magicMod)"
-                ],
-                [
-                    "((550 + currentAP) * magicMod)"
-                ]
-            ]
-        },
-        "type": {
-            "Q": "magic",
-            "E": "magic",
-            "R": "magic"
-        },
-        "aoe": {
-            "Q": "false",
-            "E": "true",
-            "R": "false"
-        }
+  "Thresh": {
+    "Q": {
+      "type": "magic",
+      "area": false,
+      "min": [
+        "(100 + (0.9 * currentAP)) * magicMod",
+        "(150 + (0.9 * currentAP)) * magicMod",
+        "(200 + (0.9 * currentAP)) * magicMod",
+        "(250 + (0.9 * currentAP)) * magicMod",
+        "(300 + (0.9 * currentAP)) * magicMod"
+      ],
+      "max": []
+    },
+    "E": {
+      "type": "magic",
+      "area": true,
+      "min": [
+        "(75 + (0.7 * currentAP)) * magicMod",
+        "(120 + (0.7 * currentAP)) * magicMod",
+        "(165 + (0.7 * currentAP)) * magicMod",
+        "(210 + (0.7 * currentAP)) * magicMod",
+        "(255 + (0.7 * currentAP)) * magicMod"
+      ],
+      "max": []
+    },
+    "R": {
+      "type": "magic",
+      "area": false,
+      "min": [
+        "((250 + currentAP) * magicMod)",
+        "((400 + currentAP) * magicMod)",
+        "((550 + currentAP) * magicMod)"
+      ],
+      "max": []
     }
+  }
 }

@@ -1,87 +1,41 @@
 {
-    "Milio": {
-        "spells": {
-            "P": [
-                [
-                    "(15 + 35 / 17 * (level - 1) + 0.2 * currentAP) * magicMod"
-                ],
-                [
-                    "(15 + 35 / 17 * (level - 1) + 0.2 * currentAP) * magicMod"
-                ],
-                [
-                    "(15 + 35 / 17 * (level - 1) + 0.2 * currentAP) * magicMod"
-                ],
-                [
-                    "(15 + 35 / 17 * (level - 1) + 0.2 * currentAP) * magicMod"
-                ],
-                [
-                    "(15 + 35 / 17 * (level - 1) + 0.2 * currentAP) * magicMod"
-                ],
-                [
-                    "(15 + 35 / 17 * (level - 1) + 0.2 * currentAP) * magicMod"
-                ],
-                [
-                    "(15 + 35 / 17 * (level - 1) + 0.2 * currentAP) * magicMod"
-                ],
-                [
-                    "(15 + 35 / 17 * (level - 1) + 0.2 * currentAP) * magicMod"
-                ],
-                [
-                    "(15 + 35 / 17 * (level - 1) + 0.2 * currentAP) * magicMod"
-                ],
-                [
-                    "(15 + 35 / 17 * (level - 1) + 0.2 * currentAP) * magicMod"
-                ],
-                [
-                    "(15 + 35 / 17 * (level - 1) + 0.2 * currentAP) * magicMod"
-                ],
-                [
-                    "(15 + 35 / 17 * (level - 1) + 0.2 * currentAP) * magicMod"
-                ],
-                [
-                    "(15 + 35 / 17 * (level - 1) + 0.2 * currentAP) * magicMod"
-                ],
-                [
-                    "(15 + 35 / 17 * (level - 1) + 0.2 * currentAP) * magicMod"
-                ],
-                [
-                    "(15 + 35 / 17 * (level - 1) + 0.2 * currentAP) * magicMod"
-                ],
-                [
-                    "(15 + 35 / 17 * (level - 1) + 0.2 * currentAP) * magicMod"
-                ],
-                [
-                    "(15 + 35 / 17 * (level - 1) + 0.2 * currentAP) * magicMod"
-                ],
-                [
-                    "(15 + 35 / 17 * (level - 1) + 0.2 * currentAP) * magicMod"
-                ]
-            ],
-            "Q": [
-                [
-                    "(80 + 1.2 * currentAP) * magicMod"
-                ], 
-                [
-                    "(145 + 1.2 * currentAP) * magicMod"
-                ], 
-                [
-                    "(210 + 1.2 * currentAP) * magicMod"
-                ],
-                [
-                    "(275 + 1.2 * currentAP) * magicMod"
-                ],
-                [
-                    "(340 + 1.2 * currentAP) * magicMod"
-                ]
-            ]
-        },
-        "type": {
-            "P": "magic",
-            "Q": "magic"
-        },
-        "aoe": {
-            "P": "false",
-            "Q": "true"
-        }
+  "Milio": {
+    "P": {
+      "type": "magic",
+      "area": false,
+      "min": [
+        "(15 + 35 / 17 * (level - 1) + 0.2 * currentAP) * magicMod",
+        "(15 + 35 / 17 * (level - 1) + 0.2 * currentAP) * magicMod",
+        "(15 + 35 / 17 * (level - 1) + 0.2 * currentAP) * magicMod",
+        "(15 + 35 / 17 * (level - 1) + 0.2 * currentAP) * magicMod",
+        "(15 + 35 / 17 * (level - 1) + 0.2 * currentAP) * magicMod",
+        "(15 + 35 / 17 * (level - 1) + 0.2 * currentAP) * magicMod",
+        "(15 + 35 / 17 * (level - 1) + 0.2 * currentAP) * magicMod",
+        "(15 + 35 / 17 * (level - 1) + 0.2 * currentAP) * magicMod",
+        "(15 + 35 / 17 * (level - 1) + 0.2 * currentAP) * magicMod",
+        "(15 + 35 / 17 * (level - 1) + 0.2 * currentAP) * magicMod",
+        "(15 + 35 / 17 * (level - 1) + 0.2 * currentAP) * magicMod",
+        "(15 + 35 / 17 * (level - 1) + 0.2 * currentAP) * magicMod",
+        "(15 + 35 / 17 * (level - 1) + 0.2 * currentAP) * magicMod",
+        "(15 + 35 / 17 * (level - 1) + 0.2 * currentAP) * magicMod",
+        "(15 + 35 / 17 * (level - 1) + 0.2 * currentAP) * magicMod",
+        "(15 + 35 / 17 * (level - 1) + 0.2 * currentAP) * magicMod",
+        "(15 + 35 / 17 * (level - 1) + 0.2 * currentAP) * magicMod",
+        "(15 + 35 / 17 * (level - 1) + 0.2 * currentAP) * magicMod"
+      ],
+      "max": []
+    },
+    "Q": {
+      "type": "magic",
+      "area": true,
+      "min": [
+        "(80 + 1.2 * currentAP) * magicMod",
+        "(145 + 1.2 * currentAP) * magicMod",
+        "(210 + 1.2 * currentAP) * magicMod",
+        "(275 + 1.2 * currentAP) * magicMod",
+        "(340 + 1.2 * currentAP) * magicMod"
+      ],
+      "max": []
     }
+  }
 }

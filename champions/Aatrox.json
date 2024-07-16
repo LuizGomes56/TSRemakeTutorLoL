@@ -1,142 +1,65 @@
 {
-    "Aatrox": {
-        "spells": {
-            "P": [
-                [
-                    "(0.04 * expectedHealth) * magicMod"
-                ],
-                [
-                    "(0.047 * expectedHealth) * magicMod"
-                ],
-                [
-                    "(0.0494 * expectedHealth) * magicMod"
-                ],
-                [
-                    "(0.0541 * expectedHealth) * magicMod"
-                ],
-                [
-                    "(0.0588 * expectedHealth) * magicMod"
-                ],
-                [
-                    "(0.0635 * expectedHealth) * magicMod"
-                ],
-                [
-                    "(0.0682 * expectedHealth) * magicMod"
-                ],
-                [
-                    "(0.0729 * expectedHealth) * magicMod"
-                ],
-                [
-                    "(0.0776 * expectedHealth) * magicMod"
-                ],
-                [
-                    "(0.0826 * expectedHealth) * magicMod"
-                ],
-                [
-                    "(0.0871 * expectedHealth) * magicMod"
-                ],
-                [
-                    "(0.0918 * expectedHealth) * magicMod"
-                ],
-                [
-                    "(0.0965 * expectedHealth) * magicMod"
-                ],
-                [
-                    "(0.1012 * expectedHealth) * magicMod"
-                ],
-                [
-                    "(0.1059 * expectedHealth) * magicMod"
-                ],
-                [
-                    "(0.1106 * expectedHealth) * magicMod"
-                ],
-                [
-                    "(0.1153 * expectedHealth) * magicMod"
-                ],
-                [
-                    "(0.12 * expectedHealth) * magicMod"
-                ]
-            ],
-            "Q": [
-                [
-                    "(10 + 0.6 * currentAD) * physicalMod"
-                ],
-                [
-                    "(25 + 0.67.5 * currentAD) * physicalMod"
-                ],
-                [
-                    "(40 + 0.75 * currentAD) * physicalMod"
-                ],
-                [
-                    "(55 + 0.82.5 * currentAD) * physicalMod"
-                ],
-                [
-                    "(70 + 0.9 * currentAD) * physicalMod"
-                ]
-            ],
-            "W": [
-                [
-                    "(30 + 0.4 * currentAD) * magicMod"
-                ],
-                [
-                    "(40 + 0.4 * currentAD) * magicMod"
-                ],
-                [
-                    "(50 + 0.4 * currentAD) * magicMod"
-                ],
-                [
-                    "(60 + 0.4 * currentAD) * magicMod"
-                ],
-                [
-                    "(70 + 0.4 * currentAD) * magicMod"
-                ]
-            ]
-        },
-        "type": {
-            "P": "magic",
-            "Q": "physical",
-            "W": "magic"
-        },
-        "aoe": {
-            "P": "false",
-            "Q": "true",
-            "W": "false"
-        },
-        "variation": {
-            "Q": [
-                [
-                    "(60 + 3.6 * currentAD) * physicalMod"
-                ],
-                [
-                    "(150 + 4.05 * currentAD) * physicalMod"
-                ],
-                [
-                    "(240 + 4.5 * currentAD) * physicalMod"
-                ],
-                [
-                    "(330 + 4.95 * currentAD) * physicalMod"
-                ],
-                [
-                    "(420 + 5.4 * currentAD) * physicalMod"
-                ]
-            ],
-            "W": [
-                [
-                    "2 * (30 + 0.4 * currentAD) * magicMod"
-                ],
-                [
-                    "2 * (40 + 0.4 * currentAD) * magicMod"
-                ],
-                [
-                    "2 * (50 + 0.4 * currentAD) * magicMod"
-                ],
-                [
-                    "2 * (60 + 0.4 * currentAD) * magicMod"
-                ],
-                [
-                    "2 * (70 + 0.4 * currentAD) * magicMod"
-                ]
-            ]
-        }
+  "Aatrox": {
+    "P": {
+      "type": "magic",
+      "area": false,
+      "min": [
+        "(0.04 * expectedHealth) * magicMod",
+        "(0.047 * expectedHealth) * magicMod",
+        "(0.0494 * expectedHealth) * magicMod",
+        "(0.0541 * expectedHealth) * magicMod",
+        "(0.0588 * expectedHealth) * magicMod",
+        "(0.0635 * expectedHealth) * magicMod",
+        "(0.0682 * expectedHealth) * magicMod",
+        "(0.0729 * expectedHealth) * magicMod",
+        "(0.0776 * expectedHealth) * magicMod",
+        "(0.0826 * expectedHealth) * magicMod",
+        "(0.0871 * expectedHealth) * magicMod",
+        "(0.0918 * expectedHealth) * magicMod",
+        "(0.0965 * expectedHealth) * magicMod",
+        "(0.1012 * expectedHealth) * magicMod",
+        "(0.1059 * expectedHealth) * magicMod",
+        "(0.1106 * expectedHealth) * magicMod",
+        "(0.1153 * expectedHealth) * magicMod",
+        "(0.12 * expectedHealth) * magicMod"
+      ],
+      "max": []
+    },
+    "Q": {
+      "type": "physical",
+      "area": true,
+      "min": [
+        "(10 + 0.6 * currentAD) * physicalMod",
+        "(25 + 0.67.5 * currentAD) * physicalMod",
+        "(40 + 0.75 * currentAD) * physicalMod",
+        "(55 + 0.82.5 * currentAD) * physicalMod",
+        "(70 + 0.9 * currentAD) * physicalMod"
+      ],
+      "max": [
+        "(60 + 3.6 * currentAD) * physicalMod",
+        "(150 + 4.05 * currentAD) * physicalMod",
+        "(240 + 4.5 * currentAD) * physicalMod",
+        "(330 + 4.95 * currentAD) * physicalMod",
+        "(420 + 5.4 * currentAD) * physicalMod"
+      ]
+    },
+    "W": {
+      "type": "magic",
+      "area": false,
+      "min": [
+        "(30 + 0.4 * currentAD) * magicMod",
+        "(40 + 0.4 * currentAD) * magicMod",
+        "(50 + 0.4 * currentAD) * magicMod",
+        "(60 + 0.4 * currentAD) * magicMod",
+        "(70 + 0.4 * currentAD) * magicMod"
+      ],
+      "max": [
+        "2 * (30 + 0.4 * currentAD) * magicMod",
+        "2 * (40 + 0.4 * currentAD) * magicMod",
+        "2 * (50 + 0.4 * currentAD) * magicMod",
+        "2 * (60 + 0.4 * currentAD) * magicMod",
+        "2 * (70 + 0.4 * currentAD) * magicMod"
+      ]
     }
+  }
 }

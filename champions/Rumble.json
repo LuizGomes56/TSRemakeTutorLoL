@@ -1,166 +1,79 @@
 {
-    "Rumble": {
-        "spells": {
-            "P": [
-                [
-                    "(5 + 35 /17 * (level - 1) + (0.25 * currentAP) + (0.06 * expectedHealth)) * magicMod"
-                ],
-                [
-                    "(5 + 35 /17 * (level - 1) + (0.25 * currentAP) + (0.06 * expectedHealth)) * magicMod"
-                ],
-                [
-                    "(5 + 35 /17 * (level - 1) + (0.25 * currentAP) + (0.06 * expectedHealth)) * magicMod"
-                ],
-                [
-                    "(5 + 35 /17 * (level - 1) + (0.25 * currentAP) + (0.06 * expectedHealth)) * magicMod"
-                ],
-                [
-                    "(5 + 35 /17 * (level - 1) + (0.25 * currentAP) + (0.06 * expectedHealth)) * magicMod"
-                ],
-                [
-                    "(5 + 35 /17 * (level - 1) + (0.25 * currentAP) + (0.06 * expectedHealth)) * magicMod"
-                ],
-                [
-                    "(5 + 35 /17 * (level - 1) + (0.25 * currentAP) + (0.06 * expectedHealth)) * magicMod"
-                ],
-                [
-                    "(5 + 35 /17 * (level - 1) + (0.25 * currentAP) + (0.06 * expectedHealth)) * magicMod)"
-                ],
-                [
-                    "(5 + 35 /17 * (level - 1) + (0.25 * currentAP) + (0.06 * expectedHealth)) * magicMod"
-                ],
-                [
-                    "(5 + 35 /17 * (level - 1) + (0.25 * currentAP) + (0.06 * expectedHealth)) * magicMod"
-                ],
-                [
-                    "(5 + 35 /17 * (level - 1) + (0.25 * currentAP) + (0.06 * expectedHealth)) * magicMod"
-                ],
-                [
-                    "(5 + 35 /17 * (level - 1) + (0.25 * currentAP) + (0.06 * expectedHealth)) * magicMod"
-                ],
-                [
-                    "(5 + 35 /17 * (level - 1) + (0.25 * currentAP) + (0.06 * expectedHealth)) * magicMod"
-                ],
-                [
-                    "(5 + 35 /17 * (level - 1) + (0.25 * currentAP) + (0.06 * expectedHealth)) * magicMod"
-                ],
-                [
-                    "(5 + 35 /17 * (level - 1) + (0.25 * currentAP) + (0.06 * expectedHealth)) * magicMod"
-                ],
-                [
-                    "(5 + 35 /17 * (level - 1) + (0.25 * currentAP) + (0.06 * expectedHealth)) * magicMod"
-                ],
-                [
-                    "(5 + 35 /17 * (level - 1) + (0.25 * currentAP) + (0.06 * expectedHealth)) * magicMod"
-                ],
-                [
-                    "(5 + 35 /17 * (level - 1) + (0.25 * currentAP) + (0.06 * expectedHealth)) * magicMod"
-                ]
-            ],
-            "Q": [
-                [
-                    "(11.25 + (0.0917 * currentAP) + (0.005 * expectedHealth)) * magicMod"
-                ], 
-                [
-                    "(12.5 + (0.0917 * currentAP) + (0.00583 * expectedHealth)) * magicMod"
-                ],  
-                [
-                    "(13.75 + (0.0917 * currentAP) + (0.00667 * expectedHealth)) * magicMod"
-                ], 
-                [
-                    "(15 + (0.0917 * currentAP) + (0.0075 * expectedHealth)) * magicMod"
-                ], 
-                [
-                    "(16.25 + (0.0917 * currentAP) + (0.00833 * expectedHealth)) * magicMod"
-                ]
-            ],
-            "E": [
-                [
-                    "(60 + (0.5 * currentAP)) * magicMod"
-                ],
-                [
-                    "(85 + (0.5 * currentAP)) * magicMod"
-                ],
-                [
-                    "(110 + (0.5 * currentAP)) * magicMod"
-                ],
-                [
-                    "(135 + (0.5 * currentAP)) * magicMod"
-                ],
-                [
-                    "(160 + (0.5 * currentAP)) * magicMod"
-                ]
-            ],
-            "R": [
-                [
-                    "(140 + (0.35 * currentAP)) * magicMod"
-                ],
-                [
-                    "(210 + (0.35 * currentAP)) * magicMod"
-                ],
-                [
-                    "(280 + (0.35 * currentAP)) * magicMod"
-                ]
-            ]
-        },
-        "type": {
-            "P": "magic",
-            "Q": "magic",
-            "E": "magic",
-            "R": "magic"
-        },
-        "aoe": {
-            "P": "false",
-            "Q": "true",
-            "E": "false",
-            "R": "true"
-        },
-        "variation": {
-            "Q": [
-                [
-                    "1.5 * 12 * (11.25 + (0.0917 * currentAP) + (0.005 * expectedHealth)) * magicMod"
-                ], 
-                [
-                    "1.5 * 12 * (12.5 + (0.0917 * currentAP) + (0.00583 * expectedHealth)) * magicMod"
-                ],  
-                [
-                    "1.5 * 12 * (13.75 + (0.0917 * currentAP) + (0.00667 * expectedHealth)) * magicMod"
-                ], 
-                [
-                    "1.5 * 12 * (15 + (0.0917 * currentAP) + (0.0075 * expectedHealth)) * magicMod"
-                ], 
-                [
-                    "1.5 * 12 * (16.25 + (0.0917 * currentAP) + (0.00833 * expectedHealth)) * magicMod"
-                ]
-            ],
-            "E": [
-                [
-                    "1.5 * (60 + (0.4 * currentAP)) * magicMod"
-                ],
-                [
-                    "1.5 * (85 + (0.4 * currentAP)) * magicMod"
-                ],
-                [
-                    "1.5 * (110 + (0.4 * currentAP)) * magicMod"
-                ],
-                [
-                    "1.5 * (135 + (0.4 * currentAP)) * magicMod"
-                ],
-                [
-                    "1.5 * (160 + (0.4 * currentAP)) * magicMod"
-                ]
-            ],
-            "R": [
-                [
-                    "5 * (140 + (0.35 * currentAP)) * magicMod"
-                ],
-                [
-                    "5 * (210 + (0.35 * currentAP)) * magicMod"
-                ],
-                [
-                    "5 * (280 + (0.35 * currentAP)) * magicMod"
-                ]
-            ]
-        }
+  "Rumble": {
+    "P": {
+      "type": "magic",
+      "area": false,
+      "min": [
+        "(5 + 35 /17 * (level - 1) + (0.25 * currentAP) + (0.06 * expectedHealth)) * magicMod",
+        "(5 + 35 /17 * (level - 1) + (0.25 * currentAP) + (0.06 * expectedHealth)) * magicMod",
+        "(5 + 35 /17 * (level - 1) + (0.25 * currentAP) + (0.06 * expectedHealth)) * magicMod",
+        "(5 + 35 /17 * (level - 1) + (0.25 * currentAP) + (0.06 * expectedHealth)) * magicMod",
+        "(5 + 35 /17 * (level - 1) + (0.25 * currentAP) + (0.06 * expectedHealth)) * magicMod",
+        "(5 + 35 /17 * (level - 1) + (0.25 * currentAP) + (0.06 * expectedHealth)) * magicMod",
+        "(5 + 35 /17 * (level - 1) + (0.25 * currentAP) + (0.06 * expectedHealth)) * magicMod",
+        "(5 + 35 /17 * (level - 1) + (0.25 * currentAP) + (0.06 * expectedHealth)) * magicMod)",
+        "(5 + 35 /17 * (level - 1) + (0.25 * currentAP) + (0.06 * expectedHealth)) * magicMod",
+        "(5 + 35 /17 * (level - 1) + (0.25 * currentAP) + (0.06 * expectedHealth)) * magicMod",
+        "(5 + 35 /17 * (level - 1) + (0.25 * currentAP) + (0.06 * expectedHealth)) * magicMod",
+        "(5 + 35 /17 * (level - 1) + (0.25 * currentAP) + (0.06 * expectedHealth)) * magicMod",
+        "(5 + 35 /17 * (level - 1) + (0.25 * currentAP) + (0.06 * expectedHealth)) * magicMod",
+        "(5 + 35 /17 * (level - 1) + (0.25 * currentAP) + (0.06 * expectedHealth)) * magicMod",
+        "(5 + 35 /17 * (level - 1) + (0.25 * currentAP) + (0.06 * expectedHealth)) * magicMod",
+        "(5 + 35 /17 * (level - 1) + (0.25 * currentAP) + (0.06 * expectedHealth)) * magicMod",
+        "(5 + 35 /17 * (level - 1) + (0.25 * currentAP) + (0.06 * expectedHealth)) * magicMod",
+        "(5 + 35 /17 * (level - 1) + (0.25 * currentAP) + (0.06 * expectedHealth)) * magicMod"
+      ],
+      "max": []
+    },
+    "Q": {
+      "type": "magic",
+      "area": true,
+      "min": [
+        "(11.25 + (0.0917 * currentAP) + (0.005 * expectedHealth)) * magicMod",
+        "(12.5 + (0.0917 * currentAP) + (0.00583 * expectedHealth)) * magicMod",
+        "(13.75 + (0.0917 * currentAP) + (0.00667 * expectedHealth)) * magicMod",
+        "(15 + (0.0917 * currentAP) + (0.0075 * expectedHealth)) * magicMod",
+        "(16.25 + (0.0917 * currentAP) + (0.00833 * expectedHealth)) * magicMod"
+      ],
+      "max": [
+        "1.5 * 12 * (11.25 + (0.0917 * currentAP) + (0.005 * expectedHealth)) * magicMod",
+        "1.5 * 12 * (12.5 + (0.0917 * currentAP) + (0.00583 * expectedHealth)) * magicMod",
+        "1.5 * 12 * (13.75 + (0.0917 * currentAP) + (0.00667 * expectedHealth)) * magicMod",
+        "1.5 * 12 * (15 + (0.0917 * currentAP) + (0.0075 * expectedHealth)) * magicMod",
+        "1.5 * 12 * (16.25 + (0.0917 * currentAP) + (0.00833 * expectedHealth)) * magicMod"
+      ]
+    },
+    "E": {
+      "type": "magic",
+      "area": false,
+      "min": [
+        "(60 + (0.5 * currentAP)) * magicMod",
+        "(85 + (0.5 * currentAP)) * magicMod",
+        "(110 + (0.5 * currentAP)) * magicMod",
+        "(135 + (0.5 * currentAP)) * magicMod",
+        "(160 + (0.5 * currentAP)) * magicMod"
+      ],
+      "max": [
+        "1.5 * (60 + (0.4 * currentAP)) * magicMod",
+        "1.5 * (85 + (0.4 * currentAP)) * magicMod",
+        "1.5 * (110 + (0.4 * currentAP)) * magicMod",
+        "1.5 * (135 + (0.4 * currentAP)) * magicMod",
+        "1.5 * (160 + (0.4 * currentAP)) * magicMod"
+      ]
+    },
+    "R": {
+      "type": "magic",
+      "area": true,
+      "min": [
+        "(140 + (0.35 * currentAP)) * magicMod",
+        "(210 + (0.35 * currentAP)) * magicMod",
+        "(280 + (0.35 * currentAP)) * magicMod"
+      ],
+      "max": [
+        "5 * (140 + (0.35 * currentAP)) * magicMod",
+        "5 * (210 + (0.35 * currentAP)) * magicMod",
+        "5 * (280 + (0.35 * currentAP)) * magicMod"
+      ]
     }
+  }
 }

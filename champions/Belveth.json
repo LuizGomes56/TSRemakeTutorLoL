@@ -1,169 +1,85 @@
 {
-    "Belveth": {
-        "attack": "0.75 * physicalMod * currentAD",
-        "spells": {
-            "P": [
-                [
-                    "0"
-                ],
-                [
-                    "0"
-                ],
-                [
-                    "0"
-                ],
-                [
-                    "0"
-                ],
-                [
-                    "0"
-                ],
-                [
-                    "6 + 0.12 * bonusAD"
-                ],
-                [
-                    "6 + 0.12 * bonusAD"
-                ],
-                [
-                    "6 + 0.12 * bonusAD"
-                ],
-                [
-                    "6 + 0.12 * bonusAD"
-                ],
-                [
-                    "6 + 0.12 * bonusAD"
-                ],
-                [
-                    "8 + 0.12 * bonusAD"
-                ],
-                [
-                    "8 + 0.12 * bonusAD"
-                ],
-                [
-                    "8 + 0.12 * bonusAD"
-                ],
-                [
-                    "8 + 0.12 * bonusAD"
-                ],
-                [
-                    "8 + 0.12 * bonusAD"
-                ],
-                [
-                    "10 + 0.12 * bonusAD"
-                ],
-                [
-                    "10 + 0.12 * bonusAD"
-                ],
-                [
-                    "10 + 0.12 * bonusAD"
-                ]
-            ],
-            "Q": [
-                [
-                    "(10 + 1.1 * currentAD) * physicalMod"
-                ],
-                [
-                    "(15 + 1.1 * currentAD) * physicalMod"
-                ],
-                [
-                    "(20 + 1.1 * currentAD) * physicalMod"
-                ],
-                [
-                    "(25 + 1.1 * currentAD) * physicalMod"
-                ],
-                [
-                    "(30 + 1.1 * currentAD) * physicalMod"
-                ]
-            ],
-            "W": [
-                [
-                    "(70 + 1.25 * currentAP + bonusAD) * magicMod"
-                ],
-                [
-                    "(110 + 1.25 * currentAP + bonusAD) * magicMod"
-                ],
-                [
-                    "(150 + 1.25 * currentAP + bonusAD) * magicMod"
-                ],
-                [
-                    "(190 + 1.25 * currentAP + bonusAD) * magicMod"
-                ],
-                [
-                    "(230 + 1.25 * currentAP + bonusAD) * magicMod"
-                ]
-            ],
-            "E": [
-                [
-                    "(6 + 0.08 * currentAD) * physicalMod"
-                ],
-                [
-                    "(7 + 0.08 * currentAD) * physicalMod"
-                ],
-                [
-                    "(8 + 0.08 * currentAD) * physicalMod"
-                ],
-                [
-                    "(9 + 0.08 * currentAD) * physicalMod"
-                ],
-                [
-                    "(10 + 0.08 * currentAD) * physicalMod"
-                ]
-            ],
-            "R": [
-                [
-                    "150 + currentAP"
-                ],
-                [
-                    "200 + currentAP"
-                ],
-                [
-                    "250 + currentAP"
-                ]
-            ]
-        },
-        "type": {
-            "P": "true",
-            "Q": "physical",
-            "W": "magic",
-            "E": "physical",
-            "R": "true"
-        },
-        "aoe": {
-            "P": "false",
-            "Q": "true",
-            "W": "true",
-            "E": "true",
-            "R": "true"
-        },
-        "variation": {
-            "E": [
-                [
-                    "4 * (6 + 0.08 * currentAD) * physicalMod"
-                ],
-                [
-                    "4 * (7 + 0.08 * currentAD) * physicalMod"
-                ],
-                [
-                    "4 * (8 + 0.08 * currentAD) * physicalMod"
-                ],
-                [
-                    "4 * (9 + 0.08 * currentAD) * physicalMod"
-                ],
-                [
-                    "4 * (10 + 0.08 * currentAD) * physicalMod"
-                ]
-            ],
-            "R": [
-                [
-                    "150 + currentAP + 0.25 * expectedHealth"
-                ],
-                [
-                    "200 + currentAP + 0.25 * expectedHealth"
-                ],
-                [
-                    "250 + currentAP + 0.25 * expectedHealth"
-                ]
-            ]
-        }
+  "Belveth": {
+    "P": {
+      "type": "true",
+      "area": false,
+      "min": [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "6 + 0.12 * bonusAD",
+        "6 + 0.12 * bonusAD",
+        "6 + 0.12 * bonusAD",
+        "6 + 0.12 * bonusAD",
+        "6 + 0.12 * bonusAD",
+        "8 + 0.12 * bonusAD",
+        "8 + 0.12 * bonusAD",
+        "8 + 0.12 * bonusAD",
+        "8 + 0.12 * bonusAD",
+        "8 + 0.12 * bonusAD",
+        "10 + 0.12 * bonusAD",
+        "10 + 0.12 * bonusAD",
+        "10 + 0.12 * bonusAD"
+      ],
+      "max": []
+    },
+    "Q": {
+      "type": "physical",
+      "area": true,
+      "min": [
+        "(10 + 1.1 * currentAD) * physicalMod",
+        "(15 + 1.1 * currentAD) * physicalMod",
+        "(20 + 1.1 * currentAD) * physicalMod",
+        "(25 + 1.1 * currentAD) * physicalMod",
+        "(30 + 1.1 * currentAD) * physicalMod"
+      ],
+      "max": []
+    },
+    "W": {
+      "type": "magic",
+      "area": true,
+      "min": [
+        "(70 + 1.25 * currentAP + bonusAD) * magicMod",
+        "(110 + 1.25 * currentAP + bonusAD) * magicMod",
+        "(150 + 1.25 * currentAP + bonusAD) * magicMod",
+        "(190 + 1.25 * currentAP + bonusAD) * magicMod",
+        "(230 + 1.25 * currentAP + bonusAD) * magicMod"
+      ],
+      "max": []
+    },
+    "E": {
+      "type": "physical",
+      "area": true,
+      "min": [
+        "(6 + 0.08 * currentAD) * physicalMod",
+        "(7 + 0.08 * currentAD) * physicalMod",
+        "(8 + 0.08 * currentAD) * physicalMod",
+        "(9 + 0.08 * currentAD) * physicalMod",
+        "(10 + 0.08 * currentAD) * physicalMod"
+      ],
+      "max": [
+        "4 * (6 + 0.08 * currentAD) * physicalMod",
+        "4 * (7 + 0.08 * currentAD) * physicalMod",
+        "4 * (8 + 0.08 * currentAD) * physicalMod",
+        "4 * (9 + 0.08 * currentAD) * physicalMod",
+        "4 * (10 + 0.08 * currentAD) * physicalMod"
+      ]
+    },
+    "R": {
+      "type": "true",
+      "area": true,
+      "min": [
+        "150 + currentAP",
+        "200 + currentAP",
+        "250 + currentAP"
+      ],
+      "max": [
+        "150 + currentAP + 0.25 * expectedHealth",
+        "200 + currentAP + 0.25 * expectedHealth",
+        "250 + currentAP + 0.25 * expectedHealth"
+      ]
     }
+  }
 }

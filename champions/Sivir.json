@@ -1,65 +1,22 @@
 {
-    "Sivir": {
-        "spells": {
-            "Q": [
-                [
-                    "(15 + (0.6 * currentAP) + (0.8 *  currentAD)) * physicalMod"
-                ],
-                [
-                    "(30 + (0.6 * currentAP) + (0.85 *  currentAD)) * physicalMod"
-                ],
-                [
-                    "(45 + (0.6 * currentAP) + (0.9 *  currentAD)) * physicalMod"
-                ],
-                [
-                    "(60 + (0.6 * currentAP) + (0.95 *  currentAD)) * physicalMod"
-                ],
-                [
-                    "(75 + (0.6 * currentAP) + currentAD) * physicalMod"
-                ]
-            ],
-            "W": [
-                [
-                    "0.3 * currentAD * physicalMod"
-                ],
-                [
-                    "0.35 * currentAD * physicalMod"
-                ],
-                [
-                    "0.4 * currentAD * physicalMod"
-                ],
-                [
-                    "0.45 * currentAD * physicalMod"
-                ],
-                [
-                    "0.5 * currentAD * physicalMod"
-                ]
-            ]
-        },
-        "type": {
-            "Q": "physical"
-        },
-        "aoe": {
-            "Q": "true"
-        },
-        "variation": {
-            "Q": [
-                [
-                    "2 * (15 + (0.6 * currentAP) + (0.8 *  currentAD)) * physicalMod"
-                ],
-                [
-                    "2 * (30 + (0.6 * currentAP) + (0.85 *  currentAD)) * physicalMod"
-                ],
-                [
-                    "2 * (45 + (0.6 * currentAP) + (0.9 *  currentAD)) * physicalMod"
-                ],
-                [
-                    "2 * (60 + (0.6 * currentAP) + (0.95 *  currentAD)) * physicalMod"
-                ],
-                [
-                    "2 * (75 + (0.6 * currentAP) + currentAD) * physicalMod"
-                ]
-            ]
-        }
+  "Sivir": {
+    "Q": {
+      "type": "physical",
+      "area": true,
+      "min": [
+        "(15 + (0.6 * currentAP) + (0.8 *  currentAD)) * physicalMod",
+        "(30 + (0.6 * currentAP) + (0.85 *  currentAD)) * physicalMod",
+        "(45 + (0.6 * currentAP) + (0.9 *  currentAD)) * physicalMod",
+        "(60 + (0.6 * currentAP) + (0.95 *  currentAD)) * physicalMod",
+        "(75 + (0.6 * currentAP) + currentAD) * physicalMod"
+      ],
+      "max": [
+        "2 * (15 + (0.6 * currentAP) + (0.8 *  currentAD)) * physicalMod",
+        "2 * (30 + (0.6 * currentAP) + (0.85 *  currentAD)) * physicalMod",
+        "2 * (45 + (0.6 * currentAP) + (0.9 *  currentAD)) * physicalMod",
+        "2 * (60 + (0.6 * currentAP) + (0.95 *  currentAD)) * physicalMod",
+        "2 * (75 + (0.6 * currentAP) + currentAD) * physicalMod"
+      ]
     }
+  }
 }

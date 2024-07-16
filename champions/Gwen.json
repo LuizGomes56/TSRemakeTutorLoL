@@ -1,149 +1,73 @@
 {
-    "Gwen": {
-        "spells": {
-            "P": [
-                [
-                    "((0.01 + 7.2 * currentAP / 100000) * expectedHealth) * magicMod"
-                ],
-                [
-                    "((0.01 + 7.2 * currentAP / 100000) * expectedHealth) * magicMod"
-                ],
-                [
-                    "((0.01 + 7.2 * currentAP / 100000) * expectedHealth) * magicMod"
-                ],
-                [
-                    "((0.01 + 7.2 * currentAP / 100000) * expectedHealth) * magicMod"
-                ],
-                [
-                    "((0.01 + 7.2 * currentAP / 100000) * expectedHealth) * magicMod"
-                ],
-                [
-                    "((0.01 + 7.2 * currentAP / 100000) * expectedHealth) * magicMod"
-                ],
-                [
-                    "((0.01 + 7.2 * currentAP / 100000) * expectedHealth) * magicMod"
-                ],
-                [
-                    "((0.01 + 7.2 * currentAP / 100000) * expectedHealth) * magicMod"
-                ],
-                [
-                    "((0.01 + 7.2 * currentAP / 100000) * expectedHealth) * magicMod"
-                ],
-                [
-                    "((0.01 + 7.2 * currentAP / 100000) * expectedHealth) * magicMod"
-                ],
-                [
-                    "((0.01 + 7.2 * currentAP / 100000) * expectedHealth) * magicMod"
-                ],
-                [
-                    "((0.01 + 7.2 * currentAP / 100000) * expectedHealth) * magicMod"
-                ],
-                [
-                    "((0.01 + 7.2 * currentAP / 100000) * expectedHealth) * magicMod"
-                ],
-                [
-                    "((0.01 + 7.2 * currentAP / 100000) * expectedHealth) * magicMod"
-                ],
-                [
-                    "((0.01 + 7.2 * currentAP / 100000) * expectedHealth) * magicMod"
-                ],
-                [
-                    "((0.01 + 7.2 * currentAP / 100000) * expectedHealth) * magicMod"
-                ],
-                [
-                    "((0.01 + 7.2 * currentAP / 100000) * expectedHealth) * magicMod"
-                ],
-                [
-                    "((0.01 + 7.2 * currentAP / 100000) * expectedHealth) * magicMod"
-                ]
-            ],
-            "Q": [
-                [
-                    "(10 + 0.05 * currentAP) * magicMod"
-                ],
-                [
-                    "(15 + 0.05 * currentAP) * magicMod"
-                ], 
-                [
-                    "(20 + 0.05 * currentAP) * magicMod"
-                ],
-                [
-                    "(25 + 0.05 * currentAP) * magicMod"
-                ],
-                [
-                    "(30 + 0.05 * currentAP) * magicMod"
-                ]
-            ],
-            "E": [
-                [
-                    "(15 + 0.2 * currentAP + (0.01 + 7.2 * currentAP / 100000) * expectedHealth) * magicMod"
-                ],
-                [
-                    "(15 + 0.2 * currentAP + (0.01 + 7.2 * currentAP / 100000) * expectedHealth) * magicMod"
-                ],
-                [
-                    "(15 + 0.2 * currentAP + (0.01 + 7.2 * currentAP / 100000) * expectedHealth) * magicMod"
-                ],
-                [
-                    "(15 + 0.2 * currentAP + (0.01 + 7.2 * currentAP / 100000) * expectedHealth) * magicMod"
-                ],
-                [
-                    "(15 + 0.2 * currentAP + (0.01 + 7.2 * currentAP / 100000) * expectedHealth) * magicMod"
-                ]
-            ],
-            "R": [
-                [
-                    "(35 + 0.1 * currentAP + (0.01 + 7.2 * currentAP / 100000) * expectedHealth) * magicMod"
-                ],
-                [
-                    "(65 + 0.1 * currentAP + (0.01 + 7.2 * currentAP / 100000) * expectedHealth) * magicMod"
-                ],
-                [
-                    "(95 + 0.1 * currentAP + (0.01 + 7.2 * currentAP / 100000) * expectedHealth) * magicMod"
-                ]
-            ]
-        },
-        "type": {
-            "P": "magic",
-            "Q": "mixed",
-            "E": "magic",
-            "R": "magic"
-        },
-        "aoe": {
-            "P": "false",
-            "Q": "true",
-            "E": "false",
-            "R": "true"
-        },
-        "variation": {
-            "Q": [
-                [
-                    "(110 + 0.6 * currentAP + (0.06 + 43.2 * currentAP / 100000) * expectedHealth) * magicMod"
-                ],
-                [
-                    "(160 + 0.6 * currentAP + (0.06 + 43.2 * currentAP / 100000) * expectedHealth) * magicMod"
-                ], 
-                [
-                    "(210 + 0.6 * currentAP + (0.06 + 43.2 * currentAP / 100000) * expectedHealth) * magicMod"
-                ],
-                [
-                    "(260 + 0.6 * currentAP + (0.06 + 43.2 * currentAP / 100000) * expectedHealth) * magicMod"
-                ],
-                [
-                    "(310 + 0.6 * currentAP + (0.06 + 43.2 * currentAP / 100000) * expectedHealth) * magicMod"
-                ]
-            ],
-            "R": [
-                [
-                    "9 * (35 + 0.1 * currentAP + (0.01 + 7.2 * currentAP / 100000) * expectedHealth) * magicMod"
-                ],
-                [
-                    "9 * (65 + 0.1 * currentAP + (0.01 + 7.2 * currentAP / 100000) * expectedHealth) * magicMod"
-                ],
-                [
-                    "9 * (95 + 0.1 * currentAP + (0.01 + 7.2 * currentAP / 100000) * expectedHealth) * magicMod"
-                ]
-            ]
-        }
+  "Gwen": {
+    "P": {
+      "type": "magic",
+      "area": false,
+      "min": [
+        "((0.01 + 7.2 * currentAP / 100000) * expectedHealth) * magicMod",
+        "((0.01 + 7.2 * currentAP / 100000) * expectedHealth) * magicMod",
+        "((0.01 + 7.2 * currentAP / 100000) * expectedHealth) * magicMod",
+        "((0.01 + 7.2 * currentAP / 100000) * expectedHealth) * magicMod",
+        "((0.01 + 7.2 * currentAP / 100000) * expectedHealth) * magicMod",
+        "((0.01 + 7.2 * currentAP / 100000) * expectedHealth) * magicMod",
+        "((0.01 + 7.2 * currentAP / 100000) * expectedHealth) * magicMod",
+        "((0.01 + 7.2 * currentAP / 100000) * expectedHealth) * magicMod",
+        "((0.01 + 7.2 * currentAP / 100000) * expectedHealth) * magicMod",
+        "((0.01 + 7.2 * currentAP / 100000) * expectedHealth) * magicMod",
+        "((0.01 + 7.2 * currentAP / 100000) * expectedHealth) * magicMod",
+        "((0.01 + 7.2 * currentAP / 100000) * expectedHealth) * magicMod",
+        "((0.01 + 7.2 * currentAP / 100000) * expectedHealth) * magicMod",
+        "((0.01 + 7.2 * currentAP / 100000) * expectedHealth) * magicMod",
+        "((0.01 + 7.2 * currentAP / 100000) * expectedHealth) * magicMod",
+        "((0.01 + 7.2 * currentAP / 100000) * expectedHealth) * magicMod",
+        "((0.01 + 7.2 * currentAP / 100000) * expectedHealth) * magicMod",
+        "((0.01 + 7.2 * currentAP / 100000) * expectedHealth) * magicMod"
+      ],
+      "max": []
+    },
+    "Q": {
+      "type": "mixed",
+      "area": true,
+      "min": [
+        "(10 + 0.05 * currentAP) * magicMod",
+        "(15 + 0.05 * currentAP) * magicMod",
+        "(20 + 0.05 * currentAP) * magicMod",
+        "(25 + 0.05 * currentAP) * magicMod",
+        "(30 + 0.05 * currentAP) * magicMod"
+      ],
+      "max": [
+        "(110 + 0.6 * currentAP + (0.06 + 43.2 * currentAP / 100000) * expectedHealth) * magicMod",
+        "(160 + 0.6 * currentAP + (0.06 + 43.2 * currentAP / 100000) * expectedHealth) * magicMod",
+        "(210 + 0.6 * currentAP + (0.06 + 43.2 * currentAP / 100000) * expectedHealth) * magicMod",
+        "(260 + 0.6 * currentAP + (0.06 + 43.2 * currentAP / 100000) * expectedHealth) * magicMod",
+        "(310 + 0.6 * currentAP + (0.06 + 43.2 * currentAP / 100000) * expectedHealth) * magicMod"
+      ]
+    },
+    "E": {
+      "type": "magic",
+      "area": false,
+      "min": [
+        "(15 + 0.2 * currentAP + (0.01 + 7.2 * currentAP / 100000) * expectedHealth) * magicMod",
+        "(15 + 0.2 * currentAP + (0.01 + 7.2 * currentAP / 100000) * expectedHealth) * magicMod",
+        "(15 + 0.2 * currentAP + (0.01 + 7.2 * currentAP / 100000) * expectedHealth) * magicMod",
+        "(15 + 0.2 * currentAP + (0.01 + 7.2 * currentAP / 100000) * expectedHealth) * magicMod",
+        "(15 + 0.2 * currentAP + (0.01 + 7.2 * currentAP / 100000) * expectedHealth) * magicMod"
+      ],
+      "max": []
+    },
+    "R": {
+      "type": "magic",
+      "area": true,
+      "min": [
+        "(35 + 0.1 * currentAP + (0.01 + 7.2 * currentAP / 100000) * expectedHealth) * magicMod",
+        "(65 + 0.1 * currentAP + (0.01 + 7.2 * currentAP / 100000) * expectedHealth) * magicMod",
+        "(95 + 0.1 * currentAP + (0.01 + 7.2 * currentAP / 100000) * expectedHealth) * magicMod"
+      ],
+      "max": [
+        "9 * (35 + 0.1 * currentAP + (0.01 + 7.2 * currentAP / 100000) * expectedHealth) * magicMod",
+        "9 * (65 + 0.1 * currentAP + (0.01 + 7.2 * currentAP / 100000) * expectedHealth) * magicMod",
+        "9 * (95 + 0.1 * currentAP + (0.01 + 7.2 * currentAP / 100000) * expectedHealth) * magicMod"
+      ]
     }
+  }
 }

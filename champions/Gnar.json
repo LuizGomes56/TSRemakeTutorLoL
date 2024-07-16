@@ -1,110 +1,60 @@
 {
-    "Gnar": {
-        "spells": {
-            "Q": [
-                [
-                    "0.5 * (5 + 1.15 * currentAD) * physicalMod"
-                ], 
-                [
-                    "0.5 * (45 + 1.15 * currentAD) * physicalMod"
-                ], 
-                [
-                    "0.5 * (85 + 1.15 * currentAD) * physicalMod"
-                ],
-                [
-                    "0.5 * (125 + 1.15 * currentAD) * physicalMod"
-                ],
-                [
-                    "0.5 * (165 + 1.15 * currentAD) * physicalMod"
-                ]
-            ],
-            "W": [
-                [
-                    "(currentAP + 0.06 * expectedHealth) * magicMod"
-                ],
-                [
-                    "(10 + currentAP + 0.08 * expectedHealth) * magicMod"
-                ],
-                [
-                    "(20 + currentAP + 0.1 * expectedHealth) * magicMod"
-                ],
-                [
-                    "(30 + currentAP + 0.12 * expectedHealth) * magicMod"
-                ],
-                [
-                    "(40 + currentAP + 0.14 * expectedHealth) * magicMod"
-                ]
-            ],
-            "E": [
-                [
-                    "(50 + 0.06 * maxHP) * physicalMod"
-                ],
-                [
-                    "(85 + 0.06 * maxHP) * physicalMod"
-                ],
-                [
-                    "(120 + 0.06 * maxHP) * physicalMod"
-                ],
-                [
-                    "(155 + 0.06 * maxHP) * physicalMod"
-                ],
-                [
-                    "(190 + 0.06 * maxHP) * physicalMod"
-                ]
-            ],
-            "R": [
-                [
-                    "(200 + 0.5 * bonusAD + currentAP) * physicalMod"
-                ],
-                [
-                    "(300 + 0.5 * bonusAD + currentAP) * physicalMod"
-                ],
-                [
-                    "(400 + 0.5 * bonusAD + currentAP) * physicalMod"
-                ]
-            ]
-        },
-        "type": {
-            "Q": "physical",
-            "W": "magic",
-            "E": "physical",
-            "R": "physical"
-        },
-        "aoe": {
-            "Q": "true",
-            "W": "false",
-            "E": "false",
-            "R": "true"
-        },
-        "variation": {
-            "Q": [
-                [
-                    "(5 + 1.15 * currentAD) * physicalMod"
-                ], 
-                [
-                    "(45 + 1.15 * currentAD) * physicalMod"
-                ], 
-                [
-                    "(85 + 1.15 * currentAD) * physicalMod"
-                ],
-                [
-                    "(125 + 1.15 * currentAD) * physicalMod"
-                ],
-                [
-                    "(165 + 1.15 * currentAD) * physicalMod"
-                ]
-            ],
-            "R": [
-                [
-                    "(300 + 1.5 * currentAP + 0.75 * bonusAD) * physicalMod"
-                ],
-                [
-                    "(450 + 1.5 * currentAP + 0.75 * bonusAD) * physicalMod"
-                ],
-                [
-                    "(600 + 1.5 * currentAP + 0.75 * bonusAD) * physicalMod"
-                ]
-            ]
-        }
+  "Gnar": {
+    "Q": {
+      "type": "physical",
+      "area": true,
+      "min": [
+        "0.5 * (5 + 1.15 * currentAD) * physicalMod",
+        "0.5 * (45 + 1.15 * currentAD) * physicalMod",
+        "0.5 * (85 + 1.15 * currentAD) * physicalMod",
+        "0.5 * (125 + 1.15 * currentAD) * physicalMod",
+        "0.5 * (165 + 1.15 * currentAD) * physicalMod"
+      ],
+      "max": [
+        "(5 + 1.15 * currentAD) * physicalMod",
+        "(45 + 1.15 * currentAD) * physicalMod",
+        "(85 + 1.15 * currentAD) * physicalMod",
+        "(125 + 1.15 * currentAD) * physicalMod",
+        "(165 + 1.15 * currentAD) * physicalMod"
+      ]
+    },
+    "W": {
+      "type": "magic",
+      "area": false,
+      "min": [
+        "(currentAP + 0.06 * expectedHealth) * magicMod",
+        "(10 + currentAP + 0.08 * expectedHealth) * magicMod",
+        "(20 + currentAP + 0.1 * expectedHealth) * magicMod",
+        "(30 + currentAP + 0.12 * expectedHealth) * magicMod",
+        "(40 + currentAP + 0.14 * expectedHealth) * magicMod"
+      ],
+      "max": []
+    },
+    "E": {
+      "type": "physical",
+      "area": false,
+      "min": [
+        "(50 + 0.06 * maxHP) * physicalMod",
+        "(85 + 0.06 * maxHP) * physicalMod",
+        "(120 + 0.06 * maxHP) * physicalMod",
+        "(155 + 0.06 * maxHP) * physicalMod",
+        "(190 + 0.06 * maxHP) * physicalMod"
+      ],
+      "max": []
+    },
+    "R": {
+      "type": "physical",
+      "area": true,
+      "min": [
+        "(200 + 0.5 * bonusAD + currentAP) * physicalMod",
+        "(300 + 0.5 * bonusAD + currentAP) * physicalMod",
+        "(400 + 0.5 * bonusAD + currentAP) * physicalMod"
+      ],
+      "max": [
+        "(300 + 1.5 * currentAP + 0.75 * bonusAD) * physicalMod",
+        "(450 + 1.5 * currentAP + 0.75 * bonusAD) * physicalMod",
+        "(600 + 1.5 * currentAP + 0.75 * bonusAD) * physicalMod"
+      ]
     }
+  }
 }

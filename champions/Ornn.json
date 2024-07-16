@@ -1,110 +1,60 @@
 {
-    "Ornn": {
-        "spells": {
-            "Q": [
-                [
-                    "(20 + 1.1 * currentAD) * physicalMod"
-                ],
-                [
-                    "(45 + 1.1 * currentAD) * physicalMod"
-                ],
-                [
-                    "(70 + 1.1 * currentAD) * physicalMod"
-                ],
-                [
-                    "(95 + 1.1 * currentAD) * physicalMod"
-                ],
-                [
-                    "(120 + 1.1 * currentAD) * physicalMod"
-                ]
-            ],
-            "W": [
-                [
-                    "(0.024 * expectedHealth) * magicMod"
-                ],
-                [
-                    "(0.026 * expectedHealth) * magicMod"
-                ],
-                [
-                    "(0.028 * expectedHealth) * magicMod"
-                ],
-                [
-                    "(0.03 * expectedHealth) * magicMod"
-                ],
-                [
-                    "(0.032 * expectedHealth) * magicMod"
-                ]
-            ],
-            "E": [
-                [
-                    "(80 + 0.4 * bonusArmor + 0.4 * bonusMR) * physicalMod"
-                ],
-                [
-                    "(125 + 0.4 * bonusArmor + 0.4 * bonusMR) * physicalMod"
-                ],
-                [
-                    "(170 + 0.4 * bonusArmor + 0.4 * bonusMR) * physicalMod"
-                ],
-                [
-                    "(215 + 0.4 * bonusArmor + 0.4 * bonusMR) * physicalMod"
-                ],
-                [
-                    "(260 + 0.4 * bonusArmor + 0.4 * bonusMR) * physicalMod"
-                ]
-            ],
-            "R": [
-                [
-                    "(125 + 0.2 * currentAP) * magicMod"
-                ],
-                [
-                    "(175 + 0.2 * currentAP) * magicMod"
-                ],
-                [
-                    "(225 + 0.2 * currentAP) * magicMod"
-                ]
-            ]
-        },
-        "type": {
-            "Q": "physical",
-            "W": "magic",
-            "E": "physical",
-            "R": "magic"
-        },
-        "aoe": {
-            "Q": "true",
-            "W": "true",
-            "E": "true",
-            "R": "true"
-        },
-        "variation": {
-            "W": [
-                [
-                    "(0.024 * expectedHealth) * 5 * magicMod"
-                ],
-                [
-                    "(0.026 * expectedHealth) * 5 * magicMod"
-                ],
-                [
-                    "(0.028 * expectedHealth) * 5 * magicMod"
-                ],
-                [
-                    "(0.03 * expectedHealth) * 5 * magicMod"
-                ],
-                [
-                    "(0.032 * expectedHealth) * 5 * magicMod"
-                ]
-            ],
-            "R": [
-                [
-                    "2 * (125 + 0.2 * currentAP) * magicMod"
-                ],
-                [
-                    "2 * (175 + 0.2 * currentAP) * magicMod"
-                ],
-                [
-                    "2 * (225 + 0.2 * currentAP) * magicMod"
-                ]
-            ]
-        }
+  "Ornn": {
+    "Q": {
+      "type": "physical",
+      "area": true,
+      "min": [
+        "(20 + 1.1 * currentAD) * physicalMod",
+        "(45 + 1.1 * currentAD) * physicalMod",
+        "(70 + 1.1 * currentAD) * physicalMod",
+        "(95 + 1.1 * currentAD) * physicalMod",
+        "(120 + 1.1 * currentAD) * physicalMod"
+      ],
+      "max": []
+    },
+    "W": {
+      "type": "magic",
+      "area": true,
+      "min": [
+        "(0.024 * expectedHealth) * magicMod",
+        "(0.026 * expectedHealth) * magicMod",
+        "(0.028 * expectedHealth) * magicMod",
+        "(0.03 * expectedHealth) * magicMod",
+        "(0.032 * expectedHealth) * magicMod"
+      ],
+      "max": [
+        "(0.024 * expectedHealth) * 5 * magicMod",
+        "(0.026 * expectedHealth) * 5 * magicMod",
+        "(0.028 * expectedHealth) * 5 * magicMod",
+        "(0.03 * expectedHealth) * 5 * magicMod",
+        "(0.032 * expectedHealth) * 5 * magicMod"
+      ]
+    },
+    "E": {
+      "type": "physical",
+      "area": true,
+      "min": [
+        "(80 + 0.4 * bonusArmor + 0.4 * bonusMR) * physicalMod",
+        "(125 + 0.4 * bonusArmor + 0.4 * bonusMR) * physicalMod",
+        "(170 + 0.4 * bonusArmor + 0.4 * bonusMR) * physicalMod",
+        "(215 + 0.4 * bonusArmor + 0.4 * bonusMR) * physicalMod",
+        "(260 + 0.4 * bonusArmor + 0.4 * bonusMR) * physicalMod"
+      ],
+      "max": []
+    },
+    "R": {
+      "type": "magic",
+      "area": true,
+      "min": [
+        "(125 + 0.2 * currentAP) * magicMod",
+        "(175 + 0.2 * currentAP) * magicMod",
+        "(225 + 0.2 * currentAP) * magicMod"
+      ],
+      "max": [
+        "2 * (125 + 0.2 * currentAP) * magicMod",
+        "2 * (175 + 0.2 * currentAP) * magicMod",
+        "2 * (225 + 0.2 * currentAP) * magicMod"
+      ]
     }
+  }
 }

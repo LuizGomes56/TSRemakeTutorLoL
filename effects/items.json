@@ -1,1371 +1,1641 @@
 {
-  "type": "items",
-  "version": "14.2.1",
-  "data": {
-      "2502": {
-        "name": "Unending Despair",
-        "type": "magic",
-        "melee": "(30 + (20 / 17) * (level - 1) + 0.03 * bonusHP) * magicMod",
-        "ranged": "(30 + (20 / 17) * (level - 1) + 0.03 * bonusHP) * magicMod",
-        "onhit": false
-      },
-      "7034": {
-        "name": "Hope Adrift",
-        "type": "magic",
-        "melee": "(30 + (20 / 17) * (level - 1) + 0.03 * bonusHP) * magicMod",
-        "ranged": "(30 + (20 / 17) * (level - 1) + 0.03 * bonusHP) * magicMod",
-        "onhit": false
-      },
-      "3057": {
-        "name": "Sheen",
-        "type": "physical",
-        "melee": "baseAD * physicalMod",
-        "ranged": "baseAD * physicalMod",
-        "onhit": false
-      },
-      "3074": {
-        "name": "Ravenous Hydra",
-        "type": "physical",
-        "melee": "0.4 * currentAD * physicalMod",
-        "ranged": "0.2 * currentAD * physicalMod",
-        "variation": {
-          "melee": "currentAD * physicalMod",
-          "ranged": "currentAD * physicalMod"
-        },
-        "onhit": false
-      },
-      "3077": {
-        "name": "Tiamat",
-        "type": "physical",
-        "melee": "0.4 * currentAD * physicalMod",
-        "ranged": "0.2 * currentAD * physicalMod",
-        "onhit": false
-      },
-      "3085": {
-        "name": "Runaan Hurricane",
-        "type": "mixed",
-        "melee": "(0.55 * currentAD) * physicalMod",
-        "ranged": "(0.55 * currentAD) * physicalMod",
-        "onhit": true
-      },
-      "6029": {
-        "name": "Ironspike Whip",
-        "type": "physical",
-        "melee": "baseAD * physicalMod",
-        "ranged": "baseAD * physicalMod",
-        "onhit": false
-      },
-      "1043": {
-        "name": "Recurve Bow",
-        "type": "magic",
-        "melee": "15 * magicMod",
-        "ranged": "15 * magicMod",
-        "onhit": true
-      },
-      "3748": {
-        "name": "Titanic Hydra",
-        "type": "physical",
-        "melee": "(0.015 * maxHP) * physicalMod",
-        "ranged": "(0.0075 * maxHP) * physicalMod",
-        "variation": {
-          "melee": "(0.06 * maxHP) * physicalMod",
-          "ranged": "(0.03 * maxHP) * physicalMod"
-        },
-        "onhit": true
-      },
-      "3870": {
-        "name": "Dream Maker",
-        "type": "magic",
-        "melee": "90 * magicMod",
-        "ranged": "90 * magicMod",
-        "onhit": false
-      },
-      "3871": {
-        "name": "Zak's Realmspike",
-        "type": "magic",
-        "melee": "(10 + 0.2 * currentAP + 0.03 * expectedHealth) * magicMod",
-        "ranged": "(10 + 0.2 * currentAP + 0.03 * expectedHealth) * magicMod",
-        "onhit": false
-      },
-      "3877": {
-        "name": "Bloodsong",
-        "type": "physical",
-        "melee": "baseAD * physicalMod",
-        "ranged": "baseAD * physicalMod",
-        "onhit": false
-      },
-      "6632": {
-        "name": "Divine Sunderer",
-        "type": "physical",
-        "melee": "(baseAD * 1.6 + (0.04 * expectedHealth)) * physicalMod",
-        "ranged": "(baseAD * 1.6 + (0.02 * expectedHealth)) * physicalMod",
-        "onhit": false
-      },
-      "6692": {
-        "name": "Eclipse",
-        "type": "physical",
-        "melee": "(expectedHealth * 0.08) * physicalMod",
-        "ranged": "(expectedHealth * 0.04) * physicalMod",
-        "onhit": false
-      },
-      "6630": {
-        "name": "Goredrinker",
-        "type": "physical",
-        "melee": "1.75 * baseAD * physicalMod",
-        "ranged": "1.75 * baseAD * physicalMod",
-        "onhit": false
-      },
-      "6631": {
-        "name": "Stridebreaker",
-        "type": "physical",
-        "melee": "0.4 * currentAD * physicalMod",
-        "ranged": "0.2 * currentAD * physicalMod",
-        "onhit": false,
-        "variation": {
-          "melee": "0.8 * currentAD * physicalMod",
-          "ranged": "0.8 * currentAD * physicalMod"
-        }
-      },
-      "3084": {
-        "name": "Heartsteel",
-        "type": "physical",
-        "melee": "(100 + ((maxHP - baseHP) * 0.12)) * physicalMod",
-        "ranged": "(100 + ((maxHP - baseHP) * 0.12)) * physicalMod",
-        "onhit": false
-      },
-      "6610": {
-        "name": "Sundered Sky",
-        "type": "physical",
-        "melee": "critDamage / 100 * currentAD * physicalMod",
-        "ranged": "critDamage / 100 * currentAD * physicalMod",
-        "onhit": false
-      },
-      "7039": {
-        "name": "Heavensfall",
-        "type": "physical",
-        "melee": "critDamage / 100 * currentAD * physicalMod",
-        "ranged": "critDamage / 100 * currentAD * physicalMod",
-        "onhit": false
-      },
-      "6660": {
-        "name": "Bami's Cinder",
-        "type": "magic",
-        "melee": "(13 + 0.005 * bonusHP) * magicMod",
-        "ranged": "(13 + 0.005 * bonusHP) * magicMod",
-        "onhit": false
-      },
-      "6662": {
-        "name": "Iceborn Gauntlet",
-        "type": "physical",
-        "melee": "baseAD * physicalMod",
-        "ranged": "baseAD * physicalMod",
-        "onhit": false
-      },
-      "6664": {
-        "name": "Hollow Radiance",
-        "type": "magic",
-        "melee": "(10 + 0.0175 * bonusHP) * magicMod",
-        "ranged": "(10 + 0.0175 * bonusHP) * magicMod",
-        "variation": {
-          "melee": "(20 + 0.035 * bonusHP) * magicMod",
-          "ranged": "(20 + 0.035 * bonusHP) * magicMod"
-        },
-        "onhit": false
-      },
-      "6698": {
-        "name": "Profane Hydra",
-        "type": "physical",
-        "melee": "0.5 * currentAD * physicalMod",
-        "ranged": "0.25 * currentAD * physicalMod",
-        "variation": {
-          "melee": "1.3 * currentAD * physicalMod",
-          "ranged": "1.3 * currentAD * physicalMod"
-        },
-        "onhit": false
-      },
-      "6699": {
-        "name": "Voltaic Cyclosword",
-        "type": "physical",
-        "melee": "100 * physicalMod",
-        "ranged": "100 * physicalMod",
-        "onhit": false
-      },
-      "7007": {
-        "name": "Swordnado",
-        "type": "physical",
-        "melee": "100 * physicalMod",
-        "ranged": "100 * physicalMod",
-        "onhit": false
-      },
-      "3504": {
-        "name": "Ardent Censer",
-        "type": "magic",
-        "melee": "15 * magicMod",
-        "ranged": "15 * magicMod",
-        "onhit": false
-      },
-      "3107": {
-        "name": "Redemption",
-        "type": "true",
-        "melee": "0.1 * expectedHealth",
-        "ranged": "0.1 * expectedHealth",
-        "onhit": false
-      },
-      "6671": {
-        "name": "Galeforce",
-        "type": "physical",
-        "effect": [
-          [150],
-          [150],
-          [150],
-          [150],
-          [150],
-          [150],
-          [150],
-          [168.18],
-          [186.36],
-          [204.55],
-          [222.73],
-          [240.91],
-          [259.09],
-          [277.27],
-          [295.45],
-          [313.64],
-          [331.82],
-          [350]
-        ],
-        "pathway": {
-          "melee": {
-            "damage": "damageMod * (total + (0.45 * bonusAD)) * physicalMod",
-            "variation": "1.5 * damageMod * (total + (0.45 * bonusAD)) * physicalMod"
-          },
-          "ranged": {
-            "damage": "damageMod * (total + (0.45 * bonusAD)) * physicalMod",
-            "variation": "1.5 * damageMod * (total + (0.45 * bonusAD)) * physicalMod"
-          }
-        },
-        "onhit": false
-      },
-      "6672": {
-        "name": "Kraken Slayer",
-        "type": "physical",
-        "effect": [
-          [140],
-          [140],
-          [140],
-          [140],
-          [140],
-          [140],
-          [140],
-          [140],
-          [157],
-          [174],
-          [191],
-          [208],
-          [225],
-          [242],
-          [259],
-          [276],
-          [293],
-          [310]
-        ],
-        "pathway": {
-            "melee": {
-              "damage": "damageMod * total * physicalMod",
-              "variation": "1.5 * damageMod * total * physicalMod"
+    "type": "items",
+    "version": "14.2.1",
+    "data": {
+        "1043": {
+            "name": "Recurve Bow",
+            "type": "magic",
+            "min": {
+                "melee": "15 * magicMod",
+                "ranged": "15 * magicMod"
             },
-            "ranged": {
-              "damage": "damageMod * total * physicalMod",
-              "variation": "1.5 * damageMod * total * physicalMod"
+            "onhit": true
+        },
+        "2015": {
+            "name": "Kircheis Shard",
+            "type": "magic",
+            "min": {
+                "melee": "60 * magicMod",
+                "ranged": "60 * magicMod"
+            },
+            "onhit": false
+        },
+        "2502": {
+            "name": "Unending Despair",
+            "type": "magic",
+            "min": {
+                "melee": "(30 + (20 / 17) * (level - 1) + 0.03 * bonusHP) * magicMod",
+                "ranged": "(30 + (20 / 17) * (level - 1) + 0.03 * bonusHP) * magicMod"
+            },
+            "onhit": false
+        },
+        "2503": {
+            "name": "Blackfire Torch",
+            "type": "magic",
+            "min": {
+                "melee": "(10 + 0.02 * currentAP) * magicMod",
+                "ranged": "(10 + 0.02 * currentAP)* magicMod"
+            },
+            "max": {
+                "melee": "(60 + 0.12 * currentAP) * magicMod",
+                "ranged": "(60 + 0.12 * currentAP) * magicMod"
+            },
+            "onhit": false
+        },
+        "3032": {
+            "name": "Yun Tal Wildarrows",
+            "type": "physical",
+            "min": {
+                "melee": "0.0875 * currentAD * physicalMod",
+                "ranged": "0.0875 * currentAD * physicalMod"
+            },
+            "onhit": false
+        },
+        "3042": {
+            "name": "Muramana",
+            "type": "physical",
+            "min": {
+                "melee": "((maxMana * 0.035) + (0.06 * currentAD)) * physicalMod",
+                "ranged": "((maxMana * 0.027) + (0.06 * currentAD)) * physicalMod"
+            },
+            "onhit": false
+        },
+        "3050": {
+            "name": "Zeke's Convergence",
+            "type": "physical",
+            "min": {
+                "melee": "50 * magicMod",
+                "ranged": "50 * magicMod"
+            },
+            "max": {
+                "melee": "5 * 50 * magicMod",
+                "ranged": "5 * 50 * magicMod"
+            },
+            "onhit": false
+        },
+        "3057": {
+            "name": "Sheen",
+            "type": "physical",
+            "min": {
+                "melee": "baseAD * physicalMod",
+                "ranged": "baseAD * physicalMod"
+            },
+            "onhit": false
+        },
+        "3068": {
+            "name": "Sunfire Aegis",
+            "type": "magic",
+            "min": {
+                "melee": "(15 + 0.0175 * bonusHP) * magicMod",
+                "ranged": "(15 + 0.0175 * bonusHP) * magicMod"
+            },
+            "max": {
+                "melee": "1.6 * (15 + 0.0175 * bonusHP) * magicMod",
+                "ranged": "1.6 * (15 + 0.0175 * bonusHP) * magicMod"
+            },
+            "onhit": false
+        },
+        "3074": {
+            "name": "Ravenous Hydra",
+            "type": "physical",
+            "min": {
+                "melee": "0.4 * currentAD * physicalMod",
+                "ranged": "0.2 * currentAD * physicalMod"
+            },
+            "max": {
+                "melee": "currentAD * physicalMod",
+                "ranged": "currentAD * physicalMod"
+            },
+            "onhit": false
+        },
+        "3075": {
+            "name": "Thornmail",
+            "type": "magic",
+            "min": {
+                "melee": "(10 + (0.25 * bonusArmor)) * magicMod",
+                "ranged": "(10 + (0.25 * bonusArmor)) * magicMod"
+            },
+            "onhit": false
+        },
+        "3076": {
+            "name": "Bramble Vest",
+            "type": "magic",
+            "min": {
+                "melee": "6 * magicMod",
+                "ranged": "6 * magicMod"
+            },
+            "onhit": false
+        },
+        "3077": {
+            "name": "Tiamat",
+            "type": "physical",
+            "min": {
+                "melee": "0.4 * currentAD * physicalMod",
+                "ranged": "0.2 * currentAD * physicalMod"
+            },
+            "onhit": false
+        },
+        "3078": {
+            "name": "Trinity Force",
+            "type": "physical",
+            "min": {
+                "melee": "(baseAD * 2) * physicalMod",
+                "ranged": "(baseAD * 2) * physicalMod"
+            },
+            "onhit": false
+        },
+        "3084": {
+            "name": "Heartsteel",
+            "type": "physical",
+            "min": {
+                "melee": "(100 + ((maxHP - baseHP) * 0.12)) * physicalMod",
+                "ranged": "(100 + ((maxHP - baseHP) * 0.12)) * physicalMod"
+            },
+            "onhit": false
+        },
+        "3085": {
+            "name": "Runaan Hurricane",
+            "type": "mixed",
+            "min": {
+                "melee": "(0.55 * currentAD) * physicalMod",
+                "ranged": "(0.55 * currentAD) * physicalMod"
+            },
+            "onhit": true
+        },
+        "3087": {
+            "name": "Statikk Shiv",
+            "type": "magic",
+            "min": {
+                "melee": "90 * magicMod",
+                "ranged": "90 * magicMod"
+            },
+            "onhit": false
+        },
+        "3091": {
+            "name": "Wit's End",
+            "type": "magic",
+            "min": {
+                "melee": "",
+                "ranged": ""
+            },
+            "onhit": true,
+            "effect": [
+                15,
+                15,
+                15,
+                15,
+                15,
+                15,
+                15,
+                15,
+                25,
+                35,
+                45,
+                55,
+                65,
+                75,
+                76.25,
+                77.5,
+                78.75,
+                80
+            ],
+            "pathway": {
+                "min": {
+                    "melee": "",
+                    "ranged": ""
+                }
             }
         },
-        "onhit": false
-      },
-      "7041": {
-        "name": "Wyrmfallen Sacrifice",
-        "type": "physical",
-        "effect": [
-          [140],
-          [140],
-          [140],
-          [140],
-          [140],
-          [140],
-          [140],
-          [140],
-          [157],
-          [174],
-          [191],
-          [208],
-          [225],
-          [242],
-          [259],
-          [276],
-          [293],
-          [310]
-        ],
-        "pathway": {
-            "melee": {
-              "damage": "damageMod * total * physicalMod",
-              "variation": "2 * damageMod * total * physicalMod"
+        "3094": {
+            "name": "Rapid Firecannon",
+            "type": "magic",
+            "min": {
+                "melee": "60 * magicMod",
+                "ranged": "60 * magicMod"
             },
-            "ranged": {
-              "damage": "damageMod * total * physicalMod",
-              "variation": "2 * damageMod * total * physicalMod"
+            "onhit": false
+        },
+        "3100": {
+            "name": "Lich Bane",
+            "type": "magic",
+            "min": {
+                "melee": "(0.75 * baseAD + (currentAP * 0.45)) * magicMod",
+                "ranged": "(0.75 * baseAD + (currentAP * 0.45)) * magicMod"
+            },
+            "onhit": false
+        },
+        "3107": {
+            "name": "Redemption",
+            "type": "true",
+            "min": {
+                "melee": "0.1 * expectedHealth",
+                "ranged": "0.1 * expectedHealth"
+            },
+            "onhit": false
+        },
+        "3115": {
+            "name": "Nashor's Tooth",
+            "type": "magic",
+            "min": {
+                "melee": "(15 + (0.2 * currentAP)) * magicMod",
+                "ranged": "(15 + (0.2 * currentAP)) * magicMod"
+            },
+            "onhit": true
+        },
+        "3118": {
+            "name": "Malignance",
+            "type": "magic",
+            "min": {
+                "melee": "(60 + (0.05 * currentAP)) * magicMod",
+                "ranged": "(60 + (0.05 * currentAP)) * magicMod"
+            },
+            "max": {
+                "melee": "3 * (60 + (0.05 * currentAP)) * magicMod",
+                "ranged": "3 * (60 + (0.05 * currentAP)) * magicMod"
+            },
+            "onhit": false
+        },
+        "3124": {
+            "name": "Guinsoo's Rageblade",
+            "type": "magic",
+            "min": {
+                "melee": "30 * magicMod",
+                "ranged": "30 * magicMod"
+            },
+            "onhit": true
+        },
+        "3128": {
+            "name": "Deathfire Grasp",
+            "type": "magic",
+            "min": {
+                "melee": "0.15 * expectedHealth * magicMod",
+                "ranged": "0.15 * expectedHealth * magicMod"
+            },
+            "onhit": false
+        },
+        "3145": {
+            "name": "Hextech Alternator",
+            "type": "magic",
+            "min": {
+                "melee": "(50 + 75 / 17 * (level - 1)) * magicMod",
+                "ranged": "(50 + 75 / 17 * (level - 1)) * magicMod"
+            },
+            "onhit": false
+        },
+        "3146": {
+            "name": "Hextech Gunblade",
+            "type": "magic",
+            "min": {
+                "melee": "(175 + 78 / 17 * (level - 1) + (0.3 * currentAP)) * magicMod",
+                "ranged": "(175 + 78 / 17 * (level - 1) + (0.3 * currentAP)) * magicMod"
+            },
+            "onhit": false
+        },
+        "3152": {
+            "name": "Hextech Rocketbelt",
+            "type": "magic",
+            "min": {
+                "melee": "(100 + (0.1 * currentAP)) * magicMod",
+                "ranged": "(100 + (0.1 * currentAP)) * magicMod"
+            },
+            "onhit": false
+        },
+        "3153": {
+            "name": "Blade of The Ruined King",
+            "type": "physical",
+            "min": {
+                "melee": "expectedHealth - ((0.09 * expectedHealth * (1 - 0.09 * physicalMod) ** 1 - currentAD + currentAD * (1 - 0.09 * physicalMod) ** 1) / 0.09)",
+                "ranged": "expectedHealth - ((0.06 * expectedHealth * (1 - 0.06 * physicalMod) ** 1 - currentAD + currentAD * (1 - 0.06 * physicalMod) ** 1) / 0.06)"
+            },
+            "onhit": false
+        },
+        "3181": {
+            "name": "Hullbreaker",
+            "type": "physical",
+            "min": {
+                "melee": "(1.4 * baseAD + (0.035 * expectedHealth)) * physicalMod",
+                "ranged": "(0.7 * baseAD + (0.035 * expectedHealth)) * physicalMod"
+            },
+            "onhit": false
+        },
+        "3302": {
+            "name": "Terminus",
+            "type": "magic",
+            "min": {
+                "melee": "30 * magicMod",
+                "ranged": "30 * magicMod"
+            },
+            "onhit": true
+        },
+        "3504": {
+            "name": "Ardent Censer",
+            "type": "magic",
+            "min": {
+                "melee": "15 * magicMod",
+                "ranged": "15 * magicMod"
+            },
+            "onhit": false
+        },
+        "3742": {
+            "name": "Dead Man's Plate",
+            "type": "physical",
+            "min": {
+                "melee": "(40 + baseAD) * physicalMod",
+                "ranged": "(40 + baseAD) * physicalMod"
+            },
+            "onhit": false
+        },
+        "3748": {
+            "name": "Titanic Hydra",
+            "type": "physical",
+            "min": {
+                "melee": "(0.015 * maxHP) * physicalMod",
+                "ranged": "(0.0075 * maxHP) * physicalMod"
+            },
+            "max": {
+                "melee": "(0.06 * maxHP) * physicalMod",
+                "ranged": "(0.03 * maxHP) * physicalMod"
+            },
+            "onhit": true
+        },
+        "3870": {
+            "name": "Dream Maker",
+            "type": "magic",
+            "min": {
+                "melee": "90 * magicMod",
+                "ranged": "90 * magicMod"
+            },
+            "onhit": false
+        },
+        "3871": {
+            "name": "Zak's Realmspike",
+            "type": "magic",
+            "min": {
+                "melee": "(10 + 0.2 * currentAP + 0.03 * expectedHealth) * magicMod",
+                "ranged": "(10 + 0.2 * currentAP + 0.03 * expectedHealth) * magicMod"
+            },
+            "onhit": false
+        },
+        "3877": {
+            "name": "Bloodsong",
+            "type": "physical",
+            "min": {
+                "melee": "baseAD * physicalMod",
+                "ranged": "baseAD * physicalMod"
+            },
+            "onhit": false
+        },
+        "4005": {
+            "name": "Imperial Mandate",
+            "type": "magic",
+            "min": {
+                "melee": "0.1 * expectedHealth * magicMod",
+                "ranged": "0.1 * expectedHealth * magicMod"
             }
         },
-        "onhit": false
-      },
-      "6677": {
-        "name": "Rageknife",
-        "type": "magic",
-        "melee": "20 * magicMod",
-        "ranged": "20 * magicMod",
-        "onhit": true
-      },
-      "6693": {
-        "name": "Prowlers Claw",
-        "type": "physical",
-        "melee": "(85 + (bonusAD * 0.55)) * physicalMod",
-        "ranged": "(65 + (bonusAD * 0.35)) * physicalMod",
-        "onhit": false
-      },
-      "3050": {
-        "name": "Zeke's Convergence",
-        "type": "physical",
-        "melee": "50 * magicMod",
-        "ranged": "50 * magicMod",
-        "variation": {
-          "melee": "5 * 50 * magicMod",
-          "ranged": "5 * 50 * magicMod"
+        "4017": {
+            "name": "Hellfire Hatchet",
+            "type": "physical",
+            "min": {
+                "melee": "(0.12 * bonusAD + 0.1 * currentAP) * physicalMod",
+                "ranged": "(0.12 * bonusAD + 0.1 * currentAP) * physicalMod"
+            }
         },
-        "onhit": false
-      },
-      "3078": {
-        "name": "Trinity Force",
-        "type": "physical",
-        "melee": "(baseAD * 2) * physicalMod",
-        "ranged": "(baseAD * 2) * physicalMod",
-        "onhit": false
-      },
-      "3087": {
-        "name": "Statikk Shiv",
-        "type": "magic",
-        "melee": "90 * magicMod",
-        "ranged": "90 * magicMod",
-        "onhit": false
-      },
-      "3742": {
-        "name": "Dead Man's Plate",
-        "type": "physical",
-        "melee": "(40 + baseAD) * physicalMod",
-        "ranged": "(40 + baseAD) * physicalMod",
-        "onhit": false
-      },
-      "3091": {
-        "name": "Wit's End",
-        "type": "magic",
-        "onhit": true,
-        "effect": [
-          [15],
-          [15],
-          [15],
-          [15],
-          [15],
-          [15],
-          [15],
-          [15],
-          [25],
-          [35],
-          [45],
-          [55],
-          [65],
-          [75],
-          [76.25],
-          [77.5],
-          [78.75],
-          [80]
-        ],
-        "pathway": {
-          "melee": {
-            "damage": "damageMod * total * magicMod"
-          },
-          "ranged": {
-            "damage": "damageMod * total * magicMod"
-          }
+        "4636": {
+            "name": "Night Harvester",
+            "type": "magic",
+            "min": {
+                "melee": "(125 + (0.15 * currentAP)) * magicMod",
+                "ranged": "(125 + (0.15 * currentAP)) * magicMod"
+            },
+            "onhit": false
+        },
+        "4637": {
+            "name": "Demonic Embrace",
+            "type": "magic",
+            "min": {
+                "melee": "(expectedHealth * 0.016) * magicMod",
+                "ranged": "(expectedHealth * 0.01) * magicMod"
+            },
+            "max": {
+                "melee": "(expectedHealth * 0.064) * magicMod",
+                "ranged": "(expectedHealth * 0.040) * magicMod"
+            },
+            "onhit": false
+        },
+        "4646": {
+            "name": "Stormsurge",
+            "type": "magic",
+            "min": {
+                "melee": "(140 + currentAP * 0.2) * magicMod",
+                "ranged": "(105 + currentAP * 0.15) * magicMod"
+            },
+            "onhit": false
+        },
+        "6029": {
+            "name": "Ironspike Whip",
+            "type": "physical",
+            "min": {
+                "melee": "baseAD * physicalMod",
+                "ranged": "baseAD * physicalMod"
+            },
+            "onhit": false
+        },
+        "6610": {
+            "name": "Sundered Sky",
+            "type": "physical",
+            "min": {
+                "melee": "critDamage / 100 * currentAD * physicalMod",
+                "ranged": "critDamage / 100 * currentAD * physicalMod"
+            },
+            "onhit": false
+        },
+        "6630": {
+            "name": "Goredrinker",
+            "type": "physical",
+            "min": {
+                "melee": "1.75 * baseAD * physicalMod",
+                "ranged": "1.75 * baseAD * physicalMod"
+            },
+            "onhit": false
+        },
+        "6631": {
+            "name": "Stridebreaker",
+            "type": "physical",
+            "min": {
+                "melee": "0.4 * currentAD * physicalMod",
+                "ranged": "0.2 * currentAD * physicalMod"
+            },
+            "max": {
+                "melee": "0.8 * currentAD * physicalMod",
+                "ranged": "0.8 * currentAD * physicalMod"
+            },
+            "onhit": false
+        },
+        "6632": {
+            "name": "Divine Sunderer",
+            "type": "physical",
+            "min": {
+                "melee": "(baseAD * 1.6 + (0.04 * expectedHealth)) * physicalMod",
+                "ranged": "(baseAD * 1.6 + (0.02 * expectedHealth)) * physicalMod"
+            },
+            "onhit": false
+        },
+        "6653": {
+            "name": "Liandry's Torment",
+            "type": "magic",
+            "min": {
+                "melee": "expectedHealth * 0.01 * magicMod",
+                "ranged": "expectedHealth * 0.01 * magicMod"
+            },
+            "max": {
+                "melee": "expectedHealth * 0.06 * magicMod",
+                "ranged": "expectedHealth * 0.06 * magicMod"
+            },
+            "onhit": false
+        },
+        "6655": {
+            "name": "Luden's Companion",
+            "type": "magic",
+            "min": {
+                "melee": "(60 + 0.4 * currentAP) * magicMod",
+                "ranged": "(60 + 0.4 * currentAP) * magicMod"
+            },
+            "max": {
+                "melee": "(210 + 0.14 * currentAP) * magicMod",
+                "ranged": "(210 + 0.14 * currentAP) * magicMod"
+            },
+            "onhit": false
+        },
+        "6656": {
+            "name": "Everfrost",
+            "type": "magic",
+            "min": {
+                "melee": "(100 + (0.30 * currentAP)) * magicMod",
+                "ranged": "(100 + (0.30 * currentAP)) * magicMod"
+            },
+            "onhit": false
+        },
+        "6660": {
+            "name": "Bami's Cinder",
+            "type": "magic",
+            "min": {
+                "melee": "(13 + 0.005 * bonusHP) * magicMod",
+                "ranged": "(13 + 0.005 * bonusHP) * magicMod"
+            },
+            "onhit": false
+        },
+        "6662": {
+            "name": "Iceborn Gauntlet",
+            "type": "physical",
+            "min": {
+                "melee": "baseAD * physicalMod",
+                "ranged": "baseAD * physicalMod"
+            },
+            "onhit": false
+        },
+        "6664": {
+            "name": "Hollow Radiance",
+            "type": "magic",
+            "min": {
+                "melee": "(10 + 0.0175 * bonusHP) * magicMod",
+                "ranged": "(10 + 0.0175 * bonusHP) * magicMod"
+            },
+            "max": {
+                "melee": "(20 + 0.035 * bonusHP) * magicMod",
+                "ranged": "(20 + 0.035 * bonusHP) * magicMod"
+            },
+            "onhit": false
+        },
+        "6671": {
+            "name": "Galeforce",
+            "type": "physical",
+            "min": {
+                "melee": "",
+                "ranged": ""
+            },
+            "onhit": false,
+            "effect": [
+                150,
+                150,
+                150,
+                150,
+                150,
+                150,
+                150,
+                168.18,
+                186.36,
+                204.55,
+                222.73,
+                240.91,
+                259.09,
+                277.27,
+                295.45,
+                313.64,
+                331.82,
+                350
+            ],
+            "pathway": {
+                "min": {
+                    "melee": "",
+                    "ranged": ""
+                }
+            }
+        },
+        "6672": {
+            "name": "Kraken Slayer",
+            "type": "physical",
+            "min": {
+                "melee": "",
+                "ranged": ""
+            },
+            "onhit": false,
+            "effect": [
+                140,
+                140,
+                140,
+                140,
+                140,
+                140,
+                140,
+                140,
+                157,
+                174,
+                191,
+                208,
+                225,
+                242,
+                259,
+                276,
+                293,
+                310
+            ],
+            "pathway": {
+                "min": {
+                    "melee": "",
+                    "ranged": ""
+                }
+            }
+        },
+        "6677": {
+            "name": "Rageknife",
+            "type": "magic",
+            "min": {
+                "melee": "20 * magicMod",
+                "ranged": "20 * magicMod"
+            },
+            "onhit": true
+        },
+        "6692": {
+            "name": "Eclipse",
+            "type": "physical",
+            "min": {
+                "melee": "(expectedHealth * 0.08) * physicalMod",
+                "ranged": "(expectedHealth * 0.04) * physicalMod"
+            },
+            "onhit": false
+        },
+        "6693": {
+            "name": "Prowlers Claw",
+            "type": "physical",
+            "min": {
+                "melee": "(85 + (bonusAD * 0.55)) * physicalMod",
+                "ranged": "(65 + (bonusAD * 0.35)) * physicalMod"
+            },
+            "onhit": false
+        },
+        "6698": {
+            "name": "Profane Hydra",
+            "type": "physical",
+            "min": {
+                "melee": "0.5 * currentAD * physicalMod",
+                "ranged": "0.25 * currentAD * physicalMod"
+            },
+            "max": {
+                "melee": "1.3 * currentAD * physicalMod",
+                "ranged": "1.3 * currentAD * physicalMod"
+            },
+            "onhit": false
+        },
+        "6699": {
+            "name": "Voltaic Cyclosword",
+            "type": "physical",
+            "min": {
+                "melee": "100 * physicalMod",
+                "ranged": "100 * physicalMod"
+            },
+            "onhit": false
+        },
+        "7001": {
+            "name": "Syzygy",
+            "type": "physical",
+            "min": {
+                "melee": "(expectedHealth * 0.06)* physicalMod",
+                "ranged": "(expectedHealth * 0.03) * physicalMod"
+            },
+            "onhit": false
+        },
+        "7004": {
+            "name": "Enmity of the Masses",
+            "type": "magic",
+            "min": {
+                "melee": "(60 + (0.05 * currentAP)) * magicMod",
+                "ranged": "(60 + (0.05 * currentAP)) * magicMod"
+            },
+            "max": {
+                "melee": "3 * (60 + (0.05 * currentAP)) * magicMod",
+                "ranged": "3 * (60 + (0.05 * currentAP)) * magicMod"
+            },
+            "onhit": false
+        },
+        "7005": {
+            "name": "Frozen Fist",
+            "type": "physical",
+            "min": {
+                "melee": "baseAD * physicalMod",
+                "ranged": "baseAD * physicalMod"
+            },
+            "onhit": false
+        },
+        "7006": {
+            "name": "Typhoon",
+            "type": "physical",
+            "min": {
+                "melee": "",
+                "ranged": ""
+            },
+            "onhit": false,
+            "effect": [
+                150,
+                150,
+                150,
+                150,
+                150,
+                150,
+                150,
+                168.18,
+                186.36,
+                204.55,
+                222.73,
+                240.91,
+                259.09,
+                277.27,
+                295.45,
+                313.64,
+                331.82,
+                350
+            ],
+            "pathway": {
+                "min": {
+                    "melee": "",
+                    "ranged": ""
+                }
+            }
+        },
+        "7007": {
+            "name": "Swordnado",
+            "type": "physical",
+            "min": {
+                "melee": "100 * physicalMod",
+                "ranged": "100 * physicalMod"
+            },
+            "onhit": false
+        },
+        "7010": {
+            "name": "Vespertide",
+            "type": "magic",
+            "min": {
+                "melee": "(125 + (0.15 * currentAP)) * magicMod",
+                "ranged": "(125 + (0.15 * currentAP)) * magicMod"
+            },
+            "onhit": false
+        },
+        "7011": {
+            "name": "Upgraded Aeropack",
+            "type": "magic",
+            "min": {
+                "melee": "(125 + (0.15 * currentAP)) * magicMod",
+                "ranged": "(125 + (0.15 * currentAP)) * magicMod"
+            },
+            "onhit": false
+        },
+        "7012": {
+            "name": "Liandry's Lament",
+            "type": "magic",
+            "min": {
+                "melee": "expectedHealth * 0.01 * magicMod",
+                "ranged": "expectedHealth * 0.01 * magicMod"
+            },
+            "max": {
+                "melee": "expectedHealth * 0.06 * magicMod",
+                "ranged": "expectedHealth * 0.06 * magicMod"
+            },
+            "onhit": false
+        },
+        "7013": {
+            "name": "Force of Arms",
+            "type": "magic",
+            "min": {
+                "melee": "(60 + 0.4 * currentAP) * magicMod",
+                "ranged": "(60 + 0.4 * currentAP) * magicMod"
+            },
+            "max": {
+                "melee": "(210 + 0.14 * currentAP) * magicMod",
+                "ranged": "(210 + 0.14 * currentAP) * magicMod"
+            },
+            "onhit": false
+        },
+        "7014": {
+            "name": "Eternal Winter",
+            "type": "magic",
+            "min": {
+                "melee": "(100 + (0.30 * currentAP)) * magicMod",
+                "ranged": "(100 + (0.30 * currentAP)) * magicMod"
+            },
+            "onhit": false
+        },
+        "7015": {
+            "name": "Ceaseless Hunger",
+            "type": "physical",
+            "min": {
+                "melee": "1.75 * baseAD * physicalMod",
+                "ranged": "1.75 * baseAD * physicalMod"
+            },
+            "onhit": false
+        },
+        "7016": {
+            "name": "Stridebreaker",
+            "type": "physical",
+            "min": {
+                "melee": "0.4 * currentAD * physicalMod",
+                "ranged": "0.2 * currentAD * physicalMod"
+            },
+            "max": {
+                "melee": "0.8 * currentAD * physicalMod",
+                "ranged": "0.8 * currentAD * physicalMod"
+            },
+            "onhit": false
+        },
+        "7017": {
+            "name": "Deicide",
+            "type": "physical",
+            "min": {
+                "melee": "(baseAD * 1.6 + (0.04 * expectedHealth)) * physicalMod",
+                "ranged": "(baseAD * 1.6 + (0.02 * expectedHealth)) * physicalMod"
+            },
+            "onhit": false
+        },
+        "7018": {
+            "name": "Infinity Force",
+            "type": "physical",
+            "min": {
+                "melee": "(baseAD * 2) * physicalMod",
+                "ranged": "(baseAD * 2) * physicalMod"
+            },
+            "onhit": false
+        },
+        "7025": {
+            "name": "Leviathan",
+            "type": "physical",
+            "min": {
+                "melee": "(100 + ((maxHP - baseHP) * 0.12)) * physicalMod",
+                "ranged": "(100 + ((maxHP - baseHP) * 0.12)) * physicalMod"
+            },
+            "onhit": false
+        },
+        "7026": {
+            "name": "The Unspoken Parasite",
+            "type": "magic",
+            "min": {
+                "melee": "(80 + 0.07 * bonusHP) * magicMod",
+                "ranged": "(80 + 0.07 * bonusHP) * magicMod"
+            },
+            "onhit": false
+        },
+        "7030": {
+            "name": "Seething Sorrow",
+            "type": "magic",
+            "min": {
+                "melee": "30 * magicMod",
+                "ranged": "30 * magicMod"
+            },
+            "onhit": true
+        },
+        "7034": {
+            "name": "Hope Adrift",
+            "type": "magic",
+            "min": {
+                "melee": "(30 + (20 / 17) * (level - 1) + 0.03 * bonusHP) * magicMod",
+                "ranged": "(30 + (20 / 17) * (level - 1) + 0.03 * bonusHP) * magicMod"
+            },
+            "onhit": false
+        },
+        "7039": {
+            "name": "Heavensfall",
+            "type": "physical",
+            "min": {
+                "melee": "critDamage / 100 * currentAD * physicalMod",
+                "ranged": "critDamage / 100 * currentAD * physicalMod"
+            },
+            "onhit": false
+        },
+        "7040": {
+            "name": "Eye of the Storm",
+            "type": "magic",
+            "min": {
+                "melee": "100 * magicMod",
+                "ranged": "100 * magicMod"
+            },
+            "onhit": false
+        },
+        "7041": {
+            "name": "Wyrmfallen Sacrifice",
+            "type": "physical",
+            "min": {
+                "melee": "",
+                "ranged": ""
+            },
+            "onhit": false,
+            "effect": [
+                140,
+                140,
+                140,
+                140,
+                140,
+                140,
+                140,
+                140,
+                157,
+                174,
+                191,
+                208,
+                225,
+                242,
+                259,
+                276,
+                293,
+                310
+            ],
+            "pathway": {
+                "min": {
+                    "melee": "",
+                    "ranged": ""
+                }
+            }
+        },
+        "7042": {
+            "name": "The Baron's Gift",
+            "type": "magic",
+            "min": {
+                "melee": "(15 + (0.2 * currentAP)) * magicMod",
+                "ranged": "(15 + (0.2 * currentAP)) * magicMod"
+            },
+            "onhit": true
+        },
+        "221043": {
+            "name": "Recurve Bow",
+            "type": "magic",
+            "min": {
+                "melee": "15 * magicMod",
+                "ranged": "15 * magicMod"
+            },
+            "onhit": true
+        },
+        "222015": {
+            "name": "Kircheis Shard",
+            "type": "magic",
+            "min": {
+                "melee": "60 * magicMod",
+                "ranged": "60 * magicMod"
+            },
+            "onhit": false
+        },
+        "223042": {
+            "name": "Muramana",
+            "type": "physical",
+            "min": {
+                "melee": "((maxMana * 0.045) + (0.06 * currentAD)) * physicalMod",
+                "ranged": "((maxMana * 0.035) + (0.06 * currentAD)) * physicalMod"
+            },
+            "onhit": false
+        },
+        "223057": {
+            "name": "Sheen",
+            "type": "physical",
+            "min": {
+                "melee": "baseAD * physicalMod",
+                "ranged": "baseAD * physicalMod"
+            },
+            "onhit": false
+        },
+        "223068": {
+            "name": "Sunfire Aegis",
+            "type": "magic",
+            "min": {
+                "melee": "(15 + 0.0175 * bonusHP) * magicMod",
+                "ranged": "(15 + 0.0175 * bonusHP) * magicMod"
+            },
+            "max": {
+                "melee": "2 * (15 + 0.0175 * bonusHP) * magicMod",
+                "ranged": "2 * (15 + 0.0175 * bonusHP) * magicMod"
+            },
+            "onhit": false
+        },
+        "223074": {
+            "name": "Ravenous Hydra",
+            "type": "physical",
+            "min": {
+                "melee": "(0.4 * currentAD + 0.24 * currentAP) * physicalMod",
+                "ranged": "(0.2 * currentAD + 0.12 * currentAP) * physicalMod"
+            },
+            "max": {
+                "melee": "currentAD * physicalMod",
+                "ranged": "currentAD * physicalMod"
+            },
+            "onhit": false
+        },
+        "223075": {
+            "name": "Thornmail",
+            "type": "magic",
+            "min": {
+                "melee": "(10 + (0.25 * bonusArmor)) * magicMod",
+                "ranged": "(10 + (0.25 * bonusArmor)) * magicMod"
+            },
+            "onhit": false
+        },
+        "223076": {
+            "name": "Bramble Vest",
+            "type": "magic",
+            "min": {
+                "melee": "6 * magicMod",
+                "ranged": "6 * magicMod"
+            },
+            "onhit": false
+        },
+        "223077": {
+            "name": "Tiamat",
+            "type": "physical",
+            "min": {
+                "melee": "0.4 * currentAD * physicalMod",
+                "ranged": "0.2 * currentAD * physicalMod"
+            },
+            "max": {
+                "melee": "0.8 * currentAD * physicalMod",
+                "ranged": "0.8 * currentAD * physicalMod"
+            },
+            "onhit": false
+        },
+        "223078": {
+            "name": "Trinity Force",
+            "type": "physical",
+            "min": {
+                "melee": "(baseAD * 2) * physicalMod",
+                "ranged": "(baseAD * 2) * physicalMod"
+            },
+            "onhit": false
+        },
+        "223084": {
+            "name": "Heartsteel",
+            "type": "physical",
+            "min": {
+                "melee": "(125 + (maxHP * 0.06)) * physicalMod",
+                "ranged": "(125 + (maxHP * 0.06)) * physicalMod"
+            },
+            "onhit": false
+        },
+        "223085": {
+            "name": "Runaan Hurricane",
+            "type": "mixed",
+            "min": {
+                "melee": "15 * magicMod",
+                "ranged": "15 * magicMod"
+            },
+            "max": {
+                "melee": "(0.7 * currentAD + 0.42 * currentAP) * physicalMod",
+                "ranged": "(0.7 * currentAD + 0.42 * currentAP) * physicalMod"
+            },
+            "onhit": true
+        },
+        "223087": {
+            "name": "Statikk Shiv",
+            "type": "magic",
+            "min": {
+                "melee": "",
+                "ranged": ""
+            },
+            "onhit": false,
+            "effect": [
+                100,
+                100,
+                100,
+                100,
+                100,
+                100,
+                110,
+                120,
+                130,
+                140,
+                145,
+                150,
+                155,
+                160,
+                165,
+                170,
+                175,
+                180
+            ],
+            "pathway": {
+                "min": {
+                    "melee": "",
+                    "ranged": ""
+                }
+            }
+        },
+        "223091": {
+            "name": "Wit's End",
+            "type": "magic",
+            "min": {
+                "melee": "",
+                "ranged": ""
+            },
+            "onhit": true,
+            "effect": [
+                15,
+                15,
+                15,
+                15,
+                15,
+                15,
+                15,
+                15,
+                25,
+                35,
+                45,
+                55,
+                65,
+                75,
+                76.25,
+                77.5,
+                78.75,
+                80
+            ],
+            "pathway": {
+                "min": {
+                    "melee": "",
+                    "ranged": ""
+                }
+            }
+        },
+        "223094": {
+            "name": "Rapid Firecannon",
+            "type": "magic",
+            "min": {
+                "melee": "60 * magicMod",
+                "ranged": "60 * magicMod"
+            },
+            "onhit": false
+        },
+        "223095": {
+            "name": "Stormrazor",
+            "type": "magic",
+            "min": {
+                "melee": "(90 + 0.25 * currentAD) * magicMod",
+                "ranged": "(90 + 0.25 * currentAD) * magicMod"
+            },
+            "onhit": false
+        },
+        "223100": {
+            "name": "Lich Bane",
+            "type": "magic",
+            "min": {
+                "melee": "(baseAD + (currentAP * 0.66)) * magicMod",
+                "ranged": "(baseAD + (currentAP * 0.66)) * magicMod"
+            },
+            "onhit": false
+        },
+        "223107": {
+            "name": "Redemption",
+            "type": "true",
+            "min": {
+                "melee": "0.1 * expectedHealth",
+                "ranged": "0.1 * expectedHealth"
+            },
+            "onhit": false
+        },
+        "223115": {
+            "name": "Nashor's Tooth",
+            "type": "magic",
+            "min": {
+                "melee": "(15 + (0.2 * currentAP) + (0.33 * bonusAD)) * magicMod",
+                "ranged": "(15 + (0.2 * currentAP) + (0.33 * bonusAD)) * magicMod"
+            },
+            "onhit": true
+        },
+        "223124": {
+            "name": "Guinsoo's Rageblade",
+            "type": "magic",
+            "min": {
+                "melee": "30 * magicMod",
+                "ranged": "30 * magicMod"
+            },
+            "onhit": true
+        },
+        "223145": {
+            "name": "Hextech Alternator",
+            "type": "magic",
+            "min": {
+                "melee": "(50 + 75 / 17 * (level - 1)) * magicMod",
+                "ranged": "(50 + 75 / 17 * (level - 1)) * magicMod"
+            },
+            "onhit": false
+        },
+        "223146": {
+            "name": "Hextech Gunblade",
+            "type": "magic",
+            "min": {
+                "melee": "(175 + 78 / 17 * (level - 1) + (0.3 * currentAP)) * magicMod",
+                "ranged": "(175 + 78 / 17 * (level - 1) + (0.3 * currentAP)) * magicMod"
+            },
+            "onhit": false
+        },
+        "223152": {
+            "name": "Hextech Rocketbelt",
+            "type": "magic",
+            "min": {
+                "melee": "(100 + (0.1 * currentAP)) * magicMod",
+                "ranged": "(100 + (0.1 * currentAP)) * magicMod"
+            },
+            "onhit": false
+        },
+        "223153": {
+            "name": "Blade of The Ruined King",
+            "type": "physical",
+            "min": {
+                "melee": "expectedHealth - ((0.105 * expectedHealth * (1 - 0.105 * physicalMod) ** 1 - currentAD + currentAD * (1 - 0.105 * physicalMod) ** 1) / 0.105)",
+                "ranged": "expectedHealth - ((0.08 * expectedHealth * (1 - 0.08 * physicalMod) ** 1 - currentAD + currentAD * (1 - 0.08 * physicalMod) ** 1) / 0.08)"
+            },
+            "onhit": false
+        },
+        "223181": {
+            "name": "Hullbreaker",
+            "type": "physical",
+            "min": {
+                "melee": "(1.4 * baseAD + (0.035 * expectedHealth)) * physicalMod",
+                "ranged": "(0.7 * baseAD + (0.035 * expectedHealth)) * physicalMod"
+            },
+            "onhit": false
+        },
+        "223504": {
+            "name": "Ardent Censer",
+            "type": "magic",
+            "min": {
+                "melee": "25 * magicMod",
+                "ranged": "25 * magicMod"
+            },
+            "onhit": false
+        },
+        "223508": {
+            "name": "Essence Reaver",
+            "type": "physical",
+            "min": {
+                "melee": "(1.3 * baseAD + (0.6 * bonusAD)) * physicalMod",
+                "ranged": "(1.3 * baseAD + (0.6 * bonusAD)) * physicalMod"
+            },
+            "onhit": false
+        },
+        "223742": {
+            "name": "Dead Man's Plate",
+            "type": "physical",
+            "min": {
+                "melee": "(40 + baseAD) * physicalMod",
+                "ranged": "(40 + baseAD) * physicalMod"
+            },
+            "onhit": false
+        },
+        "223748": {
+            "name": "Titanic Hydra",
+            "type": "physical",
+            "min": {
+                "melee": "(0.015 * maxHP) * physicalMod",
+                "ranged": "(0.0075 * maxHP) * physicalMod"
+            },
+            "max": {
+                "melee": "(0.04 * maxHP) * physicalMod",
+                "ranged": "(0.02 * maxHP) * physicalMod"
+            },
+            "onhit": true
+        },
+        "224005": {
+            "name": "Imperial Mandate",
+            "type": "magic",
+            "min": {
+                "melee": "0.12 * expectedHealth * magicMod",
+                "ranged": "0.12 * expectedHealth * magicMod"
+            },
+            "onhit": false
+        },
+        "224636": {
+            "name": "Night Harvester",
+            "type": "magic",
+            "min": {
+                "melee": "(125 + (0.15 * currentAP) + (0.25 * bonusAD)) * magicMod",
+                "ranged": "(125 + (0.15 * currentAP) + (0.25 * bonusAD)) * magicMod"
+            },
+            "onhit": false
+        },
+        "224637": {
+            "name": "Demonic Embrace",
+            "type": "magic",
+            "min": {
+                "melee": "(expectedHealth * 0.016) * magicMod",
+                "ranged": "(expectedHealth * 0.01) * magicMod"
+            },
+            "max": {
+                "melee": "(expectedHealth * 0.064) * magicMod",
+                "ranged": "(expectedHealth * 0.040) * magicMod"
+            },
+            "onhit": false
+        },
+        "226029": {
+            "name": "Ironspike Whip",
+            "type": "physical",
+            "min": {
+                "melee": "baseAD * physicalMod",
+                "ranged": "baseAD * physicalMod"
+            },
+            "onhit": false
+        },
+        "226630": {
+            "name": "Goredrinker",
+            "type": "physical",
+            "min": {
+                "melee": "(1.75 * baseAD + 1.05 * currentAP) * physicalMod",
+                "ranged": "(1.75 * baseAD + 1.05 * currentAP) * physicalMod"
+            },
+            "onhit": false
+        },
+        "226632": {
+            "name": "Divine Sunderer",
+            "type": "physical",
+            "min": {
+                "melee": "(baseAD * 1.6 + (0.04 * expectedHealth)) * physicalMod",
+                "ranged": "(baseAD * 1.6 + (0.02 * expectedHealth)) * physicalMod"
+            },
+            "onhit": false
+        },
+        "226653": {
+            "name": "Liandry's Torment",
+            "type": "magic",
+            "min": {
+                "melee": "expectedHealth * 0.01 * magicMod",
+                "ranged": "expectedHealth * 0.01 * magicMod"
+            },
+            "max": {
+                "melee": "expectedHealth * 0.06 * magicMod",
+                "ranged": "expectedHealth * 0.06 * magicMod"
+            },
+            "onhit": false
+        },
+        "226655": {
+            "name": "Luden's Companion",
+            "type": "magic",
+            "min": {
+                "melee": "(40 + (0.08 * currentAP)) * magicMod",
+                "ranged": "(40 + (0.08 * currentAP)) * magicMod"
+            },
+            "max": {
+                "melee": "2.75 * (40 + (0.08 * currentAP)) * magicMod",
+                "ranged": "2.75 * (40 + (0.08 * currentAP)) * magicMod"
+            }
+        },
+        "226656": {
+            "name": "Everfrost",
+            "type": "magic",
+            "min": {
+                "melee": "(100 + (0.30 * currentAP) + (0.5 * bonusAD)) * magicMod",
+                "ranged": "(100 + (0.30 * currentAP) + (0.5 * bonusAD)) * magicMod"
+            },
+            "onhit": false
+        },
+        "226660": {
+            "name": "Bami's Cinder",
+            "type": "magic",
+            "min": {
+                "melee": "(13 + 0.005 * bonusHP) * magicMod",
+                "ranged": "(13 + 0.005 * bonusHP) * magicMod"
+            },
+            "onhit": false
+        },
+        "226662": {
+            "name": "Iceborn Gauntlet",
+            "type": "physical",
+            "min": {
+                "melee": "baseAD * physicalMod",
+                "ranged": "baseAD * physicalMod"
+            },
+            "onhit": false
+        },
+        "226671": {
+            "name": "Galeforce",
+            "type": "magic",
+            "min": {
+                "melee": "",
+                "ranged": ""
+            },
+            "onhit": false,
+            "effect": [
+                150,
+                150,
+                150,
+                150,
+                150,
+                150,
+                150,
+                168.18,
+                186.36,
+                204.55,
+                222.73,
+                240.91,
+                259.09,
+                277.27,
+                295.45,
+                313.64,
+                331.82,
+                350
+            ],
+            "pathway": {
+                "min": {
+                    "melee": "",
+                    "ranged": ""
+                }
+            }
+        },
+        "226672": {
+            "name": "Kraken Slayer",
+            "type": "physical",
+            "min": {
+                "melee": "",
+                "ranged": ""
+            },
+            "onhit": false,
+            "effect": [
+                140,
+                140,
+                140,
+                140,
+                140,
+                140,
+                140,
+                140,
+                150,
+                160,
+                170,
+                190,
+                210,
+                230,
+                250,
+                270,
+                290,
+                310
+            ],
+            "pathway": {
+                "min": {
+                    "melee": "",
+                    "ranged": ""
+                }
+            }
+        },
+        "226677": {
+            "name": "Rageknife",
+            "type": "magic",
+            "min": {
+                "melee": "20 * magicMod",
+                "ranged": "20 * magicMod"
+            },
+            "onhit": true
+        },
+        "226692": {
+            "name": "Eclipse",
+            "type": "physical",
+            "min": {
+                "melee": "(expectedHealth * 0.08) * physicalMod",
+                "ranged": "(expectedHealth * 0.04) * physicalMod"
+            },
+            "onhit": false
+        },
+        "226693": {
+            "name": "Prowlers Claw",
+            "type": "physical",
+            "min": {
+                "melee": "(40 + (bonusAD * 0.2) + (0.12 * currentAP)) * physicalMod",
+                "ranged": "(30 + (bonusAD * 0.15) + (0.09 * currentAP)) * physicalMod"
+            },
+            "onhit": false
+        },
+        "227001": {
+            "name": "Syzygy",
+            "type": "physical",
+            "min": {
+                "melee": "(expectedHealth * 0.06) * physicalMod",
+                "ranged": "(expectedHealth * 0.03) * physicalMod"
+            },
+            "onhit": false
+        },
+        "227005": {
+            "name": "Frozen Fist",
+            "type": "physical",
+            "min": {
+                "melee": "baseAD * physicalMod",
+                "ranged": "baseAD * physicalMod"
+            },
+            "onhit": false
+        },
+        "227006": {
+            "name": "Typhoon",
+            "type": "magic",
+            "min": {
+                "melee": "",
+                "ranged": ""
+            },
+            "onhit": false,
+            "effect": [
+                150,
+                150,
+                150,
+                150,
+                150,
+                150,
+                150,
+                168.18,
+                186.36,
+                204.55,
+                222.73,
+                240.91,
+                259.09,
+                277.27,
+                295.45,
+                313.64,
+                331.82,
+                350
+            ],
+            "pathway": {
+                "min": {
+                    "melee": "",
+                    "ranged": ""
+                }
+            }
+        },
+        "227010": {
+            "name": "Vespertide",
+            "type": "magic",
+            "min": {
+                "melee": "(125 + (0.15 * currentAP) + (0.25 * bonusAD)) * magicMod",
+                "ranged": "(125 + (0.15 * currentAP) + (0.25 * bonusAD)) * magicMod"
+            },
+            "onhit": false
+        },
+        "227011": {
+            "name": "Upgraded Aeropack",
+            "type": "magic",
+            "min": {
+                "melee": "(125 + (0.15 * currentAP)) * magicMod",
+                "ranged": "(125 + (0.15 * currentAP)) * magicMod"
+            },
+            "onhit": false
+        },
+        "227012": {
+            "name": "Liandry's Lament",
+            "type": "magic",
+            "min": {
+                "melee": "(12.5 + (currentAP * 0.015) + (0.025 * bonusAD) + (expectedHealth * 0.06)) * magicMod",
+                "ranged": "(12.5 + (currentAP * 0.015) + (0.025 * bonusAD) + (expectedHealth * 0.06)) * magicMod"
+            },
+            "max": {
+                "melee": "(50 + (currentAP * 0.06) + (0.025 * bonusAD) + (expectedHealth * 0.06)) * magicMod",
+                "ranged": "(50 + (currentAP * 0.06) + (0.025 * bonusAD) + (expectedHealth * 0.06)) * magicMod"
+            },
+            "onhit": false
+        },
+        "227013": {
+            "name": "Eye of Luden",
+            "type": "magic",
+            "min": {
+                "melee": "(100 + (0.1 * currentAP) + (0.16 * bonusAD)) * magicMod",
+                "ranged": "(100 + (0.1 * currentAP) + (0.16 * bonusAD)) * magicMod"
+            },
+            "onhit": false
+        },
+        "227014": {
+            "name": "Eternal Winter",
+            "type": "magic",
+            "min": {
+                "melee": "(100 + (0.30 * currentAP) + (0.5 * bonusAD)) * magicMod",
+                "ranged": "(100 + (0.30 * currentAP) + (0.5 * bonusAD)) * magicMod"
+            },
+            "onhit": false
+        },
+        "227015": {
+            "name": "Ceaseless Hunger",
+            "type": "physical",
+            "min": {
+                "melee": "(1.75 * baseAD + 1.05 * currentAP) * physicalMod",
+                "ranged": "(1.75 * baseAD + 1.05 * currentAP) * physicalMod"
+            },
+            "onhit": false
+        },
+        "227016": {
+            "name": "Dreamshatter",
+            "type": "physical",
+            "min": {
+                "melee": "(1.75 * baseAD + 1.05 * currentAP) * physicalMod",
+                "ranged": "(1.75 * baseAD + 1.05 * currentAP) * physicalMod"
+            },
+            "onhit": false
+        },
+        "227017": {
+            "name": "Deicide",
+            "type": "physical",
+            "min": {
+                "melee": "(baseAD * 1.6 + (0.04 * expectedHealth)) * physicalMod",
+                "ranged": "(baseAD * 1.6 + (0.02 * expectedHealth)) * physicalMod"
+            },
+            "onhit": false
+        },
+        "227018": {
+            "name": "Infinity Force",
+            "type": "physical",
+            "min": {
+                "melee": "(baseAD * 2) * physicalMod",
+                "ranged": "(baseAD * 2) * physicalMod"
+            },
+            "onhit": false
+        },
+        "227025": {
+            "name": "Leviathan",
+            "type": "physical",
+            "min": {
+                "melee": "(125 + (maxHP * 0.06)) * physicalMod",
+                "ranged": "(125 + (maxHP * 0.06)) * physicalMod"
+            },
+            "onhit": false
+        },
+        "227026": {
+            "name": "The Unspoken Parasite",
+            "type": "magic",
+            "min": {
+                "melee": "(80 + 0.07 * bonusHP) * magicMod",
+                "ranged": "(80 + 0.07 * bonusHP) * magicMod"
+            },
+            "onhit": false
+        },
+        "227030": {
+            "name": "Seething Sorrow",
+            "type": "magic",
+            "min": {
+                "melee": "30 * magicMod",
+                "ranged": "30 * magicMod"
+            },
+            "onhit": true
         }
-      },
-      "3124": {
-        "name": "Guinsoo's Rageblade",
-        "type": "magic",
-        "melee": "30 * magicMod",
-        "ranged": "30 * magicMod",
-        "onhit": true
-      },
-      "3128": {
-        "name": "Deathfire Grasp",
-        "type": "magic",
-        "melee": "0.15 * expectedHealth * magicMod",
-        "ranged": "0.15 * expectedHealth * magicMod",
-        "onhit": false
-      },
-      "3145": {
-        "name": "Hextech Alternator",
-        "type": "magic",
-        "melee": "(50 + 75 / 17 * (level - 1)) * magicMod",
-        "ranged": "(50 + 75 / 17 * (level - 1)) * magicMod",
-        "onhit": false
-      },
-      "3146": {
-        "name": "Hextech Gunblade",
-        "type": "magic",
-        "melee": "(175 + 78 / 17 * (level - 1) + (0.3 * currentAP)) * magicMod",
-        "ranged": "(175 + 78 / 17 * (level - 1) + (0.3 * currentAP)) * magicMod",
-        "onhit": false
-      },
-      "3068": {
-        "name": "Sunfire Aegis",
-        "type": "magic",
-        "melee": "(15 + 0.0175 * bonusHP) * magicMod",
-        "ranged": "(15 + 0.0175 * bonusHP) * magicMod",
-        "onhit": false,
-        "variation": {
-          "melee": "1.6 * (15 + 0.0175 * bonusHP) * magicMod",
-          "ranged": "1.6 * (15 + 0.0175 * bonusHP) * magicMod"
-        }
-      },
-      "3153": {
-        "name": "Blade of The Ruined King",
-        "type": "physical",
-        "melee": "expectedHealth - ((0.09 * expectedHealth * (1 - 0.09 * physicalMod) ** 1 - currentAD + currentAD * (1 - 0.09 * physicalMod) ** 1) / 0.09)",
-        "ranged": "expectedHealth - ((0.06 * expectedHealth * (1 - 0.06 * physicalMod) ** 1 - currentAD + currentAD * (1 - 0.06 * physicalMod) ** 1) / 0.06)",
-        "onhit": false
-      },
-      "3042": {
-        "name": "Muramana",
-        "type": "physical",
-        "melee": "((maxMana * 0.035) + (0.06 * currentAD)) * physicalMod",
-        "ranged": "((maxMana * 0.027) + (0.06 * currentAD)) * physicalMod",
-        "onhit": false
-      },
-      "2015": {
-        "name": "Kircheis Shard",
-        "type": "magic",
-        "melee": "60 * magicMod",
-        "ranged": "60 * magicMod",
-        "onhit": false
-      },
-      "4637": {
-        "name": "Demonic Embrace",
-        "type": "magic",
-        "melee": "(expectedHealth * 0.016) * magicMod",
-        "ranged": "(expectedHealth * 0.01) * magicMod",
-        "variation": {
-          "melee": "(expectedHealth * 0.064) * magicMod",
-          "ranged": "(expectedHealth * 0.040) * magicMod"
-        },
-        "onhit": false
-      },
-      "4646": {
-        "name": "Stormsurge",
-        "type": "magic",
-        "melee": "(140 + currentAP * 0.2) * magicMod",
-        "ranged": "(105 + currentAP * 0.15) * magicMod",
-        "onhit": false
-      },
-      "3100": {
-        "name": "Lich Bane",
-        "type": "magic",
-        "melee": "(0.75 * baseAD + (currentAP * 0.45)) * magicMod",
-        "ranged": "(0.75 * baseAD + (currentAP * 0.45)) * magicMod",
-        "onhit": false
-      },
-      "3115": {
-        "name": "Nashor's Tooth",
-        "type": "magic",
-        "melee": "(15 + (0.2 * currentAP)) * magicMod",
-        "ranged": "(15 + (0.2 * currentAP)) * magicMod",
-        "onhit": true
-      },
-      "7042": {
-        "name": "The Baron's Gift",
-        "type": "magic",
-        "melee": "(15 + (0.2 * currentAP)) * magicMod",
-        "ranged": "(15 + (0.2 * currentAP)) * magicMod",
-        "onhit": true
-      }, 
-      "3118": {
-        "name": "Malignance",
-        "type": "magic",
-        "melee": "(60 + (0.05 * currentAP)) * magicMod",
-        "ranged": "(60 + (0.05 * currentAP)) * magicMod",
-        "variation": {
-          "melee": "3 * (60 + (0.05 * currentAP)) * magicMod",
-          "ranged": "3 * (60 + (0.05 * currentAP)) * magicMod"
-        },
-        "onhit": false
-      },
-      "7004": {
-        "name": "Enmity of the Masses",
-        "type": "magic",
-        "melee": "(60 + (0.05 * currentAP)) * magicMod",
-        "ranged": "(60 + (0.05 * currentAP)) * magicMod",
-        "variation": {
-          "melee": "3 * (60 + (0.05 * currentAP)) * magicMod",
-          "ranged": "3 * (60 + (0.05 * currentAP)) * magicMod"
-        },
-        "onhit": false
-      },
-      "3181": {
-        "name": "Hullbreaker",
-        "type": "physical",
-        "melee": "(1.4 * baseAD + (0.035 * expectedHealth)) * physicalMod",
-        "ranged": "(0.7 * baseAD + (0.035 * expectedHealth)) * physicalMod",
-        "onhit": false
-      },
-      "2503": {
-        "name": "Blackfire Torch",
-        "type": "magic",
-        "melee": "(10 + 0.02 * currentAP) * magicMod",
-        "ranged": "(10 + 0.02 * currentAP)* magicMod",
-        "variation": {
-          "melee": "(60 + 0.12 * currentAP) * magicMod",
-          "ranged": "(60 + 0.12 * currentAP) * magicMod"
-        },
-        "onhit": false
-      },
-      "3032": {
-        "name": "Yun Tal Wildarrows",
-        "type": "physical",
-        "melee": "0.0875 * currentAD * physicalMod",
-        "ranged": "0.0875 * currentAD * physicalMod",
-        "onhit": false
-      },
-      "3094": {
-        "name": "Rapid Firecannon",
-        "type": "magic",
-        "melee": "60 * magicMod",
-        "ranged": "60 * magicMod",
-        "onhit": false
-      },
-      "7040": {
-        "name": "Eye of the Storm",
-        "type": "magic",
-        "melee": "100 * magicMod",
-        "ranged": "100 * magicMod",
-        "onhit": false
-      },
-      "3075": {
-        "name": "Thornmail",
-        "type": "magic",
-        "melee": "(10 + (0.25 * bonusArmor)) * magicMod",
-        "ranged": "(10 + (0.25 * bonusArmor)) * magicMod",
-        "onhit": false
-      },
-      "3076": {
-        "name": "Bramble Vest",
-        "type": "magic",
-        "melee": "6 * magicMod",
-        "ranged": "6 * magicMod",
-        "onhit": false
-      },
-      "6656": {
-        "name": "Everfrost",
-        "type": "magic",
-        "melee": "(100 + (0.30 * currentAP)) * magicMod",
-        "ranged": "(100 + (0.30 * currentAP)) * magicMod",
-        "onhit": false
-      },
-      "3152": {
-        "name": "Hextech Rocketbelt",
-        "type": "magic",
-        "melee": "(100 + (0.1 * currentAP)) * magicMod",
-        "ranged": "(100 + (0.1 * currentAP)) * magicMod",
-        "onhit": false
-      },
-      "3302": {
-        "name": "Terminus",
-        "type": "magic",
-        "melee": "30 * magicMod",
-        "ranged": "30 * magicMod",
-        "onhit": true
-      },
-      "4005": {
-        "name": "Imperial Mandate",
-        "type": "magic",
-        "melee": "0.1 * expectedHealth * magicMod",
-        "ranged": "0.1 * expectedHealth * magicMod"
-      },
-      "4017": {
-        "name": "Hellfire Hatchet",
-        "type": "physical",
-        "melee": "(0.12 * bonusAD + 0.1 * currentAP) * physicalMod",
-        "ranged": "(0.12 * bonusAD + 0.1 * currentAP) * physicalMod"
-      },
-      "6653": {
-        "name": "Liandry's Torment",
-        "type": "magic",
-        "melee": "expectedHealth * 0.01 * magicMod",
-        "ranged": "expectedHealth * 0.01 * magicMod",
-        "variation": {
-          "melee": "expectedHealth * 0.06 * magicMod",
-          "ranged": "expectedHealth * 0.06 * magicMod"
-        },
-        "onhit": false
-      },
-      "6655": {
-        "name": "Luden's Companion",
-        "type": "magic",
-        "melee": "(60 + 0.4 * currentAP) * magicMod",
-        "ranged": "(60 + 0.4 * currentAP) * magicMod",
-        "variation": {
-          "melee": "(210 + 0.14 * currentAP) * magicMod",
-          "ranged": "(210 + 0.14 * currentAP) * magicMod"
-        },
-        "onhit": false
-      },
-      "7013": {
-        "name": "Force of Arms",
-        "type": "magic",
-        "melee": "(60 + 0.4 * currentAP) * magicMod",
-        "ranged": "(60 + 0.4 * currentAP) * magicMod",
-        "variation": {
-          "melee": "(210 + 0.14 * currentAP) * magicMod",
-          "ranged": "(210 + 0.14 * currentAP) * magicMod"
-        },
-        "onhit": false
-      },
-      "4636": {
-        "name": "Night Harvester",
-        "type": "magic",
-        "melee": "(125 + (0.15 * currentAP)) * magicMod",
-        "ranged": "(125 + (0.15 * currentAP)) * magicMod",
-        "onhit": false
-      },
-      "223057": {
-        "name": "Sheen",
-        "type": "physical",
-        "melee": "baseAD * physicalMod",
-        "ranged": "baseAD * physicalMod",
-        "onhit": false
-      },
-      "223074": {
-        "name": "Ravenous Hydra",
-        "type": "physical",
-        "melee": "(0.4 * currentAD + 0.24 * currentAP) * physicalMod",
-        "ranged": "(0.2 * currentAD + 0.12 * currentAP) * physicalMod",
-        "variation": {
-          "melee": "currentAD * physicalMod",
-          "ranged": "currentAD * physicalMod"
-        },
-        "onhit": false
-      },
-      "223077": {
-        "name": "Tiamat",
-        "type": "physical",
-        "melee": "0.4 * currentAD * physicalMod",
-        "ranged": "0.2 * currentAD * physicalMod",
-        "variation": {
-          "melee": "0.8 * currentAD * physicalMod",
-          "ranged": "0.8 * currentAD * physicalMod"
-        },
-        "onhit": false
-      },
-      "223085": {
-        "name": "Runaan Hurricane",
-        "type": "mixed",
-        "melee": "15 * magicMod",
-        "ranged": "15 * magicMod",
-        "variation": {
-          "melee": "(0.7 * currentAD + 0.42 * currentAP) * physicalMod",
-          "ranged": "(0.7 * currentAD + 0.42 * currentAP) * physicalMod"
-        },
-        "onhit": true
-      },
-      "226029": {
-        "name": "Ironspike Whip",
-        "type": "physical",
-        "melee": "baseAD * physicalMod",
-        "ranged": "baseAD * physicalMod",
-        "onhit": false
-      },
-      "221043": {
-        "name": "Recurve Bow",
-        "type": "magic",
-        "melee": "15 * magicMod",
-        "ranged": "15 * magicMod",
-        "onhit": true
-      },
-      "223748": {
-        "name": "Titanic Hydra",
-        "type": "physical",
-        "melee": "(0.015 * maxHP) * physicalMod",
-        "ranged": "(0.0075 * maxHP) * physicalMod",
-        "variation": {
-          "melee": "(0.04 * maxHP) * physicalMod",
-          "ranged": "(0.02 * maxHP) * physicalMod"
-        },
-        "onhit": true
-      },
-      "226632": {
-        "name": "Divine Sunderer",
-        "type": "physical",
-        "melee": "(baseAD * 1.6 + (0.04 * expectedHealth)) * physicalMod",
-        "ranged": "(baseAD * 1.6 + (0.02 * expectedHealth)) * physicalMod",
-        "onhit": false
-      },
-      "226692": {
-        "name": "Eclipse",
-        "type": "physical",
-        "melee": "(expectedHealth * 0.08) * physicalMod",
-        "ranged": "(expectedHealth * 0.04) * physicalMod",
-        "onhit": false
-      },
-      "226630": {
-        "name": "Goredrinker",
-        "type": "physical",
-        "melee": "(1.75 * baseAD + 1.05 * currentAP) * physicalMod",
-        "ranged": "(1.75 * baseAD + 1.05 * currentAP) * physicalMod",
-        "onhit": false
-      },
-      "223084": {
-        "name": "Heartsteel",
-        "type": "physical",
-        "melee": "(125 + (maxHP * 0.06)) * physicalMod",
-        "ranged": "(125 + (maxHP * 0.06)) * physicalMod",
-        "onhit": false
-      },
-      "226660": {
-        "name": "Bami's Cinder",
-        "type": "magic",
-        "melee": "(13 + 0.005 * bonusHP) * magicMod",
-        "ranged": "(13 + 0.005 * bonusHP) * magicMod",
-        "onhit": false
-      },
-      "226662": {
-        "name": "Iceborn Gauntlet",
-        "type": "physical",
-        "melee": "baseAD * physicalMod",
-        "ranged": "baseAD * physicalMod",
-        "onhit": false
-      },
-      "223504": {
-        "name": "Ardent Censer",
-        "type": "magic",
-        "melee": "25 * magicMod",
-        "ranged": "25 * magicMod",
-        "onhit": false
-      },
-      "223107": {
-        "name": "Redemption",
-        "type": "true",
-        "melee": "0.1 * expectedHealth",
-        "ranged": "0.1 * expectedHealth",
-        "onhit": false
-      },
-      "226671": {
-        "name": "Galeforce",
-        "type": "magic",
-        "effect": [
-          [150],
-          [150],
-          [150],
-          [150],
-          [150],
-          [150],
-          [150],
-          [168.18],
-          [186.36],
-          [204.55],
-          [222.73],
-          [240.91],
-          [259.09],
-          [277.27],
-          [295.45],
-          [313.64],
-          [331.82],
-          [350]
-        ],
-        "pathway": {
-          "melee": {
-            "damage": "damageMod * (total + (0.45 * bonusAD)) * magicMod",
-            "variation": "1.5 * damageMod * (total + (0.45 * bonusAD)) * physicalMod"
-          },
-          "ranged": {
-            "damage": "damageMod * (total + (0.45 * bonusAD)) * physicalMod",
-            "variation": "1.5 * damageMod * (total + (0.45 * bonusAD)) * physicalMod"
-          }
-        },
-        "onhit": false
-      },
-      "226672": {
-        "name": "Kraken Slayer",
-        "type": "physical",
-        "effect": [
-          [140],
-          [140],
-          [140],
-          [140],
-          [140],
-          [140],
-          [140],
-          [140],
-          [150],
-          [160],
-          [170],
-          [190],
-          [210],
-          [230],
-          [250],
-          [270],
-          [290],
-          [310]
-        ],
-        "pathway": {
-          "melee": {
-            "damage": "damageMod * total * physicalMod",
-            "variation": "1.5 * damageMod * total * physicalMod"
-          },
-          "ranged": {
-            "damage": "damageMod * total * physicalMod",
-            "variation": "1.5 * damageMod * total * physicalMod"
-          }
-      },
-        "onhit": false
-      },
-      "226677": {
-        "name": "Rageknife",
-        "type": "magic",
-        "melee": "20 * magicMod",
-        "ranged": "20 * magicMod",
-        "onhit": true
-      },
-      "226693": {
-        "name": "Prowlers Claw",
-        "type": "physical",
-        "melee": "(40 + (bonusAD * 0.2) + (0.12 * currentAP)) * physicalMod",
-        "ranged": "(30 + (bonusAD * 0.15) + (0.09 * currentAP)) * physicalMod",
-        "onhit": false
-      },
-      "223078": {
-        "name": "Trinity Force",
-        "type": "physical",
-        "melee": "(baseAD * 2) * physicalMod",
-        "ranged": "(baseAD * 2) * physicalMod",
-        "onhit": false
-      },
-      "223087": {
-        "name": "Statikk Shiv",
-        "type": "magic",
-        "effect": [
-          [100],
-          [100],
-          [100],
-          [100],
-          [100],
-          [100],
-          [110],
-          [120],
-          [130],
-          [140],
-          [145],
-          [150],
-          [155],
-          [160],
-          [165],
-          [170],
-          [175],
-          [180]
-        ],
-        "onhit": false,
-        "pathway": {
-          "melee": {
-            "damage": "damageMod * total * magicMod"
-          },
-          "ranged": {
-            "damage": "damageMod * total * magicMod"
-          }
-        }
-      },
-      "223742": {
-        "name": "Dead Man's Plate",
-        "type": "physical",
-        "melee": "(40 + baseAD) * physicalMod",
-        "ranged": "(40 + baseAD) * physicalMod",
-        "onhit": false
-      },
-      "223508": {
-        "name": "Essence Reaver",
-        "type": "physical",
-        "melee": "(1.3 * baseAD + (0.6 * bonusAD)) * physicalMod",
-        "ranged": "(1.3 * baseAD + (0.6 * bonusAD)) * physicalMod",
-        "onhit": false
-      },
-      "223091": {
-        "name": "Wit's End",
-        "type": "magic",
-        "onhit": true,
-        "effect": [
-          [15],
-          [15],
-          [15],
-          [15],
-          [15],
-          [15],
-          [15],
-          [15],
-          [25],
-          [35],
-          [45],
-          [55],
-          [65],
-          [75],
-          [76.25],
-          [77.5],
-          [78.75],
-          [80]
-        ],
-        "pathway": {
-          "melee": {
-            "damage": "damageMod * total * magicMod"
-          },
-          "ranged": {
-            "damage": "damageMod * total * magicMod"
-          }
-        }
-      },
-      "223124": {
-        "name": "Guinsoo's Rageblade",
-        "type": "magic",
-        "melee": "30 * magicMod",
-        "ranged": "30 * magicMod",
-        "onhit": true
-      },
-      "223145": {
-        "name": "Hextech Alternator",
-        "type": "magic",
-        "melee": "(50 + 75 / 17 * (level - 1)) * magicMod",
-        "ranged": "(50 + 75 / 17 * (level - 1)) * magicMod",
-        "onhit": false
-      },
-      "223146": {
-        "name": "Hextech Gunblade",
-        "type": "magic",
-        "melee": "(175 + 78 / 17 * (level - 1) + (0.3 * currentAP)) * magicMod",
-        "ranged": "(175 + 78 / 17 * (level - 1) + (0.3 * currentAP)) * magicMod",
-        "onhit": false
-      },
-      "223068": {
-        "name": "Sunfire Aegis",
-        "type": "magic",
-        "melee": "(15 + 0.0175 * bonusHP) * magicMod",
-        "ranged": "(15 + 0.0175 * bonusHP) * magicMod",
-        "onhit": false,
-        "variation": {
-          "melee": "2 * (15 + 0.0175 * bonusHP) * magicMod",
-          "ranged": "2 * (15 + 0.0175 * bonusHP) * magicMod"
-        }
-      },
-      "223153": {
-        "name": "Blade of The Ruined King",
-        "type": "physical",
-        "melee": "expectedHealth - ((0.105 * expectedHealth * (1 - 0.105 * physicalMod) ** 1 - currentAD + currentAD * (1 - 0.105 * physicalMod) ** 1) / 0.105)",
-        "ranged": "expectedHealth - ((0.08 * expectedHealth * (1 - 0.08 * physicalMod) ** 1 - currentAD + currentAD * (1 - 0.08 * physicalMod) ** 1) / 0.08)",
-        "onhit": false
-      },
-      "223042": {
-        "name": "Muramana",
-        "type": "physical",
-        "melee": "((maxMana * 0.045) + (0.06 * currentAD)) * physicalMod",
-        "ranged": "((maxMana * 0.035) + (0.06 * currentAD)) * physicalMod",
-        "onhit": false
-      },
-      "222015": {
-        "name": "Kircheis Shard",
-        "type": "magic",
-        "melee": "60 * magicMod",
-        "ranged": "60 * magicMod",
-        "onhit": false
-      },
-      "224637": {
-        "name": "Demonic Embrace",
-        "type": "magic",
-        "melee": "(expectedHealth * 0.016) * magicMod",
-        "ranged": "(expectedHealth * 0.01) * magicMod",
-        "variation": {
-          "melee": "(expectedHealth * 0.064) * magicMod",
-          "ranged": "(expectedHealth * 0.040) * magicMod"
-        },
-        "onhit": false
-      },
-      "223181": {
-        "name": "Hullbreaker",
-        "type": "physical",
-        "melee": "(1.4 * baseAD + (0.035 * expectedHealth)) * physicalMod",
-        "ranged": "(0.7 * baseAD + (0.035 * expectedHealth)) * physicalMod",
-        "onhit": false
-      },
-      "223100": {
-        "name": "Lich Bane",
-        "type": "magic",
-        "melee": "(baseAD + (currentAP * 0.66)) * magicMod",
-        "ranged": "(baseAD + (currentAP * 0.66)) * magicMod",
-        "onhit": false
-      },
-      "223115": {
-        "name": "Nashor's Tooth",
-        "type": "magic",
-        "melee": "(15 + (0.2 * currentAP) + (0.33 * bonusAD)) * magicMod",
-        "ranged": "(15 + (0.2 * currentAP) + (0.33 * bonusAD)) * magicMod",
-        "onhit": true
-      },
-      "223094": {
-        "name": "Rapid Firecannon",
-        "type": "magic",
-        "melee": "60 * magicMod",
-        "ranged": "60 * magicMod",
-        "onhit": false
-      },
-      "223095": {
-        "name": "Stormrazor",
-        "type": "magic",
-        "melee": "(90 + 0.25 * currentAD) * magicMod",
-        "ranged": "(90 + 0.25 * currentAD) * magicMod",
-        "onhit": false
-      },
-      "223075": {
-        "name": "Thornmail",
-        "type": "magic",
-        "melee": "(10 + (0.25 * bonusArmor)) * magicMod",
-        "ranged": "(10 + (0.25 * bonusArmor)) * magicMod",
-        "onhit": false
-      },
-      "223076": {
-        "name": "Bramble Vest",
-        "type": "magic",
-        "melee": "6 * magicMod",
-        "ranged": "6 * magicMod",
-        "onhit": false
-      },
-      "226656": {
-        "name": "Everfrost",
-        "type": "magic",
-        "melee": "(100 + (0.30 * currentAP) + (0.5 * bonusAD)) * magicMod",
-        "ranged": "(100 + (0.30 * currentAP) + (0.5 * bonusAD)) * magicMod",
-        "onhit": false
-      },
-      "223152": {
-        "name": "Hextech Rocketbelt",
-        "type": "magic",
-        "melee": "(100 + (0.1 * currentAP)) * magicMod",
-        "ranged": "(100 + (0.1 * currentAP)) * magicMod",
-        "onhit": false
-      },
-      "224005": {
-        "name": "Imperial Mandate",
-        "type": "magic",
-        "melee": "0.12 * expectedHealth * magicMod",
-        "ranged": "0.12 * expectedHealth * magicMod",
-        "onhit": false
-      },
-      "226653": {
-        "name": "Liandry's Torment",
-        "type": "magic",
-        "melee": "expectedHealth * 0.01 * magicMod",
-        "ranged": "expectedHealth * 0.01 * magicMod",
-        "variation": {
-          "melee": "expectedHealth * 0.06 * magicMod",
-          "ranged": "expectedHealth * 0.06 * magicMod"
-        },
-        "onhit": false
-      },
-      "226655": {
-        "name": "Luden's Companion",
-        "type": "magic",
-        "melee": "(40 + (0.08 * currentAP)) * magicMod",
-        "ranged": "(40 + (0.08 * currentAP)) * magicMod",
-        "variation": {
-          "melee": "2.75 * (40 + (0.08 * currentAP)) * magicMod",
-          "ranged": "2.75 * (40 + (0.08 * currentAP)) * magicMod"
-        }
-      },
-      "224636": {
-        "name": "Night Harvester",
-        "type": "magic",
-        "melee": "(125 + (0.15 * currentAP) + (0.25 * bonusAD)) * magicMod",
-        "ranged": "(125 + (0.15 * currentAP) + (0.25 * bonusAD)) * magicMod",
-        "onhit": false
-      },
-      "7017": {
-        "name": "Deicide",
-        "type": "physical",
-        "melee": "(baseAD * 1.6 + (0.04 * expectedHealth)) * physicalMod",
-        "ranged": "(baseAD * 1.6 + (0.02 * expectedHealth)) * physicalMod",
-        "onhit": false
-      },
-      "7001": {
-        "name": "Syzygy",
-        "type": "physical",
-        "melee": "(expectedHealth * 0.06)* physicalMod",
-        "ranged": "(expectedHealth * 0.03) * physicalMod",
-        "onhit": false
-      },
-      "7015": {
-        "name": "Ceaseless Hunger",
-        "type": "physical",
-        "melee": "1.75 * baseAD * physicalMod",
-        "ranged": "1.75 * baseAD * physicalMod",
-        "onhit": false
-      },
-      "7025": {
-        "name": "Leviathan",
-        "type": "physical",
-        "melee": "(100 + ((maxHP - baseHP) * 0.12)) * physicalMod",
-        "ranged": "(100 + ((maxHP - baseHP) * 0.12)) * physicalMod",
-        "onhit": false
-      },
-      "7005": {
-        "name": "Frozen Fist",
-        "type": "physical",
-        "melee": "baseAD * physicalMod",
-        "ranged": "baseAD * physicalMod",
-        "onhit": false
-      },
-      "7026": {
-        "name": "The Unspoken Parasite",
-        "type": "magic",
-        "melee": "(80 + 0.07 * bonusHP) * magicMod",
-        "ranged": "(80 + 0.07 * bonusHP) * magicMod",
-        "onhit": false
-      },
-      "7006": {
-        "name": "Typhoon",
-        "type": "physical",
-        "effect": [
-          [150],
-          [150],
-          [150],
-          [150],
-          [150],
-          [150],
-          [150],
-          [168.18],
-          [186.36],
-          [204.55],
-          [222.73],
-          [240.91],
-          [259.09],
-          [277.27],
-          [295.45],
-          [313.64],
-          [331.82],
-          [350]
-        ],
-        "onhit": false,
-        "pathway": {
-          "melee": {
-            "damage": "damageMod * (total + (0.45 * bonusAD)) * physicalMod",
-            "variation": "1.5 * damageMod * (total + (0.45 * bonusAD)) * physicalMod"
-          },
-          "ranged": {
-            "damage": "damageMod * (total + (0.45 * bonusAD)) * physicalMod",
-            "variation": "1.5 * damageMod * (total + (0.45 * bonusAD)) * physicalMod"
-          }
-        }
-      },
-      "7016": {
-        "name": "Stridebreaker",
-        "type": "physical",
-        "melee": "0.4 * currentAD * physicalMod",
-        "ranged": "0.2 * currentAD * physicalMod",
-        "onhit": false,
-        "variation": {
-          "melee": "0.8 * currentAD * physicalMod",
-          "ranged": "0.8 * currentAD * physicalMod"
-        }
-      },
-      "7018": {
-        "name": "Infinity Force",
-        "type": "physical",
-        "melee": "(baseAD * 2) * physicalMod",
-        "ranged": "(baseAD * 2) * physicalMod",
-        "onhit": false
-      },
-      "7030": {
-        "name": "Seething Sorrow",
-        "type": "magic",
-        "melee": "30 * magicMod",
-        "ranged": "30 * magicMod",
-        "onhit": true
-      },
-      "7014": {
-        "name": "Eternal Winter",
-        "type": "magic",
-        "melee": "(100 + (0.30 * currentAP)) * magicMod",
-        "ranged": "(100 + (0.30 * currentAP)) * magicMod",
-        "onhit": false
-      },
-      "7011": {
-        "name": "Upgraded Aeropack",
-        "type": "magic",
-        "melee": "(125 + (0.15 * currentAP)) * magicMod",
-        "ranged": "(125 + (0.15 * currentAP)) * magicMod",
-        "onhit": false
-      },
-      "7012": {
-        "name": "Liandry's Lament",
-        "type": "magic",
-        "melee": "expectedHealth * 0.01 * magicMod",
-        "ranged": "expectedHealth * 0.01 * magicMod",
-        "variation": {
-          "melee": "expectedHealth * 0.06 * magicMod",
-          "ranged": "expectedHealth * 0.06 * magicMod"
-        },
-        "onhit": false
-      },
-      "7010": {
-        "name": "Vespertide",
-        "type": "magic",
-        "melee": "(125 + (0.15 * currentAP)) * magicMod",
-        "ranged": "(125 + (0.15 * currentAP)) * magicMod",
-        "onhit": false
-      },
-      "227017": {
-        "name": "Deicide",
-        "type": "physical",
-        "melee": "(baseAD * 1.6 + (0.04 * expectedHealth)) * physicalMod",
-        "ranged": "(baseAD * 1.6 + (0.02 * expectedHealth)) * physicalMod",
-        "onhit": false
-      },
-      "227001": {
-        "name": "Syzygy",
-        "type": "physical",
-        "melee": "(expectedHealth * 0.06) * physicalMod",
-        "ranged": "(expectedHealth * 0.03) * physicalMod",
-        "onhit": false
-      },
-      "227015": {
-        "name": "Ceaseless Hunger",
-        "type": "physical",
-        "melee": "(1.75 * baseAD + 1.05 * currentAP) * physicalMod",
-        "ranged": "(1.75 * baseAD + 1.05 * currentAP) * physicalMod",
-        "onhit": false
-      },
-      "227025": {
-        "name": "Leviathan",
-        "type": "physical",
-        "melee": "(125 + (maxHP * 0.06)) * physicalMod",
-        "ranged": "(125 + (maxHP * 0.06)) * physicalMod",
-        "onhit": false
-      },
-      "227005": {
-        "name": "Frozen Fist",
-        "type": "physical",
-        "melee": "baseAD * physicalMod",
-        "ranged": "baseAD * physicalMod",
-        "onhit": false
-      },
-      "227026": {
-        "name": "The Unspoken Parasite",
-        "type": "magic",
-        "melee": "(80 + 0.07 * bonusHP) * magicMod",
-        "ranged": "(80 + 0.07 * bonusHP) * magicMod",
-        "onhit": false
-      },
-      "227006": {
-        "name": "Typhoon",
-        "type": "magic",
-        "effect": [
-          [150],
-          [150],
-          [150],
-          [150],
-          [150],
-          [150],
-          [150],
-          [168.18],
-          [186.36],
-          [204.55],
-          [222.73],
-          [240.91],
-          [259.09],
-          [277.27],
-          [295.45],
-          [313.64],
-          [331.82],
-          [350]
-        ],
-        "pathway": {
-          "melee": {
-            "damage": "damageMod * (total + (0.45 * bonusAD)) * magicMod",
-            "variation": "1.5 * damageMod * (total + (0.45 * bonusAD)) * physicalMod"
-          },
-          "ranged": {
-            "damage": "damageMod * (total + (0.45 * bonusAD)) * physicalMod",
-            "variation": "1.5 * damageMod * (total + (0.45 * bonusAD)) * physicalMod"
-          }
-        },
-        "onhit": false
-      },
-      "227016": {
-        "name": "Dreamshatter",
-        "type": "physical",
-        "melee": "(1.75 * baseAD + 1.05 * currentAP) * physicalMod",
-        "ranged": "(1.75 * baseAD + 1.05 * currentAP) * physicalMod",
-        "onhit": false
-      },
-      "227018": {
-        "name": "Infinity Force",
-        "type": "physical",
-        "melee": "(baseAD * 2) * physicalMod",
-        "ranged": "(baseAD * 2) * physicalMod",
-        "onhit": false
-      },
-      "227030": {
-        "name": "Seething Sorrow",
-        "type": "magic",
-        "melee": "30 * magicMod",
-        "ranged": "30 * magicMod",
-        "onhit": true
-      },
-      "227014": {
-        "name": "Eternal Winter",
-        "type": "magic",
-        "melee": "(100 + (0.30 * currentAP) + (0.5 * bonusAD)) * magicMod",
-        "ranged": "(100 + (0.30 * currentAP) + (0.5 * bonusAD)) * magicMod",
-        "onhit": false
-      },
-      "227011": {
-        "name": "Upgraded Aeropack",
-        "type": "magic",
-        "melee": "(125 + (0.15 * currentAP)) * magicMod",
-        "ranged": "(125 + (0.15 * currentAP)) * magicMod",
-        "onhit": false
-      },
-      "227012": {
-        "name": "Liandry's Lament",
-        "type": "magic",
-        "melee": "(12.5 + (currentAP * 0.015) + (0.025 * bonusAD) + (expectedHealth * 0.06)) * magicMod",
-        "ranged": "(12.5 + (currentAP * 0.015) + (0.025 * bonusAD) + (expectedHealth * 0.06)) * magicMod",
-        "variation": {
-          "melee": "(50 + (currentAP * 0.06) + (0.025 * bonusAD) + (expectedHealth * 0.06)) * magicMod",
-          "ranged": "(50 + (currentAP * 0.06) + (0.025 * bonusAD) + (expectedHealth * 0.06)) * magicMod"
-        },
-        "onhit": false
-      },
-      "227013": {
-        "name": "Eye of Luden",
-        "type": "magic",
-        "melee": "(100 + (0.1 * currentAP) + (0.16 * bonusAD)) * magicMod",
-        "ranged": "(100 + (0.1 * currentAP) + (0.16 * bonusAD)) * magicMod",
-        "onhit": false
-      },
-      "227010": {
-        "name": "Vespertide",
-        "type": "magic",
-        "melee": "(125 + (0.15 * currentAP) + (0.25 * bonusAD)) * magicMod",
-        "ranged": "(125 + (0.15 * currentAP) + (0.25 * bonusAD)) * magicMod",
-        "onhit": false
-      }
-  }
+    }
 }

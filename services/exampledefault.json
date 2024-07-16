@@ -1,0 +1,1818 @@
+{
+    "activePlayer": {
+        "abilities": {
+            "E": {
+                "abilityLevel": 1,
+                "displayName": "Farpas Emaranhadas",
+                "id": "NeekoE",
+                "rawDescription": "GeneratedTip_Spell_NeekoE_Description",
+                "rawDisplayName": "GeneratedTip_Spell_NeekoE_DisplayName"
+            },
+            "Passive": {
+                "displayName": "Encanto Inerente",
+                "id": "NeekoPassive",
+                "rawDescription": "GeneratedTip_Passive_NeekoPassive_Description",
+                "rawDisplayName": "GeneratedTip_Passive_NeekoPassive_DisplayName"
+            },
+            "Q": {
+                "abilityLevel": 5,
+                "displayName": "Explosão Florescente",
+                "id": "NeekoQ",
+                "rawDescription": "GeneratedTip_Spell_NeekoQ_Description",
+                "rawDisplayName": "GeneratedTip_Spell_NeekoQ_DisplayName"
+            },
+            "R": {
+                "abilityLevel": 2,
+                "displayName": "Florescer Repentino",
+                "id": "NeekoR",
+                "rawDescription": "GeneratedTip_Spell_NeekoR_Description",
+                "rawDisplayName": "GeneratedTip_Spell_NeekoR_DisplayName"
+            },
+            "W": {
+                "abilityLevel": 4,
+                "displayName": "Metamorfa",
+                "id": "NeekoW",
+                "rawDescription": "GeneratedTip_Spell_NeekoW_Description",
+                "rawDisplayName": "GeneratedTip_Spell_NeekoW_DisplayName"
+            }
+        },
+        "championStats": {
+            "abilityHaste": 30.0,
+            "abilityPower": 310.0,
+            "armor": 78.19400024414063,
+            "armorPenetrationFlat": 0.0,
+            "armorPenetrationPercent": 1.0,
+            "attackDamage": 72.61250305175781,
+            "attackRange": 550.0,
+            "attackSpeed": 1.3784654140472413,
+            "bonusArmorPenetrationPercent": 1.0,
+            "bonusMagicPenetrationPercent": 1.0,
+            "critChance": 0.0,
+            "critDamage": 175.0,
+            "currentHealth": 52.4202995300293,
+            "healShieldPower": 0.0,
+            "healthRegenRate": 2.976750135421753,
+            "lifeSteal": 0.0,
+            "magicLethality": 0.0,
+            "magicPenetrationFlat": 18.0,
+            "magicPenetrationPercent": 1.0,
+            "magicResist": 42.798500061035159,
+            "maxHealth": 2103.8798828125,
+            "moveSpeed": 451.08001708984377,
+            "omnivamp": 0.10999999940395355,
+            "physicalLethality": 0.0,
+            "physicalVamp": 0.0,
+            "resourceMax": 745.3499755859375,
+            "resourceRegenRate": 2.7783000469207765,
+            "resourceType": "MANA",
+            "resourceValue": 380.5814514160156,
+            "spellVamp": 0.0,
+            "tenacity": 5.0
+        },
+        "currentGold": 285.4118957519531,
+        "fullRunes": {
+            "generalRunes": [
+                {
+                    "displayName": "Pressione o Ataque",
+                    "id": 8005,
+                    "rawDescription": "perk_tooltip_PressTheAttack",
+                    "rawDisplayName": "perk_displayname_PressTheAttack"
+                },
+                {
+                    "displayName": "Cura Excessiva",
+                    "id": 9101,
+                    "rawDescription": "perk_tooltip_9101",
+                    "rawDisplayName": "perk_displayname_9101"
+                },
+                {
+                    "displayName": "Lenda: Espontaneidade",
+                    "id": 9104,
+                    "rawDescription": "perk_tooltip_9104",
+                    "rawDisplayName": "perk_displayname_9104"
+                },
+                {
+                    "displayName": "Até a Morte",
+                    "id": 8299,
+                    "rawDescription": "perk_tooltip_8234",
+                    "rawDisplayName": "perk_displayname_8234"
+                },
+                {
+                    "displayName": "Caça Incansável",
+                    "id": 8105,
+                    "rawDescription": "perk_tooltip_8105",
+                    "rawDisplayName": "perk_displayname_8105"
+                },
+                {
+                    "displayName": "Globos Oculares",
+                    "id": 8138,
+                    "rawDescription": "perk_tooltip_EyeballCollection",
+                    "rawDisplayName": "perk_displayname_EyeballCollection"
+                }
+            ],
+            "keystone": {
+                "displayName": "Pressione o Ataque",
+                "id": 8005,
+                "rawDescription": "perk_tooltip_PressTheAttack",
+                "rawDisplayName": "perk_displayname_PressTheAttack"
+            },
+            "primaryRuneTree": {
+                "displayName": "Precisão",
+                "id": 8000,
+                "rawDescription": "perkstyle_tooltip_7201",
+                "rawDisplayName": "perkstyle_displayname_7201"
+            },
+            "secondaryRuneTree": {
+                "displayName": "Dominação",
+                "id": 8100,
+                "rawDescription": "perkstyle_tooltip_7200",
+                "rawDisplayName": "perkstyle_displayname_7200"
+            },
+            "statRunes": [
+                {
+                    "id": 5005,
+                    "rawDescription": "perk_tooltip_StatModAttackSpeed"
+                },
+                {
+                    "id": 5008,
+                    "rawDescription": "perk_tooltip_StatModAdaptive"
+                },
+                {
+                    "id": 5002,
+                    "rawDescription": "perk_tooltip_StatModArmor"
+                }
+            ]
+        },
+        "level": 12,
+        "summonerName": "Dollynh0solador",
+        "teamRelativeColors": true
+    },
+    "allPlayers": [
+        {
+            "championName": "Mordekaiser",
+            "isBot": false,
+            "isDead": false,
+            "items": [
+                {
+                    "canUse": false,
+                    "consumable": false,
+                    "count": 1,
+                    "displayName": "Escudo de Doran",
+                    "itemID": 1054,
+                    "price": 450,
+                    "rawDescription": "GeneratedTip_Item_1054_Description",
+                    "rawDisplayName": "Item_1054_Name",
+                    "slot": 0
+                },
+                {
+                    "canUse": false,
+                    "consumable": false,
+                    "count": 1,
+                    "displayName": "Olhar Sanguessuga",
+                    "itemID": 4635,
+                    "price": 465,
+                    "rawDescription": "GeneratedTip_Item_4635_Description",
+                    "rawDisplayName": "Item_4635_Name",
+                    "slot": 1
+                },
+                {
+                    "canUse": false,
+                    "consumable": false,
+                    "count": 1,
+                    "displayName": "Passos de Mercúrio",
+                    "itemID": 3111,
+                    "price": 350,
+                    "rawDescription": "GeneratedTip_Item_3111_Description",
+                    "rawDisplayName": "Item_3111_Name",
+                    "slot": 2
+                },
+                {
+                    "canUse": true,
+                    "consumable": false,
+                    "count": 1,
+                    "displayName": "Sentinela Invisível",
+                    "itemID": 3340,
+                    "price": 0,
+                    "rawDescription": "GeneratedTip_Item_3340_Description",
+                    "rawDisplayName": "Item_3340_Name",
+                    "slot": 6
+                }
+            ],
+            "level": 10,
+            "position": "MIDDLE",
+            "rawChampionName": "game_character_displayname_Mordekaiser",
+            "respawnTimer": 0.0,
+            "runes": {
+                "keystone": {
+                    "displayName": "Conquistador",
+                    "id": 8010,
+                    "rawDescription": "perk_tooltip_Conqueror",
+                    "rawDisplayName": "perk_displayname_Conqueror"
+                },
+                "primaryRuneTree": {
+                    "displayName": "Precisão",
+                    "id": 8000,
+                    "rawDescription": "perkstyle_tooltip_7201",
+                    "rawDisplayName": "perkstyle_displayname_7201"
+                },
+                "secondaryRuneTree": {
+                    "displayName": "Determinação",
+                    "id": 8400,
+                    "rawDescription": "perkstyle_tooltip_7204",
+                    "rawDisplayName": "perkstyle_displayname_7204"
+                }
+            },
+            "scores": {
+                "assists": 0,
+                "creepScore": 80,
+                "deaths": 4,
+                "kills": 0,
+                "wardScore": 5.542893886566162
+            },
+            "skinID": 0,
+            "summonerName": "Skazy Vrau",
+            "summonerSpells": {
+                "summonerSpellOne": {
+                    "displayName": "Teleporte Irrestrito",
+                    "rawDescription": "GeneratedTip_SummonerSpell_S12_SummonerTeleportUpgrade_Description",
+                    "rawDisplayName": "GeneratedTip_SummonerSpell_S12_SummonerTeleportUpgrade_DisplayName"
+                },
+                "summonerSpellTwo": {
+                    "displayName": "Flash",
+                    "rawDescription": "GeneratedTip_SummonerSpell_SummonerFlash_Description",
+                    "rawDisplayName": "GeneratedTip_SummonerSpell_SummonerFlash_DisplayName"
+                }
+            },
+            "team": "ORDER"
+        },
+        {
+            "championName": "Yasuo",
+            "isBot": false,
+            "isDead": false,
+            "items": [
+                {
+                    "canUse": false,
+                    "consumable": false,
+                    "count": 1,
+                    "displayName": "Broto de Esmagamusgo",
+                    "itemID": 1103,
+                    "price": 450,
+                    "rawDescription": "GeneratedTip_Item_1103_Description",
+                    "rawDisplayName": "Item_1103_Name",
+                    "slot": 0
+                },
+                {
+                    "canUse": true,
+                    "consumable": false,
+                    "count": 1,
+                    "displayName": "Poção com Refil",
+                    "itemID": 2031,
+                    "price": 150,
+                    "rawDescription": "GeneratedTip_Item_2031_Description",
+                    "rawDisplayName": "Item_2031_Name",
+                    "slot": 1
+                },
+                {
+                    "canUse": false,
+                    "consumable": false,
+                    "count": 1,
+                    "displayName": "Grevas do Berserker",
+                    "itemID": 3006,
+                    "price": 500,
+                    "rawDescription": "GeneratedTip_Item_3006_Description",
+                    "rawDisplayName": "Item_3006_Name",
+                    "slot": 2
+                },
+                {
+                    "canUse": false,
+                    "consumable": false,
+                    "count": 1,
+                    "displayName": "Aljava Vespertina",
+                    "itemID": 6670,
+                    "price": 300,
+                    "rawDescription": "GeneratedTip_Item_6670_Description",
+                    "rawDisplayName": "Item_6670_Name",
+                    "slot": 3
+                },
+                {
+                    "canUse": false,
+                    "consumable": false,
+                    "count": 1,
+                    "displayName": "Cetro Vampírico",
+                    "itemID": 1053,
+                    "price": 550,
+                    "rawDescription": "GeneratedTip_Item_1053_Description",
+                    "rawDisplayName": "Item_1053_Name",
+                    "slot": 4
+                },
+                {
+                    "canUse": true,
+                    "consumable": false,
+                    "count": 1,
+                    "displayName": "Lente do Oráculo",
+                    "itemID": 3364,
+                    "price": 0,
+                    "rawDescription": "GeneratedTip_Item_3364_Description",
+                    "rawDisplayName": "Item_3364_Name",
+                    "slot": 6
+                }
+            ],
+            "level": 9,
+            "position": "JUNGLE",
+            "rawChampionName": "game_character_displayname_Yasuo",
+            "rawSkinName": "game_character_skin_displayname_Yasuo_17",
+            "respawnTimer": 0.0,
+            "runes": {
+                "keystone": {
+                    "displayName": "Agilidade nos Pés",
+                    "id": 8021,
+                    "rawDescription": "perk_tooltip_FleetFootwork",
+                    "rawDisplayName": "perk_displayname_FleetFootwork"
+                },
+                "primaryRuneTree": {
+                    "displayName": "Precisão",
+                    "id": 8000,
+                    "rawDescription": "perkstyle_tooltip_7201",
+                    "rawDisplayName": "perkstyle_displayname_7201"
+                },
+                "secondaryRuneTree": {
+                    "displayName": "Determinação",
+                    "id": 8400,
+                    "rawDescription": "perkstyle_tooltip_7204",
+                    "rawDisplayName": "perkstyle_displayname_7204"
+                }
+            },
+            "scores": {
+                "assists": 5,
+                "creepScore": 80,
+                "deaths": 4,
+                "kills": 1,
+                "wardScore": 1.3775863647460938
+            },
+            "skinID": 17,
+            "skinName": "Yasuo Chefão",
+            "summonerName": "voliléo",
+            "summonerSpells": {
+                "summonerSpellOne": {
+                    "displayName": "Flash",
+                    "rawDescription": "GeneratedTip_SummonerSpell_SummonerFlash_Description",
+                    "rawDisplayName": "GeneratedTip_SummonerSpell_SummonerFlash_DisplayName"
+                },
+                "summonerSpellTwo": {
+                    "displayName": "Golpe Irrestrito",
+                    "rawDescription": "GeneratedTip_SummonerSpell_S5_SummonerSmitePlayerGanker_Description",
+                    "rawDisplayName": "GeneratedTip_SummonerSpell_S5_SummonerSmitePlayerGanker_DisplayName"
+                }
+            },
+            "team": "ORDER"
+        },
+        {
+            "championName": "Qiyana",
+            "isBot": false,
+            "isDead": true,
+            "items": [
+                {
+                    "canUse": false,
+                    "consumable": false,
+                    "count": 1,
+                    "displayName": "Hexdrinker",
+                    "itemID": 3155,
+                    "price": 500,
+                    "rawDescription": "GeneratedTip_Item_3155_Description",
+                    "rawDisplayName": "Item_3155_Name",
+                    "slot": 0
+                },
+                {
+                    "canUse": false,
+                    "consumable": false,
+                    "count": 1,
+                    "displayName": "Espada Longa",
+                    "itemID": 1036,
+                    "price": 350,
+                    "rawDescription": "GeneratedTip_Item_1036_Description",
+                    "rawDisplayName": "Item_1036_Name",
+                    "slot": 1
+                },
+                {
+                    "canUse": false,
+                    "consumable": false,
+                    "count": 1,
+                    "displayName": "Passos de Mercúrio",
+                    "itemID": 3111,
+                    "price": 350,
+                    "rawDescription": "GeneratedTip_Item_3111_Description",
+                    "rawDisplayName": "Item_3111_Name",
+                    "slot": 2
+                },
+                {
+                    "canUse": true,
+                    "consumable": true,
+                    "count": 1,
+                    "displayName": "Sentinela de Controle",
+                    "itemID": 2055,
+                    "price": 75,
+                    "rawDescription": "GeneratedTip_Item_2055_Description",
+                    "rawDisplayName": "Item_2055_Name",
+                    "slot": 4
+                },
+                {
+                    "canUse": true,
+                    "consumable": false,
+                    "count": 1,
+                    "displayName": "Garra do Espreitador",
+                    "itemID": 6693,
+                    "price": 900,
+                    "rawDescription": "GeneratedTip_Item_6693_Description",
+                    "rawDisplayName": "Item_6693_Name",
+                    "slot": 5
+                },
+                {
+                    "canUse": true,
+                    "consumable": false,
+                    "count": 1,
+                    "displayName": "Lente do Oráculo",
+                    "itemID": 3364,
+                    "price": 0,
+                    "rawDescription": "GeneratedTip_Item_3364_Description",
+                    "rawDisplayName": "Item_3364_Name",
+                    "slot": 6
+                }
+            ],
+            "level": 10,
+            "position": "TOP",
+            "rawChampionName": "game_character_displayname_Qiyana",
+            "rawSkinName": "game_character_skin_displayname_Qiyana_2",
+            "respawnTimer": 5.869020462036133,
+            "runes": {
+                "keystone": {
+                    "displayName": "Eletrocutar",
+                    "id": 8112,
+                    "rawDescription": "perk_tooltip_Electrocute",
+                    "rawDisplayName": "perk_displayname_Electrocute"
+                },
+                "primaryRuneTree": {
+                    "displayName": "Dominação",
+                    "id": 8100,
+                    "rawDescription": "perkstyle_tooltip_7200",
+                    "rawDisplayName": "perkstyle_displayname_7200"
+                },
+                "secondaryRuneTree": {
+                    "displayName": "Precisão",
+                    "id": 8000,
+                    "rawDescription": "perkstyle_tooltip_7201",
+                    "rawDisplayName": "perkstyle_displayname_7201"
+                }
+            },
+            "scores": {
+                "assists": 5,
+                "creepScore": 70,
+                "deaths": 7,
+                "kills": 3,
+                "wardScore": 9.91128158569336
+            },
+            "skinID": 2,
+            "skinName": "Qiyana True Damage",
+            "summonerName": "o joj",
+            "summonerSpells": {
+                "summonerSpellOne": {
+                    "displayName": "Incendiar",
+                    "rawDescription": "GeneratedTip_SummonerSpell_SummonerDot_Description",
+                    "rawDisplayName": "GeneratedTip_SummonerSpell_SummonerDot_DisplayName"
+                },
+                "summonerSpellTwo": {
+                    "displayName": "Flash",
+                    "rawDescription": "GeneratedTip_SummonerSpell_SummonerFlash_Description",
+                    "rawDisplayName": "GeneratedTip_SummonerSpell_SummonerFlash_DisplayName"
+                }
+            },
+            "team": "ORDER"
+        },
+        {
+            "championName": "Miss Fortune",
+            "isBot": false,
+            "isDead": false,
+            "items": [
+                {
+                    "canUse": false,
+                    "consumable": false,
+                    "count": 1,
+                    "displayName": "Lágrima da Deusa",
+                    "itemID": 3070,
+                    "price": 400,
+                    "rawDescription": "GeneratedTip_Item_3070_Description",
+                    "rawDisplayName": "Item_3070_Name",
+                    "slot": 0
+                },
+                {
+                    "canUse": true,
+                    "consumable": false,
+                    "count": 1,
+                    "displayName": "Poção com Refil",
+                    "itemID": 2031,
+                    "price": 150,
+                    "rawDescription": "GeneratedTip_Item_2031_Description",
+                    "rawDisplayName": "Item_2031_Name",
+                    "slot": 1
+                },
+                {
+                    "canUse": false,
+                    "consumable": false,
+                    "count": 1,
+                    "displayName": "Martelo de Guerra de Caulfield",
+                    "itemID": 3133,
+                    "price": 400,
+                    "rawDescription": "GeneratedTip_Item_3133_Description",
+                    "rawDisplayName": "Item_3133_Name",
+                    "slot": 2
+                },
+                {
+                    "canUse": false,
+                    "consumable": false,
+                    "count": 1,
+                    "displayName": "Espada Longa",
+                    "itemID": 1036,
+                    "price": 350,
+                    "rawDescription": "GeneratedTip_Item_1036_Description",
+                    "rawDisplayName": "Item_1036_Name",
+                    "slot": 3
+                },
+                {
+                    "canUse": true,
+                    "consumable": false,
+                    "count": 1,
+                    "displayName": "Força do Vendaval",
+                    "itemID": 6671,
+                    "price": 625,
+                    "rawDescription": "GeneratedTip_Item_6671_Description",
+                    "rawDisplayName": "Item_6671_Name",
+                    "slot": 4
+                },
+                {
+                    "canUse": false,
+                    "consumable": false,
+                    "count": 1,
+                    "displayName": "Grevas do Berserker",
+                    "itemID": 3006,
+                    "price": 500,
+                    "rawDescription": "GeneratedTip_Item_3006_Description",
+                    "rawDisplayName": "Item_3006_Name",
+                    "slot": 5
+                },
+                {
+                    "canUse": true,
+                    "consumable": false,
+                    "count": 1,
+                    "displayName": "Sentinela Invisível",
+                    "itemID": 3340,
+                    "price": 0,
+                    "rawDescription": "GeneratedTip_Item_3340_Description",
+                    "rawDisplayName": "Item_3340_Name",
+                    "slot": 6
+                }
+            ],
+            "level": 10,
+            "position": "BOTTOM",
+            "rawChampionName": "game_character_displayname_MissFortune",
+            "rawSkinName": "game_character_skin_displayname_MissFortune_21",
+            "respawnTimer": 0.0,
+            "runes": {
+                "keystone": {
+                    "displayName": "Pressione o Ataque",
+                    "id": 8005,
+                    "rawDescription": "perk_tooltip_PressTheAttack",
+                    "rawDisplayName": "perk_displayname_PressTheAttack"
+                },
+                "primaryRuneTree": {
+                    "displayName": "Precisão",
+                    "id": 8000,
+                    "rawDescription": "perkstyle_tooltip_7201",
+                    "rawDisplayName": "perkstyle_displayname_7201"
+                },
+                "secondaryRuneTree": {
+                    "displayName": "Dominação",
+                    "id": 8100,
+                    "rawDescription": "perkstyle_tooltip_7200",
+                    "rawDisplayName": "perkstyle_displayname_7200"
+                }
+            },
+            "scores": {
+                "assists": 3,
+                "creepScore": 110,
+                "deaths": 2,
+                "kills": 8,
+                "wardScore": 16.741498947143556
+            },
+            "skinID": 21,
+            "skinName": "Miss Fortune Destruída",
+            "summonerName": "Bergamind ",
+            "summonerSpells": {
+                "summonerSpellOne": {
+                    "displayName": "Curar",
+                    "rawDescription": "GeneratedTip_SummonerSpell_SummonerHeal_Description",
+                    "rawDisplayName": "GeneratedTip_SummonerSpell_SummonerHeal_DisplayName"
+                },
+                "summonerSpellTwo": {
+                    "displayName": "Flash",
+                    "rawDescription": "GeneratedTip_SummonerSpell_SummonerFlash_Description",
+                    "rawDisplayName": "GeneratedTip_SummonerSpell_SummonerFlash_DisplayName"
+                }
+            },
+            "team": "ORDER"
+        },
+        {
+            "championName": "Lux",
+            "isBot": false,
+            "isDead": false,
+            "items": [
+                {
+                    "canUse": true,
+                    "consumable": false,
+                    "count": 1,
+                    "displayName": "Presas Gélidas",
+                    "itemID": 3851,
+                    "price": 400,
+                    "rawDescription": "GeneratedTip_Item_3851_Description",
+                    "rawDisplayName": "Item_3851_Name",
+                    "slot": 0
+                },
+                {
+                    "canUse": false,
+                    "consumable": false,
+                    "count": 1,
+                    "displayName": "Capítulo Perdido",
+                    "itemID": 3802,
+                    "price": 80,
+                    "rawDescription": "GeneratedTip_Item_3802_Description",
+                    "rawDisplayName": "Item_3802_Name",
+                    "slot": 1
+                },
+                {
+                    "canUse": false,
+                    "consumable": false,
+                    "count": 1,
+                    "displayName": "Varinha Explosiva",
+                    "itemID": 1026,
+                    "price": 850,
+                    "rawDescription": "GeneratedTip_Item_1026_Description",
+                    "rawDisplayName": "Item_1026_Name",
+                    "slot": 2
+                },
+                {
+                    "canUse": false,
+                    "consumable": false,
+                    "count": 1,
+                    "displayName": "Botas",
+                    "itemID": 1001,
+                    "price": 300,
+                    "rawDescription": "GeneratedTip_Item_1001_Description",
+                    "rawDisplayName": "Item_1001_Name",
+                    "slot": 4
+                },
+                {
+                    "canUse": true,
+                    "consumable": false,
+                    "count": 1,
+                    "displayName": "Lente do Oráculo",
+                    "itemID": 3364,
+                    "price": 0,
+                    "rawDescription": "GeneratedTip_Item_3364_Description",
+                    "rawDisplayName": "Item_3364_Name",
+                    "slot": 6
+                }
+            ],
+            "level": 6,
+            "position": "UTILITY",
+            "rawChampionName": "game_character_displayname_Lux",
+            "rawSkinName": "game_character_skin_displayname_Lux_18",
+            "respawnTimer": 0.0,
+            "runes": {
+                "keystone": {
+                    "displayName": "Cometa Arcano",
+                    "id": 8229,
+                    "rawDescription": "perk_tooltip_ArcaneComet",
+                    "rawDisplayName": "perk_displayname_ArcaneComet"
+                },
+                "primaryRuneTree": {
+                    "displayName": "Feitiçaria",
+                    "id": 8200,
+                    "rawDescription": "perkstyle_tooltip_7202",
+                    "rawDisplayName": "perkstyle_displayname_7202"
+                },
+                "secondaryRuneTree": {
+                    "displayName": "Dominação",
+                    "id": 8100,
+                    "rawDescription": "perkstyle_tooltip_7200",
+                    "rawDisplayName": "perkstyle_displayname_7200"
+                }
+            },
+            "scores": {
+                "assists": 4,
+                "creepScore": 0,
+                "deaths": 8,
+                "kills": 2,
+                "wardScore": 11.167664527893067
+            },
+            "skinID": 18,
+            "skinName": "Lux Cósmica",
+            "summonerName": "ERlC CARTMAN",
+            "summonerSpells": {
+                "summonerSpellOne": {
+                    "displayName": "Flash",
+                    "rawDescription": "GeneratedTip_SummonerSpell_SummonerFlash_Description",
+                    "rawDisplayName": "GeneratedTip_SummonerSpell_SummonerFlash_DisplayName"
+                },
+                "summonerSpellTwo": {
+                    "displayName": "Incendiar",
+                    "rawDescription": "GeneratedTip_SummonerSpell_SummonerDot_Description",
+                    "rawDisplayName": "GeneratedTip_SummonerSpell_SummonerDot_DisplayName"
+                }
+            },
+            "team": "ORDER"
+        },
+        {
+            "championName": "Sylas",
+            "isBot": false,
+            "isDead": false,
+            "items": [
+                {
+                    "canUse": false,
+                    "consumable": false,
+                    "count": 1,
+                    "displayName": "Bastão das Eras",
+                    "itemID": 6657,
+                    "price": 215,
+                    "rawDescription": "GeneratedTip_Item_6657_Description",
+                    "rawDisplayName": "Item_6657_Name",
+                    "slot": 0
+                },
+                {
+                    "canUse": false,
+                    "consumable": false,
+                    "count": 1,
+                    "displayName": "Anel de Doran",
+                    "itemID": 1056,
+                    "price": 400,
+                    "rawDescription": "GeneratedTip_Item_1056_Description",
+                    "rawDisplayName": "Item_1056_Name",
+                    "slot": 1
+                },
+                {
+                    "canUse": false,
+                    "consumable": false,
+                    "count": 1,
+                    "displayName": "Botas Ionianas da Lucidez",
+                    "itemID": 3158,
+                    "price": 650,
+                    "rawDescription": "GeneratedTip_Item_3158_Description",
+                    "rawDisplayName": "Item_3158_Name",
+                    "slot": 2
+                },
+                {
+                    "canUse": false,
+                    "consumable": false,
+                    "count": 1,
+                    "displayName": "Códex Demoníaco",
+                    "itemID": 3108,
+                    "price": 465,
+                    "rawDescription": "GeneratedTip_Item_3108_Description",
+                    "rawDisplayName": "Item_3108_Name",
+                    "slot": 3
+                },
+                {
+                    "canUse": true,
+                    "consumable": false,
+                    "count": 1,
+                    "displayName": "Sentinela Invisível",
+                    "itemID": 3340,
+                    "price": 0,
+                    "rawDescription": "GeneratedTip_Item_3340_Description",
+                    "rawDisplayName": "Item_3340_Name",
+                    "slot": 6
+                }
+            ],
+            "level": 10,
+            "position": "TOP",
+            "rawChampionName": "game_character_displayname_Sylas",
+            "rawSkinName": "game_character_skin_displayname_Sylas_8",
+            "respawnTimer": 0.0,
+            "runes": {
+                "keystone": {
+                    "displayName": "Conquistador",
+                    "id": 8010,
+                    "rawDescription": "perk_tooltip_Conqueror",
+                    "rawDisplayName": "perk_displayname_Conqueror"
+                },
+                "primaryRuneTree": {
+                    "displayName": "Precisão",
+                    "id": 8000,
+                    "rawDescription": "perkstyle_tooltip_7201",
+                    "rawDisplayName": "perkstyle_displayname_7201"
+                },
+                "secondaryRuneTree": {
+                    "displayName": "Determinação",
+                    "id": 8400,
+                    "rawDescription": "perkstyle_tooltip_7204",
+                    "rawDisplayName": "perkstyle_displayname_7204"
+                }
+            },
+            "scores": {
+                "assists": 1,
+                "creepScore": 70,
+                "deaths": 0,
+                "kills": 3,
+                "wardScore": 8.27717399597168
+            },
+            "skinID": 8,
+            "skinName": "Sylas de Freljord",
+            "summonerName": "pastel de mula",
+            "summonerSpells": {
+                "summonerSpellOne": {
+                    "displayName": "Incendiar",
+                    "rawDescription": "GeneratedTip_SummonerSpell_SummonerDot_Description",
+                    "rawDisplayName": "GeneratedTip_SummonerSpell_SummonerDot_DisplayName"
+                },
+                "summonerSpellTwo": {
+                    "displayName": "Flash",
+                    "rawDescription": "GeneratedTip_SummonerSpell_SummonerFlash_Description",
+                    "rawDisplayName": "GeneratedTip_SummonerSpell_SummonerFlash_DisplayName"
+                }
+            },
+            "team": "CHAOS"
+        },
+        {
+            "championName": "Poppy",
+            "isBot": false,
+            "isDead": false,
+            "items": [
+                {
+                    "canUse": false,
+                    "consumable": false,
+                    "count": 1,
+                    "displayName": "Broto de Esmagamusgo",
+                    "itemID": 1103,
+                    "price": 450,
+                    "rawDescription": "GeneratedTip_Item_1103_Description",
+                    "rawDisplayName": "Item_1103_Name",
+                    "slot": 0
+                },
+                {
+                    "canUse": true,
+                    "consumable": false,
+                    "count": 1,
+                    "displayName": "Poção com Refil",
+                    "itemID": 2031,
+                    "price": 150,
+                    "rawDescription": "GeneratedTip_Item_2031_Description",
+                    "rawDisplayName": "Item_2031_Name",
+                    "slot": 1
+                },
+                {
+                    "canUse": false,
+                    "consumable": false,
+                    "count": 1,
+                    "displayName": "Botas",
+                    "itemID": 1001,
+                    "price": 300,
+                    "rawDescription": "GeneratedTip_Item_1001_Description",
+                    "rawDisplayName": "Item_1001_Name",
+                    "slot": 2
+                },
+                {
+                    "canUse": false,
+                    "consumable": false,
+                    "count": 1,
+                    "displayName": "Manopla dos Glacinatas",
+                    "itemID": 6662,
+                    "price": 700,
+                    "rawDescription": "GeneratedTip_Item_6662_Description",
+                    "rawDisplayName": "Item_6662_Name",
+                    "slot": 3
+                },
+                {
+                    "canUse": false,
+                    "consumable": false,
+                    "count": 1,
+                    "displayName": "Couraça de Pano",
+                    "itemID": 1029,
+                    "price": 300,
+                    "rawDescription": "GeneratedTip_Item_1029_Description",
+                    "rawDisplayName": "Item_1029_Name",
+                    "slot": 4
+                },
+                {
+                    "canUse": true,
+                    "consumable": false,
+                    "count": 1,
+                    "displayName": "Sentinela Invisível",
+                    "itemID": 3340,
+                    "price": 0,
+                    "rawDescription": "GeneratedTip_Item_3340_Description",
+                    "rawDisplayName": "Item_3340_Name",
+                    "slot": 6
+                }
+            ],
+            "level": 9,
+            "position": "MIDDLE",
+            "rawChampionName": "game_character_displayname_Poppy",
+            "rawSkinName": "game_character_skin_displayname_Poppy_14",
+            "respawnTimer": 0.0,
+            "runes": {
+                "keystone": {
+                    "displayName": "Ímpeto Gradual",
+                    "id": 8230,
+                    "rawDescription": "perk_tooltip_PhaseRush",
+                    "rawDisplayName": "perk_displayname_PhaseRush"
+                },
+                "primaryRuneTree": {
+                    "displayName": "Feitiçaria",
+                    "id": 8200,
+                    "rawDescription": "perkstyle_tooltip_7202",
+                    "rawDisplayName": "perkstyle_displayname_7202"
+                },
+                "secondaryRuneTree": {
+                    "displayName": "Inspiração",
+                    "id": 8300,
+                    "rawDescription": "perkstyle_tooltip_7203",
+                    "rawDisplayName": "perkstyle_displayname_7203"
+                }
+            },
+            "scores": {
+                "assists": 3,
+                "creepScore": 80,
+                "deaths": 3,
+                "kills": 1,
+                "wardScore": 16.866703033447267
+            },
+            "skinID": 14,
+            "skinName": "Poppy Cervo da Neve",
+            "summonerName": "TweakOrion",
+            "summonerSpells": {
+                "summonerSpellOne": {
+                    "displayName": "Golpe Irrestrito",
+                    "rawDescription": "GeneratedTip_SummonerSpell_S5_SummonerSmitePlayerGanker_Description",
+                    "rawDisplayName": "GeneratedTip_SummonerSpell_S5_SummonerSmitePlayerGanker_DisplayName"
+                },
+                "summonerSpellTwo": {
+                    "displayName": "Flash Hextec",
+                    "rawDescription": "GeneratedTip_SummonerSpell_SummonerFlashPerksHextechFlashtraptionV2_Description",
+                    "rawDisplayName": "GeneratedTip_SummonerSpell_SummonerFlashPerksHextechFlashtraptionV2_DisplayName"
+                }
+            },
+            "team": "CHAOS"
+        },
+        {
+            "championName": "Neeko",
+            "isBot": false,
+            "isDead": true,
+            "items": [
+                {
+                    "canUse": false,
+                    "consumable": false,
+                    "count": 1,
+                    "displayName": "Anel de Doran",
+                    "itemID": 1056,
+                    "price": 400,
+                    "rawDescription": "GeneratedTip_Item_1056_Description",
+                    "rawDisplayName": "Item_1056_Name",
+                    "slot": 0
+                },
+                {
+                    "canUse": false,
+                    "consumable": false,
+                    "count": 1,
+                    "displayName": "Dente de Na'Shor",
+                    "itemID": 3115,
+                    "price": 450,
+                    "rawDescription": "GeneratedTip_Item_3115_Description",
+                    "rawDisplayName": "Item_3115_Name",
+                    "slot": 1
+                },
+                {
+                    "canUse": false,
+                    "consumable": false,
+                    "count": 1,
+                    "displayName": "Ladrão de Almas de Mejai",
+                    "itemID": 3041,
+                    "price": 1250,
+                    "rawDescription": "GeneratedTip_Item_3041_Description",
+                    "rawDisplayName": "Item_3041_Name",
+                    "slot": 2
+                },
+                {
+                    "canUse": false,
+                    "consumable": false,
+                    "count": 1,
+                    "displayName": "Criafendas",
+                    "itemID": 4633,
+                    "price": 1050,
+                    "rawDescription": "GeneratedTip_Item_4633_Description",
+                    "rawDisplayName": "Item_4633_Name",
+                    "slot": 3
+                },
+                {
+                    "canUse": false,
+                    "consumable": false,
+                    "count": 1,
+                    "displayName": "Sapatos do Feiticeiro",
+                    "itemID": 3020,
+                    "price": 800,
+                    "rawDescription": "GeneratedTip_Item_3020_Description",
+                    "rawDisplayName": "Item_3020_Name",
+                    "slot": 4
+                },
+                {
+                    "canUse": false,
+                    "consumable": false,
+                    "count": 1,
+                    "displayName": "Tomo Amplificador",
+                    "itemID": 1052,
+                    "price": 435,
+                    "rawDescription": "GeneratedTip_Item_1052_Description",
+                    "rawDisplayName": "Item_1052_Name",
+                    "slot": 5
+                },
+                {
+                    "canUse": true,
+                    "consumable": false,
+                    "count": 1,
+                    "displayName": "Sentinela Invisível",
+                    "itemID": 3340,
+                    "price": 0,
+                    "rawDescription": "GeneratedTip_Item_3340_Description",
+                    "rawDisplayName": "Item_3340_Name",
+                    "slot": 6
+                }
+            ],
+            "level": 12,
+            "position": "JUNGLE",
+            "rawChampionName": "game_character_displayname_Neeko",
+            "respawnTimer": 11.864252090454102,
+            "runes": {
+                "keystone": {
+                    "displayName": "Pressione o Ataque",
+                    "id": 8005,
+                    "rawDescription": "perk_tooltip_PressTheAttack",
+                    "rawDisplayName": "perk_displayname_PressTheAttack"
+                },
+                "primaryRuneTree": {
+                    "displayName": "Precisão",
+                    "id": 8000,
+                    "rawDescription": "perkstyle_tooltip_7201",
+                    "rawDisplayName": "perkstyle_displayname_7201"
+                },
+                "secondaryRuneTree": {
+                    "displayName": "Dominação",
+                    "id": 8100,
+                    "rawDescription": "perkstyle_tooltip_7200",
+                    "rawDisplayName": "perkstyle_displayname_7200"
+                }
+            },
+            "scores": {
+                "assists": 0,
+                "creepScore": 110,
+                "deaths": 3,
+                "kills": 12,
+                "wardScore": 7.869284152984619
+            },
+            "skinID": 0,
+            "summonerName": "Dollynh0solador",
+            "summonerSpells": {
+                "summonerSpellOne": {
+                    "displayName": "Flash",
+                    "rawDescription": "GeneratedTip_SummonerSpell_SummonerFlash_Description",
+                    "rawDisplayName": "GeneratedTip_SummonerSpell_SummonerFlash_DisplayName"
+                },
+                "summonerSpellTwo": {
+                    "displayName": "Incendiar",
+                    "rawDescription": "GeneratedTip_SummonerSpell_SummonerDot_Description",
+                    "rawDisplayName": "GeneratedTip_SummonerSpell_SummonerDot_DisplayName"
+                }
+            },
+            "team": "CHAOS"
+        },
+        {
+            "championName": "Seraphine",
+            "isBot": false,
+            "isDead": false,
+            "items": [
+                {
+                    "canUse": false,
+                    "consumable": false,
+                    "count": 1,
+                    "displayName": "Lágrima da Deusa",
+                    "itemID": 3070,
+                    "price": 400,
+                    "rawDescription": "GeneratedTip_Item_3070_Description",
+                    "rawDisplayName": "Item_3070_Name",
+                    "slot": 0
+                },
+                {
+                    "canUse": false,
+                    "consumable": false,
+                    "count": 1,
+                    "displayName": "Bastão das Eras",
+                    "itemID": 6657,
+                    "price": 215,
+                    "rawDescription": "GeneratedTip_Item_6657_Description",
+                    "rawDisplayName": "Item_6657_Name",
+                    "slot": 1
+                },
+                {
+                    "canUse": false,
+                    "consumable": false,
+                    "count": 1,
+                    "displayName": "Bastão Desnecessariamente Grande",
+                    "itemID": 1058,
+                    "price": 1250,
+                    "rawDescription": "GeneratedTip_Item_1058_Description",
+                    "rawDisplayName": "Item_1058_Name",
+                    "slot": 2
+                },
+                {
+                    "canUse": false,
+                    "consumable": false,
+                    "count": 1,
+                    "displayName": "Lacre Sombrio",
+                    "itemID": 1082,
+                    "price": 350,
+                    "rawDescription": "GeneratedTip_Item_1082_Description",
+                    "rawDisplayName": "Item_1082_Name",
+                    "slot": 3
+                },
+                {
+                    "canUse": true,
+                    "consumable": false,
+                    "count": 1,
+                    "displayName": "Sentinela Invisível",
+                    "itemID": 3340,
+                    "price": 0,
+                    "rawDescription": "GeneratedTip_Item_3340_Description",
+                    "rawDisplayName": "Item_3340_Name",
+                    "slot": 6
+                }
+            ],
+            "level": 8,
+            "position": "BOTTOM",
+            "rawChampionName": "game_character_displayname_Seraphine",
+            "rawSkinName": "game_character_skin_displayname_Seraphine_14",
+            "respawnTimer": 0.0,
+            "runes": {
+                "keystone": {
+                    "displayName": "Eletrocutar",
+                    "id": 8112,
+                    "rawDescription": "perk_tooltip_Electrocute",
+                    "rawDisplayName": "perk_displayname_Electrocute"
+                },
+                "primaryRuneTree": {
+                    "displayName": "Dominação",
+                    "id": 8100,
+                    "rawDescription": "perkstyle_tooltip_7200",
+                    "rawDisplayName": "perkstyle_displayname_7200"
+                },
+                "secondaryRuneTree": {
+                    "displayName": "Precisão",
+                    "id": 8000,
+                    "rawDescription": "perkstyle_tooltip_7201",
+                    "rawDisplayName": "perkstyle_displayname_7201"
+                }
+            },
+            "scores": {
+                "assists": 4,
+                "creepScore": 70,
+                "deaths": 4,
+                "kills": 5,
+                "wardScore": 17.500720977783204
+            },
+            "skinID": 14,
+            "skinName": "Seraphine Canção do Oceano",
+            "summonerName": "DolfoGay",
+            "summonerSpells": {
+                "summonerSpellOne": {
+                    "displayName": "Incendiar",
+                    "rawDescription": "GeneratedTip_SummonerSpell_SummonerDot_Description",
+                    "rawDisplayName": "GeneratedTip_SummonerSpell_SummonerDot_DisplayName"
+                },
+                "summonerSpellTwo": {
+                    "displayName": "Flash",
+                    "rawDescription": "GeneratedTip_SummonerSpell_SummonerFlash_Description",
+                    "rawDisplayName": "GeneratedTip_SummonerSpell_SummonerFlash_DisplayName"
+                }
+            },
+            "team": "CHAOS"
+        },
+        {
+            "championName": "Jhin",
+            "isBot": false,
+            "isDead": false,
+            "items": [
+                {
+                    "canUse": true,
+                    "consumable": false,
+                    "count": 1,
+                    "displayName": "Tormento Crescente",
+                    "itemID": 3863,
+                    "price": 400,
+                    "rawDescription": "GeneratedTip_Item_3863_Description",
+                    "rawDisplayName": "Item_3863_Name",
+                    "slot": 0
+                },
+                {
+                    "canUse": false,
+                    "consumable": false,
+                    "count": 1,
+                    "displayName": "Botas da Rapidez",
+                    "itemID": 3009,
+                    "price": 600,
+                    "rawDescription": "GeneratedTip_Item_3009_Description",
+                    "rawDisplayName": "Item_3009_Name",
+                    "slot": 2
+                },
+                {
+                    "canUse": false,
+                    "consumable": false,
+                    "count": 1,
+                    "displayName": "Glaive Sombria",
+                    "itemID": 3179,
+                    "price": 500,
+                    "rawDescription": "GeneratedTip_Item_3179_Description",
+                    "rawDisplayName": "Item_3179_Name",
+                    "slot": 3
+                },
+                {
+                    "canUse": false,
+                    "consumable": false,
+                    "count": 1,
+                    "displayName": "Punhal Serrilhado",
+                    "itemID": 3134,
+                    "price": 400,
+                    "rawDescription": "GeneratedTip_Item_3134_Description",
+                    "rawDisplayName": "Item_3134_Name",
+                    "slot": 4
+                },
+                {
+                    "canUse": false,
+                    "consumable": false,
+                    "count": 1,
+                    "displayName": "Espada Longa",
+                    "itemID": 1036,
+                    "price": 350,
+                    "rawDescription": "GeneratedTip_Item_1036_Description",
+                    "rawDisplayName": "Item_1036_Name",
+                    "slot": 5
+                },
+                {
+                    "canUse": true,
+                    "consumable": false,
+                    "count": 1,
+                    "displayName": "Lente do Oráculo",
+                    "itemID": 3364,
+                    "price": 0,
+                    "rawDescription": "GeneratedTip_Item_3364_Description",
+                    "rawDisplayName": "Item_3364_Name",
+                    "slot": 6
+                }
+            ],
+            "level": 8,
+            "position": "UTILITY",
+            "rawChampionName": "game_character_displayname_Jhin",
+            "rawSkinName": "game_character_skin_displayname_Jhin_5",
+            "respawnTimer": 0.0,
+            "runes": {
+                "keystone": {
+                    "displayName": "Colheita Sombria",
+                    "id": 8128,
+                    "rawDescription": "perk_tooltip_DarkHarvest",
+                    "rawDisplayName": "perk_displayname_DarkHarvest"
+                },
+                "primaryRuneTree": {
+                    "displayName": "Dominação",
+                    "id": 8100,
+                    "rawDescription": "perkstyle_tooltip_7200",
+                    "rawDisplayName": "perkstyle_displayname_7200"
+                },
+                "secondaryRuneTree": {
+                    "displayName": "Precisão",
+                    "id": 8000,
+                    "rawDescription": "perkstyle_tooltip_7201",
+                    "rawDisplayName": "perkstyle_displayname_7201"
+                }
+            },
+            "scores": {
+                "assists": 6,
+                "creepScore": 20,
+                "deaths": 4,
+                "kills": 4,
+                "wardScore": 19.287395477294923
+            },
+            "skinID": 5,
+            "skinName": "Jhin Cosmos Negro",
+            "summonerName": "masterzai",
+            "summonerSpells": {
+                "summonerSpellOne": {
+                    "displayName": "Flash",
+                    "rawDescription": "GeneratedTip_SummonerSpell_SummonerFlash_Description",
+                    "rawDisplayName": "GeneratedTip_SummonerSpell_SummonerFlash_DisplayName"
+                },
+                "summonerSpellTwo": {
+                    "displayName": "Incendiar",
+                    "rawDescription": "GeneratedTip_SummonerSpell_SummonerDot_Description",
+                    "rawDisplayName": "GeneratedTip_SummonerSpell_SummonerDot_DisplayName"
+                }
+            },
+            "team": "CHAOS"
+        }
+    ],
+    "events": {
+        "Events": [
+            {
+                "EventID": 0,
+                "EventName": "GameStart",
+                "EventTime": 0.009670300409197808
+            },
+            {
+                "EventID": 1,
+                "EventName": "MinionsSpawning",
+                "EventTime": 65.04743957519531
+            },
+            {
+                "Assisters": [
+                    "DolfoGay"
+                ],
+                "EventID": 2,
+                "EventName": "ChampionKill",
+                "EventTime": 152.46035766601563,
+                "KillerName": "masterzai",
+                "VictimName": "ERlC CARTMAN"
+            },
+            {
+                "EventID": 3,
+                "EventName": "FirstBlood",
+                "EventTime": 152.46035766601563,
+                "Recipient": "masterzai"
+            },
+            {
+                "Assisters": [],
+                "EventID": 4,
+                "EventName": "ChampionKill",
+                "EventTime": 177.3367919921875,
+                "KillerName": "Dollynh0solador",
+                "VictimName": "o joj"
+            },
+            {
+                "Assisters": [],
+                "EventID": 5,
+                "EventName": "ChampionKill",
+                "EventTime": 217.61813354492188,
+                "KillerName": "pastel de mula",
+                "VictimName": "Skazy Vrau"
+            },
+            {
+                "Assisters": [
+                    "ERlC CARTMAN"
+                ],
+                "EventID": 6,
+                "EventName": "ChampionKill",
+                "EventTime": 251.25375366210938,
+                "KillerName": "Bergamind ",
+                "VictimName": "DolfoGay"
+            },
+            {
+                "Assisters": [
+                    "DolfoGay"
+                ],
+                "EventID": 7,
+                "EventName": "ChampionKill",
+                "EventTime": 256.3364562988281,
+                "KillerName": "masterzai",
+                "VictimName": "ERlC CARTMAN"
+            },
+            {
+                "Assisters": [],
+                "EventID": 8,
+                "EventName": "ChampionKill",
+                "EventTime": 260.6061706542969,
+                "KillerName": "masterzai",
+                "VictimName": "Bergamind "
+            },
+            {
+                "EventID": 9,
+                "EventName": "Multikill",
+                "EventTime": 260.6061706542969,
+                "KillStreak": 2,
+                "KillerName": "masterzai"
+            },
+            {
+                "Assisters": [],
+                "EventID": 10,
+                "EventName": "ChampionKill",
+                "EventTime": 275.1283874511719,
+                "KillerName": "Dollynh0solador",
+                "VictimName": "o joj"
+            },
+            {
+                "Assisters": [
+                    "Bergamind "
+                ],
+                "EventID": 11,
+                "EventName": "ChampionKill",
+                "EventTime": 342.419189453125,
+                "KillerName": "ERlC CARTMAN",
+                "VictimName": "DolfoGay"
+            },
+            {
+                "Assisters": [],
+                "EventID": 12,
+                "EventName": "ChampionKill",
+                "EventTime": 349.9190368652344,
+                "KillerName": "masterzai",
+                "VictimName": "ERlC CARTMAN"
+            },
+            {
+                "Assisters": [
+                    "ERlC CARTMAN"
+                ],
+                "EventID": 13,
+                "EventName": "ChampionKill",
+                "EventTime": 351.3047180175781,
+                "KillerName": "Bergamind ",
+                "VictimName": "masterzai"
+            },
+            {
+                "Assisters": [
+                    "TweakOrion"
+                ],
+                "EventID": 14,
+                "EventName": "ChampionKill",
+                "EventTime": 362.14727783203127,
+                "KillerName": "pastel de mula",
+                "VictimName": "Skazy Vrau"
+            },
+            {
+                "Assisters": [],
+                "EventID": 15,
+                "EventName": "ChampionKill",
+                "EventTime": 403.7131042480469,
+                "KillerName": "Dollynh0solador",
+                "VictimName": "o joj"
+            },
+            {
+                "Assisters": [],
+                "EventID": 16,
+                "EventName": "ChampionKill",
+                "EventTime": 410.0876770019531,
+                "KillerName": "Dollynh0solador",
+                "VictimName": "voliléo"
+            },
+            {
+                "EventID": 17,
+                "EventName": "Multikill",
+                "EventTime": 410.0876770019531,
+                "KillStreak": 2,
+                "KillerName": "Dollynh0solador"
+            },
+            {
+                "Assisters": [
+                    "masterzai"
+                ],
+                "EventID": 18,
+                "EventName": "ChampionKill",
+                "EventTime": 456.10028076171877,
+                "KillerName": "DolfoGay",
+                "VictimName": "ERlC CARTMAN"
+            },
+            {
+                "Assisters": [
+                    "masterzai"
+                ],
+                "DragonType": "Air",
+                "EventID": 19,
+                "EventName": "DragonKill",
+                "EventTime": 468.0618896484375,
+                "KillerName": "TweakOrion",
+                "Stolen": "False"
+            },
+            {
+                "Assisters": [
+                    "voliléo",
+                    "Bergamind "
+                ],
+                "EventID": 20,
+                "EventName": "ChampionKill",
+                "EventTime": 480.9952697753906,
+                "KillerName": "o joj",
+                "VictimName": "TweakOrion"
+            },
+            {
+                "Assisters": [
+                    "o joj"
+                ],
+                "EventID": 21,
+                "EventName": "ChampionKill",
+                "EventTime": 484.0856628417969,
+                "KillerName": "Bergamind ",
+                "VictimName": "DolfoGay"
+            },
+            {
+                "Assisters": [
+                    "o joj",
+                    "voliléo"
+                ],
+                "EventID": 22,
+                "EventName": "ChampionKill",
+                "EventTime": 490.2701110839844,
+                "KillerName": "Bergamind ",
+                "VictimName": "masterzai"
+            },
+            {
+                "EventID": 23,
+                "EventName": "Multikill",
+                "EventTime": 490.2701110839844,
+                "KillStreak": 2,
+                "KillerName": "Bergamind "
+            },
+            {
+                "Assisters": [
+                    "TweakOrion",
+                    "DolfoGay",
+                    "masterzai"
+                ],
+                "EventID": 24,
+                "EventName": "ChampionKill",
+                "EventTime": 492.6937255859375,
+                "KillerName": "Dollynh0solador",
+                "VictimName": "o joj"
+            },
+            {
+                "Assisters": [],
+                "EventID": 25,
+                "EventName": "ChampionKill",
+                "EventTime": 498.98504638671877,
+                "KillerName": "Dollynh0solador",
+                "VictimName": "Bergamind "
+            },
+            {
+                "EventID": 26,
+                "EventName": "Multikill",
+                "EventTime": 498.98504638671877,
+                "KillStreak": 2,
+                "KillerName": "Dollynh0solador"
+            },
+            {
+                "Assisters": [],
+                "EventID": 27,
+                "EventName": "ChampionKill",
+                "EventTime": 506.6949462890625,
+                "KillerName": "Dollynh0solador",
+                "VictimName": "ERlC CARTMAN"
+            },
+            {
+                "EventID": 28,
+                "EventName": "Multikill",
+                "EventTime": 506.6949462890625,
+                "KillStreak": 3,
+                "KillerName": "Dollynh0solador"
+            },
+            {
+                "Assisters": [],
+                "EventID": 29,
+                "EventName": "ChampionKill",
+                "EventTime": 506.9165344238281,
+                "KillerName": "pastel de mula",
+                "VictimName": "Skazy Vrau"
+            },
+            {
+                "Assisters": [
+                    "masterzai"
+                ],
+                "EventID": 30,
+                "EventName": "ChampionKill",
+                "EventTime": 509.8725280761719,
+                "KillerName": "Dollynh0solador",
+                "VictimName": "voliléo"
+            },
+            {
+                "EventID": 31,
+                "EventName": "Multikill",
+                "EventTime": 509.8725280761719,
+                "KillStreak": 4,
+                "KillerName": "Dollynh0solador"
+            },
+            {
+                "Assisters": [],
+                "EventID": 32,
+                "EventName": "ChampionKill",
+                "EventTime": 584.0020141601563,
+                "KillerName": "o joj",
+                "VictimName": "Dollynh0solador"
+            },
+            {
+                "Assisters": [
+                    "masterzai"
+                ],
+                "EventID": 33,
+                "EventName": "ChampionKill",
+                "EventTime": 591.0090942382813,
+                "KillerName": "DolfoGay",
+                "VictimName": "ERlC CARTMAN"
+            },
+            {
+                "Assisters": [],
+                "EventID": 34,
+                "EventName": "HeraldKill",
+                "EventTime": 604.7539672851563,
+                "KillerName": "TweakOrion",
+                "Stolen": "False"
+            },
+            {
+                "Assisters": [
+                    "ERlC CARTMAN"
+                ],
+                "EventID": 35,
+                "EventName": "ChampionKill",
+                "EventTime": 639.4041748046875,
+                "KillerName": "Bergamind ",
+                "VictimName": "masterzai"
+            },
+            {
+                "Assisters": [
+                    "Dollynh0solador"
+                ],
+                "EventID": 36,
+                "EventName": "TurretKilled",
+                "EventTime": 668.2535400390625,
+                "KillerName": "TweakOrion",
+                "TurretKilled": "Turret_T1_C_05_A"
+            },
+            {
+                "EventID": 37,
+                "EventName": "FirstBrick",
+                "EventTime": 668.2535400390625,
+                "KillerName": "TweakOrion"
+            },
+            {
+                "Assisters": [
+                    "o joj",
+                    "voliléo"
+                ],
+                "EventID": 38,
+                "EventName": "ChampionKill",
+                "EventTime": 680.3648681640625,
+                "KillerName": "Bergamind ",
+                "VictimName": "Dollynh0solador"
+            },
+            {
+                "Assisters": [
+                    "o joj"
+                ],
+                "EventID": 39,
+                "EventName": "ChampionKill",
+                "EventTime": 684.8701171875,
+                "KillerName": "voliléo",
+                "VictimName": "TweakOrion"
+            },
+            {
+                "Assisters": [
+                    "DolfoGay",
+                    "masterzai"
+                ],
+                "EventID": 40,
+                "EventName": "ChampionKill",
+                "EventTime": 744.3317260742188,
+                "KillerName": "TweakOrion",
+                "VictimName": "o joj"
+            },
+            {
+                "Assisters": [
+                    "pastel de mula"
+                ],
+                "EventID": 41,
+                "EventName": "ChampionKill",
+                "EventTime": 773.4335327148438,
+                "KillerName": "Dollynh0solador",
+                "VictimName": "Skazy Vrau"
+            },
+            {
+                "Assisters": [
+                    "voliléo",
+                    "ERlC CARTMAN"
+                ],
+                "EventID": 42,
+                "EventName": "ChampionKill",
+                "EventTime": 788.517578125,
+                "KillerName": "Bergamind ",
+                "VictimName": "TweakOrion"
+            },
+            {
+                "Assisters": [
+                    "TweakOrion",
+                    "masterzai"
+                ],
+                "EventID": 43,
+                "EventName": "ChampionKill",
+                "EventTime": 793.9530639648438,
+                "KillerName": "DolfoGay",
+                "VictimName": "voliléo"
+            },
+            {
+                "Assisters": [
+                    "voliléo",
+                    "Bergamind "
+                ],
+                "EventID": 44,
+                "EventName": "ChampionKill",
+                "EventTime": 797.4614868164063,
+                "KillerName": "ERlC CARTMAN",
+                "VictimName": "masterzai"
+            },
+            {
+                "Assisters": [
+                    "pastel de mula"
+                ],
+                "EventID": 45,
+                "EventName": "TurretKilled",
+                "EventTime": 812.9420166015625,
+                "KillerName": "Dollynh0solador",
+                "TurretKilled": "Turret_T1_L_03_A"
+            },
+            {
+                "Assisters": [],
+                "EventID": 46,
+                "EventName": "ChampionKill",
+                "EventTime": 823.7499389648438,
+                "KillerName": "DolfoGay",
+                "VictimName": "ERlC CARTMAN"
+            },
+            {
+                "Assisters": [],
+                "EventID": 47,
+                "EventName": "ChampionKill",
+                "EventTime": 833.0978393554688,
+                "KillerName": "o joj",
+                "VictimName": "DolfoGay"
+            },
+            {
+                "Assisters": [],
+                "EventID": 48,
+                "EventName": "ChampionKill",
+                "EventTime": 835.639892578125,
+                "KillerName": "DolfoGay",
+                "VictimName": "o joj"
+            },
+            {
+                "Assisters": [],
+                "EventID": 49,
+                "EventName": "ChampionKill",
+                "EventTime": 872.5316772460938,
+                "KillerName": "Dollynh0solador",
+                "VictimName": "voliléo"
+            },
+            {
+                "Assisters": [],
+                "EventID": 50,
+                "EventName": "ChampionKill",
+                "EventTime": 876.9761962890625,
+                "KillerName": "Dollynh0solador",
+                "VictimName": "ERlC CARTMAN"
+            },
+            {
+                "EventID": 51,
+                "EventName": "Multikill",
+                "EventTime": 876.9761962890625,
+                "KillStreak": 2,
+                "KillerName": "Dollynh0solador"
+            },
+            {
+                "Assisters": [],
+                "EventID": 52,
+                "EventName": "TurretKilled",
+                "EventTime": 896.2064208984375,
+                "KillerName": "masterzai",
+                "TurretKilled": "Turret_T1_R_03_A"
+            },
+            {
+                "Assisters": [],
+                "EventID": 53,
+                "EventName": "ChampionKill",
+                "EventTime": 898.8853149414063,
+                "KillerName": "Dollynh0solador",
+                "VictimName": "o joj"
+            },
+            {
+                "Assisters": [
+                    "o joj"
+                ],
+                "EventID": 54,
+                "EventName": "ChampionKill",
+                "EventTime": 899.8805541992188,
+                "KillerName": "Bergamind ",
+                "VictimName": "Dollynh0solador"
+            }
+        ]
+    },
+    "gameData": {
+        "gameMode": "CLASSIC",
+        "gameTime": 925.5162963867188,
+        "mapName": "Map11",
+        "mapNumber": 11,
+        "mapTerrain": "Default"
+    }
+}

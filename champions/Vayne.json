@@ -1,86 +1,46 @@
 {
-    "Vayne": {
-        "spells": {
-            "Q": [
-                [
-                    "(0.75 * currentAD + 0.5 * currentAP) * physicalMod"
-                ], 
-                [
-                    "(0.85 * currentAD + 0.5 * currentAP) * physicalMod"
-                ],  
-                [
-                    "(0.95 * currentAD + 0.5 * currentAP) * physicalMod"
-                ], 
-                [
-                    "(1.05 * currentAD + 0.5 * currentAP) * physicalMod"
-                ], 
-                [
-                    "(1.15 * currentAD + 0.5 * currentAP) * physicalMod"
-                ]
-            ],
-            "W": [
-                [
-                    "(0.06 * expectedHealth)"
-                ],
-                [
-                    "(0.07 * expectedHealth)"
-                ],
-                [
-                    "(0.08 * expectedHealth)"
-                ],
-                [
-                    "(0.09 * expectedHealth)"
-                ],
-                [
-                    "(0.10 * expectedHealth)"
-                ]
-            ],
-            "E": [
-                [
-                    "((50 + (bonusAD * 0.5)) * physicalMod)"
-                ],
-                [
-                    "((85 + (bonusAD * 0.5)) * physicalMod)"
-                ],
-                [
-                    "((120 + (bonusAD * 0.5)) * physicalMod)"
-                ],
-                [
-                    "((155 + (bonusAD * 0.5)) * physicalMod)"
-                ],
-                [
-                    "((190 + (bonusAD * 0.5)) * physicalMod)"
-                ]
-            ]
-        },
-        "type": {
-            "Q": "physical",
-            "W": "true",
-            "E": "physical"
-        },
-        "aoe": {
-            "Q": "false",
-            "W": "false",
-            "E": "false"
-        },
-        "variation": {
-            "E": [
-                [
-                    "((125 + (bonusAD * 1.25)) * physicalMod)"
-                ],
-                [
-                    "((212.5 + (bonusAD * 1.25)) * physicalMod)"
-                ],
-                [
-                    "((300 + (bonusAD * 1.25)) * physicalMod)"
-                ],
-                [
-                    "((387.5 + (bonusAD * 1.25)) * physicalMod)"
-                ],
-                [
-                    "((475 + (bonusAD * 1.25)) * physicalMod)"
-                ]    
-            ]
-        }
+  "Vayne": {
+    "Q": {
+      "type": "physical",
+      "area": false,
+      "min": [
+        "(0.75 * currentAD + 0.5 * currentAP) * physicalMod",
+        "(0.85 * currentAD + 0.5 * currentAP) * physicalMod",
+        "(0.95 * currentAD + 0.5 * currentAP) * physicalMod",
+        "(1.05 * currentAD + 0.5 * currentAP) * physicalMod",
+        "(1.15 * currentAD + 0.5 * currentAP) * physicalMod"
+      ],
+      "max": []
+    },
+    "W": {
+      "type": "true",
+      "area": false,
+      "min": [
+        "(0.06 * expectedHealth)",
+        "(0.07 * expectedHealth)",
+        "(0.08 * expectedHealth)",
+        "(0.09 * expectedHealth)",
+        "(0.10 * expectedHealth)"
+      ],
+      "max": []
+    },
+    "E": {
+      "type": "physical",
+      "area": false,
+      "min": [
+        "((50 + (bonusAD * 0.5)) * physicalMod)",
+        "((85 + (bonusAD * 0.5)) * physicalMod)",
+        "((120 + (bonusAD * 0.5)) * physicalMod)",
+        "((155 + (bonusAD * 0.5)) * physicalMod)",
+        "((190 + (bonusAD * 0.5)) * physicalMod)"
+      ],
+      "max": [
+        "((125 + (bonusAD * 1.25)) * physicalMod)",
+        "((212.5 + (bonusAD * 1.25)) * physicalMod)",
+        "((300 + (bonusAD * 1.25)) * physicalMod)",
+        "((387.5 + (bonusAD * 1.25)) * physicalMod)",
+        "((475 + (bonusAD * 1.25)) * physicalMod)"
+      ]
     }
+  }
 }

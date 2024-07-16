@@ -1,119 +1,63 @@
 {
-    "TahmKench": {
-        "spells": {
-            "P": [
-                [
-                    "(6 + 0.02 * currentAP * bonusHP / 100 + 0.04 * bonusHP) * magicMod"
-                ],
-                [
-                    "(10 + 0.02 * currentAP * bonusHP / 100 + 0.04 * bonusHP) * magicMod"
-                ],
-                [
-                    "(14 + 0.02 * currentAP * bonusHP / 100 + 0.04 * bonusHP) * magicMod"
-                ],
-                [
-                    "(18 + 0.02 * currentAP * bonusHP / 100 + 0.04 * bonusHP) * magicMod"
-                ],
-                [
-                    "(22 + 0.02 * currentAP * bonusHP / 100 + 0.04 * bonusHP) * magicMod"
-                ],
-                [
-                    "(26 + 0.02 * currentAP * bonusHP / 100 + 0.04 * bonusHP) * magicMod"
-                ],
-                [
-                    "(30 + 0.02 * currentAP * bonusHP / 100 + 0.04 * bonusHP) * magicMod"
-                ],
-                [
-                    "(34 + 0.02 * currentAP * bonusHP / 100 + 0.04 * bonusHP) * magicMod"
-                ],
-                [
-                    "(38 + 0.02 * currentAP * bonusHP / 100 + 0.04 * bonusHP) * magicMod"
-                ],
-                [
-                    "(42 + 0.02 * currentAP * bonusHP / 100 + 0.04 * bonusHP) * magicMod"
-                ],
-                [
-                    "(48 + 0.02 * currentAP * bonusHP / 100 + 0.04 * bonusHP) * magicMod"
-                ],
-                [
-                    "(48 + 0.02 * currentAP * bonusHP / 100 + 0.04 * bonusHP) * magicMod"
-                ],
-                [
-                    "(48 + 0.02 * currentAP * bonusHP / 100 + 0.04 * bonusHP) * magicMod"
-                ],
-                [
-                    "(48 + 0.02 * currentAP * bonusHP / 100 + 0.04 * bonusHP) * magicMod"
-                ],
-                [
-                    "(48 + 0.02 * currentAP * bonusHP / 100 + 0.04 * bonusHP) * magicMod"
-                ],
-                [
-                    "(48 + 0.02 * currentAP * bonusHP / 100 + 0.04 * bonusHP) * magicMod"
-                ],
-                [
-                    "(48 + 0.02 * currentAP * bonusHP / 100 + 0.04 * bonusHP) * magicMod"
-                ],
-                [
-                    "(48 + 0.02 * currentAP * bonusHP / 100 + 0.04 * bonusHP) * magicMod"
-                ]
-            ],
-            "Q": [
-                [
-                    "(80 + currentAP + 6 + 42 / 17 * (level - 1) + 0.02 * currentAP * bonusHP / 100 + 0.04 * bonusHP) * magicMod"
-                ], 
-                [
-                    "(130 + currentAP + 6 + 42 / 17 * (level - 1) + 0.02 * currentAP * bonusHP / 100 + 0.04 * bonusHP) * magicMod"
-                ], 
-                [
-                    "(180 + currentAP + 6 + 42 / 17 * (level - 1) + 0.02 * currentAP * bonusHP / 100 + 0.04 * bonusHP) * magicMod"
-                ],
-                [
-                    "(230 + currentAP + 6 + 42 / 17 * (level - 1) + 0.02 * currentAP * bonusHP / 100 + 0.04 * bonusHP) * magicMod"
-                ],
-                [
-                    "(280 + currentAP + 6 + 42 / 17 * (level - 1) + 0.02 * currentAP * bonusHP / 100 + 0.04 * bonusHP) * magicMod"
-                ]
-            ],
-            "W": [
-                [
-                    "(100 + 1.5 * currentAP) * magicMod"
-                ],
-                [
-                    "(135 + 1.5 * currentAP) * magicMod"
-                ],
-                [
-                    "(170 + 1.5 * currentAP) * magicMod"
-                ],
-                [
-                    "(205 + 1.5 * currentAP) * magicMod"
-                ],
-                [
-                    "(240 + 1.5 * currentAP) * magicMod"
-                ]
-            ],
-            "R": [
-                [
-                    "(100 + (0.15 + 7 * currentAP / 10000) * expectedHealth) * magicMod"
-                ],
-                [
-                    "(250 + (0.15 + 7 * currentAP / 10000) * expectedHealth) * magicMod"
-                ],
-                [
-                    "(400 + (0.15 + 7 * currentAP / 10000) * expectedHealth) * magicMod"
-                ]
-            ]
-        },
-        "type": {
-            "P": "magic",
-            "Q": "magic",
-            "W": "magic",
-            "R": "magic"
-        },
-        "aoe": {
-            "P": "false",
-            "Q": "false",
-            "W": "true",
-            "R": "false"
-        }
+  "TahmKench": {
+    "P": {
+      "type": "magic",
+      "area": false,
+      "min": [
+        "(6 + 0.02 * currentAP * bonusHP / 100 + 0.04 * bonusHP) * magicMod",
+        "(10 + 0.02 * currentAP * bonusHP / 100 + 0.04 * bonusHP) * magicMod",
+        "(14 + 0.02 * currentAP * bonusHP / 100 + 0.04 * bonusHP) * magicMod",
+        "(18 + 0.02 * currentAP * bonusHP / 100 + 0.04 * bonusHP) * magicMod",
+        "(22 + 0.02 * currentAP * bonusHP / 100 + 0.04 * bonusHP) * magicMod",
+        "(26 + 0.02 * currentAP * bonusHP / 100 + 0.04 * bonusHP) * magicMod",
+        "(30 + 0.02 * currentAP * bonusHP / 100 + 0.04 * bonusHP) * magicMod",
+        "(34 + 0.02 * currentAP * bonusHP / 100 + 0.04 * bonusHP) * magicMod",
+        "(38 + 0.02 * currentAP * bonusHP / 100 + 0.04 * bonusHP) * magicMod",
+        "(42 + 0.02 * currentAP * bonusHP / 100 + 0.04 * bonusHP) * magicMod",
+        "(48 + 0.02 * currentAP * bonusHP / 100 + 0.04 * bonusHP) * magicMod",
+        "(48 + 0.02 * currentAP * bonusHP / 100 + 0.04 * bonusHP) * magicMod",
+        "(48 + 0.02 * currentAP * bonusHP / 100 + 0.04 * bonusHP) * magicMod",
+        "(48 + 0.02 * currentAP * bonusHP / 100 + 0.04 * bonusHP) * magicMod",
+        "(48 + 0.02 * currentAP * bonusHP / 100 + 0.04 * bonusHP) * magicMod",
+        "(48 + 0.02 * currentAP * bonusHP / 100 + 0.04 * bonusHP) * magicMod",
+        "(48 + 0.02 * currentAP * bonusHP / 100 + 0.04 * bonusHP) * magicMod",
+        "(48 + 0.02 * currentAP * bonusHP / 100 + 0.04 * bonusHP) * magicMod"
+      ],
+      "max": []
+    },
+    "Q": {
+      "type": "magic",
+      "area": false,
+      "min": [
+        "(80 + currentAP + 6 + 42 / 17 * (level - 1) + 0.02 * currentAP * bonusHP / 100 + 0.04 * bonusHP) * magicMod",
+        "(130 + currentAP + 6 + 42 / 17 * (level - 1) + 0.02 * currentAP * bonusHP / 100 + 0.04 * bonusHP) * magicMod",
+        "(180 + currentAP + 6 + 42 / 17 * (level - 1) + 0.02 * currentAP * bonusHP / 100 + 0.04 * bonusHP) * magicMod",
+        "(230 + currentAP + 6 + 42 / 17 * (level - 1) + 0.02 * currentAP * bonusHP / 100 + 0.04 * bonusHP) * magicMod",
+        "(280 + currentAP + 6 + 42 / 17 * (level - 1) + 0.02 * currentAP * bonusHP / 100 + 0.04 * bonusHP) * magicMod"
+      ],
+      "max": []
+    },
+    "W": {
+      "type": "magic",
+      "area": true,
+      "min": [
+        "(100 + 1.5 * currentAP) * magicMod",
+        "(135 + 1.5 * currentAP) * magicMod",
+        "(170 + 1.5 * currentAP) * magicMod",
+        "(205 + 1.5 * currentAP) * magicMod",
+        "(240 + 1.5 * currentAP) * magicMod"
+      ],
+      "max": []
+    },
+    "R": {
+      "type": "magic",
+      "area": false,
+      "min": [
+        "(100 + (0.15 + 7 * currentAP / 10000) * expectedHealth) * magicMod",
+        "(250 + (0.15 + 7 * currentAP / 10000) * expectedHealth) * magicMod",
+        "(400 + (0.15 + 7 * currentAP / 10000) * expectedHealth) * magicMod"
+      ],
+      "max": []
     }
+  }
 }

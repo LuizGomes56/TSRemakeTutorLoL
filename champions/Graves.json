@@ -1,91 +1,48 @@
 {
-    "Graves": {
-        "spells": {
-            "Q": [
-                [
-                    "(45 + (0.8 * bonusAD)) * physicalMod"
-                ], 
-                [
-                    "(60 + (0.8 * bonusAD)) * physicalMod"
-                ],  
-                [
-                    "(75 + (0.8 * bonusAD)) * physicalMod"
-                ], 
-                [
-                    "(90 + (0.8 * bonusAD)) * physicalMod"
-                ], 
-                [
-                    "(105 + (0.8 * bonusAD)) * physicalMod"
-                ]
-            ],
-            "W": [
-                [
-                    "(60 + (0.6 * currentAP)) * magicMod"
-                ],
-                [
-                    "(110 + (0.6 * currentAP)) * magicMod"
-                ],
-                [
-                    "(160 + (0.6 * currentAP)) * magicMod"
-                ],
-                [
-                    "(210 + (0.6 * currentAP)) * magicMod"
-                ],
-                [
-                    "(260 + (0.6 * currentAP)) * magicMod"
-                ]
-            ],
-            "R": [
-                [
-                    "(0.8 * (275 + (1.5 * bonusAD))) * physicalMod"
-                ],
-                [
-                    "(0.8 * (425 + (1.5 * bonusAD))) * physicalMod"
-                ],
-                [
-                    "(0.8 * (575 + (1.5 * bonusAD))) * physicalMod"
-                ]
-            ]
-        },
-        "type": {
-            "Q": "physical",
-            "W": "magic",
-            "R": "physical"
-        },
-        "aoe": {
-            "Q": "true",
-            "W": "true",
-            "R": "true"
-        },
-        "variation": {
-            "Q": [
-                [
-                    "(130 + (1.2 * bonusAD)) * physicalMod"
-                ], 
-                [
-                    "(180 + (1.5 * bonusAD)) * physicalMod"
-                ],  
-                [
-                    "(230 + (1.8 * bonusAD)) * physicalMod"
-                ], 
-                [
-                    "(280 + (2.1 * bonusAD)) * physicalMod"
-                ], 
-                [
-                    "(330 + (2.4 * bonusAD)) * physicalMod"
-                ]
-            ],
-            "R": [
-                [
-                    "(275 + (1.5 * bonusAD)) * physicalMod"
-                ],
-                [
-                    "(425 + (1.5 * bonusAD)) * physicalMod"
-                ],
-                [
-                    "(575 + (1.5 * bonusAD)) * physicalMod"
-                ]
-            ]
-        }
+  "Graves": {
+    "Q": {
+      "type": "physical",
+      "area": true,
+      "min": [
+        "(45 + (0.8 * bonusAD)) * physicalMod",
+        "(60 + (0.8 * bonusAD)) * physicalMod",
+        "(75 + (0.8 * bonusAD)) * physicalMod",
+        "(90 + (0.8 * bonusAD)) * physicalMod",
+        "(105 + (0.8 * bonusAD)) * physicalMod"
+      ],
+      "max": [
+        "(130 + (1.2 * bonusAD)) * physicalMod",
+        "(180 + (1.5 * bonusAD)) * physicalMod",
+        "(230 + (1.8 * bonusAD)) * physicalMod",
+        "(280 + (2.1 * bonusAD)) * physicalMod",
+        "(330 + (2.4 * bonusAD)) * physicalMod"
+      ]
+    },
+    "W": {
+      "type": "magic",
+      "area": true,
+      "min": [
+        "(60 + (0.6 * currentAP)) * magicMod",
+        "(110 + (0.6 * currentAP)) * magicMod",
+        "(160 + (0.6 * currentAP)) * magicMod",
+        "(210 + (0.6 * currentAP)) * magicMod",
+        "(260 + (0.6 * currentAP)) * magicMod"
+      ],
+      "max": []
+    },
+    "R": {
+      "type": "physical",
+      "area": true,
+      "min": [
+        "(0.8 * (275 + (1.5 * bonusAD))) * physicalMod",
+        "(0.8 * (425 + (1.5 * bonusAD))) * physicalMod",
+        "(0.8 * (575 + (1.5 * bonusAD))) * physicalMod"
+      ],
+      "max": [
+        "(275 + (1.5 * bonusAD)) * physicalMod",
+        "(425 + (1.5 * bonusAD)) * physicalMod",
+        "(575 + (1.5 * bonusAD)) * physicalMod"
+      ]
     }
+  }
 }

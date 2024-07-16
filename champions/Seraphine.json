@@ -1,211 +1,94 @@
 {
-    "Seraphine": {
-        "spells": {
-            "P": [
-                [
-                    "(4 + (21 / 17) * (level - 1) + 0.04 * currentAP) * magicMod"
-                ],
-                [
-                    "(4 + (21 / 17) * (level - 1) + 0.04 * currentAP) * magicMod"
-                ],
-                [
-                    "(4 + (21 / 17) * (level - 1) + 0.04 * currentAP) * magicMod"
-                ],
-                [
-                    "(4 + (21 / 17) * (level - 1) + 0.04 * currentAP) * magicMod"
-                ],
-                [
-                    "(4 + (21 / 17) * (level - 1) + 0.04 * currentAP) * magicMod"
-                ],
-                [
-                    "(4 + (21 / 17) * (level - 1) + 0.04 * currentAP) * magicMod"
-                ],
-                [
-                    "(4 + (21 / 17) * (level - 1) + 0.04 * currentAP) * magicMod"
-                ],
-                [
-                    "(4 + (21 / 17) * (level - 1) + 0.04 * currentAP) * magicMod"
-                ],
-                [
-                    "(4 + (21 / 17) * (level - 1) + 0.04 * currentAP) * magicMod"
-                ],
-                [
-                    "(4 + (21 / 17) * (level - 1) + 0.04 * currentAP) * magicMod"
-                ],
-                [
-                    "(4 + (21 / 17) * (level - 1) + 0.04 * currentAP) * magicMod"
-                ],
-                [
-                    "(4 + (21 / 17) * (level - 1) + 0.04 * currentAP) * magicMod"
-                ],
-                [
-                    "(4 + (21 / 17) * (level - 1) + 0.04 * currentAP) * magicMod"
-                ],
-                [
-                    "(4 + (21 / 17) * (level - 1) + 0.04 * currentAP) * magicMod"
-                ],
-                [
-                    "(4 + (21 / 17) * (level - 1) + 0.04 * currentAP) * magicMod"
-                ],
-                [
-                    "(4 + (21 / 17) * (level - 1) + 0.04 * currentAP) * magicMod"
-                ],
-                [
-                    "(4 + (21 / 17) * (level - 1) + 0.04 * currentAP) * magicMod"
-                ],
-                [
-                    "(4 + (21 / 17) * (level - 1) + 0.04 * currentAP) * magicMod"
-                ]
-            ],
-            "Q": [
-                [
-                    "(60 + 0.5 * currentAP) * magicMod"
-                ], 
-                [
-                    "(85 + 0.5 * currentAP) * magicMod"
-                ],  
-                [
-                    "(120 + 0.5 * currentAP) * magicMod"
-                ], 
-                [
-                    "(135 + 0.5 * currentAP) * magicMod"
-                ], 
-                [
-                    "(160 + 0.5 * currentAP) * magicMod"
-                ]
-            ],
-            "E": [
-                [
-                    "(70 + 0.5 * currentAP) * magicMod"
-                ], 
-                [
-                    "(100 + 0.5 * currentAP) * magicMod"
-                ],  
-                [
-                    "(130 + 0.5 * currentAP) * magicMod"
-                ], 
-                [
-                    "(160 + 0.5 * currentAP) * magicMod"
-                ], 
-                [
-                    "(190 + 0.5 * currentAP) * magicMod"
-                ]
-            ],
-            "R": [
-                [
-                    "(150 + 0.4 * currentAP) * magicMod"
-                ],
-                [
-                    "(200 + 0.4 * currentAP) * magicMod"
-                ],
-                [
-                    "(250 + 0.4 * currentAP) * magicMod"
-                ]
-            ]
-        },
-        "type": {
-            "P": "magic",
-            "Q": "magic",
-            "E": "magic",
-            "R": "magic"
-        },
-        "aoe": {
-            "P": "false",
-            "Q": "true",
-            "E": "true",
-            "R": "true"
-        },
-        "variation": {
-            "P": [
-                [
-                    "3 * (4 + (21 / 17) * (level - 1) + 0.04 * currentAP) * magicMod"
-                ],
-                [
-                    "3 * (4 + (21 / 17) * (level - 1) + 0.04 * currentAP) * magicMod"
-                ],
-                [
-                    "3 * (4 + (21 / 17) * (level - 1) + 0.04 * currentAP) * magicMod"
-                ],
-                [
-                    "3 * (4 + (21 / 17) * (level - 1) + 0.04 * currentAP) * magicMod"
-                ],
-                [
-                    "3 * (4 + (21 / 17) * (level - 1) + 0.04 * currentAP) * magicMod"
-                ],
-                [
-                    "3 * (4 + (21 / 17) * (level - 1) + 0.04 * currentAP) * magicMod"
-                ],
-                [
-                    "3 * (4 + (21 / 17) * (level - 1) + 0.04 * currentAP) * magicMod"
-                ],
-                [
-                    "3 * (4 + (21 / 17) * (level - 1) + 0.04 * currentAP) * magicMod"
-                ],
-                [
-                    "3 * (4 + (21 / 17) * (level - 1) + 0.04 * currentAP) * magicMod"
-                ],
-                [
-                    "3 * (4 + (21 / 17) * (level - 1) + 0.04 * currentAP) * magicMod"
-                ],
-                [
-                    "3 * (4 + (21 / 17) * (level - 1) + 0.04 * currentAP) * magicMod"
-                ],
-                [
-                    "3 * (4 + (21 / 17) * (level - 1) + 0.04 * currentAP) * magicMod"
-                ],
-                [
-                    "3 * (4 + (21 / 17) * (level - 1) + 0.04 * currentAP) * magicMod"
-                ],
-                [
-                    "3 * (4 + (21 / 17) * (level - 1) + 0.04 * currentAP) * magicMod"
-                ],
-                [
-                    "3 * (4 + (21 / 17) * (level - 1) + 0.04 * currentAP) * magicMod"
-                ],
-                [
-                    "3 * (4 + (21 / 17) * (level - 1) + 0.04 * currentAP) * magicMod"
-                ],
-                [
-                    "3 * (4 + (21 / 17) * (level - 1) + 0.04 * currentAP) * magicMod"
-                ],
-                [
-                    "3 * (4 + (21 / 17) * (level - 1) + 0.04 * currentAP) * magicMod"
-                ]
-            ],
-            "Q": [
-                [
-                    "1.6 * (60 + 0.5 * currentAP) * magicMod"
-                ], 
-                [
-                    "1.6 * (85 + 0.5 * currentAP) * magicMod"
-                ],  
-                [
-                    "1.6 * (120 + 0.5 * currentAP) * magicMod"
-                ], 
-                [
-                    "1.6 * (135 + 0.5 * currentAP) * magicMod"
-                ], 
-                [
-                    "1.6 * (160 + 0.5 * currentAP) * magicMod"
-                ]
-            ],
-            "E": [
-                [
-                    "2 * (70 + 0.5 * currentAP) * magicMod"
-                ], 
-                [
-                    "2 * (100 + 0.5 * currentAP) * magicMod"
-                ],  
-                [
-                    "2 * (130 + 0.5 * currentAP) * magicMod"
-                ], 
-                [
-                    "2 * (160 + 0.5 * currentAP) * magicMod"
-                ], 
-                [
-                    "2 * (190 + 0.5 * currentAP) * magicMod"
-                ]
-            ]
-        }
+  "Seraphine": {
+    "P": {
+      "type": "magic",
+      "area": false,
+      "min": [
+        "(4 + (21 / 17) * (level - 1) + 0.04 * currentAP) * magicMod",
+        "(4 + (21 / 17) * (level - 1) + 0.04 * currentAP) * magicMod",
+        "(4 + (21 / 17) * (level - 1) + 0.04 * currentAP) * magicMod",
+        "(4 + (21 / 17) * (level - 1) + 0.04 * currentAP) * magicMod",
+        "(4 + (21 / 17) * (level - 1) + 0.04 * currentAP) * magicMod",
+        "(4 + (21 / 17) * (level - 1) + 0.04 * currentAP) * magicMod",
+        "(4 + (21 / 17) * (level - 1) + 0.04 * currentAP) * magicMod",
+        "(4 + (21 / 17) * (level - 1) + 0.04 * currentAP) * magicMod",
+        "(4 + (21 / 17) * (level - 1) + 0.04 * currentAP) * magicMod",
+        "(4 + (21 / 17) * (level - 1) + 0.04 * currentAP) * magicMod",
+        "(4 + (21 / 17) * (level - 1) + 0.04 * currentAP) * magicMod",
+        "(4 + (21 / 17) * (level - 1) + 0.04 * currentAP) * magicMod",
+        "(4 + (21 / 17) * (level - 1) + 0.04 * currentAP) * magicMod",
+        "(4 + (21 / 17) * (level - 1) + 0.04 * currentAP) * magicMod",
+        "(4 + (21 / 17) * (level - 1) + 0.04 * currentAP) * magicMod",
+        "(4 + (21 / 17) * (level - 1) + 0.04 * currentAP) * magicMod",
+        "(4 + (21 / 17) * (level - 1) + 0.04 * currentAP) * magicMod",
+        "(4 + (21 / 17) * (level - 1) + 0.04 * currentAP) * magicMod"
+      ],
+      "max": [
+        "3 * (4 + (21 / 17) * (level - 1) + 0.04 * currentAP) * magicMod",
+        "3 * (4 + (21 / 17) * (level - 1) + 0.04 * currentAP) * magicMod",
+        "3 * (4 + (21 / 17) * (level - 1) + 0.04 * currentAP) * magicMod",
+        "3 * (4 + (21 / 17) * (level - 1) + 0.04 * currentAP) * magicMod",
+        "3 * (4 + (21 / 17) * (level - 1) + 0.04 * currentAP) * magicMod",
+        "3 * (4 + (21 / 17) * (level - 1) + 0.04 * currentAP) * magicMod",
+        "3 * (4 + (21 / 17) * (level - 1) + 0.04 * currentAP) * magicMod",
+        "3 * (4 + (21 / 17) * (level - 1) + 0.04 * currentAP) * magicMod",
+        "3 * (4 + (21 / 17) * (level - 1) + 0.04 * currentAP) * magicMod",
+        "3 * (4 + (21 / 17) * (level - 1) + 0.04 * currentAP) * magicMod",
+        "3 * (4 + (21 / 17) * (level - 1) + 0.04 * currentAP) * magicMod",
+        "3 * (4 + (21 / 17) * (level - 1) + 0.04 * currentAP) * magicMod",
+        "3 * (4 + (21 / 17) * (level - 1) + 0.04 * currentAP) * magicMod",
+        "3 * (4 + (21 / 17) * (level - 1) + 0.04 * currentAP) * magicMod",
+        "3 * (4 + (21 / 17) * (level - 1) + 0.04 * currentAP) * magicMod",
+        "3 * (4 + (21 / 17) * (level - 1) + 0.04 * currentAP) * magicMod",
+        "3 * (4 + (21 / 17) * (level - 1) + 0.04 * currentAP) * magicMod",
+        "3 * (4 + (21 / 17) * (level - 1) + 0.04 * currentAP) * magicMod"
+      ]
+    },
+    "Q": {
+      "type": "magic",
+      "area": true,
+      "min": [
+        "(60 + 0.5 * currentAP) * magicMod",
+        "(85 + 0.5 * currentAP) * magicMod",
+        "(120 + 0.5 * currentAP) * magicMod",
+        "(135 + 0.5 * currentAP) * magicMod",
+        "(160 + 0.5 * currentAP) * magicMod"
+      ],
+      "max": [
+        "1.6 * (60 + 0.5 * currentAP) * magicMod",
+        "1.6 * (85 + 0.5 * currentAP) * magicMod",
+        "1.6 * (120 + 0.5 * currentAP) * magicMod",
+        "1.6 * (135 + 0.5 * currentAP) * magicMod",
+        "1.6 * (160 + 0.5 * currentAP) * magicMod"
+      ]
+    },
+    "E": {
+      "type": "magic",
+      "area": true,
+      "min": [
+        "(70 + 0.5 * currentAP) * magicMod",
+        "(100 + 0.5 * currentAP) * magicMod",
+        "(130 + 0.5 * currentAP) * magicMod",
+        "(160 + 0.5 * currentAP) * magicMod",
+        "(190 + 0.5 * currentAP) * magicMod"
+      ],
+      "max": [
+        "2 * (70 + 0.5 * currentAP) * magicMod",
+        "2 * (100 + 0.5 * currentAP) * magicMod",
+        "2 * (130 + 0.5 * currentAP) * magicMod",
+        "2 * (160 + 0.5 * currentAP) * magicMod",
+        "2 * (190 + 0.5 * currentAP) * magicMod"
+      ]
+    },
+    "R": {
+      "type": "magic",
+      "area": true,
+      "min": [
+        "(150 + 0.4 * currentAP) * magicMod",
+        "(200 + 0.4 * currentAP) * magicMod",
+        "(250 + 0.4 * currentAP) * magicMod"
+      ],
+      "max": []
     }
+  }
 }

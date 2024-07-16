@@ -1,158 +1,70 @@
 {
-    "Braum": {
-        "spells": {
-            "P": [
-                [
-                    "26 * magicMod * 0.2"
-                ],
-                [
-                    "36 * magicMod * 0.2"
-                ],
-                [
-                    "46 * magicMod * 0.2"
-                ],
-                [
-                    "56 * magicMod * 0.2"
-                ],
-                [
-                    "66 * magicMod * 0.2"
-                ],
-                [
-                    "76 * magicMod * 0.2"
-                ],
-                [
-                    "86 * magicMod * 0.2"
-                ],
-                [
-                    "96 * magicMod * 0.2"
-                ],
-                [
-                    "106 * magicMod * 0.2"
-                ],
-                [
-                    "116 * magicMod * 0.2"
-                ],
-                [
-                    "126 * magicMod * 0.2"
-                ],
-                [
-                    "136 * magicMod * 0.2"
-                ],
-                [
-                    "146 * magicMod * 0.2"
-                ],
-                [
-                    "156 * magicMod * 0.2"
-                ],
-                [
-                    "166 * magicMod * 0.2"
-                ],
-                [
-                    "176 * magicMod * 0.2"
-                ],
-                [
-                    "186 * magicMod * 0.2"
-                ],
-                [
-                    "196 * magicMod * 0.2"
-                ]
-            ],
-            "Q": [
-                [
-                    "(75 + (0.025 * maxHP)) * magicMod"
-                ], 
-                [
-                    "(125 + (0.025 * maxHP)) * magicMod"
-                ], 
-                [
-                    "(175 + (0.025 * maxHP)) * magicMod"
-                ],
-                [
-                    "(225 + (0.025 * maxHP)) * magicMod"
-                ],
-                [
-                    "(275 + (0.025 * maxHP)) * magicMod"
-                ]
-            ],
-            "R": [
-                [
-                    "(150 + (0.6 * currentAP)) * magicMod"
-                ],
-                [
-                    "(300 + (0.6 * currentAP)) * magicMod"
-                ],
-                [
-                    "(450 + (0.6 * currentAP)) * magicMod"
-                ]
-            ]
-        },
-        "type": {
-            "P": "magic",
-            "Q": "magic",
-            "R": "magic"
-        },
-        "aoe": {
-            "P": "false",
-            "Q": "false",
-            "R": "true"
-        },
-        "variation": {
-            "P": [
-                [
-                    "26 * magicMod"
-                ],
-                [
-                    "36 * magicMod"
-                ],
-                [
-                    "46 * magicMod"
-                ],
-                [
-                    "56 * magicMod"
-                ],
-                [
-                    "66 * magicMod"
-                ],
-                [
-                    "76 * magicMod"
-                ],
-                [
-                    "86 * magicMod"
-                ],
-                [
-                    "96 * magicMod"
-                ],
-                [
-                    "106 * magicMod"
-                ],
-                [
-                    "116 * magicMod"
-                ],
-                [
-                    "126 * magicMod"
-                ],
-                [
-                    "136 * magicMod"
-                ],
-                [
-                    "146 * magicMod"
-                ],
-                [
-                    "156 * magicMod"
-                ],
-                [
-                    "166 * magicMod"
-                ],
-                [
-                    "176 * magicMod"
-                ],
-                [
-                    "186 * magicMod"
-                ],
-                [
-                    "196 * magicMod"
-                ]
-            ]
-        }
+  "Braum": {
+    "P": {
+      "type": "magic",
+      "area": false,
+      "min": [
+        "26 * magicMod * 0.2",
+        "36 * magicMod * 0.2",
+        "46 * magicMod * 0.2",
+        "56 * magicMod * 0.2",
+        "66 * magicMod * 0.2",
+        "76 * magicMod * 0.2",
+        "86 * magicMod * 0.2",
+        "96 * magicMod * 0.2",
+        "106 * magicMod * 0.2",
+        "116 * magicMod * 0.2",
+        "126 * magicMod * 0.2",
+        "136 * magicMod * 0.2",
+        "146 * magicMod * 0.2",
+        "156 * magicMod * 0.2",
+        "166 * magicMod * 0.2",
+        "176 * magicMod * 0.2",
+        "186 * magicMod * 0.2",
+        "196 * magicMod * 0.2"
+      ],
+      "max": [
+        "26 * magicMod",
+        "36 * magicMod",
+        "46 * magicMod",
+        "56 * magicMod",
+        "66 * magicMod",
+        "76 * magicMod",
+        "86 * magicMod",
+        "96 * magicMod",
+        "106 * magicMod",
+        "116 * magicMod",
+        "126 * magicMod",
+        "136 * magicMod",
+        "146 * magicMod",
+        "156 * magicMod",
+        "166 * magicMod",
+        "176 * magicMod",
+        "186 * magicMod",
+        "196 * magicMod"
+      ]
+    },
+    "Q": {
+      "type": "magic",
+      "area": false,
+      "min": [
+        "(75 + (0.025 * maxHP)) * magicMod",
+        "(125 + (0.025 * maxHP)) * magicMod",
+        "(175 + (0.025 * maxHP)) * magicMod",
+        "(225 + (0.025 * maxHP)) * magicMod",
+        "(275 + (0.025 * maxHP)) * magicMod"
+      ],
+      "max": []
+    },
+    "R": {
+      "type": "magic",
+      "area": true,
+      "min": [
+        "(150 + (0.6 * currentAP)) * magicMod",
+        "(300 + (0.6 * currentAP)) * magicMod",
+        "(450 + (0.6 * currentAP)) * magicMod"
+      ],
+      "max": []
     }
+  }
 }

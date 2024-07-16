@@ -1,32 +1,39 @@
 import dotenv from "dotenv";
 import { Champion, RequestChampion } from "../interfaces/champion";
+import { ItemAPIProps, RequestItem } from "../interfaces/item";
 
 dotenv.config()
 
 let Champions: void | RequestChampion;
-let Items: void;
+let Items: void | RequestItem;
 
 const riotCDN: string = `${process.env.DD_ENDPOINT}/${process.env.LOL_VERSION}/data/${process.env.LANGUAGE}`
 
 export const ChampionAPI = async (championName: string): Promise<Champion | void> => {
-    let x = Champions ? Champions : await RiotAPI("champion");
-    if (x?.data) {
-        if (x.data[championName]) { return x.data[championName] as Champion; }
-        else {
-            for (let key in x.data) {
-                if (x.data[key].name === championName) { return x.data[key] as Champion; }
-            }
+    if (!Champions) { Champions = await RiotAPI("champion") as RequestChampion }
+    if (Champions.data[championName]) { return Champions.data[championName] as Champion; }
+    else {
+        for (let key in Champions.data) {
+            if (Champions.data[key].name === championName) { return Champions.data[key] as Champion; }
         }
     }
 }
 
-const RiotAPI = async (file: string): Promise<RequestChampion | void> => {
+export const ItemAPI = async (itemName: string): Promise<ItemAPIProps | void> => {
+    if (!Items) { Items = await RiotAPI("item") as RequestItem }
+    if (Items.data[itemName]) { return Items.data[itemName] as ItemAPIProps; }
+    else {
+        for (let key in Items.data) {
+            if (Items.data[key].name === itemName) { return Items.data[key] as ItemAPIProps; }
+        }
+    }
+}
+
+const RiotAPI = async (file: string): Promise<any | void> => {
     let url = `${riotCDN}/${file}.json`;
-    // champion, item, runesReforged
     try {
         let request = await fetch(url)
-        let response = await request.json() as RequestChampion;
-        Champions = response
+        let response = await request.json();
         return response;
     }
     catch (e) {

@@ -1,119 +1,63 @@
 {
-    "Quinn": {
-        "spells": {
-            "P": [
-                [
-                    "(((0.14 + 0.02 * level) * currentAD) + (5 + 5 * level)) * physicalMod "
-                ],
-                [
-                    "(((0.14 + 0.02 * level) * currentAD) + (5 + 5 * level)) * physicalMod "
-                ],
-                [
-                    "(((0.14 + 0.02 * level) * currentAD) + (5 + 5 * level)) * physicalMod "
-                ],
-                [
-                    "(((0.14 + 0.02 * level) * currentAD) + (5 + 5 * level)) * physicalMod "
-                ],
-                [
-                    "(((0.14 + 0.02 * level) * currentAD) + (5 + 5 * level)) * physicalMod "
-                ],
-                [
-                    "(((0.14 + 0.02 * level) * currentAD) + (5 + 5 * level)) * physicalMod "
-                ],
-                [
-                    "(((0.14 + 0.02 * level) * currentAD) + (5 + 5 * level)) * physicalMod "
-                ],
-                [
-                    "(((0.14 + 0.02 * level) * currentAD) + (5 + 5 * level)) * physicalMod "
-                ],
-                [
-                    "(((0.14 + 0.02 * level) * currentAD) + (5 + 5 * level)) * physicalMod "
-                ],
-                [
-                    "(((0.14 + 0.02 * level) * currentAD) + (5 + 5 * level)) * physicalMod "
-                ],
-                [
-                    "(((0.14 + 0.02 * level) * currentAD) + (5 + 5 * level)) * physicalMod "
-                ],
-                [
-                    "(((0.14 + 0.02 * level) * currentAD) + (5 + 5 * level)) * physicalMod "
-                ],
-                [
-                    "(((0.14 + 0.02 * level) * currentAD) + (5 + 5 * level)) * physicalMod "
-                ],
-                [
-                    "(((0.14 + 0.02 * level) * currentAD) + (5 + 5 * level)) * physicalMod "
-                ],
-                [
-                    "(((0.14 + 0.02 * level) * currentAD) + (5 + 5 * level)) * physicalMod "
-                ],
-                [
-                    "(((0.14 + 0.02 * level) * currentAD) + (5 + 5 * level)) * physicalMod "
-                ],
-                [
-                    "(((0.14 + 0.02 * level) * currentAD) + (5 + 5 * level)) * physicalMod "
-                ],
-                [
-                    "(((0.14 + 0.02 * level) * currentAD) + (5 + 5 * level)) * physicalMod "
-                ]
-            ],
-            "Q": [
-                [
-                    "(20 + (0.8 * currentAD) + (0.5 * currentAP)) * physicalMod"
-                ],
-                [
-                    "(40 + (0.9 * currentAD) + (0.5 * currentAP)) * physicalMod"
-                ],
-                [
-                    "(60 + currentAD) + (0.5 * currentAP)) * physicalMod"
-                ],
-                [
-                    "(80 + (1.1 * currentAD) + (0.5 * currentAP)) * physicalMod"
-                ],
-                [
-                    "(100 + (1.2 * currentAD) + (0.5 * currentAP)) * physicalMod"
-                ]
-            ],
-            "E": [
-                [
-                    "(40 + (0.2 * bonusAD)) * physicalMod"
-                ],
-                [
-                    "(65 + (0.2 * bonusAD)) * physicalMod"
-                ],
-                [
-                    "(90 + (0.2 * bonusAD)) * physicalMod"
-                ],
-                [
-                    "(115 + (0.2 * bonusAD)) * physicalMod"
-                ],
-                [
-                    "(140 + (0.2 * bonusAD)) * physicalMod"
-                ]
-            ],
-            "R": [
-                [
-                    "(0.7 * currentAD) * physicalMod"
-                ],
-                [
-                    "(0.7 * currentAD) * physicalMod"
-                ],
-                [
-                    "(0.7 * currentAD) * physicalMod"
-                ]
-            ]
-        },
-        "type": {
-            "P": "physical",
-            "Q": "physical",
-            "E": "physical",
-            "R": "physical"
-        },
-        "aoe": {
-            "P": "false",
-            "Q": "true",
-            "E": "false",
-            "R": "true"
-        }
+  "Quinn": {
+    "P": {
+      "type": "physical",
+      "area": false,
+      "min": [
+        "(((0.14 + 0.02 * level) * currentAD) + (5 + 5 * level)) * physicalMod ",
+        "(((0.14 + 0.02 * level) * currentAD) + (5 + 5 * level)) * physicalMod ",
+        "(((0.14 + 0.02 * level) * currentAD) + (5 + 5 * level)) * physicalMod ",
+        "(((0.14 + 0.02 * level) * currentAD) + (5 + 5 * level)) * physicalMod ",
+        "(((0.14 + 0.02 * level) * currentAD) + (5 + 5 * level)) * physicalMod ",
+        "(((0.14 + 0.02 * level) * currentAD) + (5 + 5 * level)) * physicalMod ",
+        "(((0.14 + 0.02 * level) * currentAD) + (5 + 5 * level)) * physicalMod ",
+        "(((0.14 + 0.02 * level) * currentAD) + (5 + 5 * level)) * physicalMod ",
+        "(((0.14 + 0.02 * level) * currentAD) + (5 + 5 * level)) * physicalMod ",
+        "(((0.14 + 0.02 * level) * currentAD) + (5 + 5 * level)) * physicalMod ",
+        "(((0.14 + 0.02 * level) * currentAD) + (5 + 5 * level)) * physicalMod ",
+        "(((0.14 + 0.02 * level) * currentAD) + (5 + 5 * level)) * physicalMod ",
+        "(((0.14 + 0.02 * level) * currentAD) + (5 + 5 * level)) * physicalMod ",
+        "(((0.14 + 0.02 * level) * currentAD) + (5 + 5 * level)) * physicalMod ",
+        "(((0.14 + 0.02 * level) * currentAD) + (5 + 5 * level)) * physicalMod ",
+        "(((0.14 + 0.02 * level) * currentAD) + (5 + 5 * level)) * physicalMod ",
+        "(((0.14 + 0.02 * level) * currentAD) + (5 + 5 * level)) * physicalMod ",
+        "(((0.14 + 0.02 * level) * currentAD) + (5 + 5 * level)) * physicalMod "
+      ],
+      "max": []
+    },
+    "Q": {
+      "type": "physical",
+      "area": true,
+      "min": [
+        "(20 + (0.8 * currentAD) + (0.5 * currentAP)) * physicalMod",
+        "(40 + (0.9 * currentAD) + (0.5 * currentAP)) * physicalMod",
+        "(60 + currentAD) + (0.5 * currentAP)) * physicalMod",
+        "(80 + (1.1 * currentAD) + (0.5 * currentAP)) * physicalMod",
+        "(100 + (1.2 * currentAD) + (0.5 * currentAP)) * physicalMod"
+      ],
+      "max": []
+    },
+    "E": {
+      "type": "physical",
+      "area": false,
+      "min": [
+        "(40 + (0.2 * bonusAD)) * physicalMod",
+        "(65 + (0.2 * bonusAD)) * physicalMod",
+        "(90 + (0.2 * bonusAD)) * physicalMod",
+        "(115 + (0.2 * bonusAD)) * physicalMod",
+        "(140 + (0.2 * bonusAD)) * physicalMod"
+      ],
+      "max": []
+    },
+    "R": {
+      "type": "physical",
+      "area": true,
+      "min": [
+        "(0.7 * currentAD) * physicalMod",
+        "(0.7 * currentAD) * physicalMod",
+        "(0.7 * currentAD) * physicalMod"
+      ],
+      "max": []
     }
+  }
 }

@@ -1,132 +1,67 @@
 {
-    "Rammus": {
-        "spells": {
-            "P": [
-                [
-                    "(10 + 0.1 * currentArmor) * magicMod"
-                ],
-                [
-                    "(10 + 0.1 * currentArmor) * magicMod"
-                ],
-                [
-                    "(10 + 0.1 * currentArmor) * magicMod"
-                ],
-                [
-                    "(10 + 0.1 * currentArmor) * magicMod"
-                ],
-                [
-                    "(10 + 0.1 * currentArmor) * magicMod"
-                ],
-                [
-                    "(10 + 0.1 * currentArmor) * magicMod"
-                ],
-                [
-                    "(10 + 0.1 * currentArmor) * magicMod"
-                ],
-                [
-                    "(10 + 0.1 * currentArmor) * magicMod"
-                ],
-                [
-                    "(10 + 0.1 * currentArmor) * magicMod"
-                ],
-                [
-                    "(10 + 0.1 * currentArmor) * magicMod"
-                ],
-                [
-                    "(10 + 0.1 * currentArmor) * magicMod"
-                ],
-                [
-                    "(10 + 0.1 * currentArmor) * magicMod"
-                ],
-                [
-                    "(10 + 0.1 * currentArmor) * magicMod"
-                ],
-                [
-                    "(10 + 0.1 * currentArmor) * magicMod"
-                ],
-                [
-                    "(10 + 0.1 * currentArmor) * magicMod"
-                ],
-                [
-                    "(10 + 0.1 * currentArmor) * magicMod"
-                ],
-                [
-                    "(10 + 0.1 * currentArmor) * magicMod"
-                ],
-                [
-                    "(10 + 0.1 * currentArmor) * magicMod"
-                ]
-            ],
-            "Q": [
-                [
-                    "(80 + currentAP) * magicMod"
-                ], 
-                [
-                    "(110 + currentAP) * magicMod"
-                ],  
-                [
-                    "(140 + currentAP) * magicMod"
-                ], 
-                [
-                    "(170 + currentAP) * magicMod"
-                ], 
-                [
-                    "(200 + currentAP) * magicMod"
-                ]
-            ],
-            "W": [
-                [
-                    "(15 + 0.15 * currentArmor) * magicMod"
-                ], 
-                [
-                    "(15 + 0.15 * currentArmor) * magicMod"
-                ],  
-                [
-                    "(15 + 0.15 * currentArmor) * magicMod"
-                ], 
-                [
-                    "(15 + 0.15 * currentArmor) * magicMod"
-                ], 
-                [
-                    "(15 + 0.15 * currentArmor) * magicMod"
-                ]
-            ],
-            "R": [
-                [
-                    "(100 + 0.6 * currentAP) * magicMod"
-                ],
-                [
-                    "(175 + 0.6 * currentAP) * magicMod"
-                ],
-                [
-                    "(250 + 0.6 * currentAP) * magicMod"
-                ]
-            ]
-        },
-        "type": {
-            "P": "magic",
-            "Q": "magic",
-            "W": "magic",
-            "R": "magic"
-        },
-        "aoe": {
-            "P": "false",
-            "Q": "true",
-            "W": "false",
-            "R": "true"
-        },
-        "variation": {
-            "R": [
-                [
-                    "(150 + 0.9 * currentAP) * magicMod"
-                ],
-                [
-                    "(262.5 + 0.9 * currentAP) * magicMod"
-                ],
-                [
-                    "(375 + 0.9 * currentAP) * magicMod"
-                ]
-            ]
-        }
+  "Rammus": {
+    "P": {
+      "type": "magic",
+      "area": false,
+      "min": [
+        "(10 + 0.1 * currentArmor) * magicMod",
+        "(10 + 0.1 * currentArmor) * magicMod",
+        "(10 + 0.1 * currentArmor) * magicMod",
+        "(10 + 0.1 * currentArmor) * magicMod",
+        "(10 + 0.1 * currentArmor) * magicMod",
+        "(10 + 0.1 * currentArmor) * magicMod",
+        "(10 + 0.1 * currentArmor) * magicMod",
+        "(10 + 0.1 * currentArmor) * magicMod",
+        "(10 + 0.1 * currentArmor) * magicMod",
+        "(10 + 0.1 * currentArmor) * magicMod",
+        "(10 + 0.1 * currentArmor) * magicMod",
+        "(10 + 0.1 * currentArmor) * magicMod",
+        "(10 + 0.1 * currentArmor) * magicMod",
+        "(10 + 0.1 * currentArmor) * magicMod",
+        "(10 + 0.1 * currentArmor) * magicMod",
+        "(10 + 0.1 * currentArmor) * magicMod",
+        "(10 + 0.1 * currentArmor) * magicMod",
+        "(10 + 0.1 * currentArmor) * magicMod"
+      ],
+      "max": []
+    },
+    "Q": {
+      "type": "magic",
+      "area": true,
+      "min": [
+        "(80 + currentAP) * magicMod",
+        "(110 + currentAP) * magicMod",
+        "(140 + currentAP) * magicMod",
+        "(170 + currentAP) * magicMod",
+        "(200 + currentAP) * magicMod"
+      ],
+      "max": []
+    },
+    "W": {
+      "type": "magic",
+      "area": false,
+      "min": [
+        "(15 + 0.15 * currentArmor) * magicMod",
+        "(15 + 0.15 * currentArmor) * magicMod",
+        "(15 + 0.15 * currentArmor) * magicMod",
+        "(15 + 0.15 * currentArmor) * magicMod",
+        "(15 + 0.15 * currentArmor) * magicMod"
+      ],
+      "max": []
+    },
+    "R": {
+      "type": "magic",
+      "area": true,
+      "min": [
+        "(100 + 0.6 * currentAP) * magicMod",
+        "(175 + 0.6 * currentAP) * magicMod",
+        "(250 + 0.6 * currentAP) * magicMod"
+      ],
+      "max": [
+        "(150 + 0.9 * currentAP) * magicMod",
+        "(262.5 + 0.9 * currentAP) * magicMod",
+        "(375 + 0.9 * currentAP) * magicMod"
+      ]
     }
+  }
 }

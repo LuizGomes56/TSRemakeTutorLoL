@@ -1,181 +1,52 @@
 {
-    "Hwei": {
-        "spells": {
-            "P": [
-                [
-                    "(35 + 145 / 17 * (level - 1) + 0.35 * currentAP) * magicMod"
-                ],
-                [
-                    "(35 + 145 / 17 * (level - 1) + 0.35 * currentAP) * magicMod"
-                ],
-                [
-                    "(35 + 145 / 17 * (level - 1) + 0.35 * currentAP) * magicMod"
-                ],
-                [
-                    "(35 + 145 / 17 * (level - 1) + 0.35 * currentAP) * magicMod"
-                ],
-                [
-                    "(35 + 145 / 17 * (level - 1) + 0.35 * currentAP) * magicMod"
-                ],
-                [
-                    "(35 + 145 / 17 * (level - 1) + 0.35 * currentAP) * magicMod"
-                ],
-                [
-                    "(35 + 145 / 17 * (level - 1) + 0.35 * currentAP) * magicMod"
-                ],
-                [
-                    "(35 + 145 / 17 * (level - 1) + 0.35 * currentAP) * magicMod"
-                ],
-                [
-                    "(35 + 145 / 17 * (level - 1) + 0.35 * currentAP) * magicMod"
-                ],
-                [
-                    "(35 + 145 / 17 * (level - 1) + 0.35 * currentAP) * magicMod"
-                ],
-                [
-                    "(35 + 145 / 17 * (level - 1) + 0.35 * currentAP) * magicMod"
-                ],
-                [
-                    "(35 + 145 / 17 * (level - 1) + 0.35 * currentAP) * magicMod"
-                ],
-                [
-                    "(35 + 145 / 17 * (level - 1) + 0.35 * currentAP) * magicMod"
-                ],
-                [
-                    "(35 + 145 / 17 * (level - 1) + 0.35 * currentAP) * magicMod"
-                ],
-                [
-                    "(35 + 145 / 17 * (level - 1) + 0.35 * currentAP) * magicMod"
-                ],
-                [
-                    "(35 + 145 / 17 * (level - 1) + 0.35 * currentAP) * magicMod"
-                ],
-                [
-                    "(35 + 145 / 17 * (level - 1) + 0.35 * currentAP) * magicMod"
-                ],
-                [
-                    "(35 + 145 / 17 * (level - 1) + 0.35 * currentAP) * magicMod"
-                ]
-            ],
-            "Q": [
-                [
-                    "(60 + 0.75 * currentAP + 0.08 * expectedHealth) * magicMod"
-                ], 
-                [
-                    "(90 + 0.75 * currentAP + 0.08 * expectedHealth) * magicMod"
-                ],
-                [
-                    "(120 + 0.75 * currentAP + 0.08 * expectedHealth) * magicMod"
-                ],
-                [
-                    "(150 + 0.75 * currentAP + 0.08 * expectedHealth) * magicMod"
-                ],
-                [
-                    "(180 + 0.75 * currentAP + 0.08 * expectedHealth) * magicMod"
-                ]
-            ],
-            "W": [
-                [
-                    "(25 + 0.2 * currentAP) * magicMod"
-                ],
-                [
-                    "(35 + 0.2 * currentAP) * magicMod"
-                ],
-                [
-                    "(45 + 0.2 * currentAP) * magicMod"
-                ],
-                [
-                    "(55 + 0.2 * currentAP) * magicMod"
-                ],
-                [
-                    "(65 + 0.2 * currentAP) * magicMod"
-                ]
-            ],
-            "E": [
-                [
-                    "(70 + 0.6 * currentAP) * magicMod"
-                ],
-                [
-                    "(110 + 0.6 * currentAP) * magicMod"
-                ],
-                [
-                    "(150 + 0.6 * currentAP) * magicMod"
-                ],
-                [
-                    "(190 + 0.6 * currentAP) * magicMod"
-                ],
-                [
-                    "(230 + 0.6 * currentAP) * magicMod"
-                ]
-            ],
-            "R": [
-                [
-                    "(200 + 0.8 * currentAP) * magicMod"
-                ],
-                [
-                    "(300 + 0.8 * currentAP) * magicMod"
-                ],
-                [
-                    "(400 + 0.8 * currentAP) * magicMod"
-                ]
-            ]
-        },
-        "type": {
-            "Q": "magic",
-            "W": "magic",
-            "E": "magic"
-        },
-        "aoe": {
-            "Q": "true",
-            "W": "true",
-            "E": "true"
-        },
-        "variation": {
-            "Q": [
-                [
-                    "(160 + 0.5 * currentAP) * magicMod"
-                ], 
-                [
-                    "(237.5 + 0.59375 * currentAP) * magicMod"
-                ],
-                [
-                    "(330 + 0.6875 * currentAP) * magicMod"
-                ],
-                [
-                    "(437.5 + 0.78125 * currentAP) * magicMod"
-                ],
-                [
-                    "(560 + 0.875 * currentAP) * magicMod"
-                ]
-            ],
-            "W": [
-                [
-                    "3 * (25 + 0.2 * currentAP) * magicMod"
-                ],
-                [
-                    "3 * (35 + 0.2 * currentAP) * magicMod"
-                ],
-                [
-                    "3 * (45 + 0.2 * currentAP) * magicMod"
-                ],
-                [
-                    "3 * (55 + 0.2 * currentAP) * magicMod"
-                ],
-                [
-                    "3 * (65 + 0.2 * currentAP) * magicMod"
-                ]
-            ],
-            "R": [
-                [
-                    "(230 + 0.95 * currentAP) * magicMod"
-                ],
-                [
-                    "(360 + 0.95 * currentAP) * magicMod"
-                ],
-                [
-                    "(490 + 0.95 * currentAP) * magicMod"
-                ]
-            ]
-        }
+  "Hwei": {
+    "Q": {
+      "type": "magic",
+      "area": true,
+      "min": [
+        "(60 + 0.75 * currentAP + 0.08 * expectedHealth) * magicMod",
+        "(90 + 0.75 * currentAP + 0.08 * expectedHealth) * magicMod",
+        "(120 + 0.75 * currentAP + 0.08 * expectedHealth) * magicMod",
+        "(150 + 0.75 * currentAP + 0.08 * expectedHealth) * magicMod",
+        "(180 + 0.75 * currentAP + 0.08 * expectedHealth) * magicMod"
+      ],
+      "max": [
+        "(160 + 0.5 * currentAP) * magicMod",
+        "(237.5 + 0.59375 * currentAP) * magicMod",
+        "(330 + 0.6875 * currentAP) * magicMod",
+        "(437.5 + 0.78125 * currentAP) * magicMod",
+        "(560 + 0.875 * currentAP) * magicMod"
+      ]
+    },
+    "W": {
+      "type": "magic",
+      "area": true,
+      "min": [
+        "(25 + 0.2 * currentAP) * magicMod",
+        "(35 + 0.2 * currentAP) * magicMod",
+        "(45 + 0.2 * currentAP) * magicMod",
+        "(55 + 0.2 * currentAP) * magicMod",
+        "(65 + 0.2 * currentAP) * magicMod"
+      ],
+      "max": [
+        "3 * (25 + 0.2 * currentAP) * magicMod",
+        "3 * (35 + 0.2 * currentAP) * magicMod",
+        "3 * (45 + 0.2 * currentAP) * magicMod",
+        "3 * (55 + 0.2 * currentAP) * magicMod",
+        "3 * (65 + 0.2 * currentAP) * magicMod"
+      ]
+    },
+    "E": {
+      "type": "magic",
+      "area": true,
+      "min": [
+        "(70 + 0.6 * currentAP) * magicMod",
+        "(110 + 0.6 * currentAP) * magicMod",
+        "(150 + 0.6 * currentAP) * magicMod",
+        "(190 + 0.6 * currentAP) * magicMod",
+        "(230 + 0.6 * currentAP) * magicMod"
+      ],
+      "max": []
     }
+  }
 }

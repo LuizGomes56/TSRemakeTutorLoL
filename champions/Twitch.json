@@ -1,162 +1,66 @@
 {
-    "Twitch": {
-        "spells": {
-            "P": [
-                [
-                    "(1 + (0.03 * currentAP))"
-                ],
-                [
-                    "(1 + (0.03 * currentAP))"
-                ],
-                [
-                    "(1 + (0.03 * currentAP))"
-                ],
-                [
-                    "(1 + (0.03 * currentAP))"
-                ],
-                [
-                    "(2 + (0.03 * currentAP))"
-                ],
-                [
-                    "(2 + (0.03 * currentAP))"
-                ],
-                [
-                    "(2 + (0.03 * currentAP))"
-                ],
-                [
-                    "(2 + (0.03 * currentAP))"
-                ],
-                [
-                    "(3 + (0.03 * currentAP))"
-                ],
-                [
-                    "(3 + (0.03 * currentAP))"
-                ],
-                [
-                    "(3 + (0.03 * currentAP))"
-                ],
-                [
-                    "(3 + (0.03 * currentAP))"
-                ],
-                [
-                    "(4 + (0.03 * currentAP))"
-                ],
-                [
-                    "(4 + (0.03 * currentAP))"
-                ],
-                [
-                    "(4 + (0.03 * currentAP))"
-                ],
-                [
-                    "(4 + (0.03 * currentAP))"
-                ],
-                [
-                    "(5 + (0.03 * currentAP))"
-                ],
-                [
-                    "(5 + (0.03 * currentAP))"
-                ]
-            ],
-            "E": [
-                [
-                    "(17.5 + (0.3 * currentAP)) * magicMod + (17.5 + (0.35 * bonusAD)) * physicalMod"
-                ],
-                [
-                    "(25 + (0.3 * currentAP)) * magicMod + (25 + (0.35 * bonusAD)) * physicalMod"
-                ],
-                [
-                    "(32.5 + (0.3 * currentAP)) * magicMod + (32.5 + (0.35 * bonusAD)) * physicalMod"
-                ],
-                [
-                    "(40 + (0.3 * currentAP)) * magicMod + (40 + (0.35 * bonusAD)) * physicalMod"
-                ],
-                [
-                    "(47.5 + (0.3 * currentAP)) * magicMod + (47.5 + (0.35 * bonusAD)) * physicalMod"
-                ]
-            ]
-        },
-        "type": {
-            "P": "true",
-            "E": "mixed"
-        },
-        "aoe": {
-            "P": "false",
-            "E": "false"
-        },
-        "variation": {
-            "P": [
-                [
-                    "(1 + (0.03 * currentAP)) * 6"
-                ],
-                [
-                    "(1 + (0.03 * currentAP)) * 6"
-                ],
-                [
-                    "(1 + (0.03 * currentAP)) * 6"
-                ],
-                [
-                    "(1 + (0.03 * currentAP)) * 6"
-                ],
-                [
-                    "(2 + (0.03 * currentAP)) * 6"
-                ],
-                [
-                    "(2 + (0.03 * currentAP)) * 6"
-                ],
-                [
-                    "(2 + (0.03 * currentAP)) * 6"
-                ],
-                [
-                    "(2 + (0.03 * currentAP)) * 6"
-                ],
-                [
-                    "(3 + (0.03 * currentAP)) * 6"
-                ],
-                [
-                    "(3 + (0.03 * currentAP)) * 6"
-                ],
-                [
-                    "(3 + (0.03 * currentAP)) * 6"
-                ],
-                [
-                    "(3 + (0.03 * currentAP)) * 6"
-                ],
-                [
-                    "(4 + (0.03 * currentAP)) * 6"
-                ],
-                [
-                    "(4 + (0.03 * currentAP)) * 6"
-                ],
-                [
-                    "(4 + (0.03 * currentAP)) * 6"
-                ],
-                [
-                    "(4 + (0.03 * currentAP)) * 6"
-                ],
-                [
-                    "(5 + (0.03 * currentAP)) * 6"
-                ],
-                [
-                    "(5 + (0.03 * currentAP)) * 6"
-                ]
-            ],
-            "E": [
-                [
-                    "(55 + (1.8 * currentAP)) * magicMod + (55 + (2.1 * bonusAD)) * physicalMod"
-                ],
-                [
-                    "(75 + (1.8 * currentAP)) * magicMod + (75 + (2.1 * bonusAD)) * physicalMod"
-                ],
-                [
-                    "(95 + (1.8 * currentAP)) * magicMod + (95 + (2.1 * bonusAD)) * physicalMod"
-                ],
-                [
-                    "(115 + (1.8 * currentAP)) * magicMod + (115 + (2.1 * bonusAD)) * physicalMod"
-                ],
-                [
-                    "(135 + (1.8 * currentAP)) * magicMod + (135 + (2.1 * bonusAD)) * physicalMod"
-                ]
-            ]
-        }
+  "Twitch": {
+    "P": {
+      "type": "true",
+      "area": false,
+      "min": [
+        "(1 + (0.03 * currentAP))",
+        "(1 + (0.03 * currentAP))",
+        "(1 + (0.03 * currentAP))",
+        "(1 + (0.03 * currentAP))",
+        "(2 + (0.03 * currentAP))",
+        "(2 + (0.03 * currentAP))",
+        "(2 + (0.03 * currentAP))",
+        "(2 + (0.03 * currentAP))",
+        "(3 + (0.03 * currentAP))",
+        "(3 + (0.03 * currentAP))",
+        "(3 + (0.03 * currentAP))",
+        "(3 + (0.03 * currentAP))",
+        "(4 + (0.03 * currentAP))",
+        "(4 + (0.03 * currentAP))",
+        "(4 + (0.03 * currentAP))",
+        "(4 + (0.03 * currentAP))",
+        "(5 + (0.03 * currentAP))",
+        "(5 + (0.03 * currentAP))"
+      ],
+      "max": [
+        "(1 + (0.03 * currentAP)) * 6",
+        "(1 + (0.03 * currentAP)) * 6",
+        "(1 + (0.03 * currentAP)) * 6",
+        "(1 + (0.03 * currentAP)) * 6",
+        "(2 + (0.03 * currentAP)) * 6",
+        "(2 + (0.03 * currentAP)) * 6",
+        "(2 + (0.03 * currentAP)) * 6",
+        "(2 + (0.03 * currentAP)) * 6",
+        "(3 + (0.03 * currentAP)) * 6",
+        "(3 + (0.03 * currentAP)) * 6",
+        "(3 + (0.03 * currentAP)) * 6",
+        "(3 + (0.03 * currentAP)) * 6",
+        "(4 + (0.03 * currentAP)) * 6",
+        "(4 + (0.03 * currentAP)) * 6",
+        "(4 + (0.03 * currentAP)) * 6",
+        "(4 + (0.03 * currentAP)) * 6",
+        "(5 + (0.03 * currentAP)) * 6",
+        "(5 + (0.03 * currentAP)) * 6"
+      ]
+    },
+    "E": {
+      "type": "mixed",
+      "area": false,
+      "min": [
+        "(17.5 + (0.3 * currentAP)) * magicMod + (17.5 + (0.35 * bonusAD)) * physicalMod",
+        "(25 + (0.3 * currentAP)) * magicMod + (25 + (0.35 * bonusAD)) * physicalMod",
+        "(32.5 + (0.3 * currentAP)) * magicMod + (32.5 + (0.35 * bonusAD)) * physicalMod",
+        "(40 + (0.3 * currentAP)) * magicMod + (40 + (0.35 * bonusAD)) * physicalMod",
+        "(47.5 + (0.3 * currentAP)) * magicMod + (47.5 + (0.35 * bonusAD)) * physicalMod"
+      ],
+      "max": [
+        "(55 + (1.8 * currentAP)) * magicMod + (55 + (2.1 * bonusAD)) * physicalMod",
+        "(75 + (1.8 * currentAP)) * magicMod + (75 + (2.1 * bonusAD)) * physicalMod",
+        "(95 + (1.8 * currentAP)) * magicMod + (95 + (2.1 * bonusAD)) * physicalMod",
+        "(115 + (1.8 * currentAP)) * magicMod + (115 + (2.1 * bonusAD)) * physicalMod",
+        "(135 + (1.8 * currentAP)) * magicMod + (135 + (2.1 * bonusAD)) * physicalMod"
+      ]
     }
+  }
 }
