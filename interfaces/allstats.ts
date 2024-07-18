@@ -8,6 +8,7 @@ export interface AllStatProps {
         multiplier: {
             magic: number;
             physical: number;
+            general: number;
         }
         adaptative: {
             type: "physical" | "magic";
@@ -34,6 +35,11 @@ export interface AllStatProps {
         bonusStats: StatProps;
     }
     player: {
+        multiplier: {
+            physical: number;
+            magic: number;
+            general: number;
+        };
         realStats: {
             armor: number;
             magicResist: number;

@@ -183,13 +183,43 @@ const Abilities = (a: "P" | "Q" | "W" | "E" | "R" | "A" | "C", stats: AllStatPro
     let min = y.min?.[b ? b - 1 : 0];
     let max = y.max ? y.max[b ? b - 1 : 0] : null;
 
-    let [n, m] = Evaluate(min, max, stats)
+    const atk: Record<string, () => [number, null]> = {
+        A: () => [p.championStats.attackDamage * p.multiplier.physical, null],
+        C: () => [p.championStats.attackDamage * p.multiplier.physical * p.championStats.critDamage, null]
+    }
+
+    let ty = y?.type;
+    let ar = y?.area;
+
+    let [n, m] = !min && ["A", "C"].includes(a) ? atk[a]() : Evaluate(min, max, stats);
+
+    let gn = stats.activePlayer.multiplier.general;
+    let pm = stats.player.multiplier;
+
+    const typ: Record<string, (n: number, m: number | null) => void> = {
+        physical: (n, m) => {
+            let t = gn * pm.physical
+            n *= t;
+            m ? m *= t : null;
+        },
+        magic: (n, m) => {
+            let t = gn * pm.magic
+            n *= t;
+            m ? m *= t : null;
+        },
+        true: (n, m) => {
+            n *= gn;
+            m ? m *= gn : null;
+        }
+    }
+
+    if (ty) { typ[ty](n, m) }
 
     return {
         min: n,
         max: m,
-        type: y?.type,
-        area: y?.area
+        type: ty,
+        area: ar
     } as LocalAbilityProps;
 };
 
@@ -246,8 +276,35 @@ const AllStats = (player: Player & ExtendsPlayer, activePlayer: DataProps["activ
     let abt = activePlayer.baseStats;
 
     let pcs = player.championStats;
-    let pbs = player.bonusStats
+    let pbs = player.bonusStats;
     let pbt = player.baseStats;
+
+    let [acpMod, pphyMod, pmagMod, pgenMod] = [1, 1, 1, 1];
+
+    const chspec: Record<string, () => void> = {
+        Kassadin: () => {
+            pmagMod -= 0.1;
+        },
+        Ornn: () => {
+            const mlt = (x: any): void => {
+                let n = 1.1;
+                if (player.level > 13) { n += (player.level - 13) * 0.04 };
+                x.armor *= n;
+                x.magicResist *= n;
+                x.maxHealth *= n;
+            }
+            mlt(pcs); mlt(pbs); mlt(pbt);
+        },
+        Malphite: () => {
+            const amt = (x: any): void => {
+                let n = (player.level > 14) ? 1.3 : 1.15;
+                x.armor *= n;
+            }
+            amt(pcs); amt(pbs); amt(pbt);
+        }
+    }
+
+    if (chspec[player.champion.id]) { chspec[player.champion.id]() }
 
     let rar = Math.max(0, pcs.armor * acs.armorPenetrationPercent - acs.armorPenetrationFlat);
     let rmr = Math.max(0, pcs.magicResist * acs.magicPenetrationPercent - acs.magicPenetrationFlat);
@@ -256,7 +313,7 @@ const AllStats = (player: Player & ExtendsPlayer, activePlayer: DataProps["activ
     let magic = 100 / (100 + rmr);
 
     let adp = 0.35 * abs.attackDamage >= 0.2 * acs.abilityPower;
-    let add = adp ? physical : magic
+    let add = adp ? physical : magic;
 
     let sft: Record<string, { long: string; short: string; }> = {
         Gnar: { long: "Gnar", short: "MegaGnar" },
@@ -269,8 +326,15 @@ const AllStats = (player: Player & ExtendsPlayer, activePlayer: DataProps["activ
     let chd = sft[championName]?.[acs.attackRange > 350 ? "long" : "short"];
     if (chd) { activePlayer.champion.id = chd; }
 
-    let ohp = pcs.maxHealth / acs.maxHealth
-    let ehp = pcs.maxHealth - acs.maxHealth
+    let ohp = pcs.maxHealth / acs.maxHealth;
+    let ehp = pcs.maxHealth - acs.maxHealth;
+    let mshp = 1 - acs.currentHealth / acs.maxHealth;
+    let exhp = ehp > 2500 ? 2500 : ehp < 0 ? 0 : ehp;
+
+    let rel = activePlayer.relevant;
+
+    rel.runes.includes("8299") ? acpMod += mshp > 0.7 ? 0.11 : mshp >= 0.4 ? 0.2 * mshp - 0.03 : 0 : 0;
+    rel.items.includes("4015") ? acpMod += exhp / (220000 / 15) : 0;
 
     return {
         activePlayer: {
@@ -279,7 +343,8 @@ const AllStats = (player: Player & ExtendsPlayer, activePlayer: DataProps["activ
             form: acs.attackRange > 350 ? "ranged" : "melee",
             multiplier: {
                 magic: magic,
-                physical: physical
+                physical: physical,
+                general: acpMod
             },
             adaptative: {
                 type: adp ? "physical" : "magic",
@@ -320,6 +385,11 @@ const AllStats = (player: Player & ExtendsPlayer, activePlayer: DataProps["activ
             }
         },
         player: {
+            multiplier: {
+                physical: pphyMod,
+                magic: pmagMod,
+                general: pgenMod
+            },
             realStats: {
                 magicResist: rmr,
                 armor: rar
@@ -351,8 +421,8 @@ const AllStats = (player: Player & ExtendsPlayer, activePlayer: DataProps["activ
         },
         property: {
             overHealth: ohp < 1.1 ? 0.65 : ohp > 2 ? 2 : ohp,
-            excessHealth: ehp > 2500 ? 2500 : ehp < 0 ? 0 : ehp,
-            missingHealth: 1 - acs.currentHealth / acs.maxHealth,
+            excessHealth: exhp,
+            missingHealth: mshp,
             steelcaps: player.items.find(item => item.itemID.toString() == "3047") ? 0.88 : 1,
             rocksolid: player.items.filter(item => ["3143", "3110", "3082"].includes(item.itemID.toString())).reduce((t) => t + (pcs.maxHealth / 1000 * 3.5), 0),
             randuin: player.items.find(item => item.itemID.toString() == "3143") ? 0.7 : 1
