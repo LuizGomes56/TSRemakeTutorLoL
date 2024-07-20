@@ -1,57 +1,74 @@
 import dotenv from "dotenv";
-import { Champion, RequestChampion } from "../interfaces/champion";
-import { ItemAPIProps, RequestItem } from "../interfaces/item";
 import { readFileSync, writeFileSync } from "fs";
+import { ChampionIDs, Champions, Items, TargetChampion, TargetItem } from "./interfaces";
 
 dotenv.config()
 
-let _Champions: void | RequestChampion;
-let _Items: void | RequestItem;
-
+const chacheDIR: string = `${process.cwd()}/cache`;
 const riotCDN: string = `${process.env.DD_ENDPOINT}/${process.env.LOL_VERSION}/data/${process.env.LANGUAGE}`
+const champIDs = JSON.parse(readFileSync(`${chacheDIR}/ids.json`, "utf-8")) as ChampionIDs;
 
-export const UpdateCache = async (): Promise<void> => {
-    let files = ["champion", "item"];
-    for (let file of files) {
-        let x: any = JSON.parse(readFileSync(`${process.cwd()}/cache/${file}.json`, "utf-8"))
-        if (x.version !== process.env.LOL_VERSION) {
-            let k = await RiotAPI(file);
-            writeFileSync(`${process.cwd()}/cache/${file}.json`, JSON.stringify(k), "utf-8");
+const Delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
+
+const Cache = (x: string): Champions | Items => JSON.parse(readFileSync(`${chacheDIR}/${x}.json`, "utf-8"));
+
+export const UpdateCache = async () => {
+    const s = new Date();
+    for (let k of Object.keys(champIDs)) {
+        let j = JSON.parse(readFileSync(`${chacheDIR}/champions/${k}.json`, "utf-8")) as Champions;
+        if (j.version !== process.env.LOL_VERSION) {
+            let x = await RiotAPI(`champion/${k}`) as Champions;
+            if (x) {
+                writeFileSync(`${chacheDIR}/champions/${k}.json`, JSON.stringify(x), "utf-8");
+                console.log(`${k}.json updated`);
+            }
+            await Delay(400);
         }
     }
-}
-
-export const FetchCache = async (file: string): Promise<any | void> => {
-    try {
-        let y = readFileSync(`${process.cwd()}/cache/${file}.json`, "utf-8");
-        let x = JSON.parse(y);
-        if (x.version !== process.env.LOL_VERSION) {
-            await UpdateCache();
-            y = readFileSync(`${process.cwd()}/cache/${file}.json`, "utf-8");
-            x = JSON.parse(y);
-        }
-        return x;
-    } catch (e) {
-        console.log(e);
+    let h = JSON.parse(readFileSync(`${chacheDIR}/item.json`, "utf-8")) as Items;
+    if (h.version !== process.env.LOL_VERSION) {
+        let y = await RiotAPI("item") as Items;
+        if (y) { writeFileSync(`${chacheDIR}/item.json`, JSON.stringify(y), "utf-8"); }
     }
+    const n = new Date();
+    const t = (n.getTime() - s.getTime()) / 1000;
+    console.log(`UpdateCache completed in ${t} seconds.`);
 };
 
-export const ChampionAPI = async (championName: string): Promise<Champion | void> => {
-    if (!_Champions) { _Champions = await FetchCache("champion") as RequestChampion }
-    if (_Champions.data[championName]) { return _Champions.data[championName] as Champion; }
-    else {
-        for (let key in _Champions.data) {
-            if (_Champions.data[key].name === championName) { return _Champions.data[key] as Champion; }
+export const ChampionAPI = async (championName: string): Promise<TargetChampion | void> => {
+    for (let [k, v] of Object.entries(champIDs)) {
+        for (let t of Object.values(v)) {
+            if (t == championName) { championName = k }
         }
+    }
+    let x = Cache(`champions/${championName}`) as Champions || await RiotAPI(`champion/${championName}`) as Champions;
+    let y = x?.data[championName];
+    if (y) {
+        return {
+            id: y.id,
+            name: y.name,
+            stats: y.stats,
+            spells: y.spells.map(z => ({
+                id: z.id,
+                name: z.name,
+                description: z.description,
+                cooldown: z.cooldown,
+            })),
+            passive: y.passive
+        } as TargetChampion
     }
 }
 
-export const ItemAPI = async (itemName: string): Promise<ItemAPIProps | void> => {
-    if (!_Items) { _Items = await FetchCache("item") as RequestItem }
-    if (_Items.data[itemName]) { return _Items.data[itemName] as ItemAPIProps; }
-    else {
-        for (let key in _Items.data) {
-            if (_Items.data[key].name === itemName) { return _Items.data[key] as ItemAPIProps; }
+export const ItemAPI = async (itemName: string): Promise<TargetItem | void> => {
+    let x = Cache("item") as Items || await RiotAPI("item") as Items;
+    let y = x?.data[itemName];
+    if (y) {
+        return {
+            name: y.name,
+            description: y.description,
+            stats: y.stats,
+            gold: y.gold,
+            maps: y.maps
         }
     }
 }

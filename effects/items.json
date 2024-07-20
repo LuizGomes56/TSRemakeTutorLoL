@@ -199,7 +199,7 @@
                 78.75,
                 80
             ],
-            "pathway": {
+            "damage": {
                 "min": {
                     "melee": "",
                     "ranged": ""
@@ -575,7 +575,7 @@
                 331.82,
                 350
             ],
-            "pathway": {
+            "damage": {
                 "min": {
                     "melee": "",
                     "ranged": ""
@@ -610,7 +610,7 @@
                 293,
                 310
             ],
-            "pathway": {
+            "damage": {
                 "min": {
                     "melee": "",
                     "ranged": ""
@@ -725,7 +725,7 @@
                 331.82,
                 350
             ],
-            "pathway": {
+            "damage": {
                 "min": {
                     "melee": "",
                     "ranged": ""
@@ -916,7 +916,7 @@
                 293,
                 310
             ],
-            "pathway": {
+            "damage": {
                 "min": {
                     "melee": "",
                     "ranged": ""
@@ -1084,7 +1084,7 @@
                 175,
                 180
             ],
-            "pathway": {
+            "damage": {
                 "min": {
                     "melee": "",
                     "ranged": ""
@@ -1119,7 +1119,7 @@
                 78.75,
                 80
             ],
-            "pathway": {
+            "damage": {
                 "min": {
                     "melee": "",
                     "ranged": ""
@@ -1403,7 +1403,7 @@
                 331.82,
                 350
             ],
-            "pathway": {
+            "damage": {
                 "min": {
                     "melee": "",
                     "ranged": ""
@@ -1438,7 +1438,7 @@
                 290,
                 310
             ],
-            "pathway": {
+            "damage": {
                 "min": {
                     "melee": "",
                     "ranged": ""
@@ -1518,7 +1518,7 @@
                 331.82,
                 350
             ],
-            "pathway": {
+            "damage": {
                 "min": {
                     "melee": "",
                     "ranged": ""

@@ -1,15 +1,15 @@
 import { readFileSync } from "fs";
-import { ActivePlayer, ChampionStats, Event, GameEvents, Item, Player, SummonerSpells } from "../interfaces/default"
-import { AbilityFilter, DataProps, DragonProps, ExtendsPlayer, ItemProps, LocalAbilityProps, RuneProps, SpellProps, StatProps } from "../interfaces/target";
 import { ChampionAPI, ItemAPI } from "./lol.service";
-import { Champion, ChampionData, Stats } from "../interfaces/champion";
-import { ItemAPIProps, LocalItems } from "../interfaces/item";
-import { LocalRunes } from "../interfaces/rune";
-import { AllStatProps, ReplacementProps } from "../interfaces/allstats";
+import {
+    AbilityFilter, ActivePlayer, AllStatsProps, ChampionStats,
+    CoreStats, Damage, DataProps, DragonProps, Event, ExtendsPlayer,
+    GameEvents, LocalChampion, LocalItems, LocalRunes, Player,
+    ReplacementsProps, Stats, SummonerSpells, TargetChampion, TargetItem
+} from "./interfaces";
 
-var _Champion: null | ChampionData;
-var _Items: null | LocalItems;
-var _Runes: null | LocalRunes;
+var _Champion: undefined | LocalChampion;
+var _Items: undefined | LocalItems;
+var _Runes: undefined | LocalRunes;
 
 const AssignChampion = async (g: DataProps): Promise<void> => {
     let k = g.activePlayer.summonerName
@@ -19,7 +19,7 @@ const AssignChampion = async (g: DataProps): Promise<void> => {
         g.activePlayer.team = y.team;
         await Promise.all(x.map(async (p, i) => {
             if (p.team !== y.team || p.summonerName === k) {
-                let c = await ChampionAPI(p.championName) as Champion;
+                let c = await ChampionAPI(p.championName) as TargetChampion;
                 if (c) { g.allPlayers[i].champion = c; }
             }
         }));
@@ -27,7 +27,7 @@ const AssignChampion = async (g: DataProps): Promise<void> => {
 };
 
 const Calculate = async (): Promise<DataProps> => {
-    var g = JSON.parse(readFileSync(`${process.cwd()}/services/exampledefault.json`, "utf-8")) as DataProps
+    var g = JSON.parse(readFileSync(`${process.cwd()}/services/exampledefault.json`, "utf-8")) as DataProps;
 
     let activePlayer = g.activePlayer;
     let allPlayers = g.allPlayers;
@@ -94,9 +94,9 @@ const Calculate = async (): Promise<DataProps> => {
     return g as DataProps;
 }
 
-const Spell = (s: string[], lvl: number): Record<string, SpellProps> => {
-    let j: Record<string, SpellProps> = {};
-    const cases: Record<string, () => SpellProps> = {
+const Spell = (s: string[], lvl: number): Record<string, Damage> => {
+    let j: Record<string, Damage> = {};
+    const cases: Record<string, () => Damage> = {
         SummonerDot: () => {
             return {
                 name: "Ignite",
@@ -105,12 +105,12 @@ const Spell = (s: string[], lvl: number): Record<string, SpellProps> => {
             }
         }
     }
-    s.forEach(spell => { if (cases.hasOwnProperty(spell)) { j[spell] = cases[spell](); } })
-    return j
+    s.forEach(spell => { if (cases.hasOwnProperty(spell)) { j[spell] = cases[spell](); } });
+    return j;
 }
 
-const Items = (items: string[], stats: AllStatProps): Record<string, ItemProps> => {
-    let j: Record<string, ItemProps> = {};
+const Items = (items: string[], stats: AllStatsProps): Record<string, Damage> => {
+    let j: Record<string, Damage> = {};
 
     let f = stats.activePlayer.form;
 
@@ -133,10 +133,10 @@ const Items = (items: string[], stats: AllStatProps): Record<string, ItemProps> 
     return j;
 }
 
-const Runes = (runes: string[], stats: AllStatProps): Record<string, RuneProps> => {
+const Runes = (runes: string[], stats: AllStatsProps): Record<string, Damage> => {
     if (!runes.length || !_Runes) { return {}; }
 
-    let j: Record<string, RuneProps> = {};
+    let j: Record<string, Damage> = {};
 
     for (let k of runes) {
         let rune = _Runes.data[k];
@@ -153,7 +153,7 @@ const Runes = (runes: string[], stats: AllStatProps): Record<string, RuneProps> 
     return j;
 }
 
-const Evaluate = (x: string | null | undefined, y: string | null | undefined, z: AllStatProps, w?: Record<string, number>): [number, number | null] => {
+const Evaluate = (x: string | null | undefined, y: string | null | undefined, z: AllStatsProps, w?: Record<string, number>): [number, number | null] => {
     let r = Replacements(z);
     let t = w ? { ...r, ...w } : r;
 
@@ -168,8 +168,8 @@ const Evaluate = (x: string | null | undefined, y: string | null | undefined, z:
     return [n, m];
 }
 
-const Abilities = (a: "P" | "Q" | "W" | "E" | "R" | "A" | "C", stats: AllStatProps, b: number = 1): LocalAbilityProps => {
-    const fail: LocalAbilityProps = { min: 0, max: 0, type: "unknown", area: false }
+const Abilities = (a: "P" | "Q" | "W" | "E" | "R" | "A" | "C", stats: AllStatsProps, b: number = 1): Damage => {
+    const fail: Damage = { min: 0, max: 0, type: "unknown", area: false }
 
     if (!_Champion || b == 0) { return fail; }
 
@@ -220,10 +220,10 @@ const Abilities = (a: "P" | "Q" | "W" | "E" | "R" | "A" | "C", stats: AllStatPro
         max: m,
         type: ty,
         area: ar
-    } as LocalAbilityProps;
+    } as Damage;
 };
 
-const Replacements = (stats: AllStatProps): ReplacementProps => {
+const Replacements = (stats: AllStatsProps): ReplacementsProps => {
     let x = stats.activePlayer;
     let y = stats.player;
     let z = stats.property;
@@ -243,7 +243,7 @@ const Replacements = (stats: AllStatProps): ReplacementProps => {
         currentAD: k.attackDamage,
         currentLethality: k.armorPenetrationFlat,
         maxHP: k.maxHealth,
-        maxMana: k.resourceMax,
+        maxMana: k.resourceMax || 0,
         currentMR: k.magicResist,
         currentArmor: k.armor,
         currentHealth: k.currentHealth,
@@ -253,7 +253,7 @@ const Replacements = (stats: AllStatProps): ReplacementProps => {
         critDamage: k.critDamage,
         adaptative: x.adaptative.ratio,
         baseHP: j.maxHealth,
-        baseMana: j.resourceMax || null,
+        baseMana: j.resourceMax || 0,
         baseArmor: j.armor,
         baseMR: j.magicResist,
         baseAD: j.attackDamage,
@@ -262,7 +262,7 @@ const Replacements = (stats: AllStatProps): ReplacementProps => {
         bonusArmor: n.armor,
         bonusMR: n.magicResist,
         expectedHealth: m.maxHealth,
-        expectedMana: m.resourceMax || null,
+        expectedMana: m.resourceMax || 0,
         expectedArmor: m.armor,
         expectedMR: m.magicResist,
         expectedAD: m.attackDamage,
@@ -270,7 +270,7 @@ const Replacements = (stats: AllStatProps): ReplacementProps => {
     }
 }
 
-const AllStats = (player: Player & ExtendsPlayer, activePlayer: DataProps["activePlayer"]): AllStatProps => {
+const AllStats = (player: Player & ExtendsPlayer, activePlayer: DataProps["activePlayer"]): AllStatsProps => {
     let acs = activePlayer.championStats;
     let abs = activePlayer.bonusStats;
     let abt = activePlayer.baseStats;
@@ -430,10 +430,10 @@ const AllStats = (player: Player & ExtendsPlayer, activePlayer: DataProps["activ
     }
 }
 
-const PlayerStats = async (a: StatProps, b: string[]): Promise<StatProps> => {
+const PlayerStats = async (a: CoreStats, b: string[]): Promise<CoreStats> => {
     let [maxHealth, magicResist, armor, resourceMax, abilityPower, attackDamage] = [0, 0, 0, 0, 0, 0];
     for (let i of b) {
-        let x = await ItemAPI(i) as ItemAPIProps;
+        let x = await ItemAPI(i) as TargetItem;
         let { FlatHPPoolMod, FlatMagicDamageMod, FlatArmorMod, FlatSpellBlockMod, FlatMPPoolMod, FlatPhysicalDamageMod } = x.stats;
         maxHealth += FlatHPPoolMod || 0;
         armor += FlatArmorMod || 0;
@@ -446,7 +446,7 @@ const PlayerStats = async (a: StatProps, b: string[]): Promise<StatProps> => {
         maxHealth: a.maxHealth + maxHealth,
         magicResist: a.magicResist + magicResist,
         attackDamage: a.attackDamage + attackDamage,
-        resourceMax: a.resourceMax ? a.resourceMax + resourceMax : null,
+        resourceMax: a.resourceMax ? a.resourceMax + resourceMax : 0,
         abilityPower: a.abilityPower + abilityPower,
         armor: a.armor + armor
     }
@@ -491,9 +491,9 @@ const LoadItems = (): void => {
 }
 
 const LoadChampion = (id: string): void => {
-    if (_Champion && _Champion[id]) { return }
+    if (_Champion && _Champion[id]) { console.log(_Champion); return }
     else {
-        _Champion = JSON.parse(readFileSync(`${process.cwd()}/champions/${id}.json`, "utf-8")) as ChampionData
+        _Champion = JSON.parse(readFileSync(`${process.cwd()}/champions/${id}.json`, "utf-8")) as LocalChampion;
     }
 }
 
@@ -545,24 +545,24 @@ const StatFormula = (a: number, b: number, c: number) => {
     return Math.round(a + b * (c - 1) * (0.7025 + 0.0175 * (c - 1)));
 }
 
-const BaseStats = (b: Stats, c: number): StatProps => {
+const BaseStats = (b: Stats, c: number): CoreStats => {
     return {
         maxHealth: StatFormula(b.hp, b.hpperlevel, c),
         armor: StatFormula(b.armor, b.armorperlevel, c),
         magicResist: StatFormula(b.spellblock, b.spellblockperlevel, c),
         attackDamage: StatFormula(b.attackdamage, b.attackdamageperlevel, c),
-        resourceMax: b.mp == 0 ? null : StatFormula(b.mp, b.mpperlevel, c),
+        resourceMax: b.mp == 0 ? 0 : StatFormula(b.mp, b.mpperlevel, c),
         abilityPower: 0
     }
 }
 
-const BonusStats = (b: StatProps, c: ChampionStats | StatProps): StatProps => {
+const BonusStats = (b: CoreStats, c: ChampionStats | CoreStats): CoreStats => {
     return {
         maxHealth: c.maxHealth - b.maxHealth,
         armor: c.armor - b.armor,
         magicResist: c.magicResist - b.magicResist,
         attackDamage: c.attackDamage - b.attackDamage,
-        resourceMax: c.resourceMax !== null && b.resourceMax !== null ? c.resourceMax - b.resourceMax : null,
+        resourceMax: c.resourceMax && b.resourceMax ? c.resourceMax - b.resourceMax : 0,
         abilityPower: c.abilityPower
     };
 };
