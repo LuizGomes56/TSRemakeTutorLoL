@@ -2,14 +2,17 @@ import { readFileSync } from "fs";
 import { ChampionAPI, ItemAPI } from "./lol.service";
 import {
     AbilityFilter, ActivePlayer, AllStatsProps, ChampionStats,
-    CoreStats, Damage, DataProps, DragonProps, Event, ExtendsPlayer,
-    GameEvents, LocalChampion, LocalItems, LocalRunes, Player,
-    ReplacementsProps, Stats, SummonerSpells, TargetChampion, TargetItem
+    CoreStats, Damage, DataProps, DefAbilities, DragonProps, EvalItemStats, Event, ExtendsPlayer,
+    GameEvents, KeyReplaces, LocalChampion, LocalItems, LocalRunes, Player,
+    ReplacementsProps, Stats, SummonerSpells, TargetChampion, TargetItem,
+    ToolProps
 } from "./interfaces";
+
 
 var _Champion: undefined | LocalChampion;
 var _Items: undefined | LocalItems;
 var _Runes: undefined | LocalRunes;
+var _Replaces: undefined | KeyReplaces;
 
 const AssignChampion = async (g: DataProps): Promise<void> => {
     let k = g.activePlayer.summonerName
@@ -37,6 +40,7 @@ const Calculate = async (): Promise<DataProps> => {
     await AssignChampion(g);
     LoadItems();
     LoadRunes();
+    LoadReplaces();
 
     let all = allPlayers.map(p => ({ name: p.summonerName, team: p.team }));
 
@@ -76,18 +80,14 @@ const Calculate = async (): Promise<DataProps> => {
             let ablt = activePlayer.abilities;
 
             player.damage = {
-                abilities: {
-                    P: Abilities("P", stats, activePlayer.level),
-                    Q: Abilities("Q", stats, ablt.Q.abilityLevel),
-                    W: Abilities("W", stats, ablt.Q.abilityLevel),
-                    E: Abilities("E", stats, ablt.E.abilityLevel),
-                    R: Abilities("R", stats, ablt.R.abilityLevel),
-                    A: Abilities("A", stats),
-                    C: Abilities("C", stats)
-                },
+                abilities: Abilities(stats, ablt),
                 items: Items(activePlayer.relevant.items, stats),
                 runes: Runes(activePlayer.relevant.runes, stats),
-                spell: Spell(activePlayer.relevant.spell, activePlayer.level)
+                spell: Spell(activePlayer.relevant.spell, activePlayer.level),
+                tool: {
+                    A: Tool(activePlayer, player, stats, "3087"),
+                    B: Tool(activePlayer, player, stats, "4645")
+                }
             }
         }
     }
@@ -168,33 +168,25 @@ const Evaluate = (x: string | null | undefined, y: string | null | undefined, z:
     return [n, m];
 }
 
-const Abilities = (a: "P" | "Q" | "W" | "E" | "R" | "A" | "C", stats: AllStatsProps, b: number = 1): Damage => {
-    const fail: Damage = { min: 0, max: 0, type: "unknown", area: false }
+const Abilities = (stats: AllStatsProps, b: DefAbilities): Record<string, Damage> => {
+    let res: Record<string, Damage> = {}
 
-    if (!_Champion || b == 0) { return fail; }
+    if (!_Champion) { return res; }
 
     let p = stats.activePlayer;
     let x = _Champion[p.id];
 
-    let y = x[a];
-
-    if (!y) { return fail };
-
-    let min = y.min?.[b ? b - 1 : 0];
-    let max = y.max ? y.max[b ? b - 1 : 0] : null;
+    let aa = p.championStats.attackDamage * p.multiplier.physical;
 
     const atk: Record<string, () => [number, null]> = {
-        A: () => [p.championStats.attackDamage * p.multiplier.physical, null],
-        C: () => [p.championStats.attackDamage * p.multiplier.physical * p.championStats.critDamage, null]
+        A: () => [aa, null],
+        C: () => [aa * p.championStats.critDamage / 100, null]
     }
 
-    let ty = y?.type;
-    let ar = y?.area;
-
-    let [n, m] = !min && ["A", "C"].includes(a) ? atk[a]() : Evaluate(min, max, stats);
-
-    let gn = stats.activePlayer.multiplier.general;
+    let gn = p.multiplier.general;
     let pm = stats.player.multiplier;
+
+    let d = Object.keys(x);
 
     const typ: Record<string, (n: number, m: number | null) => void> = {
         physical: (n, m) => {
@@ -213,14 +205,52 @@ const Abilities = (a: "P" | "Q" | "W" | "E" | "R" | "A" | "C", stats: AllStatsPr
         }
     }
 
-    if (ty) { typ[ty](n, m) }
+    for (let i of d) {
+        let r = i.charAt(0) as keyof typeof b;
+        let y = x?.[r];
+        let l: number = r == "Passive" ? stats.activePlayer.level : b[r].abilityLevel || 0;
 
-    return {
-        min: n,
-        max: m,
-        type: ty,
-        area: ar
-    } as Damage;
+        let ty = y?.type;
+        let ar = y?.area;
+
+        if (y && l > 0) {
+            let min = y.min?.[l - 1];
+            let max = y.max?.[l - 1];
+
+            let [n, m] = Evaluate(min, max, stats);
+
+            if (ty) { typ[ty](n, m) }
+
+            res[i] = {
+                min: n,
+                max: m,
+                type: ty,
+                area: ar
+            } as Damage;
+        }
+        else if (l == 0) {
+            res[i] = {
+                min: 0,
+                max: 0,
+                type: ty,
+                area: ar
+            }
+        }
+    }
+
+    for (let t of ["A", "C"]) {
+        if (!res[t]) {
+            let [n, m] = atk[t]();
+            typ.physical(n, m);
+            res[t] = {
+                min: n,
+                type: "physical",
+                area: false
+            }
+        }
+    }
+
+    return res;
 };
 
 const Replacements = (stats: AllStatsProps): ReplacementsProps => {
@@ -486,7 +516,14 @@ const FilterItems = (player: Player): Array<string> => {
 const LoadItems = (): void => {
     if (_Items) { return }
     else {
-        _Items = JSON.parse(readFileSync(`${process.cwd()}/effects/items.json`, "utf-8")) as LocalItems
+        _Items = JSON.parse(readFileSync(`${process.cwd()}/effects/items.json`, "utf-8")) as LocalItems;
+    }
+}
+
+const LoadReplaces = (): void => {
+    if (_Replaces) { return }
+    else {
+        _Replaces = JSON.parse(readFileSync(`${process.cwd()}/effects/replacements.json`, "utf-8")) as KeyReplaces;
     }
 }
 
@@ -541,9 +578,7 @@ const Dragon = (event: GameEvents, all: { name: string, team: string }[], team: 
     }
 }
 
-const StatFormula = (a: number, b: number, c: number) => {
-    return Math.round(a + b * (c - 1) * (0.7025 + 0.0175 * (c - 1)));
-}
+const StatFormula = (a: number, b: number, c: number) => a + b * (c - 1) * (0.7025 + 0.0175 * (c - 1));
 
 const BaseStats = (b: Stats, c: number): CoreStats => {
     return {
@@ -567,7 +602,87 @@ const BonusStats = (b: CoreStats, c: ChampionStats | CoreStats): CoreStats => {
     };
 };
 
+const EvaluateItemStats = async (item: string): Promise<EvalItemStats | void> => {
+    if (!_Replaces) { return };
+    let k = _Replaces.percentages;
+    let r = _Replaces.keys;
+    let e = _Replaces.extras;
+    let u = ["attention", "buffedStat", "nerfedStat", "ornnBonus"];
+    let x = await ItemAPI(item) as TargetItem;
+    let y = x.description;
+
+    let res: any = {};
+
+    let a: RegExp = /<(attention|buffedStat|nerfedStat|ornnBonus)>(.*?)<\/(attention|buffedStat|nerfedStat|ornnBonus)>/g
+    let b: RegExp = /(.*?)<br>/g;
+    let c: RegExp = /^\s*\d+\s*%?\s*/;
+    let d: RegExp = /<\/?[^>]+(>|$)/g;
+
+    let m: RegExpExecArray | null;
+    let n: any;
+
+    while ((m = a.exec(y))) {
+        let t = m[1];
+        let v = m[2].replace("%", "");
+        if (!n) {
+            let nm = b.exec(m.input);
+            if (nm) { n = nm[1].replace(d, "").trim(); };
+        }
+        if (u.includes(t)) {
+            let j = n?.replace(c, "");
+            if (k.some(k => n.includes(k)) && m[2].includes("%")) {
+                if (j?.length) {
+                    res[j] = parseFloat(v) / 100; // Change to "%" or Float, Default to Float;
+                }
+            }
+            else {
+                if (j?.length) { res[j] = parseFloat(v); }
+            }
+        }
+        n = undefined;
+    }
+
+    if (e[item]) {
+        for (let [p, q] of Object.entries(e)) {
+            res[p] += q;
+        }
+    }
+
+    for (let [f, g] of Object.entries(res)) {
+        if (r[f]) { res[r[f]] = g };
+        delete res[f];
+    }
+
+    return {
+        [item]: {
+            name: x.name,
+            stats: res,
+            stack: x.gold.total <= 1450,
+            from: x.from,
+            gold: x.gold
+        }
+    } as EvalItemStats;
+}
+
+const Tool = (a: ActivePlayer, p: Player, stats: AllStatsProps, key: string): ToolProps => {
+    let prev = Abilities(stats, a.abilities);
+
+    // let next = Abilities(stats, a.abilities);
+
+    return {
+        info: {
+            id: "",
+            name: "",
+            gold: 0,
+            value: 0
+        },
+        provide: {},
+        result: {}
+    } as ToolProps;
+}
+
 (async () => {
-    const data = await Calculate();
-    console.log(data);
+    EvaluateItemStats("4403");
+    // const data = await Calculate();
+    // console.log(data.allPlayers[0].damage);
 })();

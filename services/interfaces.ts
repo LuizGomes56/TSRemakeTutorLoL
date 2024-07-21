@@ -221,18 +221,8 @@ interface Ability {
     max: string[];
 }
 
-interface Abilities {
-    A?: Ability;
-    C?: Ability;
-    P?: Ability;
-    Q?: Ability;
-    W?: Ability;
-    E?: Ability;
-    R?: Ability;
-}
-
 export interface LocalChampion {
-    [key: string]: Abilities;
+    [key: string]: Record<string, Ability>;
 }
 
 interface DefAbility {
@@ -377,14 +367,16 @@ interface GameData {
     mapTerrain: string;
 }
 
+export interface DefAbilities {
+    E: DefAbility;
+    Passive: DefAbility;
+    Q: DefAbility;
+    R: DefAbility;
+    W: DefAbility;
+}
+
 export interface ActivePlayer {
-    abilities: {
-        E: DefAbility;
-        Passive: DefAbility;
-        Q: DefAbility;
-        R: DefAbility;
-        W: DefAbility;
-    };
+    abilities: DefAbilities;
     championStats: ChampionStats;
     currentGold: number;
     fullRunes: FullRunes;
@@ -413,12 +405,24 @@ interface Item {
     name: string;
     description: string;
     colloq: string;
-    into: string[];
+    into?: string[];
     image: Image;
+    group?: string;
     gold: Gold;
     tags: string[];
     maps: Record<string, boolean>;
     stats: ItemStats;
+    hideFromAll?: boolean;
+    inStore?: boolean;
+    consumed?: boolean;
+    stacks?: boolean;
+    plaintext?: string;
+    requiredAlly?: string;
+    requiredChampion?: string;
+    specialRecipe?: number;
+    consumeOnFull?: boolean;
+    from?: string[];
+    effect?: Record<string, string>;
 }
 
 export interface TargetItem {
@@ -427,6 +431,7 @@ export interface TargetItem {
     gold: Gold;
     maps: Record<string, boolean>;
     stats: ItemStats;
+    from?: string[];
 }
 
 interface ItemStats {
@@ -588,16 +593,6 @@ export interface Damage {
     onhit?: boolean;
 }
 
-interface AbilityDamage {
-    A: Damage;
-    C: Damage;
-    Q: Damage;
-    W: Damage;
-    E: Damage;
-    R: Damage;
-    P: Damage;
-}
-
 interface Info {
     id: string;
     name: string;
@@ -605,16 +600,10 @@ interface Info {
     value: number;
 }
 
-type ToolDamage = AbilityDamage & {
-    I: Damage;
-    T: Record<string, Damage>;
-    K: Record<string, Damage>;
-};
-
-export interface Tool {
+export interface ToolProps {
     info: Info;
-    provide: ToolDamage;
-    result: ToolDamage;
+    provide: Record<string, Damage>;
+    result: Record<string, Damage>;
 }
 
 export interface AbilityFilter {
@@ -646,13 +635,13 @@ export interface ExtendsPlayer {
     baseStats: CoreStats;
     championStats: CoreStats;
     damage: {
-        abilities: AbilityDamage;
+        abilities: Record<string, Damage>;
         items: Record<string, Damage> | {};
         runes: Record<string, Damage> | {};
         spell: Record<string, Damage> | {};
         tool?: {
-            A: Tool;
-            B: Tool;
+            A: ToolProps;
+            B: ToolProps;
         };
     };
 }
@@ -691,4 +680,20 @@ export interface ChampionIDs {
         zh_MY: string;
         zh_TW: string;
     };
+}
+
+export interface KeyReplaces {
+    percentages: string[];
+    keys: Record<string, string>;
+    extras: Record<string, Record<string, number>>;
+}
+
+export interface EvalItemStats {
+    [key: string]: {
+        name: string;
+        stats: Record<string, number>;
+        stack: boolean;
+        from: string[];
+        gold: Gold;
+    }
 }

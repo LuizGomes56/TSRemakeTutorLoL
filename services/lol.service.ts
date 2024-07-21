@@ -68,7 +68,8 @@ export const ItemAPI = async (itemName: string): Promise<TargetItem | void> => {
             description: y.description,
             stats: y.stats,
             gold: y.gold,
-            maps: y.maps
+            maps: y.maps,
+            from: y.from
         }
     }
 }

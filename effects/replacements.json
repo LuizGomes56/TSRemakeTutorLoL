@@ -1,0 +1,56 @@
+{
+    "percentages": [
+        "Penetration",
+        "Move Speed",
+        "Attack Speed",
+        "Life Steal",
+        "Omnivamp",
+        "Heal and Shield Power",
+        "Base Mana Regen",
+        "Critical Strike Damage",
+        "Base Health Regen"
+    ],
+    "keys": {
+        "Armor Penetration": "armorPenetrationPercent",
+        "Lethality": "armorPenetrationFlat",
+        "Magic Penetration": "magicPenetrationPercent",
+        "Critical Strike Chance": "critChance",
+        "Critical Strike Damage": "critDamage",
+        "Attack Speed": "attackSpeed",
+        "Health": "maxHealth",
+        "Armor": "armor",
+        "Magic Resist": "magicResist",
+        "Attack Damage": "attackDamage",
+        "Mana": "resourceMax",
+        "Ability Power": "abilityPower"
+    },
+    "extras": {
+        "3071": {
+            "Armor Penetration": 0.3
+        },
+        "228005": {
+            "Armor Penetration": 0.3
+        },
+        "7037": {
+            "Armor Penetration": 0.3
+        },
+        "4010": {
+            "Magic Penetration": 0.3
+        },
+        "8020": {
+            "Magic Penetration": 0.2
+        },
+        "3134": {
+            "Lethality": 10
+        },
+        "3302": {
+            "Armor Penetration": 0.3,
+            "Magic Penetration": 0.3,
+            "Armor": 15,
+            "Magic Resist": 15
+        },
+        "6694": {
+            "Armor Penetration": 0.2
+        }
+    }
+}
