@@ -26,31 +26,31 @@
     },
     "extras": {
         "3071": {
-            "Armor Penetration": 0.3
+            "armorPenetrationPercent": -0.3
         },
         "228005": {
-            "Armor Penetration": 0.3
+            "armorPenetrationPercent": -0.3
         },
         "7037": {
-            "Armor Penetration": 0.3
+            "armorPenetrationPercent": -0.3
         },
         "4010": {
-            "Magic Penetration": 0.3
+            "magicPenetrationPercent": -0.3
         },
         "8020": {
-            "Magic Penetration": 0.2
+            "magicPenetrationPercent": -0.2
         },
         "3134": {
-            "Lethality": 10
+            "armorPenetrationFlat": 10
         },
         "3302": {
-            "Armor Penetration": 0.3,
-            "Magic Penetration": 0.3,
-            "Armor": 15,
-            "Magic Resist": 15
+            "armorPenetrationPercent": -0.3,
+            "magicPenetrationPercent": -0.3,
+            "armor": 15,
+            "magicResist": 15
         },
         "6694": {
-            "Armor Penetration": 0.2
+            "armorPenetrationPercent": -0.2
         }
     }
 }

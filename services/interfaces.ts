@@ -13,6 +13,18 @@ interface Multiplier {
     general: number;
 }
 
+export type AllPropsCS = CoreStats & {
+    currentHealth: number;
+    attackSpeed: number;
+    attackRange: number;
+    critChance: number;
+    critDamage: number;
+    physicalLethality: number;
+    armorPenetrationPercent: number;
+    magicPenetrationPercent: number;
+    magicPenetrationFlat: number;
+}
+
 export interface AllStatsProps {
     activePlayer: {
         id: string;
@@ -23,17 +35,7 @@ export interface AllStatsProps {
             type: "physical" | "magic";
             ratio: number;
         }
-        championStats: CoreStats & {
-            currentHealth: number;
-            attackSpeed: number;
-            attackRange: number;
-            critChance: number;
-            critDamage: number;
-            armorPenetrationFlat: number;
-            armorPenetrationPercent: number;
-            magicPenetrationPercent: number;
-            magicPenetrationFlat: number;
-        }
+        championStats: AllPropsCS;
         baseStats: CoreStats;
         bonusStats: CoreStats;
     }
@@ -593,17 +595,23 @@ export interface Damage {
     onhit?: boolean;
 }
 
-interface Info {
+export interface Info {
     id: string;
     name: string;
     gold: number;
     value: number;
 }
 
+interface ToolCalc {
+    abilities: Record<string, Damage> | {};
+    items: Record<string, Damage> | {};
+    runes: Record<string, Damage> | {};
+}
+
 export interface ToolProps {
     info: Info;
-    provide: Record<string, Damage>;
-    result: Record<string, Damage>;
+    provide?: ToolCalc;
+    result?: ToolCalc;
 }
 
 export interface AbilityFilter {
@@ -628,7 +636,7 @@ interface ExtendsActivePlayer {
     };
 }
 
-export interface ExtendsPlayer {
+interface ExtendsPlayer {
     champion: TargetChampion;
     dragon: DragonProps;
     bonusStats: CoreStats;
@@ -639,16 +647,19 @@ export interface ExtendsPlayer {
         items: Record<string, Damage> | {};
         runes: Record<string, Damage> | {};
         spell: Record<string, Damage> | {};
-        tool?: {
+        tool: {
             A: ToolProps;
             B: ToolProps;
         };
     };
 }
 
+export type Acp = ActivePlayer & ExtendsActivePlayer;
+export type Ply = Player & ExtendsPlayer;
+
 export interface DataProps extends GameProps {
-    activePlayer: ActivePlayer & ExtendsActivePlayer;
-    allPlayers: Array<Player & ExtendsPlayer>;
+    activePlayer: Acp;
+    allPlayers: Array<Ply>;
 }
 
 export interface ChampionIDs {
@@ -689,11 +700,9 @@ export interface KeyReplaces {
 }
 
 export interface EvalItemStats {
-    [key: string]: {
-        name: string;
-        stats: Record<string, number>;
-        stack: boolean;
-        from: string[];
-        gold: Gold;
-    }
+    name: string;
+    stats: AllPropsCS;
+    stack: boolean;
+    from: string[];
+    gold: Gold;
 }

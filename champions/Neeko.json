@@ -1,56 +1,78 @@
 {
-  "Neeko": {
-    "Q": {
-      "type": "magic",
-      "area": true,
-      "min": [
-        "(80 + 0.5 * currentAP) * magicMod",
-        "(125 + 0.5 * currentAP) * magicMod",
-        "(170 + 0.5 * currentAP) * magicMod",
-        "(215 + 0.5 * currentAP) * magicMod",
-        "(260 + 0.5 * currentAP) * magicMod"
-      ],
-      "max": [
-        "(150 + currentAP) * magicMod",
-        "(245 + currentAP) * magicMod",
-        "(340 + currentAP) * magicMod",
-        "(435 + currentAP) * magicMod",
-        "(530 + currentAP) * magicMod"
-      ]
-    },
-    "W": {
-      "type": "magic",
-      "area": false,
-      "min": [
-        "(40 + 0.6 * currentAP) * magicMod",
-        "(75 + 0.6 * currentAP) * magicMod",
-        "(110 + 0.6 * currentAP) * magicMod",
-        "(145 + 0.6 * currentAP) * magicMod",
-        "(180 + 0.6 * currentAP) * magicMod"
-      ],
-      "max": []
-    },
-    "E": {
-      "type": "magic",
-      "area": true,
-      "min": [
-        "(70 + 0.65 * currentAP) * magicMod",
-        "(105 + 0.65 * currentAP) * magicMod",
-        "(140 + 0.65 * currentAP) * magicMod",
-        "(175 + 0.65 * currentAP) * magicMod",
-        "(210 + 0.65 * currentAP) * magicMod"
-      ],
-      "max": []
-    },
-    "R": {
-      "type": "magic",
-      "area": true,
-      "min": [
-        "(150 + 1.2 * currentAP) * magicMod",
-        "(350 + 1.2 * currentAP) * magicMod",
-        "(550 + 1.2 * currentAP) * magicMod"
-      ],
-      "max": []
-    }
-  }
+	"Neeko": {
+		"Q": {
+			"type": "magic",
+			"area": true,
+			"min": [
+				"(80 + 0.5 * currentAP) * magicMod",
+				"(125 + 0.5 * currentAP) * magicMod",
+				"(170 + 0.5 * currentAP) * magicMod",
+				"(215 + 0.5 * currentAP) * magicMod",
+				"(260 + 0.5 * currentAP) * magicMod"
+			],
+			"max": [
+				"(150 + currentAP) * magicMod",
+				"(245 + currentAP) * magicMod",
+				"(340 + currentAP) * magicMod",
+				"(435 + currentAP) * magicMod",
+				"(530 + currentAP) * magicMod"
+			]
+		},
+		"Q1": {
+			"type": "magic",
+			"area": true,
+			"min": [
+				"(80 + 0.5 * currentAP) * magicMod",
+				"(125 + 0.5 * currentAP) * magicMod",
+				"(170 + 0.5 * currentAP) * magicMod",
+				"(215 + 0.5 * currentAP) * magicMod",
+				"(260 + 0.5 * currentAP) * magicMod"
+			]
+		},
+		"Q2": {
+			"type": "magic",
+			"area": true,
+			"min": [
+				"(35 + 0.25 * currentAP) * magicMod",
+				"(60 + 0.25 * currentAP) * magicMod",
+				"(85 + 0.25 * currentAP) * magicMod",
+				"(110 + 0.25 * currentAP) * magicMod",
+				"(135 + 0.25 * currentAP) * magicMod"
+			]
+		},
+		"W": {
+			"type": "magic",
+			"area": false,
+			"min": [
+				"(40 + 0.6 * currentAP) * magicMod",
+				"(75 + 0.6 * currentAP) * magicMod",
+				"(110 + 0.6 * currentAP) * magicMod",
+				"(145 + 0.6 * currentAP) * magicMod",
+				"(180 + 0.6 * currentAP) * magicMod"
+			],
+			"max": []
+		},
+		"E": {
+			"type": "magic",
+			"area": true,
+			"min": [
+				"(70 + 0.65 * currentAP) * magicMod",
+				"(105 + 0.65 * currentAP) * magicMod",
+				"(140 + 0.65 * currentAP) * magicMod",
+				"(175 + 0.65 * currentAP) * magicMod",
+				"(210 + 0.65 * currentAP) * magicMod"
+			],
+			"max": []
+		},
+		"R": {
+			"type": "magic",
+			"area": true,
+			"min": [
+				"(150 + 1.2 * currentAP) * magicMod",
+				"(350 + 1.2 * currentAP) * magicMod",
+				"(550 + 1.2 * currentAP) * magicMod"
+			],
+			"max": []
+		}
+	}
 }

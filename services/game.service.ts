@@ -1,13 +1,15 @@
 import { readFileSync } from "fs";
 import { ChampionAPI, ItemAPI } from "./lol.service";
 import {
-    AbilityFilter, ActivePlayer, AllStatsProps, ChampionStats,
-    CoreStats, Damage, DataProps, DefAbilities, DragonProps, EvalItemStats, Event, ExtendsPlayer,
-    GameEvents, KeyReplaces, LocalChampion, LocalItems, LocalRunes, Player,
+    AbilityFilter, Acp, ActivePlayer, AllPropsCS, AllStatsProps, ChampionStats,
+    CoreStats, Damage, DataProps, DefAbilities, DragonProps, EvalItemStats, Event,
+    GameEvents, Info, KeyReplaces, LocalChampion, LocalItems, LocalRunes, Player, Ply,
     ReplacementsProps, Stats, SummonerSpells, TargetChampion, TargetItem,
     ToolProps
 } from "./interfaces";
+import { ToolKeyDependent, ToolKeyless } from "./consts";
 
+const Effects: string = `${process.cwd()}/effects`;
 
 var _Champion: undefined | LocalChampion;
 var _Items: undefined | LocalItems;
@@ -35,7 +37,7 @@ const Calculate = async (): Promise<DataProps> => {
     let activePlayer = g.activePlayer;
     let allPlayers = g.allPlayers;
     let events = g.events;
-    let gameData = g.gameData;
+    let map = g.gameData.mapNumber;
 
     await AssignChampion(g);
     LoadItems();
@@ -63,7 +65,7 @@ const Calculate = async (): Promise<DataProps> => {
             activePlayer.relevant = {
                 abilities: FilterAbilities(id) || { min: [], max: [] },
                 items: FilterItems(player),
-                runes: FilterRunes(activePlayer),
+                runes: map != 30 ? FilterRunes(activePlayer) : [],
                 spell: FilterSpell(player.summonerSpells)
             };
             break;
@@ -77,19 +79,22 @@ const Calculate = async (): Promise<DataProps> => {
             player.bonusStats = BonusStats(player.baseStats, player.championStats);
 
             let stats = AllStats(player, activePlayer);
+
             let ablt = activePlayer.abilities;
+            let relv = activePlayer.relevant;
 
             player.damage = {
                 abilities: Abilities(stats, ablt),
-                items: Items(activePlayer.relevant.items, stats),
-                runes: Runes(activePlayer.relevant.runes, stats),
-                spell: Spell(activePlayer.relevant.spell, activePlayer.level),
+                items: Items(relv.items, stats),
+                runes: map != 30 ? Runes(relv.runes, stats) : {},
+                spell: Spell(relv.spell, activePlayer.level),
                 tool: {
-                    A: Tool(activePlayer, player, stats, "3087"),
-                    B: Tool(activePlayer, player, stats, "4645")
+                    A: await Tool(activePlayer, player, stats, "3115"),
+                    B: await Tool(activePlayer, player, stats, "4645")
                 }
             }
         }
+        break;
     }
     return g as DataProps;
 }
@@ -105,7 +110,13 @@ const Spell = (s: string[], lvl: number): Record<string, Damage> => {
             }
         }
     }
-    s.forEach(spell => { if (cases.hasOwnProperty(spell)) { j[spell] = cases[spell](); } });
+    s.forEach(d => {
+        let match = d.match(/SummonerSpell_(\w+)_Description/);
+        if (match) {
+            let t = match[1];
+            if (cases.hasOwnProperty(t)) { j[t] = cases[t](); }
+        }
+    });
     return j;
 }
 
@@ -207,7 +218,7 @@ const Abilities = (stats: AllStatsProps, b: DefAbilities): Record<string, Damage
 
     for (let i of d) {
         let r = i.charAt(0) as keyof typeof b;
-        let y = x?.[r];
+        let y = x?.[i];
         let l: number = r == "Passive" ? stats.activePlayer.level : b[r].abilityLevel || 0;
 
         let ty = y?.type;
@@ -271,7 +282,7 @@ const Replacements = (stats: AllStatsProps): ReplacementsProps => {
         level: x.level,
         currentAP: k.abilityPower,
         currentAD: k.attackDamage,
-        currentLethality: k.armorPenetrationFlat,
+        currentLethality: k.physicalLethality,
         maxHP: k.maxHealth,
         maxMana: k.resourceMax || 0,
         currentMR: k.magicResist,
@@ -300,7 +311,7 @@ const Replacements = (stats: AllStatsProps): ReplacementsProps => {
     }
 }
 
-const AllStats = (player: Player & ExtendsPlayer, activePlayer: DataProps["activePlayer"]): AllStatsProps => {
+const AllStats = (player: Ply, activePlayer: Acp): AllStatsProps => {
     let acs = activePlayer.championStats;
     let abs = activePlayer.bonusStats;
     let abt = activePlayer.baseStats;
@@ -336,7 +347,7 @@ const AllStats = (player: Player & ExtendsPlayer, activePlayer: DataProps["activ
 
     if (chspec[player.champion.id]) { chspec[player.champion.id]() }
 
-    let rar = Math.max(0, pcs.armor * acs.armorPenetrationPercent - acs.armorPenetrationFlat);
+    let rar = Math.max(0, pcs.armor * acs.armorPenetrationPercent - acs.physicalLethality);
     let rmr = Math.max(0, pcs.magicResist * acs.magicPenetrationPercent - acs.magicPenetrationFlat);
 
     let physical = 100 / (100 + rar);
@@ -392,7 +403,7 @@ const AllStats = (player: Player & ExtendsPlayer, activePlayer: DataProps["activ
                 attackRange: acs.attackRange,
                 critChance: acs.critChance,
                 critDamage: acs.critDamage,
-                armorPenetrationFlat: acs.armorPenetrationFlat,
+                physicalLethality: acs.physicalLethality,
                 armorPenetrationPercent: acs.armorPenetrationPercent,
                 magicPenetrationPercent: acs.magicPenetrationPercent,
                 magicPenetrationFlat: acs.magicPenetrationFlat
@@ -485,7 +496,7 @@ const PlayerStats = async (a: CoreStats, b: string[]): Promise<CoreStats> => {
 const LoadRunes = (): void => {
     if (_Runes) { return }
     else {
-        _Runes = JSON.parse(readFileSync(`${process.cwd()}/effects/runes.json`, "utf-8")) as LocalRunes;
+        _Runes = JSON.parse(readFileSync(`${Effects}/runes.json`, "utf-8")) as LocalRunes;
     }
 }
 
@@ -516,14 +527,14 @@ const FilterItems = (player: Player): Array<string> => {
 const LoadItems = (): void => {
     if (_Items) { return }
     else {
-        _Items = JSON.parse(readFileSync(`${process.cwd()}/effects/items.json`, "utf-8")) as LocalItems;
+        _Items = JSON.parse(readFileSync(`${Effects}/items.json`, "utf-8")) as LocalItems;
     }
 }
 
 const LoadReplaces = (): void => {
     if (_Replaces) { return }
     else {
-        _Replaces = JSON.parse(readFileSync(`${process.cwd()}/effects/replacements.json`, "utf-8")) as KeyReplaces;
+        _Replaces = JSON.parse(readFileSync(`${Effects}/replacements.json`, "utf-8")) as KeyReplaces;
     }
 }
 
@@ -630,22 +641,15 @@ const EvaluateItemStats = async (item: string): Promise<EvalItemStats | void> =>
         }
         if (u.includes(t)) {
             let j = n?.replace(c, "");
-            if (k.some(k => n.includes(k)) && m[2].includes("%")) {
-                if (j?.length) {
-                    res[j] = parseFloat(v) / 100; // Change to "%" or Float, Default to Float;
+            if (j?.length) {
+                if (k.some(k => n.includes(k)) && m[2].includes("%")) {
+                    let h = parseFloat(v) / 100;
+                    res[j] = j.includes("Penetration") ? -h : h;
                 }
-            }
-            else {
-                if (j?.length) { res[j] = parseFloat(v); }
+                else { res[j] = parseFloat(v) };
             }
         }
         n = undefined;
-    }
-
-    if (e[item]) {
-        for (let [p, q] of Object.entries(e)) {
-            res[p] += q;
-        }
     }
 
     for (let [f, g] of Object.entries(res)) {
@@ -653,36 +657,92 @@ const EvaluateItemStats = async (item: string): Promise<EvalItemStats | void> =>
         delete res[f];
     }
 
-    return {
-        [item]: {
-            name: x.name,
-            stats: res,
-            stack: x.gold.total <= 1450,
-            from: x.from,
-            gold: x.gold
+    if (e[item]) {
+        for (let [p, q] of Object.entries(e[item])) {
+            res[p] = res[p] ? res[p] += q : q;
         }
+    }
+
+    return {
+        name: x.name,
+        stats: res,
+        stack: x.gold.total <= 1450,
+        from: x.from,
+        gold: x.gold
     } as EvalItemStats;
 }
 
-const Tool = (a: ActivePlayer, p: Player, stats: AllStatsProps, key: string): ToolProps => {
-    let prev = Abilities(stats, a.abilities);
+const Tool = async (a: Acp, p: Ply, stats: AllStatsProps, key: string): Promise<ToolProps> => {
+    let b = a.relevant;
+    let c = a.abilities;
+    let t = await EvaluateItemStats(key) as EvalItemStats;
+    let i: Info = {
+        id: key,
+        name: t.name,
+        gold: t.gold.total,
+        value: 0
+    }
 
-    // let next = Abilities(stats, a.abilities);
+    if (a.items.includes(key) && !t.stack) { return { info: i }; };
+
+    let prev = {
+        abilities: Abilities(stats, c),
+        items: Items(b.items, stats),
+        runes: Runes(b.runes, stats)
+    };
+
+    let s = structuredClone(a);
+
+    if (t) {
+        if (ToolKeyless[key]) { ToolKeyless[key](s); }
+        for (let [k, v] of Object.entries(t.stats)) {
+            let d = k as keyof AllPropsCS;
+            if (ToolKeyDependent[key]) { ToolKeyDependent[key](d, v, s.championStats[d]) }
+            // Later include correct calculation from when that's already a value for penetration %
+            else { s.championStats[d] += v; };
+        }
+    }
+
+    let r = AllStats(p, s);
+
+    let next = {
+        abilities: Abilities(r, c),
+        items: Items(b.items.concat(key), r),
+        runes: Runes(b.runes, r)
+    }
+
+    const Delta = (n: Damage, p: Damage): Damage => ({
+        min: n.min - p.min,
+        max: n.max && p.max ? n.max - p.max : n.max,
+        type: n.type,
+        name: n.name,
+        area: n.area,
+        onhit: n.onhit
+    });
+
+    const Diff = (n: Record<string, Damage>, p: Record<string, Damage>): Record<string, Damage> => {
+        let r: Record<string, Damage> = {};
+        for (let k in n) {
+            if (p[k]) { r[k] = Delta(n[k], p[k]); }
+            else { r[k] = n[k]; }
+        }
+        return r;
+    }
+
+    let increase = {
+        abilities: Diff(next.abilities, prev.abilities),
+        items: Diff(next.items, prev.items),
+        runes: Diff(next.runes, prev.runes)
+    }
 
     return {
-        info: {
-            id: "",
-            name: "",
-            gold: 0,
-            value: 0
-        },
-        provide: {},
-        result: {}
+        info: i,
+        provide: increase,
+        result: next
     } as ToolProps;
 }
 
 (async () => {
-    EvaluateItemStats("4403");
-    // const data = await Calculate();
-    // console.log(data.allPlayers[0].damage);
+    const data = await Calculate();
+    // console.log(data.allPlayers[0].damage.tool.A);
 })();
