@@ -106,7 +106,7 @@ export const FetchRunes = async (req: Request, res: Response, next: NextFunction
 }
 
 export const FetchCache = async (req: Request, res: Response, next: NextFunction) => {
-    let end: string = "Updated all Cache Files";
-    await UpdateCache().then(() => console.log(end));
-    res.status(200).json({ success: true, message: end });
+    let x: string = "Updated all Cache Files";
+    await UpdateCache().then(() => console.log(x));
+    res.status(200).json({ success: true, message: x });
 }
