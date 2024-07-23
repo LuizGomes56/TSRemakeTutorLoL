@@ -16,7 +16,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 
 const sess: session.SessionOptions = {
-    secret: 'STEM',
+    secret: 'TutorLoL',
     resave: false,
     saveUninitialized: true,
     cookie: {}
@@ -24,9 +24,7 @@ const sess: session.SessionOptions = {
 
 if (app.get('env') === 'production') {
     app.set('trust proxy', 1);
-    if (sess.cookie) {
-        sess.cookie.secure = true;
-    }
+    if (sess.cookie) { sess.cookie.secure = true; }
 }
 app.use(session(sess));
 
@@ -34,10 +32,7 @@ app.use(express.static('public'));
 app.use(express.static('examples'));
 
 app.use((req: Request, res: Response, next: NextFunction) => {
-    if (req.path.startsWith('/api')) {
-        return next();
-    }
-
+    if (req.path.startsWith('/api')) { return next(); }
     res.status(404).sendFile(path.join(__dirname, 'public', 'error.html'));
 });
 

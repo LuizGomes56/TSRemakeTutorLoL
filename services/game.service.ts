@@ -31,9 +31,7 @@ const AssignChampion = async (g: DataProps): Promise<void> => {
     }
 };
 
-const Calculate = async (t: string, g?: DataProps, w: boolean = true): Promise<DataProps> => {
-    if (!g) { g = JSON.parse(readFileSync(`${process.cwd()}/services/exampledefault.json`, "utf-8")) as DataProps; };
-
+export const Calculate = async (t: string, g: DataProps, w: boolean = true): Promise<DataProps> => {
     let activePlayer = g.activePlayer;
     let allPlayers = g.allPlayers;
     let events = g.events;
@@ -853,7 +851,7 @@ const Tool = async (a: Acp, p: Ply, stats: AllStatsProps, key: string): Promise<
 }
 */
 
-(async () => {
-    const data = await Calculate("3135");
-    // console.log(data.allPlayers[0].damage.tool.A.provide?.abilities);
-})();
+// (async () => {
+//     let g = JSON.parse(readFileSync(`${process.cwd()}/services/exampledefault.json`, "utf-8")) as DataProps;
+//     const data = await Calculate("3135", g);
+// })();

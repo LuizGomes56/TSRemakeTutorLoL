@@ -178,6 +178,13 @@ export interface Champions {
     data: Record<string, Champion>;
 }
 
+interface Info {
+    attack: number,
+    defense: number,
+    magic: number,
+    difficulty: number
+}
+
 interface Champion {
     id: string;
     key: string;
@@ -191,12 +198,7 @@ interface Champion {
     enemytips: string[];
     tags: string[];
     partype: string;
-    info: {
-        attack: number,
-        defense: number,
-        magic: number,
-        difficulty: number
-    };
+    info: Info;
     stats: Stats;
     spells: Spell[];
     passive: Passive;
@@ -595,13 +597,6 @@ export interface Damage {
     onhit?: boolean;
 }
 
-export interface Info {
-    id: string;
-    name: string;
-    gold: number;
-    value: number;
-}
-
 export interface ToolCalc {
     abilities: Record<string, Damage>;
     items: Record<string, Damage> | {};
@@ -702,4 +697,25 @@ export interface EvalItemStats {
     stack: boolean;
     from: string[];
     gold: Gold;
+}
+
+export interface FullChampions {
+    type: string;
+    format: string;
+    version: string;
+    data: Record<string, FullChamp>;
+}
+
+interface FullChamp {
+    version: string;
+    id: string;
+    key: string;
+    name: string;
+    title: string;
+    blurb: string;
+    info: Info;
+    image: Image;
+    tags: string[];
+    partype: string;
+    stats: Stats;
 }

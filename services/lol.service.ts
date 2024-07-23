@@ -1,6 +1,6 @@
 import dotenv from "dotenv";
 import { readFileSync, writeFileSync } from "fs";
-import { ChampionIDs, Champions, Items, TargetChampion, TargetItem } from "./interfaces";
+import { ChampionIDs, Champions, FullChampions, Items, TargetChampion, TargetItem } from "./interfaces";
 
 dotenv.config()
 
@@ -10,7 +10,7 @@ const champIDs = JSON.parse(readFileSync(`${chacheDIR}/ids.json`, "utf-8")) as C
 
 const Delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
 
-const Cache = (x: string): Champions | Items => JSON.parse(readFileSync(`${chacheDIR}/${x}.json`, "utf-8"));
+const Cache = (x: string): Champions | Items | FullChampions => JSON.parse(readFileSync(`${chacheDIR}/${x}.json`, "utf-8"));
 
 export const UpdateCache = async () => {
     const s = new Date();
@@ -29,6 +29,11 @@ export const UpdateCache = async () => {
     if (h.version !== process.env.LOL_VERSION) {
         let y = await RiotAPI("item") as Items;
         if (y) { writeFileSync(`${chacheDIR}/item.json`, JSON.stringify(y), "utf-8"); }
+    }
+    let c = JSON.parse(readFileSync(`${chacheDIR}/champion.json`, "utf-8"));
+    if (c.version !== process.env.LOL_VERSION) {
+        let d = await RiotAPI("champion") as FullChampions;
+        if (d) { writeFileSync(`${chacheDIR}/champion.json`, JSON.stringify(d), "utf8"); }
     }
     const n = new Date();
     const t = (n.getTime() - s.getTime()) / 1000;
@@ -74,7 +79,17 @@ export const ItemAPI = async (itemName: string): Promise<TargetItem | void> => {
     }
 }
 
-const RiotAPI = async (file: string): Promise<any | void> => {
+export const AllChampions = async (): Promise<FullChampions> => {
+    let x = Cache("champion") as FullChampions || await RiotAPI("champion") as FullChampions;
+    return x;
+}
+
+export const AllItems = async (): Promise<Items> => {
+    let x = Cache("item") as Items || await RiotAPI("item") as Items;
+    return x;
+}
+
+export const RiotAPI = async (file: string): Promise<any | void> => {
     let url = `${riotCDN}/${file}.json`;
     try {
         let request = await fetch(url)
