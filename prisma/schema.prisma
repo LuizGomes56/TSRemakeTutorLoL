@@ -1,0 +1,58 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+model account {
+  account_id       String             @id(map: "pk_account") @db.VarChar(36)
+  email            String             @db.VarChar(200)
+  created_at       DateTime           @default(now()) @db.Timestamp(6)
+  profile          String?
+  account_summoner account_summoner[]
+}
+
+model account_summoner {
+  account_id    String   @db.VarChar(36)
+  summoner_name String   @db.VarChar(36)
+  created_at    DateTime @default(now()) @db.Timestamp(6)
+  account       account  @relation(fields: [account_id], references: [account_id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@id([account_id, summoner_name])
+}
+
+model game_data {
+  id            BigInt  @id @default(autoincrement())
+  game_id       String  @db.VarChar
+  game_time     Decimal @db.Decimal
+  game_data     String
+  summoner_name String? @db.VarChar(50)
+  champion_name String? @db.VarChar(50)
+  games         games   @relation(fields: [game_id], references: [game_id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@index([game_id, id, game_time], map: "in_game_id")
+}
+
+model games {
+  game_id       String      @id @db.VarChar(50)
+  summoner_name String?     @db.VarChar(50)
+  created_at    DateTime    @default(now()) @db.Timestamptz(6)
+  game_code     String?     @db.VarChar(6)
+  champion_name String?     @db.VarChar(50)
+  game_data     game_data[]
+}
+
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+model log {
+  log_id       Int      @id @default(autoincrement())
+  created_at   DateTime @default(now()) @db.Timestamp(6)
+  ip           String?  @db.VarChar(100)
+  event        String?  @db.VarChar(50)
+  access_token String?  @db.VarChar(200)
+  log_status   String?  @db.VarChar(1)
+  account_id   String?  @db.VarChar(36)
+}

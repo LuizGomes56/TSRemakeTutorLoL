@@ -602,16 +602,16 @@ export interface Info {
     value: number;
 }
 
-interface ToolCalc {
-    abilities: Record<string, Damage> | {};
+export interface ToolCalc {
+    abilities: Record<string, Damage>;
     items: Record<string, Damage> | {};
     runes: Record<string, Damage> | {};
+    spell: Record<string, Damage> | {};
 }
 
-export interface ToolProps {
-    info: Info;
-    provide?: ToolCalc;
-    result?: ToolCalc;
+interface ToolProps {
+    dif?: ToolCalc;
+    max: ToolCalc;
 }
 
 export interface AbilityFilter {
@@ -647,11 +647,8 @@ interface ExtendsPlayer {
         items: Record<string, Damage> | {};
         runes: Record<string, Damage> | {};
         spell: Record<string, Damage> | {};
-        tool: {
-            A: ToolProps;
-            B: ToolProps;
-        };
     };
+    tool?: ToolProps;
 }
 
 export type Acp = ActivePlayer & ExtendsActivePlayer;
@@ -696,7 +693,7 @@ export interface ChampionIDs {
 export interface KeyReplaces {
     percentages: string[];
     keys: Record<string, string>;
-    extras: Record<string, Record<string, number>>;
+    extras: Record<string, Record<keyof ChampionStats, number>>;
 }
 
 export interface EvalItemStats {

@@ -13,7 +13,6 @@
     "keys": {
         "Armor Penetration": "armorPenetrationPercent",
         "Lethality": "armorPenetrationFlat",
-        "Magic Penetration": "magicPenetrationPercent",
         "Critical Strike Chance": "critChance",
         "Critical Strike Damage": "critDamage",
         "Attack Speed": "attackSpeed",
