@@ -654,8 +654,9 @@ const FilterAbilities = (id: string): AbilityFilter | void => {
     let j: string[] = [];
     if (x) {
         for (let [k, v] of Object.entries(x)) { if (v.max?.length) { j.push(k) } };
+        let t = Object.keys(x);
         return {
-            min: Object.keys(x),
+            min: t.concat(["A", "C"]),
             max: j
         };
     }

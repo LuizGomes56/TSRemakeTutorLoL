@@ -73,7 +73,7 @@ export const FetchItems = async (req: Request, res: Response, next: NextFunction
         let c = await AllItems() as Items;
         for (let k in c?.data) {
             let url = `${riotCDN}/item/${k}.png`;
-            let f = `${imgDIR}/champion`;
+            let f = `${imgDIR}/item`;
             await download(url, f).then(() => console.log(end + k));
         }
         res.status(200).json({ success: true, message: msg });
