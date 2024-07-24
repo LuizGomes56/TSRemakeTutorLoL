@@ -22,8 +22,8 @@ export const FetchPassives = async (req: Request, res: Response, next: NextFunct
             }
             let x = t.passive.image.full;
             let url = `${riotCDN}/passive/${x}`;
-            let f = `${imgDIR}/passive`;
-            await download(url, f).then(() => console.log(end + x));
+            let f = `${imgDIR}/spell`;
+            await download(url, f, { filename: t.id + "P.png" }).then(() => console.log(end + x));
         }
         res.status(200).json({ success: true, message: msg });
     }
@@ -33,17 +33,21 @@ export const FetchPassives = async (req: Request, res: Response, next: NextFunct
 export const FetchSpells = async (req: Request, res: Response, next: NextFunction) => {
     try {
         let c = await AllChampions();
+        let i: number = 0;
+        let j = ["Q", "W", "E", "R"];
         for (let k in c?.data) {
             let t = await ChampionAPI(k);
             if (!t) {
                 res.status(403).json({ success: false });
                 return;
             }
-            for (const s of t.spells) {
-                const url = `${riotCDN}/spell/${s.id}.png`;
-                const f = `${imgDIR}/spell`;
-                await download(url, f).then(() => console.log(end + s.id));
+            for (let s of t.spells) {
+                let url = `${riotCDN}/spell/${s.id}.png`;
+                let f = `${imgDIR}/spell`;
+                await download(url, f, { filename: t.id + j[i] + ".png" }).then(() => console.log(end + s.id));
+                i++;
             }
+            i = 0;
         }
         res.status(200).json({ success: true, message: msg });
     }
@@ -93,6 +97,9 @@ export const FetchRunes = async (req: Request, res: Response, next: NextFunction
             if (r.slots.length > 0) {
                 for (let s of r.slots) {
                     for (let v of s.runes) {
+                        console.log(v.id);
+                        // let e = [8321, 8313, 8316, 9101, 9105];
+                        // if (!e.includes(parseInt(v.id))) {
                         let url = `${j}/${v.icon}`;
                         let f = `${imgDIR}/rune`;
                         await download(url, f, { filename: v.id + ".png" }).then(() => console.log(end + v.id));
