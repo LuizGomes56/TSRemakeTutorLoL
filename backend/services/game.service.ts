@@ -2,10 +2,9 @@ import { readFileSync } from "fs";
 import { ChampionAPI, ItemAPI } from "./lol.service";
 import {
     AbilityFilter, Acp, ActivePlayer, AllPropsCS, AllStatsProps, ChampionStats,
-    CoreStats, Damage, DataProps, DefAbilities, DragonProps, EvalItemStats, Event,
+    CoreStats, Damage, Damages, DataProps, DefAbilities, DragonProps, EvalItemStats, Event,
     GameEvents, KeyReplaces, LocalChampion, LocalItems, LocalRunes, Player, Ply,
-    ReplacementsProps, Stats, SummonerSpells, TargetChampion, TargetItem,
-    ToolCalc
+    ReplacementsProps, Stats, SummonerSpells, TargetChampion, TargetItem
 } from "./interfaces";
 import { ToolKeyDependent, ToolKeyless } from "./consts";
 
@@ -108,12 +107,11 @@ export const Calculate = async (t: string, g: DataProps, w: boolean = true): Pro
             };
             i++;
         }
-        break;
     }
     return g as DataProps;
 }
 
-const Tool = (h: ToolCalc, g: ToolCalc): { dif: ToolCalc, sum: number } => {
+const Tool = (h: Damages, g: Damages): { dif: Damages, sum: number } => {
     const Diff = (x: Damage, y: Damage): Damage => {
         return {
             min: x.min - y.min,
@@ -127,7 +125,7 @@ const Tool = (h: ToolCalc, g: ToolCalc): { dif: ToolCalc, sum: number } => {
 
     let sum: number = 0;
 
-    let res: ToolCalc = {
+    let res: Damages = {
         abilities: {},
         items: {},
         runes: {},
@@ -203,6 +201,16 @@ const Test = async (g: DataProps, t: string) => {
     return k;
 }
 
+const FilterSpell = (spell: SummonerSpells): string[] => {
+    const valid = ["SummonerDot"];
+    const m = (x: string) => x.match(/SummonerSpell_(\w+)_Description/);
+
+    return [spell.summonerSpellOne.rawDescription, spell.summonerSpellTwo.rawDescription]
+        .map(m)
+        .filter(match => match && valid.includes(match[1]))
+        .map(match => match![1]);
+};
+
 const Spell = (s: string[], lvl: number): Record<string, Damage> => {
     let j: Record<string, Damage> = {};
     const cases: Record<string, () => Damage> = {
@@ -214,13 +222,7 @@ const Spell = (s: string[], lvl: number): Record<string, Damage> => {
             }
         }
     }
-    s.forEach(d => {
-        let match = d.match(/SummonerSpell_(\w+)_Description/);
-        if (match) {
-            let t = match[1];
-            if (cases.hasOwnProperty(t)) { j[t] = cases[t](); }
-        }
-    });
+    s.forEach(d => { if (cases.hasOwnProperty(d)) { j[d] = cases[d](); } });
     return j;
 }
 
@@ -603,12 +605,6 @@ const LoadRunes = (): void => {
         _Runes = JSON.parse(readFileSync(`${Effects}/runes.json`, "utf-8")) as LocalRunes;
     }
 }
-
-const FilterSpell = (spell: SummonerSpells): string[] => {
-    let [one, two] = [spell.summonerSpellOne.rawDescription, spell.summonerSpellTwo.rawDescription];
-    let k = new Array<string>(one, two);
-    return k;
-};
 
 const FilterRunes = (activePlayer: ActivePlayer): Array<string> => {
     let runes = activePlayer.fullRunes.generalRunes.map(rune => rune.id.toString());

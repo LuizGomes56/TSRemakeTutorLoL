@@ -1,14 +1,8 @@
 import { useState, useEffect } from 'react';
 import { DataProps, RequestBody, Response } from './interfaces';
-
-const EndPoint: string = "http://localhost:3000";
-const Images = {
-    passive: (id: string) => `${EndPoint}/img/passive/${id}.png`,
-    spell: (id: string) => `${EndPoint}/img/spell/${id}.png`,
-    item: (id: string) => `${EndPoint}/img/item/${id}.png`,
-    rune: (id: string) => `${EndPoint}/img/rune/${id}.png`,
-    champion: (id: string) => `${EndPoint}/img/champion/${id}.png`
-}
+import Sources from './components/tables/sources';
+import { EndPoint } from './constants';
+import './realtime.css';
 
 const o: RequestBody = { code: "401085", item: "4645" };
 
@@ -36,27 +30,15 @@ export default function Page() {
 
     return (
         <>
-            <table>
-                <thead>
-                    <tr>
-                        {
-                            game ? game.activePlayer.relevant.abilities.min.map((a, i) => {
-                                let icon = ["A", "C"].includes(a.charAt(0));
-                                return (
-                                    <td className="relative flex justify-center items-center bg-black text-white p-4 text-xl" key={i}>
-                                        <img src={Images.spell(game.activePlayer.champion.spells[0].id)} alt="Spell" />
-                                        <span className="absolute font-medium text-xl">{`${a} and ${i}`}</span>
-                                    </td>
-                                )
-                            }) : "Loading..."
-                        }
-                    </tr>
-                </thead>
-                <tbody>
-
-                </tbody>
-            </table>
-            <div className="bg-slate-500">{game ? game.activePlayer.abilities.E.abilityLevel : "Operação Realizada"}</div>
+            {game ?
+                <Sources
+                    abilities={game.activePlayer.relevant.abilities}
+                    champion={game.activePlayer.champion}
+                    items={game.activePlayer.relevant.items}
+                    runes={game.activePlayer.relevant.runes}
+                    spells={game.activePlayer.relevant.spell}
+                    enemies={game.allPlayers.filter(p => p.team !== game.activePlayer.team)}
+                /> : "Loading..."}
         </>
     )
 }

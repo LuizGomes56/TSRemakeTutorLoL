@@ -1,0 +1,77 @@
+* {
+    font-family: "Roboto";
+}
+
+body {
+    background-color: #121212;
+}
+
+table {
+    color: white;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+table th,
+table td {
+    transition: 0.2s ease;
+    padding: 6px;
+}
+
+table thead tr {
+    background-color: #111111;
+}
+
+table tbody tr:nth-child(even) {
+    background-color: #242427;
+    border-bottom: 1px solid #525252;
+    border-top: 1px solid #525252;
+}
+
+table tbody tr:nth-child(odd) {
+
+    background-color: #1c1917;
+}
+
+table img {
+    height: 32px;
+    min-width: 32px;
+}
+
+table p {
+    text-wrap: nowrap;
+    filter: drop-shadow(0px 0px 1px black);
+    text-shadow: 0px 1.25px 0px black;
+}
+
+table span {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+table h2 {
+    position: absolute;
+    font-weight: bold;
+    filter: drop-shadow(1.25px 1.25px 0px black);
+    text-shadow: 0px 0px 4px black;
+}
+
+::-webkit-scrollbar {
+    height: 5px;
+    background-color: #313131;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #4e566b;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #2563eb;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #303030;
+}

@@ -597,16 +597,16 @@ export interface Damage {
     onhit?: boolean;
 }
 
-export interface ToolCalc {
-    abilities: Record<string, Damage>;
+export interface Damages {
+    abilities: Record<string, Damage> | {};
     items: Record<string, Damage> | {};
     runes: Record<string, Damage> | {};
     spell: Record<string, Damage> | {};
 }
 
 interface ToolProps {
-    dif?: ToolCalc;
-    max: ToolCalc;
+    dif?: Damages;
+    max: Damages;
     sum: number;
 }
 
@@ -638,12 +638,7 @@ interface ExtendsPlayer {
     bonusStats: CoreStats;
     baseStats: CoreStats;
     championStats: CoreStats;
-    damage: {
-        abilities: Record<string, Damage>;
-        items: Record<string, Damage> | {};
-        runes: Record<string, Damage> | {};
-        spell: Record<string, Damage> | {};
-    };
+    damage: Damages;
     tool?: ToolProps;
 }
 
