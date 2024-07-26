@@ -50,6 +50,12 @@ export const Calculate = async (t: string, g: DataProps, w: boolean = true): Pro
 
     await AssignChampion(g);
 
+    let q = await EvaluateItemStats(t);
+    let p = q ? q.stats.mod : undefined;
+    let m = q ? q.stats.raw : undefined;
+    let n = q ? q.name : undefined;
+    let r = q ? q.gold.total : undefined;
+
     let all = allPlayers.map(p => ({ name: p.summonerName, team: p.team }));
 
     for (let player of allPlayers) {
@@ -60,6 +66,13 @@ export const Calculate = async (t: string, g: DataProps, w: boolean = true): Pro
 
             activePlayer.championName = player.championName;
             activePlayer.skin = player.skinID;
+            activePlayer.tool = {
+                id: t,
+                name: n,
+                gold: r,
+                raw: m,
+                mod: p
+            }
 
             LoadChampion(id);
 
@@ -158,7 +171,7 @@ const AssignStats = async (key: string, s: Acp, a: string[]): Promise<void> => {
     let e = await EvaluateItemStats(key) as EvalItemStats;
     if (e) {
         if (ToolKeyless[key]) { ToolKeyless[key](s); }
-        for (let [k, v] of Object.entries(e.stats)) {
+        for (let [k, v] of Object.entries(e.stats.mod)) {
             let d = k as keyof AllPropsCS;
             if (ToolKeyDependent[key]) {
                 let fn = ToolKeyDependent[key];
@@ -722,6 +735,7 @@ const EvaluateItemStats = async (item: string): Promise<EvalItemStats | void> =>
     let y = x.description;
 
     let res: Record<string, any> = {};
+    let raw: Record<string, any> = {};
 
     let a: RegExp = /<(attention|buffedStat|nerfedStat|ornnBonus)>(.*?)<\/(attention|buffedStat|nerfedStat|ornnBonus)>/g
     let b: RegExp = /(.*?)<br>/g;
@@ -744,8 +758,12 @@ const EvaluateItemStats = async (item: string): Promise<EvalItemStats | void> =>
                 if (k.some(k => n.includes(k)) && m[2].includes("%")) {
                     let h = parseFloat(v) + "%";
                     res[j] = h;
+                    raw[j] = h;
                 }
-                else { res[j] = parseFloat(v) };
+                else {
+                    res[j] = parseFloat(v);
+                    raw[j] = parseFloat(v);
+                };
             }
         }
         n = undefined;
@@ -768,100 +786,12 @@ const EvaluateItemStats = async (item: string): Promise<EvalItemStats | void> =>
 
     return {
         name: x.name,
-        stats: res,
+        stats: {
+            raw: raw,
+            mod: res,
+        },
         stack: x.gold.total <= 1450,
         from: x.from,
         gold: x.gold
     } as EvalItemStats;
 }
-
-/*
-const Tool = async (a: Acp, p: Ply, stats: AllStatsProps, key: string): Promise<ToolProps> => {
-    let b = a.relevant;
-    let c = a.abilities;
-    let t = await EvaluateItemStats(key) as EvalItemStats;
-    let i: Info = {
-        id: key,
-        name: t.name,
-        gold: t.gold.total,
-        value: 0
-    }
-
-    if (a.items.includes(key) && !t.stack) { return { info: i }; };
-
-    let prev = {
-        abilities: Abilities(stats, c),
-        items: Items(b.items, stats),
-        runes: Runes(b.runes, stats)
-    };
-
-    let s = structuredClone(a);
-
-    if (t) {
-        if (ToolKeyless[key]) { ToolKeyless[key](s); }
-        for (let [k, v] of Object.entries(t.stats)) {
-            let d = k as keyof AllPropsCS;
-            if (ToolKeyDependent[key]) {
-                let fn = ToolKeyDependent[key];
-                if (key == "6694") { fn(d, (25 + 0.11 * (s.championStats.physicalLethality + 15)) / 100, s.championStats); }
-                else { fn(d, v, s.championStats); }
-            }
-            else {
-                if (d == "abilityPower") {
-                    let y = ["3089", "223089", "8002"];
-                    let x = a.items.filter(i => y.includes(i));
-                    let z = 1.35;
-                    if (x) { s.championStats[d] += z * v; }
-                    else if (!x && y.includes(key)) { s.championStats[d] = key == "8002" ? 1.5 : z * (s.championStats[d] + v); }
-                    else { s.championStats[d] += v; }
-                }
-                else { s.championStats[d] += v; }
-            };
-        }
-    }
-
-    let r = AllStats(p, s);
-
-    let next = {
-        abilities: Abilities(r, c),
-        items: Items(b.items.concat(key), r),
-        runes: Runes(b.runes, r)
-    }
-
-    const Delta = (n: Damage, p: Damage): Damage => ({
-        min: n.min - p.min,
-        max: n.max && p.max ? n.max - p.max : n.max,
-        type: n.type,
-        name: n.name,
-        area: n.area,
-        onhit: n.onhit
-    });
-
-    const Diff = (n: Record<string, Damage>, p: Record<string, Damage>): Record<string, Damage> => {
-        let r: Record<string, Damage> = {};
-        for (let k in n) {
-            if (p[k]) { r[k] = Delta(n[k], p[k]); }
-            else { r[k] = n[k]; }
-        }
-        return r;
-    }
-
-    let increase = {
-        abilities: Diff(next.abilities, prev.abilities),
-        items: Diff(next.items, prev.items),
-        runes: Diff(next.runes, prev.runes)
-    }
-
-    return {
-        info: i,
-        provide: increase,
-        result: next
-    } as ToolProps;
-}
-*/
-
-// (async () => {
-//     let g = JSON.parse(readFileSync(`${process.cwd()}/services/exampledefault.json`, "utf-8")) as DataProps;
-//     const data = await Calculate("3135", g);
-//     console.log(data, process.cwd())
-// })();

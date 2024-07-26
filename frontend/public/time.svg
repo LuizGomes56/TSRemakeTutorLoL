@@ -1,0 +1,10 @@
+<svg width="125" height="125" viewBox="0 0 125 125" xmlns="http://www.w3.org/2000/svg">
+  <!-- Fundo branco -->
+  <rect x="0" y="0" width="125" height="125" fill="white"/>
+  <!-- Retângulo cinza -->
+  <rect x="0" y="0" width="62.5" height="125" fill="#6e6e6e"/>
+  <!-- Triângulo isósceles -->
+  <polygon points="0,0 0,125 125,125" fill="#6e6e6e"/>
+  <!-- Borda -->
+  <rect x="0" y="0" width="125" height="125" fill="none" stroke="white" stroke-width="10"/>
+</svg>

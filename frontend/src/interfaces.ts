@@ -259,6 +259,18 @@ export interface Damage {
     onhit?: boolean;
 }
 
+type AllPropsCS = CoreStats & {
+    currentHealth: number;
+    attackSpeed: number;
+    attackRange: number;
+    critChance: number;
+    critDamage: number;
+    physicalLethality: number;
+    armorPenetrationPercent: number;
+    magicPenetrationPercent: number;
+    magicPenetrationFlat: number;
+}
+
 interface ToolProps {
     dif?: Damages;
     max: Damages;
@@ -270,6 +282,32 @@ interface AbilityFilter {
     max: string[];
 };
 
+type Relevant = DataProps["activePlayer"]["relevant"];
+
+export type PropertyProps = {
+    abilities: Relevant["abilities"];
+    items: Relevant["items"];
+    runes: Relevant["runes"];
+    spells: Relevant["spell"];
+    champion: DataProps["activePlayer"]["champion"];
+    enemies: DataProps["allPlayers"];
+}
+
+export type Tip = {
+    s: string;
+    n?: string;
+    d?: string;
+    r?: number[];
+} | null;
+
+export type ToolInfo = {
+    id: string;
+    name: string | undefined;
+    gold: number | undefined;
+    mod: AllPropsCS | undefined;
+    raw: any;
+}
+
 interface ExtendsActivePlayer {
     championName: string;
     champion: TargetChampion;
@@ -279,6 +317,7 @@ interface ExtendsActivePlayer {
     bonusStats: CoreStats;
     team: string;
     skin: number;
+    tool: ToolInfo
     relevant: {
         abilities: AbilityFilter;
         items: string[];

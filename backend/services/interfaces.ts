@@ -615,6 +615,14 @@ export interface AbilityFilter {
     max: string[];
 };
 
+type ToolInfo = {
+    id: string;
+    name: string | undefined;
+    gold: number | undefined;
+    mod: AllPropsCS | undefined;
+    raw: any;
+}
+
 interface ExtendsActivePlayer {
     championName: string;
     champion: TargetChampion;
@@ -624,6 +632,7 @@ interface ExtendsActivePlayer {
     bonusStats: CoreStats;
     team: string;
     skin: number;
+    tool: ToolInfo
     relevant: {
         abilities: AbilityFilter;
         items: string[];
@@ -689,7 +698,10 @@ export interface KeyReplaces {
 
 export interface EvalItemStats {
     name: string;
-    stats: AllPropsCS;
+    stats: {
+        mod: AllPropsCS;
+        raw: any;
+    };
     stack: boolean;
     from: string[];
     gold: Gold;

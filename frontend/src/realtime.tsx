@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { DataProps, RequestBody, Response } from './interfaces';
 import Sources from './components/tables/sources';
+import Tool from './components/tables/tool';
 import { EndPoint } from './constants';
 import './realtime.css';
 
@@ -29,16 +30,29 @@ export default function Page() {
     }
 
     return (
-        <>
+        <div className="container mx-auto">
             {game ?
-                <Sources
-                    abilities={game.activePlayer.relevant.abilities}
-                    champion={game.activePlayer.champion}
-                    items={game.activePlayer.relevant.items}
-                    runes={game.activePlayer.relevant.runes}
-                    spells={game.activePlayer.relevant.spell}
-                    enemies={game.allPlayers.filter(p => p.team !== game.activePlayer.team)}
-                /> : "Loading..."}
-        </>
+                <>
+                    <Sources
+                        abilities={game.activePlayer.relevant.abilities}
+                        champion={game.activePlayer.champion}
+                        items={game.activePlayer.relevant.items}
+                        runes={game.activePlayer.relevant.runes}
+                        spells={game.activePlayer.relevant.spell}
+                        enemies={game.allPlayers.filter(p => p.team !== game.activePlayer.team)}
+                    />
+                    <br></br>
+                    <Tool
+                        tool={game.activePlayer.tool}
+                        abilities={game.activePlayer.relevant.abilities}
+                        champion={game.activePlayer.champion}
+                        items={game.activePlayer.relevant.items}
+                        runes={game.activePlayer.relevant.runes}
+                        spells={game.activePlayer.relevant.spell}
+                        enemies={game.allPlayers.filter(p => p.team !== game.activePlayer.team)}
+                    />
+                </>
+                : "Loading..."}
+        </div>
     )
 }
