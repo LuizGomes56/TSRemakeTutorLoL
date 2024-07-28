@@ -31,28 +31,38 @@ export default function Page() {
 
     return (
         <div className="container mx-auto">
-            {game ?
+            {game ? (
                 <>
-                    <Sources
-                        abilities={game.activePlayer.relevant.abilities}
-                        champion={game.activePlayer.champion}
-                        items={game.activePlayer.relevant.items}
-                        runes={game.activePlayer.relevant.runes}
-                        spells={game.activePlayer.relevant.spell}
-                        enemies={game.allPlayers.filter(p => p.team !== game.activePlayer.team)}
-                    />
-                    <br></br>
-                    <Tool
-                        tool={game.activePlayer.tool}
-                        abilities={game.activePlayer.relevant.abilities}
-                        champion={game.activePlayer.champion}
-                        items={game.activePlayer.relevant.items}
-                        runes={game.activePlayer.relevant.runes}
-                        spells={game.activePlayer.relevant.spell}
-                        enemies={game.allPlayers.filter(p => p.team !== game.activePlayer.team)}
-                    />
+                    {(() => {
+                        let { relevant, champion, tool } = game.activePlayer;
+                        let { abilities, items, runes, spell } = relevant;
+                        let enemies = game.allPlayers.filter(p => p.team !== game.activePlayer.team);
+
+                        return (
+                            <>
+                                <Sources
+                                    abilities={abilities}
+                                    champion={champion}
+                                    items={items}
+                                    runes={runes}
+                                    spell={spell}
+                                    enemies={enemies}
+                                />
+                                <br />
+                                <Tool
+                                    tool={tool}
+                                    abilities={abilities}
+                                    champion={champion}
+                                    items={items}
+                                    runes={runes}
+                                    spell={spell}
+                                    enemies={enemies}
+                                />
+                            </>
+                        );
+                    })()}
                 </>
-                : "Loading..."}
+            ) : ("Loading...")}
         </div>
     )
 }

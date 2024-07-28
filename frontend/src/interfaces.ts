@@ -288,7 +288,7 @@ export type PropertyProps = {
     abilities: Relevant["abilities"];
     items: Relevant["items"];
     runes: Relevant["runes"];
-    spells: Relevant["spell"];
+    spell: Relevant["spell"];
     champion: DataProps["activePlayer"]["champion"];
     enemies: DataProps["allPlayers"];
 }

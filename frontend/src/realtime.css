@@ -6,6 +6,23 @@
     --table-border: 7.5px;
 }
 
+/* 
+#background {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: radial-gradient(100% 150% at 50% -35%, rgba(14, 16, 21, 0) 0%, rgb(14, 16, 21, 0.75) 100%), linear-gradient(180deg, rgba(14, 16, 21, 0) -35%, rgba(14, 16, 21, 0.375) 100%), linear-gradient(180deg, rgba(14, 16, 21, 0.375) -35%, rgba(14, 16, 21, 0) 100%), url(https://tutorlol.com/img/centered/Neeko_0.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    filter: opacity(0.25);
+    z-index: -50;
+}
+*/
+
 body {
     background-color: #121212;
 }

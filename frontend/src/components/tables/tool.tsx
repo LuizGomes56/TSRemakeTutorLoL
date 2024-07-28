@@ -46,8 +46,8 @@ const TextCells = ({ max, dif }: { max: Record<string, Damage>, dif: Record<stri
 
 const Suggestion = ({ x }: { x: ToolInfo }) => {
     return (
-        <div className="bg-neutral-900 text-white p-3 rounded border-slate-600 border">
-            <div className="border-b border-b-slate-600 mb-2 pb-2 flex justify-between items-center gap-6 min-w-48 w-full">
+        <div className="bg-neutral-900 text-white p-3">
+            <div className="border-b border-b-zinc-600 mb-2 pb-2 flex justify-between items-center gap-6 min-w-48 w-full">
                 <span className="flex items-center gap-2">
                     <img className="h-8 rounded w-8" src={item(x.id)} alt="Item" />
                     <h3 className="text-white front-bold">{x.name}</h3>
@@ -60,7 +60,7 @@ const Suggestion = ({ x }: { x: ToolInfo }) => {
             {x.mod && Object.keys(x.mod).map((y, i) => (
                 <div className="flex items-center gap-2" key={i}>
                     <img className="h-4" src={symbol(y)} alt="Stat" />
-                    <span className="text-sm text-slate-300">{`${x.mod![y as keyof typeof x.mod]} ${Object.keys(x.raw)[i]}`}</span>
+                    <span className="text-sm text-neutral-300">{`${x.mod![y as keyof typeof x.mod]} ${Object.keys(x.raw)[i]}`}</span>
                 </div>
             ))}
         </div>
@@ -89,9 +89,10 @@ export default function Tool(t: Property) {
                                 let c = t.champion;
                                 let s = l ? spell(x[0]) : spell(c.id + x[0]);
                                 let a = ["Q", "W", "E", "R"];
-                                let d = !l ? x[0] == "P" ? c.passive.description : c.spells[a.indexOf(x[0])].description : undefined;
-                                let n = !l ? x[0] == "P" ? c.passive.name : c.spells[a.indexOf(x[0])].name : undefined;
-                                let r = !l ? x[0] == "P" ? [] : c.spells[a.indexOf(x[0])].cooldown : undefined;
+                                let h = x[0] == "P";
+                                let d = !l ? h ? c.passive.description : c.spells[a.indexOf(x[0])].description : undefined;
+                                let n = !l ? h ? c.passive.name : c.spells[a.indexOf(x[0])].name : undefined;
+                                let r = !l ? h ? [] : c.spells[a.indexOf(x[0])].cooldown : undefined;
                                 return <ImageCells
                                     src={s}
                                     alt={c.name}
@@ -106,7 +107,7 @@ export default function Tool(t: Property) {
                             {t.runes.map(x => (
                                 <ImageCells src={rune(x)} alt={x} />
                             ))}
-                            {t.spells.map(x => (
+                            {t.spell.map(x => (
                                 <ImageCells src={rune(x)} alt={x} />
                             ))}
                         </tr>

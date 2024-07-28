@@ -59,7 +59,7 @@ export default function Sources(t: PropertyProps) {
                         {t.runes.map(x => (
                             <ImageCells src={rune(x)} alt={x} />
                         ))}
-                        {t.spells.map(x => (
+                        {t.spell.map(x => (
                             <ImageCells src={rune(x)} alt={x} />
                         ))}
                     </tr>
