@@ -5,7 +5,7 @@ import Tool from './components/tables/tool';
 import { EndPoint } from './constants';
 import './realtime.css';
 
-const o: RequestBody = { code: "401085", item: "4645" };
+const o: RequestBody = { code: "401085", item: "4403" };
 
 const FetchGame = async (): Promise<DataProps | void> => {
     let x = await fetch(EndPoint + "/api/game/last", {
@@ -30,7 +30,7 @@ export default function Page() {
     }
 
     return (
-        <div className="container mx-auto">
+        <div className="container mx-auto max-w-3xl">
             {game ? (
                 <>
                     {(() => {
@@ -57,6 +57,7 @@ export default function Page() {
                                     runes={runes}
                                     spell={spell}
                                     enemies={enemies}
+                                    map={game.gameData.mapNumber.toString()}
                                 />
                             </>
                         );

@@ -117,3 +117,14 @@ export const FetchCache = async (req: Request, res: Response, next: NextFunction
     await UpdateCache().then(() => console.log(x));
     res.status(200).json({ success: true, message: x });
 }
+
+export const ItemList = async (req: Request, res: Response, next: NextFunction) => {
+    try {
+        let x = await AllItems() as Items;
+        res.status(200).json(x);
+    }
+    catch (e) {
+        res.status(404).json({ success: false, message: "Unable to reach item file." });
+        next(e);
+    }
+}

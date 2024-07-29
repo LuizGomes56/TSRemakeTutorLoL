@@ -618,8 +618,8 @@ export interface AbilityFilter {
 type ToolInfo = {
     id: string;
     name: string | undefined;
+    active: boolean;
     gold: number | undefined;
-    mod: AllPropsCS | undefined;
     raw: any;
 }
 

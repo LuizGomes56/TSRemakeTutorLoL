@@ -30,7 +30,7 @@ export default function Sources(t: PropertyProps) {
     const MouseOut = () => setTip(null);
 
     return (
-        <div className="overflow-auto">
+        <div className="overflow-auto shade">
             <table>
                 <thead>
                     <tr>
@@ -53,14 +53,14 @@ export default function Sources(t: PropertyProps) {
                                 onMouseOut={d && n ? MouseOut : undefined}
                             />
                         })}
-                        {t.items.map(x => (
-                            <ImageCells src={item(x)} alt={x} />
-                        ))}
                         {t.runes.map(x => (
                             <ImageCells src={rune(x)} alt={x} />
                         ))}
                         {t.spell.map(x => (
                             <ImageCells src={rune(x)} alt={x} />
+                        ))}
+                        {t.items.map(x => (
+                            <ImageCells src={item(x)} alt={x} />
                         ))}
                     </tr>
                 </thead>
@@ -69,9 +69,9 @@ export default function Sources(t: PropertyProps) {
                         <tr>
                             <ChampionCells src={champion(x.champion.id)} alt={x.champion.name} />
                             <TextCells damage={x.damage.abilities as Record<string, Damage>} />
-                            <TextCells damage={x.damage.items as Record<string, Damage>} />
                             <TextCells damage={x.damage.runes as Record<string, Damage>} />
                             <TextCells damage={x.damage.spell as Record<string, Damage>} />
+                            <TextCells damage={x.damage.items as Record<string, Damage>} />
                         </tr>
                     ))}
                 </tbody>

@@ -1,13 +1,15 @@
 import { Damage, PropertyProps, Tip, ToolInfo } from "../../interfaces"
-import { Style, spell, item, rune, champion, symbol } from "../../constants";
+import { Style, spell, item, rune, champion, stat } from "../../constants";
 import { useState } from "react";
 import Tooltip from "../tooltip";
+import Dropdown from "../dropdown";
 import ImageCells from "./cells/image";
 import VoidCells from "./cells/void";
 import ChampionCells from "./cells/champion";
 
 type Property = PropertyProps & {
     tool: ToolInfo;
+    map: string;
 }
 
 const TextCells = ({ max, dif }: { max: Record<string, Damage>, dif: Record<string, Damage> }) => (
@@ -23,18 +25,22 @@ const TextCells = ({ max, dif }: { max: Record<string, Damage>, dif: Record<stri
                                 <p className={`${Style.damages[d.type as keyof typeof Style.damages]} text-sm`}>
                                     {`${Math.round(d.min)} - ${Math.round(d.max)} `}
                                 </p>
-                                <p className="text-slate-400 text-xs leading-3">
-                                    {y.max ? `${Math.round(y.min)} - ${Math.round(y.max)} ` : Math.round(y.min)}
-                                </p>
-                            </>
-                            :
+                                {y.max && y.max > 0 && y.min > 0 ?
+                                    <p className="text-slate-400 text-xs leading-3">
+                                        {`${Math.round(y.min)} - ${Math.round(y.max)}`}
+                                    </p> :
+                                    y.min > 0 ? <p className="text-slate-400 text-xs leading-3">
+                                        {Math.round(y.min)}
+                                    </p> : null
+                                }
+                            </> :
                             <>
-                                <p className={`${Style.damages[d.type as keyof typeof Style.damages]} text - sm`}>
+                                <p className={`${Style.damages[d.type as keyof typeof Style.damages]} text-sm`}>
                                     {Math.round(d.min)}
                                 </p>
-                                <p className="text-slate-400 text-xs leading-3">
+                                {y && y.min > 0 && <p className="text-slate-400 text-xs leading-3">
                                     {Math.round(y.min)}
-                                </p>
+                                </p>}
                             </>
                         }
                     </span>
@@ -53,14 +59,14 @@ const Suggestion = ({ x }: { x: ToolInfo }) => {
                     <h3 className="text-white front-bold">{x.name}</h3>
                 </span>
                 <span className="flex items-center gap-1">
-                    <img className="h-4 w-4" src={symbol("gold")} alt="Gold" />
+                    <img className="h-4 w-4" src={stat("GoldPer10Minutes")} alt="Gold" />
                     <p className="text-yellow-300">{x.gold}</p>
                 </span>
             </div>
-            {x.mod && Object.keys(x.mod).map((y, i) => (
-                <div className="flex items-center gap-2" key={i}>
-                    <img className="h-4" src={symbol(y)} alt="Stat" />
-                    <span className="text-sm text-neutral-300">{`${x.mod![y as keyof typeof x.mod]} ${Object.keys(x.raw)[i]}`}</span>
+            {x.raw && Object.keys(x.raw).map((y, i) => (
+                <div className="flex items-center gap-2">
+                    <img className="h-4" src={stat(y.replace(/\s+/g, "").toLocaleLowerCase())} alt="Stat" />
+                    <span className="text-sm dropshadow text-neutral-300">{`${x.raw![y as keyof typeof x.raw]} ${Object.keys(x.raw)[i]}`}</span>
                 </div>
             ))}
         </div>
@@ -68,7 +74,8 @@ const Suggestion = ({ x }: { x: ToolInfo }) => {
 };
 
 export default function Tool(t: Property) {
-    const [tip, setTip] = useState<Tip>(null);
+    var [tip, setTip] = useState<Tip>(null);
+    var [search, setSearch] = useState<boolean>(false);
 
     const MouseOver = (s: string, n?: string, d?: string, r?: number[]) => () => {
         setTip({ s, n, d, r });
@@ -76,10 +83,18 @@ export default function Tool(t: Property) {
 
     const MouseOut = () => setTip(null);
 
+    const Search = () => setSearch(true);
+
     return (
         <>
+            <button
+                onClick={Search}
+                className="p-4 bg-slate-700 rounded w-full text-white text-lg font-bold border-b-4 border-b-slate-500"
+                type="button">Pesquisar Itens
+            </button>
             {<Suggestion x={t.tool} />}
-            <div className="overflow-auto">
+            {search && <Dropdown map={t.map} />}
+            <div className="overflow-auto shade">
                 <table>
                     <thead>
                         <tr>
@@ -90,9 +105,10 @@ export default function Tool(t: Property) {
                                 let s = l ? spell(x[0]) : spell(c.id + x[0]);
                                 let a = ["Q", "W", "E", "R"];
                                 let h = x[0] == "P";
-                                let d = !l ? h ? c.passive.description : c.spells[a.indexOf(x[0])].description : undefined;
-                                let n = !l ? h ? c.passive.name : c.spells[a.indexOf(x[0])].name : undefined;
-                                let r = !l ? h ? [] : c.spells[a.indexOf(x[0])].cooldown : undefined;
+                                let v = c.spells[a.indexOf(x[0])];
+                                let d = !l ? h ? c.passive.description : v.description : undefined;
+                                let n = !l ? h ? c.passive.name : v.name : undefined;
+                                let r = !l ? h ? [] : v.cooldown : undefined;
                                 return <ImageCells
                                     src={s}
                                     alt={c.name}
@@ -101,15 +117,16 @@ export default function Tool(t: Property) {
                                     onMouseOut={d && n ? MouseOut : undefined}
                                 />
                             })}
-                            {t.items.map(x => (
-                                <ImageCells src={item(x)} alt={x} />
-                            ))}
                             {t.runes.map(x => (
                                 <ImageCells src={rune(x)} alt={x} />
                             ))}
                             {t.spell.map(x => (
                                 <ImageCells src={rune(x)} alt={x} />
                             ))}
+                            {t.items.map(x => (
+                                <ImageCells src={item(x)} alt={x} />
+                            ))}
+                            {t.tool.active && <ImageCells src={item(t.tool.id)} alt={t.tool.id} />}
                         </tr>
                     </thead>
                     <tbody>
@@ -117,9 +134,9 @@ export default function Tool(t: Property) {
                             <tr>
                                 <ChampionCells src={champion(x.champion.id)} alt={x.champion.name} />
                                 <TextCells dif={x.tool?.dif?.abilities as Record<string, Damage>} max={x.tool?.max.abilities as Record<string, Damage>} />
-                                <TextCells dif={x.tool?.dif?.items as Record<string, Damage>} max={x.tool?.max.items as Record<string, Damage>} />
                                 <TextCells dif={x.tool?.dif?.runes as Record<string, Damage>} max={x.tool?.max.runes as Record<string, Damage>} />
                                 <TextCells dif={x.tool?.dif?.spell as Record<string, Damage>} max={x.tool?.max.spell as Record<string, Damage>} />
+                                <TextCells dif={x.tool?.dif?.items as Record<string, Damage>} max={x.tool?.max.items as Record<string, Damage>} />
                             </tr>
                         ))}
                     </tbody>

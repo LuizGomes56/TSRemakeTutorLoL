@@ -51,7 +51,6 @@ export const Calculate = async (t: string, g: DataProps, w: boolean = true): Pro
     await AssignChampion(g);
 
     let q = await EvaluateItemStats(t);
-    let p = q ? q.stats.mod : undefined;
     let m = q ? q.stats.raw : undefined;
     let n = q ? q.name : undefined;
     let r = q ? q.gold.total : undefined;
@@ -69,9 +68,9 @@ export const Calculate = async (t: string, g: DataProps, w: boolean = true): Pro
             activePlayer.tool = {
                 id: t,
                 name: n,
+                active: h ? h.activePlayer.relevant.items.includes(t) : false,
                 gold: r,
-                raw: m,
-                mod: p
+                raw: m
             }
 
             LoadChampion(id);
@@ -205,10 +204,10 @@ const Test = async (g: DataProps, t: string) => {
         rawDisplayName: "",
         slot: 0
     }
-    let y = g.allPlayers.filter(x => x.summonerName == g.activePlayer.summonerName);
-    y[0].items.push(f);
-
-    await AssignStats(t, g.activePlayer, y[0].items.map(i => i.itemID.toString()));
+    let y = g.allPlayers.find(x => x.summonerName == g.activePlayer.summonerName);
+    if (!y) { return; }
+    y.items.push(f);
+    await AssignStats(t, g.activePlayer, y.items.map(i => i.itemID.toString()));
 
     let k = await Calculate(t, g, false);
     return k;
