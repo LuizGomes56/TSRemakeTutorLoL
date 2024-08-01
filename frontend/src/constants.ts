@@ -8,7 +8,8 @@ export const Style = {
     }
 }
 
-const path = `${EndPoint}/img`;
+// const path = `${EndPoint}/img`;
+const path = "public/img"
 
 export const spell = (id: string) => `${path}/spell/${id}.png`;
 export const item = (id: string) => `${path}/item/${id}.png`;

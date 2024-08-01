@@ -1,9 +1,9 @@
 import { readFileSync } from "fs";
-import { ChampionAPI, ItemAPI } from "./lol.service";
+import { ChampionAPI, EvaluateItemStats, ItemAPI } from "./lol.service";
 import {
     AbilityFilter, Acp, ActivePlayer, AllPropsCS, AllStatsProps, ChampionStats,
     CoreStats, Damage, Damages, DataProps, DefAbilities, DragonProps, EvalItemStats, Event,
-    GameEvents, KeyReplaces, LocalChampion, LocalItems, LocalRunes, Player, Ply,
+    GameEvents, LocalChampion, LocalItems, LocalRunes, Player, Ply,
     ReplacementsProps, Stats, SummonerSpells, TargetChampion, TargetItem
 } from "./interfaces";
 import { ToolKeyDependent, ToolKeyless } from "./consts";
@@ -13,7 +13,6 @@ const Effects: string = `${process.cwd()}/effects`;
 var _Champion: undefined | LocalChampion;
 var _Items: undefined | LocalItems;
 var _Runes: undefined | LocalRunes;
-var _Replaces: undefined | KeyReplaces;
 
 const AssignChampion = async (g: DataProps): Promise<void> => {
     let k = g.activePlayer.summonerName
@@ -41,7 +40,6 @@ export const Calculate = async (t: string, g: DataProps, w: boolean = true): Pro
 
     LoadItems();
     LoadRunes();
-    LoadReplaces();
 
     if (w) {
         f = structuredClone(g);
@@ -643,13 +641,6 @@ const LoadItems = (): void => {
     }
 }
 
-const LoadReplaces = (): void => {
-    if (_Replaces) { return }
-    else {
-        _Replaces = JSON.parse(readFileSync(`${Effects}/replacements.json`, "utf-8")) as KeyReplaces;
-    }
-}
-
 const LoadChampion = (id: string): void => {
     if (_Champion && _Champion[id]) { return }
     else {
@@ -723,74 +714,3 @@ const BonusStats = (b: CoreStats, c: ChampionStats | CoreStats): CoreStats => {
         abilityPower: c.abilityPower
     };
 };
-
-const EvaluateItemStats = async (item: string): Promise<EvalItemStats | void> => {
-    if (!_Replaces) { return };
-    let k = _Replaces.percentages;
-    let r = _Replaces.keys;
-    let e = _Replaces.extras;
-    let u = ["attention", "buffedStat", "nerfedStat", "ornnBonus"];
-    let x = await ItemAPI(item) as TargetItem;
-    let y = x.description;
-
-    let res: Record<string, any> = {};
-    let raw: Record<string, any> = {};
-
-    let a: RegExp = /<(attention|buffedStat|nerfedStat|ornnBonus)>(.*?)<\/(attention|buffedStat|nerfedStat|ornnBonus)>/g
-    let b: RegExp = /(.*?)<br>/g;
-    let c: RegExp = /^\s*\d+\s*%?\s*/;
-    let d: RegExp = /<\/?[^>]+(>|$)/g;
-
-    let m: RegExpExecArray | null;
-    let n: any;
-
-    while ((m = a.exec(y))) {
-        let t = m[1];
-        let v = m[2].replace("%", "");
-        if (!n) {
-            let nm = b.exec(m.input);
-            if (nm) { n = nm[1].replace(d, "").trim(); };
-        }
-        if (u.includes(t)) {
-            let j = n?.replace(c, "");
-            if (j?.length) {
-                if (k.some(k => n.includes(k)) && m[2].includes("%")) {
-                    let h = parseFloat(v) + "%";
-                    res[j] = h;
-                    raw[j] = h;
-                }
-                else {
-                    res[j] = parseFloat(v);
-                    raw[j] = parseFloat(v);
-                };
-            }
-        }
-        n = undefined;
-    }
-
-    for (let [f, g] of Object.entries(res)) {
-        if (f == "Magic Penetration") {
-            if (typeof (g) == "string") { res["magicPenetrationPercent"] = -1 * parseInt(g.replace("%", "")) / 100 }
-            else { res["magicPenetrationFlat"] = g; }
-        }
-        else if (r[f]) { res[r[f]] = g }
-        delete res[f];
-    }
-
-    if (e[item]) {
-        for (let [p, q] of Object.entries(e[item])) {
-            res[p] = res[p] ? res[p] += q : q;
-        }
-    }
-
-    return {
-        name: x.name,
-        stats: {
-            raw: raw,
-            mod: res,
-        },
-        stack: x.gold.total <= 1450,
-        from: x.from,
-        gold: x.gold
-    } as EvalItemStats;
-}

@@ -17,7 +17,7 @@ export default function Tooltip({ x }: { x: Tip }) {
                                     {x.r && i !== x.r.length - 1 && '/'}
                                 </span>
                             ))}
-                            <img className="ml-2 w-5" src="/public/time.svg" alt="CDR" />
+                            <img className="ml-2 w-5" src="/time.svg" alt="CD" />
                         </>
                     ) : null}
                 </span>

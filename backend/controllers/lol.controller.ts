@@ -1,23 +1,25 @@
 import { Request, Response, NextFunction } from 'express';
-import { AllChampions, AllItems, ChampionAPI, RiotAPI, UpdateCache } from '../services/lol.service';
+import { AllChampions, AllItems, AllStats, ChampionAPI, RiotAPI, UpdateCache } from '../services/lol.service';
 import dotenv from "dotenv";
-import { Items } from '../services/interfaces';
+import path from "path";
+import { EvalItemStats, Items } from '../services/interfaces';
 const download = require("download");
 
 dotenv.config();
 
-const imgDIR: string = `${process.cwd()}/public/img`;
+// const imgDIR: string = `${process.cwd()}/public/img`; BACKEND DIRECTORY
+const imgDIR: string = path.join(process.cwd(), '..', 'frontend', 'public', 'img'); // FRONTEND DIRECTORY
 const riotCDN: string = `${process.env.DD_ENDPOINT}/${process.env.LOL_VERSION}/img`;
 const msg: string = "Downloaded all files in queue.";
 const end: string = "Download Completed: ";
 
-export const FetchPassives = async (req: Request, res: Response, next: NextFunction) => {
+export const FetchPassives = async () => {
     try {
         let c = await AllChampions();
         for (let k in c?.data) {
             let t = await ChampionAPI(k);
             if (!t) {
-                res.status(403).json({ success: false });
+                console.log(msg);
                 return;
             }
             let x = t.passive.image.full;
@@ -25,12 +27,11 @@ export const FetchPassives = async (req: Request, res: Response, next: NextFunct
             let f = `${imgDIR}/spell`;
             await download(url, f, { filename: t.id + "P.png" }).then(() => console.log(end + x));
         }
-        res.status(200).json({ success: true, message: msg });
     }
-    catch (e) { next(e); }
+    catch (e) { console.log(e, msg); }
 };
 
-export const FetchSpells = async (req: Request, res: Response, next: NextFunction) => {
+export const FetchSpells = async () => {
     try {
         let c = await AllChampions();
         let i: number = 0;
@@ -38,7 +39,7 @@ export const FetchSpells = async (req: Request, res: Response, next: NextFunctio
         for (let k in c?.data) {
             let t = await ChampionAPI(k);
             if (!t) {
-                res.status(403).json({ success: false });
+                console.log(msg);
                 return;
             }
             for (let s of t.spells) {
@@ -49,30 +50,28 @@ export const FetchSpells = async (req: Request, res: Response, next: NextFunctio
             }
             i = 0;
         }
-        res.status(200).json({ success: true, message: msg });
     }
-    catch (e) { next(e) };
+    catch (e) { console.log(e, msg); };
 }
 
-export const FetchChampions = async (req: Request, res: Response, next: NextFunction) => {
+export const FetchChampions = async () => {
     try {
         let c = await AllChampions();
         for (let k in c?.data) {
             let t = await ChampionAPI(k);
             if (!t) {
-                res.status(403).json({ success: false });
+                console.log(msg);
                 return;
             }
             let url = `${riotCDN}/champion/${t.id}.png`;
             let f = `${imgDIR}/champion`;
             await download(url, f).then(() => console.log(end + t.name));
         }
-        res.status(200).json({ success: true, message: msg });
     }
-    catch (e) { next(e) };
+    catch (e) { console.log(e, msg); };
 }
 
-export const FetchItems = async (req: Request, res: Response, next: NextFunction) => {
+export const FetchItems = async () => {
     try {
         let c = await AllItems() as Items;
         for (let k in c?.data) {
@@ -80,12 +79,11 @@ export const FetchItems = async (req: Request, res: Response, next: NextFunction
             let f = `${imgDIR}/item`;
             await download(url, f).then(() => console.log(end + k));
         }
-        res.status(200).json({ success: true, message: msg });
     }
-    catch (e) { next(e) };
+    catch (e) { console.log(e, msg); };
 }
 
-export const FetchRunes = async (req: Request, res: Response, next: NextFunction) => {
+export const FetchRunes = async () => {
     try {
         let c = await RiotAPI("runesReforged");
         let j: string = `${process.env.CANISBACK_ENDPOINT}`;
@@ -97,34 +95,50 @@ export const FetchRunes = async (req: Request, res: Response, next: NextFunction
             if (r.slots.length > 0) {
                 for (let s of r.slots) {
                     for (let v of s.runes) {
-                        console.log(v.id);
-                        // let e = [8321, 8313, 8316, 9101, 9105];
-                        // if (!e.includes(parseInt(v.id))) {
-                        let url = `${j}/${v.icon}`;
-                        let f = `${imgDIR}/rune`;
-                        await download(url, f, { filename: v.id + ".png" }).then(() => console.log(end + v.id));
+                        let e = [8321, 8313, 8316, 9101, 9105];
+                        if (!e.includes(parseInt(v.id))) {
+                            let url = `${j}/${v.icon}`;
+                            let f = `${imgDIR}/rune`;
+                            await download(url, f, { filename: v.id + ".png" }).then(() => console.log(end + v.id));
+                        }
                     }
                 }
             }
         }
-        res.status(200).json({ success: true, message: msg });
     }
-    catch (e) { next(e) };
+    catch (e) { console.log(e, msg); };
 }
 
-export const FetchCache = async (req: Request, res: Response, next: NextFunction) => {
+export const FetchCache = async () => {
     let x: string = "Updated all Cache Files";
     await UpdateCache().then(() => console.log(x));
-    res.status(200).json({ success: true, message: x });
 }
 
 export const ItemList = async (req: Request, res: Response, next: NextFunction) => {
     try {
-        let x = await AllItems() as Items;
+        let x = await AllStats() as Record<string, EvalItemStats>;
         res.status(200).json(x);
     }
     catch (e) {
         res.status(404).json({ success: false, message: "Unable to reach item file." });
         next(e);
     }
+}
+
+export const Update = async (req: Request, res: Response, next: NextFunction) => {
+    const Functions = [FetchPassives, FetchSpells, FetchRunes, FetchCache, FetchChampions, FetchItems];
+    const f = new Date();
+    for (const fn of Functions) {
+        try { await fn(); }
+        catch (e) {
+            next(e)
+            res.status(404).json({ success: false, message: "Unable to update the whole app." });
+        }
+    }
+    const n = new Date();
+    const t = (n.getTime() - f.getTime()) / 1000;
+    const m = Math.floor(t / 60);
+    const s = t % 60;
+    console.log(`UpdateCache completed in ${m}m and ${s}s.`);
+    res.status(200).json({ success: true, message: msg });
 }

@@ -705,6 +705,7 @@ export interface EvalItemStats {
     stack: boolean;
     from: string[];
     gold: Gold;
+    maps: Record<string, boolean>;
 }
 
 export interface FullChampions {

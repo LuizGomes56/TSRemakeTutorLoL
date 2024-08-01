@@ -1,11 +1,13 @@
-import { Damage, PropertyProps, Tip, ToolInfo } from "../../interfaces"
-import { Style, spell, item, rune, champion, stat } from "../../constants";
-import { useState } from "react";
+import { Damage, PropertyProps, Tip, ToolInfo, EvalItemStats } from "../../interfaces"
+import { Style, spell, item, rune, champion, stat, allStats, EndPoint } from "../../constants";
+import { useState, useEffect, useRef } from "react";
 import Tooltip from "../tooltip";
-import Dropdown from "../dropdown";
 import ImageCells from "./cells/image";
 import VoidCells from "./cells/void";
 import ChampionCells from "./cells/champion";
+import Searchbar from "../searchbar";
+import Suggestion from "../suggestion";
+import Searchbutton from "../searchbutton";
 
 type Property = PropertyProps & {
     tool: ToolInfo;
@@ -50,32 +52,75 @@ const TextCells = ({ max, dif }: { max: Record<string, Damage>, dif: Record<stri
     </>
 );
 
-const Suggestion = ({ x }: { x: ToolInfo }) => {
+const Cells = ({ x, t, m }: { x: Record<string, EvalItemStats>, t: string, m: string }) => {
+    const LetterFinder = (n: string, q: string): Boolean => {
+        let k = 0;
+        for (let i = 0; i < n.length; i++) {
+            if (n[i] === q[k]) { k++; }
+            if (k === q.length) { return true; }
+        }
+        return false;
+    };
+
     return (
-        <div className="bg-neutral-900 text-white p-3">
-            <div className="border-b border-b-zinc-600 mb-2 pb-2 flex justify-between items-center gap-6 min-w-48 w-full">
-                <span className="flex items-center gap-2">
-                    <img className="h-8 rounded w-8" src={item(x.id)} alt="Item" />
-                    <h3 className="text-white front-bold">{x.name}</h3>
-                </span>
-                <span className="flex items-center gap-1">
-                    <img className="h-4 w-4" src={stat("GoldPer10Minutes")} alt="Gold" />
-                    <p className="text-yellow-300">{x.gold}</p>
-                </span>
-            </div>
-            {x.raw && Object.keys(x.raw).map((y, i) => (
-                <div className="flex items-center gap-2">
-                    <img className="h-4" src={stat(y.replace(/\s+/g, "").toLocaleLowerCase())} alt="Stat" />
-                    <span className="text-sm dropshadow text-neutral-300">{`${x.raw![y as keyof typeof x.raw]} ${Object.keys(x.raw)[i]}`}</span>
+        <div className="w-full bg-stone-800 overflow-y-auto rounded">
+            {Object.keys(x).filter(k => {
+                let z = x[k];
+                return z.maps[m] && z.gold.purchasable && LetterFinder(z.name.toLowerCase(), t.toLowerCase());
+            }).map(c => {
+                let a = x[c];
+                return (
+                    <div key={c} className="flex items-center gap-2 p-[6px] hover:bg-slate-800 transition-colors duration-200 cursor-pointer">
+                        <img className="h-5" src={item(c)} alt={c} />
+                        <p className="text-sm text-neutral-300">{a.name}</p>
+                    </div>
+                )
+            })}
+        </div>
+    );
+}
+
+const Filters = () => {
+    return (
+        <div className="flex flex-col items-center bg-stone-800 rounded">
+            {allStats.map(s => (
+                <div className="p-2 hover:bg-slate-700 cursor-pointer transition-all duration-200">
+                    <img className="min-w-4 max-w-4" src={stat(s)} alt="?" />
                 </div>
             ))}
         </div>
     );
-};
+}
+
+const FetchItems = async (): Promise<Record<string, EvalItemStats> | void> => {
+    try {
+        console.log("Attempting")
+        let response = await fetch(EndPoint + "/api/lol/all/items", {
+            method: "GET",
+            headers: { "Content-Type": "application/json" }
+        });
+        let data = await response.json() as Record<string, EvalItemStats>;
+        return data;
+    } catch (error) {
+        console.log(error);
+    }
+}
 
 export default function Tool(t: Property) {
     var [tip, setTip] = useState<Tip>(null);
     var [search, setSearch] = useState<boolean>(false);
+    var [stats, setStats] = useState<Record<string, EvalItemStats> | null>(null);
+    var [text, setText] = useState<string>("");
+    var dropdownRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        LoadStats();
+    }, []);
+
+    const LoadStats = async () => {
+        let items = await FetchItems() as Record<string, EvalItemStats>;
+        setStats(items);
+    }
 
     const MouseOver = (s: string, n?: string, d?: string, r?: number[]) => () => {
         setTip({ s, n, d, r });
@@ -83,17 +128,40 @@ export default function Tool(t: Property) {
 
     const MouseOut = () => setTip(null);
 
-    const Search = () => setSearch(true);
+    const OpenSearch = () => setSearch(true);
+
+    const InputEvent = (e: React.ChangeEvent<HTMLInputElement>) => { setText(e.target.value); }
+
+    const ClickOutside = (event: MouseEvent) => {
+        if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) { setSearch(false); }
+    };
+
+    useEffect(() => {
+        document.addEventListener("mousedown", ClickOutside);
+        return () => {
+            document.removeEventListener("mousedown", ClickOutside);
+        };
+    }, []);
 
     return (
         <>
-            <button
-                onClick={Search}
-                className="p-4 bg-slate-700 rounded w-full text-white text-lg font-bold border-b-4 border-b-slate-500"
-                type="button">Pesquisar Itens
-            </button>
-            {<Suggestion x={t.tool} />}
-            {search && <Dropdown map={t.map} />}
+            <Searchbutton click={OpenSearch} />
+            <Suggestion x={t.tool} />
+
+            {/* <div className="flex">
+                {<Suggestion x={t.tool} />}
+                {<Recommendation />}
+            </div> */}
+
+            {search && <div ref={dropdownRef} className="p-4 z-50 bg-stone-900 rounded-lg fixed left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 min-w-80">
+                <Searchbar event={InputEvent} text={text} />
+                {stats &&
+                    <div className="mt-4 flex gap-2 max-h-[320px]">
+                        <Cells x={stats} t={text} m={t.map} />
+                        <Filters />
+                    </div>}
+            </div>}
+
             <div className="overflow-auto shade">
                 <table>
                     <thead>
