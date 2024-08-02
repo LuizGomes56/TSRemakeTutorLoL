@@ -2,7 +2,7 @@ import { Request, Response, NextFunction } from 'express';
 import { AllChampions, AllItems, AllStats, ChampionAPI, RiotAPI, UpdateCache } from '../services/lol.service';
 import dotenv from "dotenv";
 import path from "path";
-import { EvalItemStats, Items } from '../services/interfaces';
+import { EvalItemStats, FullChampions, Items } from '../services/interfaces';
 const download = require("download");
 
 dotenv.config();
@@ -31,6 +31,20 @@ export const FetchPassives = async () => {
     catch (e) { console.log(e, msg); }
 };
 
+export const ControllerPassives = async (req: Request, res: Response, next: NextFunction) => {
+    const s = Date.now();
+    try {
+        await FetchPassives();
+        const n = Date.now();
+        const t = (s - n) / 1000;
+        res.status(200).json({ success: true, duration: t })
+    }
+    catch (e) {
+        next(e);
+        res.status(404).json({ success: false })
+    }
+}
+
 export const FetchSpells = async () => {
     try {
         let c = await AllChampions();
@@ -54,6 +68,20 @@ export const FetchSpells = async () => {
     catch (e) { console.log(e, msg); };
 }
 
+export const ControllerSpells = async (req: Request, res: Response, next: NextFunction) => {
+    const s = Date.now();
+    try {
+        await FetchSpells();
+        const n = Date.now();
+        const t = (s - n) / 1000;
+        res.status(200).json({ success: true, duration: t })
+    }
+    catch (e) {
+        next(e);
+        res.status(404).json({ success: false })
+    }
+}
+
 export const FetchChampions = async () => {
     try {
         let c = await AllChampions();
@@ -71,6 +99,34 @@ export const FetchChampions = async () => {
     catch (e) { console.log(e, msg); };
 }
 
+export const ControllerChampions = async (req: Request, res: Response, next: NextFunction) => {
+    const s = Date.now();
+    try {
+        await FetchChampions();
+        const n = Date.now();
+        const t = (s - n) / 1000;
+        res.status(200).json({ success: true, duration: t })
+    }
+    catch (e) {
+        next(e);
+        res.status(404).json({ success: false })
+    }
+}
+
+export const ControllerItems = async (req: Request, res: Response, next: NextFunction) => {
+    const s = Date.now();
+    try {
+        await FetchItems();
+        const n = Date.now();
+        const t = (s - n) / 1000;
+        res.status(200).json({ success: true, duration: t })
+    }
+    catch (e) {
+        next(e);
+        res.status(404).json({ success: false })
+    }
+}
+
 export const FetchItems = async () => {
     try {
         let c = await AllItems() as Items;
@@ -81,6 +137,20 @@ export const FetchItems = async () => {
         }
     }
     catch (e) { console.log(e, msg); };
+}
+
+export const ControllerRunes = async (req: Request, res: Response, next: NextFunction) => {
+    const s = Date.now();
+    try {
+        await FetchRunes();
+        const n = Date.now();
+        const t = (s - n) / 1000;
+        res.status(200).json({ success: true, duration: t })
+    }
+    catch (e) {
+        next(e);
+        res.status(404).json({ success: false })
+    }
 }
 
 export const FetchRunes = async () => {
@@ -114,6 +184,20 @@ export const FetchCache = async () => {
     await UpdateCache().then(() => console.log(x));
 }
 
+export const ControllerCache = async (req: Request, res: Response, next: NextFunction) => {
+    const s = Date.now();
+    try {
+        await FetchCache();
+        const n = Date.now();
+        const t = (s - n) / 1000;
+        res.status(200).json({ success: true, duration: t })
+    }
+    catch (e) {
+        next(e);
+        res.status(404).json({ success: false })
+    }
+}
+
 export const ItemList = async (req: Request, res: Response, next: NextFunction) => {
     try {
         let x = await AllStats() as Record<string, EvalItemStats>;
@@ -125,14 +209,27 @@ export const ItemList = async (req: Request, res: Response, next: NextFunction) 
     }
 }
 
-export const Update = async (req: Request, res: Response, next: NextFunction) => {
+export const ChampionList = async (req: Request, res: Response, next: NextFunction) => {
+    try {
+        let x = await AllChampions() as FullChampions;
+        let y = Object.keys(x.data);
+        res.status(200).json(y);
+    }
+    catch (e) {
+        res.status(404).json({ success: false, message: "Unable to reach champion file." });
+        next(e);
+    }
+}
+
+export const ControllerUpdate = async (req: Request, res: Response, next: NextFunction) => {
     const Functions = [FetchPassives, FetchSpells, FetchRunes, FetchCache, FetchChampions, FetchItems];
     const f = new Date();
     for (const fn of Functions) {
         try { await fn(); }
         catch (e) {
             next(e)
-            res.status(404).json({ success: false, message: "Unable to update the whole app." });
+            res.status(404).json({ success: false, message: "Unable to update the whole app.", origin: fn.name });
+            break;
         }
     }
     const n = new Date();

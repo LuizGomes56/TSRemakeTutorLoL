@@ -8,8 +8,7 @@ export const Style = {
     }
 }
 
-// const path = `${EndPoint}/img`;
-const path = "public/img"
+const path = /*EndPoint +*/"/img" // Local file frontend, instead of Backend;
 
 export const spell = (id: string) => `${path}/spell/${id}.png`;
 export const item = (id: string) => `${path}/item/${id}.png`;
@@ -19,27 +18,27 @@ export const symbol = (id: string) => `${path}/symbol/${id}.png`;
 export const stat = (id: string) => `${path}/stat/${id}.png`;
 
 export const allStats: string[] = [
-    "AbilityPower",
-    "MagicPenetration",
-    "AttackDamage",
-    "Lethality",
-    "ArmorPenetration",
-    "CriticalStrikeChance",
+    "Ability Power",
+    "Magic Penetration",
+    "Attack Damage",
+    "Armor Penetration",
+    "Critical Strike Chance",
     "Health",
     "Armor",
-    "MagicResist",
-    "AttackSpeed",
-    // "AbilityHaste",
-    // "LifeSteal",
-    // "BaseHealthRegen",
-    // "BaseManaRegen",
+    "Magic Resist",
+    "Attack Speed",
+    // "Lethality",
+    // "Ability Haste",
+    // "Life Steal",
+    // "Base Health Regen",
+    // "Base Mana Regen",
     // "Crit",
-    // "CriticalStrikeDamage",
-    // "GoldPer10Minutes",
-    // "HealandShieldPower",
+    // "Critical Strike Damage",
+    // "Gold Per 10 Minutes",
+    // "Heal and Shield Power",
     // "Level",
     // "Mana",
-    // "MoveSpeed",
+    // "Move Speed",
     // "Melee",
     // "Omnivamp",
     // "Onhit",

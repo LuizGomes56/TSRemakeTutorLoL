@@ -5,9 +5,8 @@ import Tool from './components/tables/tool';
 import { EndPoint } from './constants';
 import './realtime.css';
 
-const o: RequestBody = { code: "401085", item: "4403" };
-
-const FetchGame = async (): Promise<DataProps | void> => {
+const FetchGame = async (item: string): Promise<DataProps | void> => {
+    var o: RequestBody = { code: "401085", item };
     let x = await fetch(EndPoint + "/api/game/last", {
         method: "POST",
         body: JSON.stringify(o),
@@ -19,12 +18,14 @@ const FetchGame = async (): Promise<DataProps | void> => {
 
 export default function Page() {
     let [game, setGame] = useState<DataProps | null>(null);
-    useEffect(() => {
-        LoadData();
-    }, [])
+    let [selectedItem, setSelectedItem] = useState<string>("4403");
 
-    const LoadData = async () => {
-        let a = await FetchGame();
+    useEffect(() => {
+        LoadData(selectedItem);
+    }, [selectedItem])
+
+    const LoadData = async (item: string) => {
+        let a = await FetchGame(item);
         console.log(a);
         if (a) { setGame(a) }
     }
@@ -58,6 +59,7 @@ export default function Page() {
                                     spell={spell}
                                     enemies={enemies}
                                     map={game.gameData.mapNumber.toString()}
+                                    onItemClick={setSelectedItem}
                                 />
                             </>
                         );
