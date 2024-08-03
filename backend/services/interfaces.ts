@@ -610,7 +610,7 @@ interface ToolProps {
     sum: number;
 }
 
-export interface AbilityFilter {
+export interface RelevantProps {
     min: string[];
     max: string[];
 };
@@ -634,10 +634,10 @@ interface ExtendsActivePlayer {
     skin: number;
     tool: ToolInfo
     relevant: {
-        abilities: AbilityFilter;
-        items: string[];
-        runes: string[];
-        spell: string[];
+        abilities: RelevantProps;
+        items: RelevantProps;
+        runes: RelevantProps;
+        spell: RelevantProps;
     };
 }
 

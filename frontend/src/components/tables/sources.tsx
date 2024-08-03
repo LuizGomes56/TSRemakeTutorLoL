@@ -1,10 +1,9 @@
 import { Damage, PropertyProps, Tip } from "../../interfaces"
-import { Style, spell, item, rune, champion } from "../../constants";
+import { Style, champion } from "../../constants";
 import { useState } from "react";
 import Tooltip from "../tooltip";
-import ImageCells from "./cells/image";
-import VoidCells from "./cells/void";
 import ChampionCells from "./cells/champion";
+import TableHeader from "./cells/thead";
 
 const TextCells = ({ damage }: { damage: Record<string, Damage> }) => (
     <>
@@ -21,7 +20,7 @@ const TextCells = ({ damage }: { damage: Record<string, Damage> }) => (
 );
 
 export default function Sources(t: PropertyProps) {
-    const [tip, setTip] = useState<Tip>(null);
+    let [tip, setTip] = useState<Tip | null>(null);
 
     const MouseOver = (s: string, n?: string, d?: string, r?: number[]) => () => {
         setTip({ s, n, d, r });
@@ -33,36 +32,15 @@ export default function Sources(t: PropertyProps) {
         <div className="overflow-auto shade">
             <table>
                 <thead>
-                    <tr>
-                        <VoidCells />
-                        {t.abilities.min.map(x => {
-                            let h = x[0] == "P";
-                            let l = ["A", "C"].includes(x[0]);
-                            let c = t.champion;
-                            let s = l ? spell(x[0]) : spell(c.id + x[0]);
-                            let a = ["Q", "W", "E", "R"];
-                            let j = a.indexOf(x[0]);
-                            let d = !l ? h ? c.passive.description : c.spells[j].description : undefined;
-                            let n = !l ? h ? c.passive.name : c.spells[j].name : undefined;
-                            let r = !l ? h ? [] : c.spells[j].cooldown : undefined;
-                            return <ImageCells
-                                src={s}
-                                alt={c.name}
-                                letter={!l ? x : undefined}
-                                onMouseOver={d && n ? MouseOver(s, n, d, r) : undefined}
-                                onMouseOut={d && n ? MouseOut : undefined}
-                            />
-                        })}
-                        {t.runes.map(x => (
-                            <ImageCells src={rune(x)} alt={x} />
-                        ))}
-                        {t.spell.map(x => (
-                            <ImageCells src={rune(x)} alt={x} />
-                        ))}
-                        {t.items.map(x => (
-                            <ImageCells src={item(x)} alt={x} />
-                        ))}
-                    </tr>
+                    <TableHeader
+                        abilities={t.abilities}
+                        champion={t.champion}
+                        runes={t.runes}
+                        spell={t.spell}
+                        items={t.items}
+                        onMouseOver={MouseOver}
+                        onMouseOut={MouseOut}
+                    />
                 </thead>
                 <tbody>
                     {t.enemies.map(x => (
@@ -76,7 +54,7 @@ export default function Sources(t: PropertyProps) {
                     ))}
                 </tbody>
             </table>
-            <Tooltip x={tip} />
+            {tip && <Tooltip x={tip} />}
         </div>
     );
 }

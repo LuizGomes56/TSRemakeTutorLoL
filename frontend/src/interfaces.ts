@@ -265,20 +265,21 @@ interface ToolProps {
     sum: number;
 }
 
-interface AbilityFilter {
+export interface RelevantProps {
     min: string[];
     max: string[];
 };
 
-type Relevant = DataProps["activePlayer"]["relevant"];
-
-export type PropertyProps = {
-    abilities: Relevant["abilities"];
-    items: Relevant["items"];
-    runes: Relevant["runes"];
-    spell: Relevant["spell"];
+export type RequiredProps = {
+    abilities: RelevantProps;
+    items: RelevantProps;
+    runes: RelevantProps;
+    spell: RelevantProps;
     champion: DataProps["activePlayer"]["champion"];
-    enemies: DataProps["allPlayers"];
+}
+
+export type PropertyProps = RequiredProps & {
+    enemies: Ply[];
 }
 
 export type Tip = {
@@ -286,7 +287,7 @@ export type Tip = {
     n?: string;
     d?: string;
     r?: number[];
-} | null;
+};
 
 export type ToolInfo = {
     id: string;
@@ -307,10 +308,10 @@ interface ExtendsActivePlayer {
     skin: number;
     tool: ToolInfo
     relevant: {
-        abilities: AbilityFilter;
-        items: string[];
-        runes: string[];
-        spell: string[];
+        abilities: RelevantProps;
+        items: RelevantProps;
+        runes: RelevantProps;
+        spell: RelevantProps;
     };
 }
 
@@ -332,7 +333,7 @@ interface ExtendsPlayer {
 }
 
 type Acp = ActivePlayer & ExtendsActivePlayer;
-type Ply = Player & ExtendsPlayer;
+export type Ply = Player & ExtendsPlayer;
 
 export interface DataProps extends GameProps {
     activePlayer: Acp;

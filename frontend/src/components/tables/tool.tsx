@@ -1,13 +1,12 @@
 import { Damage, PropertyProps, Tip, ToolInfo } from "../../interfaces"
-import { Style, spell, item, rune, champion } from "../../constants";
+import { Style, champion } from "../../constants";
 import { useState, useEffect, useRef } from "react";
 import Tooltip from "../tooltip";
-import ImageCells from "./cells/image";
-import VoidCells from "./cells/void";
 import ChampionCells from "./cells/champion";
 import Suggestion from "../suggestion";
 import Searchbutton from "../searchbutton";
 import Dropdown from "../dropdown";
+import TableHeader from "./cells/thead";
 
 type Property = PropertyProps & {
     tool: ToolInfo;
@@ -54,7 +53,7 @@ const TextCells = ({ max, dif }: { max: Record<string, Damage>, dif: Record<stri
 );
 
 export default function Tool(t: Property) {
-    var [tip, setTip] = useState<Tip>(null);
+    var [tip, setTip] = useState<Tip | null>(null);
     var [search, setSearch] = useState<boolean>(false);
     var dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -92,38 +91,16 @@ export default function Tool(t: Property) {
             <div className="overflow-auto shade">
                 <table>
                     <thead>
-                        <tr>
-                            <VoidCells />
-                            {t.abilities.min.map(x => {
-                                let w = x[0];
-                                let l = ["A", "C"].includes(w);
-                                let c = t.champion;
-                                let s = l ? spell(w) : spell(c.id + w);
-                                let a = ["Q", "W", "E", "R"];
-                                let h = w == "P";
-                                let v = c.spells[a.indexOf(w)];
-                                let d = !l ? h ? c.passive.description : v.description : undefined;
-                                let n = !l ? h ? c.passive.name : v.name : undefined;
-                                let r = !l ? h ? [] : v.cooldown : undefined;
-                                return <ImageCells
-                                    src={s}
-                                    alt={c.name}
-                                    letter={!l ? x : undefined}
-                                    onMouseOver={d && n ? MouseOver(s, n, d, r) : undefined}
-                                    onMouseOut={d && n ? MouseOut : undefined}
-                                />
-                            })}
-                            {t.runes.map(x => (
-                                <ImageCells src={rune(x)} alt={x} />
-                            ))}
-                            {t.spell.map(x => (
-                                <ImageCells src={rune(x)} alt={x} />
-                            ))}
-                            {t.items.map(x => (
-                                <ImageCells src={item(x)} alt={x} />
-                            ))}
-                            {t.tool.active && <ImageCells src={item(t.tool.id)} alt={t.tool.id} />}
-                        </tr>
+                        <TableHeader
+                            abilities={t.abilities}
+                            champion={t.champion}
+                            runes={t.runes}
+                            spell={t.spell}
+                            items={t.items}
+                            tool={t.tool}
+                            onMouseOver={MouseOver}
+                            onMouseOut={MouseOut}
+                        />
                     </thead>
                     <tbody>
                         {t.enemies.map(x => (
@@ -137,7 +114,7 @@ export default function Tool(t: Property) {
                         ))}
                     </tbody>
                 </table>
-                <Tooltip x={tip} />
+                {tip && <Tooltip x={tip} />}
             </div>
         </>
     );

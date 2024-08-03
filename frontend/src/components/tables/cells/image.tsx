@@ -13,7 +13,6 @@ export default function ImageCells({ src, alt, letter, onMouseOver, onMouseOut }
                         ) : letter}
                     </h2>
                 )}
-
             </span>
         </th>
     )

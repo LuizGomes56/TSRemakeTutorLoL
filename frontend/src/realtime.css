@@ -41,8 +41,14 @@ table td {
     padding: 7.5px;
 }
 
+table th:first-child {
+    width: 0px;
+    height: 0px;
+}
+
 table thead tr {
-    background-color: #1F1F1F;
+    /* background-color: #1F1F1F; */
+    background-color: #18181b;
 }
 
 table tbody tr:nth-child(even) {
@@ -70,6 +76,16 @@ table p {
     text-wrap: nowrap;
     filter: drop-shadow(0px 0px 1px black);
     text-shadow: 0px 1.25px 0px black;
+}
+
+.letter-shade {
+    filter: drop-shadow(1.25px 1.25px 0px black);
+    text-shadow: 0px 0px 4px black;
+}
+
+.double-sub {
+    font-size: 0.8em;
+    vertical-align: -0.4em;
 }
 
 table span {

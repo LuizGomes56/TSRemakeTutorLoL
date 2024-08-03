@@ -6,7 +6,7 @@ export default function Searchbar({ event, text }: { event: (e: React.ChangeEven
                 placeholder="Search for an item"
                 value={text}
                 onInput={event}
-                className="h-12 placeholder:text-neutral-300 pl-12 w-full text-neutral-300 bg-neutral-800 focus:outline-none focus:ring-2 focus:ring-indigo-800"
+                className="h-12 placeholder:text-zinc-300 pl-12 w-full text-zinc-300 bg-zinc-800 focus:outline-none focus:ring-2 focus:ring-indigo-800"
             />
             <img className="h-5 absolute left-4" src="/search.svg" alt="Search" />
         </div>

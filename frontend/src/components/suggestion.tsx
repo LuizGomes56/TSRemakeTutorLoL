@@ -6,7 +6,7 @@ export default function Suggestion({ x }: { x: ToolInfo }) {
         <div className="bg-neutral-900 text-white p-3">
             <div className="border-b border-b-zinc-600 mb-2 pb-2 flex justify-between items-center gap-6 min-w-48 w-full">
                 <span className="flex items-center gap-2">
-                    <img className="h-8 rounded w-8" src={item(x.id)} alt="Item" />
+                    <img className="h-8 rounded w-8 shade" src={item(x.id)} alt="Item" />
                     <h3 className="text-white front-bold dropshadow">{x.name}</h3>
                 </span>
                 <span className="flex items-center gap-1">
@@ -18,7 +18,7 @@ export default function Suggestion({ x }: { x: ToolInfo }) {
                 {x.raw && Object.keys(x.raw).map((y, i) => (
                     <div className="flex items-center gap-2">
                         <img className="h-4" src={stat(y.replace(/\s+/g, ""))} alt="Stat" />
-                        <span className="text-sm dropshadow text-neutral-300">{`${x.raw![y as keyof typeof x.raw]} ${Object.keys(x.raw)[i]}`}</span>
+                        <span className="text-sm dropshadow text-zinc-300">{`${x.raw![y as keyof typeof x.raw]} ${Object.keys(x.raw)[i]}`}</span>
                     </div>
                 ))}
             </div>

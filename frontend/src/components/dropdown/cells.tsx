@@ -23,7 +23,7 @@ const Cells = ({ x, t, m, f, onItemClick }: { x: Record<string, EvalItemStats>, 
             }).map(c => {
                 let a = x[c];
                 return (
-                    <div key={c} onClick={() => onItemClick(c)} className="cursor-pointer h-8 text-neutral-300 flex items-center gap-2 px-1.5 bg-neutral-800 hover:text-blue-300 hover:font-bold hover:bg-blue-950 transition-all duration-200">
+                    <div key={c} onClick={() => onItemClick(c)} className="cursor-pointer h-8 text-zinc-300 flex items-center gap-2 px-1.5 bg-zinc-900 hover:text-blue-300 hover:font-bold hover:bg-blue-950 transition-all duration-200">
                         <img className="h-5" src={item(c)} alt={c} />
                         <p className="select-none text-sm dropshadow">{a.name}</p>
                     </div>

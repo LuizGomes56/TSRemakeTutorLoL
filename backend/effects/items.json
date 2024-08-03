@@ -586,8 +586,12 @@
             "name": "Kraken Slayer",
             "type": "physical",
             "min": {
-                "melee": "",
-                "ranged": ""
+                "melee": "total * physicalMod",
+                "ranged": "total * physicalMod"
+            },
+            "max": {
+                "melee": "total * 1.5 * physicalMod",
+                "ranged": "total * 1.5 * physicalMod"
             },
             "onhit": false,
             "effect": [
@@ -609,13 +613,7 @@
                 276,
                 293,
                 310
-            ],
-            "damage": {
-                "min": {
-                    "melee": "",
-                    "ranged": ""
-                }
-            }
+            ]
         },
         "6677": {
             "name": "Rageknife",

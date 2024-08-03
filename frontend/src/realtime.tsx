@@ -4,9 +4,11 @@ import Sources from './components/tables/sources';
 import Tool from './components/tables/tool';
 import { EndPoint } from './constants';
 import './realtime.css';
+import Summation from './components/tables/summation';
+import Selector from './components/selector';
 
 const FetchGame = async (item: string): Promise<DataProps | void> => {
-    var o: RequestBody = { code: "401085", item };
+    var o: RequestBody = { code: "969539", item };
     let x = await fetch(EndPoint + "/api/game/last", {
         method: "POST",
         body: JSON.stringify(o),
@@ -21,8 +23,11 @@ export default function Page() {
     let [selectedItem, setSelectedItem] = useState<string>("4403");
 
     useEffect(() => {
-        LoadData(selectedItem);
-    }, [selectedItem])
+        const delay = setInterval(() => {
+            LoadData(selectedItem);
+        }, 1000);
+        return () => clearInterval(delay);
+    }, [selectedItem]);
 
     const LoadData = async (item: string) => {
         let a = await FetchGame(item);
@@ -31,7 +36,7 @@ export default function Page() {
     }
 
     return (
-        <div className="container mx-auto max-w-3xl">
+        <div className="container mx-auto max-w-4xl">
             {game ? (
                 <>
                     {(() => {
@@ -60,6 +65,18 @@ export default function Page() {
                                     enemies={enemies}
                                     map={game.gameData.mapNumber.toString()}
                                     onItemClick={setSelectedItem}
+                                />
+                                <br />
+                                <Selector
+                                    abilities={abilities}
+                                    items={items}
+                                    runes={runes}
+                                    spell={spell}
+                                    champion={champion}
+                                />
+                                <br />
+                                <Summation
+                                    enemies={enemies}
                                 />
                             </>
                         );

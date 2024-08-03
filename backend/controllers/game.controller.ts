@@ -20,8 +20,14 @@ export const LastByCode = async (req: Request, res: Response, next: NextFunction
                 });
                 if (data) {
                     let gameData = JSON.parse(data.game_data);
-                    let x = await Calculate(item, gameData);
-                    res.status(200).json({ success: true, data: Object.assign(games, { game: JSON.stringify(x) }) });
+                    try {
+                        let x = await Calculate(item, gameData);
+                        res.status(200).json({ success: true, data: Object.assign(games, { game: JSON.stringify(x) }) });
+                    }
+                    catch (e) {
+                        console.error(e);
+                        res.status(404).json({ success: false, message: `Cannot evaluate gamedata status. ${e}` });
+                    }
                 }
                 else { res.status(404).json({ success: false, message: 'Cannot find this gamedata.' }); }
             }

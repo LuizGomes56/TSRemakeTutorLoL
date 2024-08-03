@@ -1,0 +1,13 @@
+<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=MathJax_Main:wght@700&amp;display=swap');
+    .mathjax {
+      font-family: 'MathJax_Main', serif;
+      font-weight: bold;
+      fill: white;
+    }
+  </style>
+  <g>
+    <text x="22.5" y="67.5" font-size="75" class="mathjax">∑</text>
+  </g>
+</svg>

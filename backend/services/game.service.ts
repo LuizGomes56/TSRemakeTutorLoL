@@ -1,7 +1,7 @@
 import { readFileSync } from "fs";
 import { ChampionAPI, EvaluateItemStats, ItemAPI } from "./lol.service";
 import {
-    AbilityFilter, Acp, ActivePlayer, AllPropsCS, AllStatsProps, ChampionStats,
+    RelevantProps, Acp, ActivePlayer, AllPropsCS, AllStatsProps, ChampionStats,
     CoreStats, Damage, Damages, DataProps, DefAbilities, DragonProps, EvalItemStats, Event,
     GameEvents, LocalChampion, LocalItems, LocalRunes, Player, Ply,
     ReplacementsProps, Stats, SummonerSpells, TargetChampion, TargetItem
@@ -66,7 +66,7 @@ export const Calculate = async (t: string, g: DataProps, w: boolean = true): Pro
             activePlayer.tool = {
                 id: t,
                 name: n,
-                active: h ? h.activePlayer.relevant.items.includes(t) : false,
+                active: h ? h.activePlayer.relevant.items.min.includes(t) : false,
                 gold: r,
                 raw: m
             }
@@ -80,9 +80,9 @@ export const Calculate = async (t: string, g: DataProps, w: boolean = true): Pro
             activePlayer.items = player.items.map(item => item.itemID.toString());
             activePlayer.relevant = {
                 abilities: FilterAbilities(id) || { min: [], max: [] },
-                items: FilterItems(player),
-                runes: map != 30 ? FilterRunes(activePlayer) : [],
-                spell: FilterSpell(player.summonerSpells)
+                items: FilterItems(player) || { min: [], max: [] },
+                runes: map != 30 ? FilterRunes(activePlayer) || { min: [], max: [] } : { min: [], max: [] },
+                spell: { min: FilterSpell(player.summonerSpells), max: [] }
             };
             break;
         }
@@ -102,12 +102,12 @@ export const Calculate = async (t: string, g: DataProps, w: boolean = true): Pro
 
             player.damage = {
                 abilities: Abilities(stats, ablt),
-                items: Items(relv.items, stats),
-                runes: map != 30 ? Runes(relv.runes, stats) : {},
-                spell: Spell(relv.spell, activePlayer.level)
+                items: Items(relv.items.min, stats),
+                runes: map != 30 ? Runes(relv.runes.min, stats) : {},
+                spell: Spell(relv.spell.min, activePlayer.level)
             }
             if (h) {
-                let o = h.allPlayers[i].damage;
+                let o = h.allPlayers.filter(p => p.team !== activePlayer.team)[i].damage;
                 let s = Tool(o, player.damage);
                 player.tool = {
                     dif: s.dif,
@@ -246,7 +246,7 @@ const Items = (items: string[], stats: AllStatsProps): Record<string, Damage> =>
         if (item) {
             let min = item.min[f];
             let max = item.max?.[f];
-            let total = item.effect?.[stats.activePlayer.level];
+            let total = item.effect?.[stats.activePlayer.level - 1];
             let [n, m] = Evaluate(min, max, stats, total ? { total } : undefined);
             j[k] = {
                 min: n,
@@ -490,8 +490,8 @@ const AllStats = (player: Ply, activePlayer: Acp): AllStatsProps => {
 
     let rel = activePlayer.relevant;
 
-    rel.runes.includes("8299") ? acpMod += mshp > 0.7 ? 0.11 : mshp >= 0.4 ? 0.2 * mshp - 0.03 : 0 : 0;
-    rel.items.includes("4015") ? acpMod += exhp / (220000 / 15) : 0;
+    rel.runes.min.includes("8299") ? acpMod += mshp > 0.7 ? 0.11 : mshp >= 0.4 ? 0.2 * mshp - 0.03 : 0 : 0;
+    rel.items.min.includes("4015") ? acpMod += exhp / (220000 / 15) : 0;
 
     return {
         activePlayer: {
@@ -616,22 +616,44 @@ const LoadRunes = (): void => {
     }
 }
 
-const FilterRunes = (activePlayer: ActivePlayer): Array<string> => {
+const FilterRunes = (activePlayer: ActivePlayer): RelevantProps | void => {
+    if (!_Runes) { return };
     let runes = activePlayer.fullRunes.generalRunes.map(rune => rune.id.toString());
-    let array: string[] = [];
+    let min: string[] = [];
+    let max: string[] = [];
+    let y = _Runes.data;
+    let x = Object.keys(y);
     runes.forEach(rune => {
-        if (_Runes && Object.keys(_Runes.data).includes(rune)) { array.push(rune) }
+        if (_Runes && x.includes(rune)) {
+            min.push(rune);
+            if (y[rune].max) { max.push(rune); }
+        }
     })
-    return array;
+    return {
+        min: Order(min),
+        max: Order(max)
+    }
 }
 
-const FilterItems = (player: Player): Array<string> => {
+const Order = (x: string[]): string[] => x.sort((a, b) => parseInt(a) - parseInt(b));
+
+const FilterItems = (player: Player): RelevantProps | void => {
+    if (!_Items) { return }
     let items = player.items.map(item => item.itemID.toString())
-    let array: string[] = [];
+    let min: string[] = [];
+    let max: string[] = [];
+    let y = _Items.data
+    let x = Object.keys(y);
     items.forEach(item => {
-        if (_Items && Object.keys(_Items.data).includes(item)) { array.push(item) }
+        if (_Items && x.includes(item)) {
+            min.push(item);
+            if (y[item].max) { max.push(item); }
+        }
     })
-    return array;
+    return {
+        min: Order(min),
+        max: Order(max)
+    }
 }
 
 const LoadItems = (): void => {
@@ -648,7 +670,7 @@ const LoadChampion = (id: string): void => {
     }
 }
 
-const FilterAbilities = (id: string): AbilityFilter | void => {
+const FilterAbilities = (id: string): RelevantProps | void => {
     let x = _Champion?.[id];
     let j: string[] = [];
     if (x) {
