@@ -44,4 +44,4 @@ export const allStats: string[] = [
     // "Onhit",
     // "Ranged",
     // "Tenacity"
-];
+]; // Dropdown Filter Options

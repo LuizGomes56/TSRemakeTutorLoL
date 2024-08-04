@@ -265,6 +265,14 @@ interface ToolProps {
     sum: number;
 }
 
+export interface Tag {
+    id: string;
+    key: "abilities" | "runes" | "items" | "spell";
+    img: string;
+    mod: "min" | "max";
+    text: string[];
+}
+
 export interface RelevantProps {
     min: string[];
     max: string[];

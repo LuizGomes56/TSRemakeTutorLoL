@@ -4,13 +4,13 @@ export default function Recommendation() {
     return (
         <div className="flex bg-neutral-900 p-3">
             <div className="h-fit grid grid-cols-2 gap-3">
-                {["Suggestion", "Increase"].map(x => (<span className="flex justify-center gap-2 items-center text-white font-bold text-lg pb-2 border-b border-b-zinc-600">
+                {["Suggestion", "Increase"].map((x, i) => (<span key={x + i} className="flex justify-center gap-2 items-center text-white font-bold text-lg pb-2 border-b border-b-zinc-600">
                     <img className="h-8" src={`/${x.toLowerCase()}.png`} alt="Inc" />
                     <h2 className="text-white font-bold">{x}</h2>
                 </span>))}
-                {["4403", "3135", "4645"].map(x => (
+                {["4403", "3135", "4645"].map((x, i) => (
                     <>
-                        <div className="flex items-center gap-2">
+                        <div key={i} className="flex items-center gap-2">
                             <img className="h-8 w-8 rounded" src={item(x)} alt="Item" />
                             <p className="text-sm text-white front-bold dropshadow">Shadowflame</p>
                         </div>

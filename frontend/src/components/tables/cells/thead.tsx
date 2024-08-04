@@ -16,7 +16,7 @@ export default function TableHeader({ abilities, champion, runes, spell, items, 
     return (
         <tr>
             <VoidCells />
-            {abilities.min.map(x => {
+            {abilities.min.map((x, i) => {
                 let w = x[0];
                 let l = ["A", "C"].includes(w);
                 let c = champion;
@@ -29,7 +29,7 @@ export default function TableHeader({ abilities, champion, runes, spell, items, 
                 let r = !l ? (h ? [] : v.cooldown) : undefined;
                 return (
                     <ImageCells
-                        key={x}
+                        key={x + i}
                         src={s}
                         alt={c.name}
                         letter={!l ? x : undefined}

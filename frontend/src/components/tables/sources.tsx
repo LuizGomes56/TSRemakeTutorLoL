@@ -7,11 +7,11 @@ import TableHeader from "./cells/thead";
 
 const TextCells = ({ damage }: { damage: Record<string, Damage> }) => (
     <>
-        {Object.keys(damage).map(k => {
+        {Object.keys(damage).map((k, i) => {
             let d = damage[k];
             return (
-                <td>
-                    <p className={Style.damages[d.type as keyof typeof Style.damages]}>
+                <td key={k + i}>
+                    <p className={`${Style.damages[d.type as keyof typeof Style.damages]} text-sm`}>
                         {d.max ? `${Math.round(d.min)} - ${Math.round(d.max)}` : Math.round(d.min)}</p>
                 </td>
             );
@@ -43,8 +43,8 @@ export default function Sources(t: PropertyProps) {
                     />
                 </thead>
                 <tbody>
-                    {t.enemies.map(x => (
-                        <tr>
+                    {t.enemies.map((x, i) => (
+                        <tr key={i}>
                             <ChampionCells src={champion(x.champion.id)} alt={x.champion.name} />
                             <TextCells damage={x.damage.abilities as Record<string, Damage>} />
                             <TextCells damage={x.damage.runes as Record<string, Damage>} />

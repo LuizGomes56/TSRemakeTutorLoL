@@ -14,43 +14,53 @@ type Property = PropertyProps & {
     onItemClick: (item: string) => void;
 }
 
-const TextCells = ({ max, dif }: { max: Record<string, Damage>, dif: Record<string, Damage> }) => (
-    <>
-        {Object.keys(max).map(k => {
-            let d = max[k];
-            let y = dif[k];
-            return (
-                <td>
-                    <span className="flex-col">
-                        {d.max ?
-                            <>
-                                <p className={`${Style.damages[d.type as keyof typeof Style.damages]} text-sm`}>
-                                    {`${Math.round(d.min)} - ${Math.round(d.max)} `}
-                                </p>
-                                {y.max && y.max > 0 && y.min > 0 ?
-                                    <p className="text-slate-400 text-xs leading-3">
-                                        {`${Math.round(y.min)} - ${Math.round(y.max)}`}
-                                    </p> :
-                                    y.min > 0 ? <p className="text-slate-400 text-xs leading-3">
+const TextCells = ({ max, dif, tool }: { max: Record<string, Damage>, dif: Record<string, Damage>, tool?: string }) => {
+    let m = Object.keys(max);
+    if (tool) {
+        let w = m.indexOf(tool);
+        if (w !== -1) {
+            let z = m.splice(w, 1)[0];
+            m.push(z);
+        }
+    }
+    return (
+        <>
+            {m.map((k, i) => {
+                let d = max[k];
+                let y = dif[k];
+                return (
+                    <td key={i}>
+                        <span className="flex-col">
+                            {d.max ?
+                                <>
+                                    <p className={`${Style.damages[d.type as keyof typeof Style.damages]} text-sm`}>
+                                        {`${Math.round(d.min)} - ${Math.round(d.max)} `}
+                                    </p>
+                                    {y ? y.max && y.max > 0 && y.min > 0 ?
+                                        <p className="text-slate-400 text-xs leading-3">
+                                            {`${Math.round(y.min)} - ${Math.round(y.max)}`}
+                                        </p> :
+                                        y.min > 0 ? <p className="text-slate-400 text-xs leading-3">
+                                            {Math.round(y.min)}
+                                        </p> : null
+                                        : null}
+                                </> :
+                                <>
+                                    <p className={`${Style.damages[d.type as keyof typeof Style.damages]} text-sm`}>
+                                        {Math.round(d.min)}
+                                    </p>
+                                    {y && y.min > 0 && <p className="text-slate-400 text-xs leading-3">
                                         {Math.round(y.min)}
-                                    </p> : null
-                                }
-                            </> :
-                            <>
-                                <p className={`${Style.damages[d.type as keyof typeof Style.damages]} text-sm`}>
-                                    {Math.round(d.min)}
-                                </p>
-                                {y && y.min > 0 && <p className="text-slate-400 text-xs leading-3">
-                                    {Math.round(y.min)}
-                                </p>}
-                            </>
-                        }
-                    </span>
-                </td>
-            );
-        })}
-    </>
-);
+                                    </p>}
+                                </>
+                            }
+                        </span>
+                    </td>
+                );
+            })}
+        </>
+    )
+};
 
 export default function Tool(t: Property) {
     var [tip, setTip] = useState<Tip | null>(null);
@@ -103,13 +113,13 @@ export default function Tool(t: Property) {
                         />
                     </thead>
                     <tbody>
-                        {t.enemies.map(x => (
-                            <tr>
+                        {t.enemies.map((x, i) => (
+                            <tr key={i}>
                                 <ChampionCells src={champion(x.champion.id)} alt={x.champion.name} />
                                 <TextCells dif={x.tool?.dif?.abilities as Record<string, Damage>} max={x.tool?.max.abilities as Record<string, Damage>} />
                                 <TextCells dif={x.tool?.dif?.runes as Record<string, Damage>} max={x.tool?.max.runes as Record<string, Damage>} />
                                 <TextCells dif={x.tool?.dif?.spell as Record<string, Damage>} max={x.tool?.max.spell as Record<string, Damage>} />
-                                <TextCells dif={x.tool?.dif?.items as Record<string, Damage>} max={x.tool?.max.items as Record<string, Damage>} />
+                                <TextCells dif={x.tool?.dif?.items as Record<string, Damage>} max={x.tool?.max.items as Record<string, Damage>} tool={t.tool.id} />
                             </tr>
                         ))}
                     </tbody>

@@ -20,10 +20,10 @@ const Cells = ({ x, t, m, f, onItemClick }: { x: Record<string, EvalItemStats>, 
                     return s == "Armor Penetration" ? g.includes(s) || g.includes("Lethality") : g.includes(s);
                 });
                 return z.maps[m] && z.gold.purchasable && LetterFinder(z.name.toLowerCase(), t.toLowerCase()) && h;
-            }).map(c => {
+            }).map((c, i) => {
                 let a = x[c];
                 return (
-                    <div key={c} onClick={() => onItemClick(c)} className="cursor-pointer h-8 text-zinc-300 flex items-center gap-2 px-1.5 bg-zinc-900 hover:text-blue-300 hover:font-bold hover:bg-blue-950 transition-all duration-200">
+                    <div key={c + i} onClick={() => onItemClick(c)} className="cursor-pointer h-8 text-zinc-300 flex items-center gap-2 px-1.5 bg-zinc-900 hover:text-blue-300 hover:font-bold hover:bg-blue-950 transition-all duration-200">
                         <img className="h-5" src={item(c)} alt={c} />
                         <p className="select-none text-sm dropshadow">{a.name}</p>
                     </div>

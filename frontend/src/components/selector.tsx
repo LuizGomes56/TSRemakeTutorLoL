@@ -1,5 +1,7 @@
+import { useState } from "react";
 import { item, rune, spell } from "../constants";
-import { RelevantProps, RequiredProps } from "../interfaces";
+import { PropertyProps, RelevantProps, RequiredProps, Tag } from "../interfaces";
+import Summation from "./tables/summation";
 
 const SubText = {
     "min": "min",
@@ -10,21 +12,45 @@ type OptionsProps = {
     q: RelevantProps;
     m: "min" | "max";
     c: RequiredProps["champion"];
+    e: (k: Tag) => void;
 }
 
-const AbilityOptions = ({ q, m, c }: OptionsProps) => {
+const Instances = ({ instance, e }: { instance: Tag[], e: (i: number) => void }) => {
     return (
-        q[m].map(x => {
+        <>
+            {
+                instance.map((x, i) => (
+                    <span key={x.id + i + x.text} onClick={() => e(i)} className="relative flex items-center justify-center cursor-pointer">
+                        <img src={x.img} alt={x.id} className="h-9 min-w-9 rounded select-none shade"></img>
+                        {x.text[0].length > 0 &&
+                            <h2 className="select-none text-white absolute font-bold letter-shade">
+                                {x.text[0]}
+                                {x.text[1] && <sub>
+                                    {x.text[1]}
+                                    {x.text[2] && <span className="double-sub">{x.text[2]}</span>}
+                                </sub>}
+                            </h2>
+                        }
+                    </span>
+                ))
+            }
+        </>
+    )
+}
+
+const AbilityOptions = ({ q, m, c, e }: OptionsProps) => {
+    return (
+        q[m].map((x, i) => {
             let w = x[0];
             let l = ["A", "C"].includes(w);
             let s = l ? spell(w) : spell(c.id + w);
             let g = !l ? x : undefined;
             let j = g && q[m == "min" ? "max" : m].includes(g);
             return (
-                <span className="relative flex items-center justify-center cursor-pointer">
-                    <img src={s} alt={c.name} className="h-10 min-w-10 select-none shade"></img>
+                <span key={x + i + m + g} onClick={() => e({ id: x, key: "abilities", img: s, mod: m, text: g ? g.length > 1 ? [g.charAt(0), g.charAt(1), j ? SubText[m] : ""] : j ? [g.charAt(0), SubText[m], ""] : [g, "", ""] : ["", "", ""] })} className="relative flex items-center justify-center cursor-pointer">
+                    <img src={s} alt={c.name} className="h-9 min-w-9 rounded select-none shade"></img>
                     {g && (
-                        <h2 className={`${g.length >= 1 && !j && "text-lg"} text-white absolute font-bold letter-shade`}>
+                        <h2 className={`${g.length >= 1 && !j && "text-base"} select-none text-white absolute font-bold letter-shade`}>
                             {g.length > 1 ? (
                                 <>
                                     {g.charAt(0)}
@@ -50,74 +76,87 @@ const AbilityOptions = ({ q, m, c }: OptionsProps) => {
     )
 }
 
-const KeyOptions = ({ q, m, c }: OptionsProps) => {
+const KeyOptions = ({ q, m, c, e }: OptionsProps) => {
     return (
-        q[m].map(x => {
+        q[m].map((x, i) => {
             let g = q[m == "min" ? "max" : m].includes(x);
+            let y = Number(x) >= 8000 || isNaN(Number(x));
+            let s = y ? rune(x) : item(x);
             return (
-                <span className="relative flex items-center justify-center cursor-pointer">
-                    <img src={Number(x) >= 8000 || isNaN(Number(x)) ? rune(x) : item(x)} alt={c.name} className="h-10 min-w-10 select-none shade"></img>
-                    {g && <h2 className="text-white absolute font-bold letter-shade">{SubText[m]}</h2>}
+                <span key={x + i + m + g} onClick={() => e({ id: x, key: Number(x) >= 8000 ? "runes" : isNaN(Number(x)) ? "spell" : "items", img: s, mod: m, text: [g ? SubText[m] : "", "", ""] })} className="relative flex items-center justify-center cursor-pointer">
+                    <img src={s} alt={c.name} className="h-9 min-w-9 rounded select-none shade"></img>
+                    {g && <h2 className="select-none text-white absolute font-bold text-sm letter-shade">{SubText[m]}</h2>}
                 </span>
             )
         })
     )
 }
 
-export default function Selector(t: RequiredProps) {
+type SectionProps = {
+    h: string;
+    m: "min" | "max";
+    a: RelevantProps;
+    i: RelevantProps;
+    r: RelevantProps;
+    s: RelevantProps;
+    c: RequiredProps["champion"];
+    e: (k: Tag) => void;
+}
+
+const Section = ({ h, m, a, i, r, s, c, e }: SectionProps) => (
+    <>
+        <h2 className="text-zinc-300 dropshadow place-self-center text-lg font-bold">{h}</h2>
+        <div className="flex flex-wrap gap-2">
+            <AbilityOptions q={a} m={m} c={c} e={e} />
+            <KeyOptions q={i} m={m} c={c} e={e} />
+            <KeyOptions q={r} m={m} c={c} e={e} />
+            <KeyOptions q={s} m={m} c={c} e={e} />
+        </div>
+    </>
+);
+
+export default function Selector(t: PropertyProps) {
+    let [instance, setInstance] = useState<Tag[]>([]);
+
+    const Select = (e: Tag) => setInstance(prev => [...prev, e]);
+
+    const Remove = (e: number) => setInstance(prev => prev.filter((_, i) => i !== e));
+
     return (
         <>
             {
-                <div className="flex flex-col gap-8 shade p-4 bg-zinc-900">
-                    <div className="grid grid-cols-[max-content_1fr] gap-2 items-center">
-                        <h2 className="text-zinc-300 place-self-center text-lg font-bold px-2 w-24 lg:mx-24 md:mx-10">Minimum</h2>
-                        <div className="flex flex-wrap gap-2">
-                            <AbilityOptions
-                                q={t.abilities}
-                                m="min"
-                                c={t.champion}
-                            />
-                            <KeyOptions
-                                q={t.items}
-                                m="min"
-                                c={t.champion}
-                            />
-                            <KeyOptions
-                                q={t.runes}
-                                m="min"
-                                c={t.champion}
-                            />
-                            <KeyOptions
-                                q={t.spell}
-                                m="min"
-                                c={t.champion}
-                            />
+                <div className="grid grid-cols-2 md:grid-cols-[1fr,1fr,auto] justify-center shade p-4 bg-zinc-900 gap-y-8">
+                    <div className="flex flex-col gap-4 max-w-[124px] sm:max-w-64 md:max-w-[168px] lg:max-w-[212px]">
+                        <Section
+                            h="Minimum"
+                            m="min"
+                            a={t.abilities}
+                            i={t.items}
+                            r={t.runes}
+                            s={t.spell}
+                            c={t.champion}
+                            e={Select}
+                        />
+                        <Section
+                            h="Maximum"
+                            m="max"
+                            a={t.abilities}
+                            i={t.items}
+                            r={t.runes}
+                            s={t.spell}
+                            c={t.champion}
+                            e={Select}
+                        />
+                    </div>
+                    <div className="flex flex-col gap-4 max-w-[124px] sm:max-w-64 md:max-w-[168px] lg:max-w-[212px]">
+                        <h2 className="text-zinc-300 dropshadow place-self-center text-lg font-bold">Selected</h2>
+                        <div className="flex gap-2 flex-wrap">
+                            <Instances instance={instance} e={Remove} />
                         </div>
                     </div>
-                    <div className="grid grid-cols-[max-content_1fr] gap-2 items-center">
-                        <h2 className="text-zinc-300 place-self-center text-lg font-bold px-2 w-24 lg:mx-24 md:mx-10">Maximum</h2>
-                        <div className="flex flex-wrap gap-2">
-                            <AbilityOptions
-                                q={t.abilities}
-                                m="max"
-                                c={t.champion}
-                            />
-                            <KeyOptions
-                                q={t.items}
-                                m="max"
-                                c={t.champion}
-                            />
-                            <KeyOptions
-                                q={t.runes}
-                                m="max"
-                                c={t.champion}
-                            />
-                            <KeyOptions
-                                q={t.spell}
-                                m="max"
-                                c={t.champion}
-                            />
-                        </div>
+                    <div className="flex flex-col gap-4 col-span-2 md:col-span-1">
+                        <h2 className="text-zinc-300 dropshadow place-self-center text-lg font-bold">Summation</h2>
+                        <Summation enemies={t.enemies} instance={instance} />
                     </div>
                 </div>
             }

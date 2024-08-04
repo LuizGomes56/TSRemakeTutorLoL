@@ -4,11 +4,12 @@ import Sources from './components/tables/sources';
 import Tool from './components/tables/tool';
 import { EndPoint } from './constants';
 import './realtime.css';
-import Summation from './components/tables/summation';
 import Selector from './components/selector';
 
+const code = "401085" /* "969539" Futurely implement it from window/location/hash */;
+
 const FetchGame = async (item: string): Promise<DataProps | void> => {
-    var o: RequestBody = { code: "969539", item };
+    var o: RequestBody = { code: code, item };
     let x = await fetch(EndPoint + "/api/game/last", {
         method: "POST",
         body: JSON.stringify(o),
@@ -23,16 +24,18 @@ export default function Page() {
     let [selectedItem, setSelectedItem] = useState<string>("4403");
 
     useEffect(() => {
-        const delay = setInterval(() => {
+        LoadData(selectedItem);
+        const interval = setInterval(() => {
             LoadData(selectedItem);
         }, 1000);
-        return () => clearInterval(delay);
+
+        return () => clearInterval(interval);
     }, [selectedItem]);
 
     const LoadData = async (item: string) => {
         let a = await FetchGame(item);
-        console.log(a);
-        if (a) { setGame(a) }
+        // console.log(a);
+        if (a) { setGame(a); }
     }
 
     return (
@@ -73,11 +76,9 @@ export default function Page() {
                                     runes={runes}
                                     spell={spell}
                                     champion={champion}
-                                />
-                                <br />
-                                <Summation
                                     enemies={enemies}
                                 />
+                                <br />
                             </>
                         );
                     })()}
