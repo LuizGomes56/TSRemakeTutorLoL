@@ -7,6 +7,7 @@ import './realtime.css';
 import Selector from './components/selector';
 import Scoreboard from './components/scoreboard';
 import Loading from './components/loading';
+import Card from './components/card';
 
 const code = "401085" /* "969539" Futurely implement it from window/location/hash */;
 
@@ -45,6 +46,8 @@ export default function Page() {
             {game ? (
                 <div className="container mx-auto xl:flex xl:gap-5">
                     <div className="mt-5 max-w-4xl lg:w-full lg:max-w-none xl:w-fit xl:max-w-4xl">
+                        <Card game={game} />
+                        <div className="h-5 w-0" />
                         <Scoreboard game={game} />
                     </div>
                     <div className="flex flex-col max-w-4xl lg:w-full lg:max-w-none xl:w-auto xl:max-w-4xl">
@@ -54,7 +57,7 @@ export default function Page() {
                             let enemies = game.allPlayers.filter(p => p.team !== game.activePlayer.team);
                             return (
                                 <>
-                                    <div className="h-5 w-0 br" />
+                                    <div className="h-5 w-0" />
                                     <Sources
                                         abilities={abilities}
                                         champion={champion}

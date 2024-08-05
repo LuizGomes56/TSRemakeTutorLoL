@@ -2,7 +2,7 @@ import { Request, Response, NextFunction } from 'express';
 import { AllChampions, AllItems, AllStats, ChampionAPI, RiotAPI, UpdateCache } from '../services/lol.service';
 import dotenv from "dotenv";
 import path from "path";
-import { EvalItemStats, FullChampions, Items } from '../services/interfaces';
+import { Champions, EvalItemStats, FullChampions, Items } from '../services/interfaces';
 const download = require("download");
 
 dotenv.config();
@@ -32,11 +32,11 @@ export const FetchPassives = async () => {
 };
 
 export const ControllerPassives = async (req: Request, res: Response, next: NextFunction) => {
-    const s = Date.now();
+    const s = new Date();
     try {
         await FetchPassives();
-        const n = Date.now();
-        const t = (s - n) / 1000;
+        const n = new Date();
+        const t = (n.getTime() - s.getTime()) / 1000;
         res.status(200).json({ success: true, duration: t })
     }
     catch (e) {
@@ -69,11 +69,11 @@ export const FetchSpells = async () => {
 }
 
 export const ControllerSpells = async (req: Request, res: Response, next: NextFunction) => {
-    const s = Date.now();
+    const s = new Date();
     try {
         await FetchSpells();
-        const n = Date.now();
-        const t = (s - n) / 1000;
+        const n = new Date();
+        const t = (n.getTime() - s.getTime()) / 1000;
         res.status(200).json({ success: true, duration: t })
     }
     catch (e) {
@@ -100,11 +100,11 @@ export const FetchChampions = async () => {
 }
 
 export const ControllerChampions = async (req: Request, res: Response, next: NextFunction) => {
-    const s = Date.now();
+    const s = new Date();
     try {
         await FetchChampions();
-        const n = Date.now();
-        const t = (s - n) / 1000;
+        const n = new Date();
+        const t = (n.getTime() - s.getTime()) / 1000;
         res.status(200).json({ success: true, duration: t })
     }
     catch (e) {
@@ -114,11 +114,11 @@ export const ControllerChampions = async (req: Request, res: Response, next: Nex
 }
 
 export const ControllerItems = async (req: Request, res: Response, next: NextFunction) => {
-    const s = Date.now();
+    const s = new Date();
     try {
         await FetchItems();
-        const n = Date.now();
-        const t = (s - n) / 1000;
+        const n = new Date();
+        const t = (n.getTime() - s.getTime()) / 1000;
         res.status(200).json({ success: true, duration: t })
     }
     catch (e) {
@@ -139,12 +139,45 @@ export const FetchItems = async () => {
     catch (e) { console.log(e, msg); };
 }
 
+export const FetchArts = async () => {
+    try {
+        let c = await AllChampions();
+        for (let k of Object.keys(c?.data)) {
+            let t = await RiotAPI(`champion/${k}`) as Champions;
+            for (let y of t.data[k].skins) {
+                let r = y.num;
+                let f = `${imgDIR}/splash`;
+                for (let w of ["centered", "splash"]) {
+                    let url = `${process.env.DD_ENDPOINT}/img/champion/${w}/${k}_${r}.jpg`;
+                    try { await download(url, f).then(() => console.log(k + r)); }
+                    catch (e) { console.error(`Failed to download ${url}:`, e); }
+                }
+            }
+        }
+    }
+    catch (e) { console.log(e, msg); };
+}
+
+export const ControllerArts = async (req: Request, res: Response, next: NextFunction) => {
+    const s = new Date();
+    try {
+        await FetchArts();
+        const n = new Date();
+        const t = (n.getTime() - s.getTime()) / 1000;
+        res.status(200).json({ success: true, duration: t })
+    }
+    catch (e) {
+        next(e);
+        res.status(404).json({ success: false })
+    }
+}
+
 export const ControllerRunes = async (req: Request, res: Response, next: NextFunction) => {
-    const s = Date.now();
+    const s = new Date();
     try {
         await FetchRunes();
-        const n = Date.now();
-        const t = (s - n) / 1000;
+        const n = new Date();
+        const t = (n.getTime() - s.getTime()) / 1000;
         res.status(200).json({ success: true, duration: t })
     }
     catch (e) {
@@ -165,12 +198,10 @@ export const FetchRunes = async () => {
             if (r.slots.length > 0) {
                 for (let s of r.slots) {
                     for (let v of s.runes) {
-                        let e = [8321, 8313, 8316, 9101, 9105];
-                        if (!e.includes(parseInt(v.id))) {
-                            let url = `${j}/${v.icon}`;
-                            let f = `${imgDIR}/rune`;
-                            await download(url, f, { filename: v.id + ".png" }).then(() => console.log(end + v.id));
-                        }
+                        let url = `${j}/${v.icon}`;
+                        let f = `${imgDIR}/rune`;
+                        try { await download(url, f, { filename: v.id + ".png" }).then(() => console.log(end + v.id)); }
+                        catch (e) { console.log(e) }
                     }
                 }
             }
@@ -185,11 +216,11 @@ export const FetchCache = async () => {
 }
 
 export const ControllerCache = async (req: Request, res: Response, next: NextFunction) => {
-    const s = Date.now();
+    const s = new Date();
     try {
         await FetchCache();
-        const n = Date.now();
-        const t = (s - n) / 1000;
+        const n = new Date();
+        const t = (n.getTime() - s.getTime()) / 1000;
         res.status(200).json({ success: true, duration: t })
     }
     catch (e) {
@@ -222,7 +253,7 @@ export const ChampionList = async (req: Request, res: Response, next: NextFuncti
 }
 
 export const ControllerUpdate = async (req: Request, res: Response, next: NextFunction) => {
-    const Functions = [FetchPassives, FetchSpells, FetchRunes, FetchCache, FetchChampions, FetchItems];
+    const Functions = [FetchPassives, FetchSpells, FetchRunes, FetchCache, FetchChampions, FetchItems, FetchArts];
     const f = new Date();
     for (const fn of Functions) {
         try { await fn(); }
@@ -235,7 +266,7 @@ export const ControllerUpdate = async (req: Request, res: Response, next: NextFu
     const n = new Date();
     const t = (n.getTime() - f.getTime()) / 1000;
     const m = Math.floor(t / 60);
-    const s = t % 60;
+    const s = Math.round(t % 60);
     console.log(`UpdateCache completed in ${m}m and ${s}s.`);
     res.status(200).json({ success: true, message: msg });
 }
