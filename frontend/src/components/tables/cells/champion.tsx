@@ -4,7 +4,7 @@ export default function ChampionCells({ src, alt, name }: { src: string, alt: st
             {name ?
                 <div className="flex items-center gap-2">
                     <img src={src} alt={alt} />
-                    <p className="drposhadow">{name}</p>
+                    <p className="drposhadow text-sm">{name}</p>
                     {/* {`${name.split(" ")[0]} ${name.split(" ")[1].charAt(0)}.`} */}
                 </div> : <img src={src} alt={alt} />}
         </td>

@@ -38,12 +38,16 @@ table {
 table th,
 table td {
     transition: 0.2s ease;
-    padding: 7.5px;
+    padding: 8px;
 }
 
 table th:first-child {
     width: 0px;
     height: 0px;
+}
+
+table tr {
+    height: 48px;
 }
 
 table thead tr {

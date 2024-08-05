@@ -1,4 +1,6 @@
 export const EndPoint = "http://localhost:3000";
+export const RefreshTime = 1000;
+
 export const Style = {
     damages: {
         physical: "text-orange-600",

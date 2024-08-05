@@ -15,16 +15,16 @@ var _Items: undefined | LocalItems;
 var _Runes: undefined | LocalRunes;
 
 const AssignChampion = async (g: DataProps): Promise<void> => {
-    let k = g.activePlayer.summonerName
+    let k = g.activePlayer.summonerName;
     let x = g.allPlayers;
     let y = x.find(player => player.summonerName === k);
     if (y) {
         g.activePlayer.team = y.team;
         await Promise.all(x.map(async (p, i) => {
-            if (p.team !== y.team || p.summonerName === k) {
-                let c = await ChampionAPI(p.championName) as TargetChampion;
-                if (c) { g.allPlayers[i].champion = c; }
-            }
+            // if (p.team !== y.team || p.summonerName === k) { Need championID from team to build scoreboard
+            let c = await ChampionAPI(p.championName) as TargetChampion;
+            if (c) { g.allPlayers[i].champion = c; }
+            // }
         }));
     }
 };

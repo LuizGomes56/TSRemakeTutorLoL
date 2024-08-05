@@ -125,8 +125,8 @@ export default function Selector(t: PropertyProps) {
     return (
         <>
             {
-                <div className="grid grid-cols-2 md:grid-cols-[1fr,1fr,auto] justify-center shade p-4 bg-zinc-900 gap-y-8">
-                    <div className="flex flex-col gap-4 max-w-[124px] sm:max-w-64 md:max-w-[168px] lg:max-w-[212px]">
+                <div className="grid grid-cols-2 md:grid-cols-[1fr,1fr,auto] justify-center shade p-4 bg-zinc-900 lg:gap-5 xl:gap-8">
+                    <div className="flex flex-col gap-4 max-w-[124px] sm:max-w-64 md:max-w-[168px] justify-self-center md:justify-self-auto lg:max-w-[300px] xl:max-w-64">
                         <Section
                             h="Minimum"
                             m="min"
@@ -148,7 +148,7 @@ export default function Selector(t: PropertyProps) {
                             e={Select}
                         />
                     </div>
-                    <div className="flex flex-col gap-4 max-w-[124px] sm:max-w-64 md:max-w-[168px] lg:max-w-[212px]">
+                    <div className="flex flex-col gap-4 max-w-[124px] sm:max-w-64 md:max-w-[168px] justify-self-center md:justify-self-auto lg:max-w-[300px] xl:max-w-64">
                         <h2 className="text-zinc-300 dropshadow place-self-center text-lg font-bold">Selected</h2>
                         <div className="flex gap-2 flex-wrap">
                             <Instances instance={instance} e={Remove} />
