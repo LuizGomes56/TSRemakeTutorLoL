@@ -146,8 +146,8 @@ export const FetchArts = async () => {
             let t = await RiotAPI(`champion/${k}`) as Champions;
             for (let y of t.data[k].skins) {
                 let r = y.num;
-                let f = `${imgDIR}/splash`;
                 for (let w of ["centered", "splash"]) {
+                    let f = `${imgDIR}/${w}`;
                     let url = `${process.env.DD_ENDPOINT}/img/champion/${w}/${k}_${r}.jpg`;
                     try { await download(url, f).then(() => console.log(k + r)); }
                     catch (e) { console.error(`Failed to download ${url}:`, e); }
@@ -267,6 +267,6 @@ export const ControllerUpdate = async (req: Request, res: Response, next: NextFu
     const t = (n.getTime() - f.getTime()) / 1000;
     const m = Math.floor(t / 60);
     const s = Math.round(t % 60);
-    console.log(`UpdateCache completed in ${m}m and ${s}s.`);
+    console.log(`Version update completed in ${m}m and ${s}s.`);
     res.status(200).json({ success: true, message: msg });
 }
