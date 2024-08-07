@@ -25,6 +25,7 @@ const FetchGame = async (item: string): Promise<DataProps | void> => {
 export default function Page() {
     let [game, setGame] = useState<DataProps | null>(null);
     let [selectedItem, setSelectedItem] = useState<string>("4403");
+    let [checked, setChecked] = useState<boolean[]>([]);
 
     useEffect(() => {
         LoadData(selectedItem);
@@ -38,7 +39,10 @@ export default function Page() {
     const LoadData = async (item: string) => {
         let a = await FetchGame(item);
         // console.log(a);
-        if (a) { setGame(a); }
+        if (a) {
+            setGame(a);
+            setChecked(prevChecked => !prevChecked.length ? new Array(a.allPlayers.filter(p => p.team !== a.activePlayer.team).length).fill(false) : prevChecked);
+        };
     }
 
     return (
@@ -46,9 +50,9 @@ export default function Page() {
             {game ? (
                 <div className="container mx-auto xl:flex xl:gap-5">
                     <div className="mt-5 max-w-4xl lg:w-full lg:max-w-none xl:w-fit xl:max-w-4xl">
-                        <Card game={game} />
+                        <Card game={game} /* setChecked={setChecked} */ />
                         <div className="h-5 w-0" />
-                        <Scoreboard game={game} />
+                        <Scoreboard game={game} setChecked={setChecked} />
                     </div>
                     <div className="flex flex-col max-w-4xl lg:w-full lg:max-w-none xl:w-auto xl:max-w-4xl">
                         {(() => {
@@ -65,6 +69,7 @@ export default function Page() {
                                         runes={runes}
                                         spell={spell}
                                         enemies={enemies}
+                                        checked={checked}
                                     />
                                     <div className="h-5 w-0" />
                                     <Tool
@@ -77,6 +82,7 @@ export default function Page() {
                                         enemies={enemies}
                                         map={game.gameData.mapNumber.toString()}
                                         onItemClick={setSelectedItem}
+                                        checked={checked}
                                     />
                                     <div className="h-5 w-0" />
                                     <Selector
@@ -86,6 +92,7 @@ export default function Page() {
                                         spell={spell}
                                         champion={champion}
                                         enemies={enemies}
+                                        checked={checked}
                                     />
                                     <div className="h-5 w-0" />
                                 </>

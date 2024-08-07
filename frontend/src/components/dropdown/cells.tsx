@@ -12,7 +12,7 @@ const Cells = ({ x, t, m, f, onItemClick }: { x: Record<string, EvalItemStats>, 
     };
 
     return (
-        <div className="grid grid-cols-1 lg:grid-cols-2 content-start w-full overflow-y-auto gap-1">
+        <div className="grid grid-cols-1 lg:grid-cols-2 content-start w-full overflow-y-auto gap-1 bg-zinc-900">
             {Object.keys(x).filter(k => {
                 let z = x[k];
                 const h = f.every(s => {

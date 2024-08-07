@@ -18,8 +18,8 @@ export const rune = (id: string) => `${path}/rune/${id}.png`;
 export const champion = (id: string) => `${path}/champion/${id}.png`;
 export const symbol = (id: string) => `${path}/symbol/${id}.png`;
 export const stat = (id: string) => `${path}/stat/${id}.png`;
-export const centered = (id: string) => `${path}/centered/${id}.png`;
-export const splash = (id: string) => `${path}/splash/${id}.png}`;
+export const centered = (id: string) => `${path}/centered/${id}.jpg`;
+export const splash = (id: string) => `${path}/splash/${id}.jpg`;
 
 export const allStats: string[] = [
     "Ability Power",

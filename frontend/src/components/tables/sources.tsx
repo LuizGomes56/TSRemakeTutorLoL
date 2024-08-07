@@ -44,7 +44,7 @@ export default function Sources(t: PropertyProps) {
                 </thead>
                 <tbody>
                     {t.enemies.map((x, i) => (
-                        <tr key={i}>
+                        <tr key={i} className={t.checked[i] ? "hidden" : ""}>
                             <ChampionCells src={champion(x.champion.id)} alt={x.champion.name} />
                             <TextCells damage={x.damage.abilities as Record<string, Damage>} />
                             <TextCells damage={x.damage.runes as Record<string, Damage>} />

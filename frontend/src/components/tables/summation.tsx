@@ -24,7 +24,7 @@ const TextCells = ({ enemy, instance }: { enemy: Ply, instance: Tag[] }) => {
     )
 }
 
-export default function Summation({ enemies, instance }: { enemies: Ply[], instance: Tag[] }) {
+export default function Summation({ enemies, instance, checked }: { enemies: Ply[], instance: Tag[], checked: boolean[] }) {
     return (
         <>
             <div className="overflow-auto">
@@ -39,7 +39,7 @@ export default function Summation({ enemies, instance }: { enemies: Ply[], insta
                     </thead>
                     <tbody>
                         {enemies.map((x, i) => (
-                            <tr key={i}>
+                            <tr key={i} className={checked[i] ? "hidden" : ""}>
                                 <ChampionCells src={champion(x.champion.id)} alt={x.champion.name} name={x.champion.name} />
                                 <TextCells enemy={x} instance={instance} />
                             </tr>

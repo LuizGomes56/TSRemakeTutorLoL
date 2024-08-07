@@ -75,6 +75,12 @@ table img {
     box-shadow: 0px 0px 10px 0px #080808;
 }
 
+.clip {
+    width: 100%;
+    object-fit: cover;
+    object-position: 0% 15%;
+}
+
 .dropshadow,
 table p {
     text-wrap: nowrap;

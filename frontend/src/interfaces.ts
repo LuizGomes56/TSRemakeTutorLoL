@@ -288,6 +288,7 @@ export type RequiredProps = {
 
 export type PropertyProps = RequiredProps & {
     enemies: Ply[];
+    checked: boolean[];
 }
 
 export type Tip = {

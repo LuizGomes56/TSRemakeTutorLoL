@@ -114,7 +114,7 @@ export default function Tool(t: Property) {
                     </thead>
                     <tbody>
                         {t.enemies.map((x, i) => (
-                            <tr key={i}>
+                            <tr key={i} className={t.checked[i] ? "hidden" : ""}>
                                 <ChampionCells src={champion(x.champion.id)} alt={x.champion.name} />
                                 <TextCells dif={x.tool?.dif?.abilities as Record<string, Damage>} max={x.tool?.max.abilities as Record<string, Damage>} />
                                 <TextCells dif={x.tool?.dif?.runes as Record<string, Damage>} max={x.tool?.max.runes as Record<string, Damage>} />
