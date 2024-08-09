@@ -1,10 +1,11 @@
-import { readFileSync } from "fs";
-import { ChampionAPI, EvaluateItemStats, ItemAPI } from "./lol.service";
+import { readFileSync, writeFileSync } from "fs";
+import { ChampionAPI, EvaluateItemStats, GetChampionID, ItemAPI } from "./lol.service";
 import {
     RelevantProps, Acp, ActivePlayer, AllPropsCS, AllStatsProps, ChampionStats,
     CoreStats, Damage, Damages, DataProps, DefAbilities, DragonProps, EvalItemStats, Event,
     GameEvents, LocalChampion, LocalItems, LocalRunes, Player, Ply,
-    ReplacementsProps, Stats, SummonerSpells, TargetChampion, TargetItem
+    ReplacementsProps, Stats, SummonerSpells, TargetChampion, TargetItem,
+    ScrapProps
 } from "./interfaces";
 import { ToolKeyDependent, ToolKeyless } from "./consts";
 
@@ -13,6 +14,7 @@ const Effects: string = `${process.cwd()}/effects`;
 var _Champion: undefined | LocalChampion;
 var _Items: undefined | LocalItems;
 var _Runes: undefined | LocalRunes;
+var _Build: undefined | ScrapProps;
 
 const AssignChampion = async (g: DataProps): Promise<void> => {
     let k = g.activePlayer.summonerName;
@@ -21,15 +23,13 @@ const AssignChampion = async (g: DataProps): Promise<void> => {
     if (y) {
         g.activePlayer.team = y.team;
         await Promise.all(x.map(async (p, i) => {
-            // if (p.team !== y.team || p.summonerName === k) { Need championID from team to build scoreboard
             let c = await ChampionAPI(p.championName) as TargetChampion;
             if (c) { g.allPlayers[i].champion = c; }
-            // }
         }));
     }
 };
 
-export const Calculate = async (t: string, g: DataProps, w: boolean = true): Promise<DataProps> => {
+export const Calculate = async (g: DataProps, t: string, w: boolean = true): Promise<DataProps> => {
     let activePlayer = g.activePlayer;
     let allPlayers = g.allPlayers;
     let events = g.events;
@@ -40,6 +40,7 @@ export const Calculate = async (t: string, g: DataProps, w: boolean = true): Pro
 
     LoadItems();
     LoadRunes();
+    LoadBuild();
 
     if (w) {
         f = structuredClone(g);
@@ -190,6 +191,28 @@ const AssignStats = async (key: string, s: Acp, a: string[]): Promise<void> => {
     }
 }
 
+let Positions = {
+    TOP: "top",
+    JUNGLE: "jungle",
+    MIDDLE: "mid",
+    BOTTOM: "adc",
+    SUPPORT: "support"
+}
+
+const Recommendation = (x: DataProps): string[] | void => {
+    if (!_Build) { return };
+    let a = x.activePlayer;
+    let b = x.allPlayers.find(p => p.summonerName == a.summonerName);
+    if (b) {
+        let y = GetChampionID(b.championName);
+        let w = _Build[y as keyof typeof _Build];
+        let c = b.position;
+        let d = Positions[c as keyof typeof Positions];
+        let z = w[d as keyof typeof w];
+        return z;
+    }
+}
+
 const Test = async (g: DataProps, t: string) => {
     let f = {
         canUse: false,
@@ -207,7 +230,7 @@ const Test = async (g: DataProps, t: string) => {
     y.items.push(f);
     await AssignStats(t, g.activePlayer, y.items.map(i => i.itemID.toString()));
 
-    let k = await Calculate(t, g, false);
+    let k = await Calculate(g, t, false);
     return k;
 }
 
@@ -616,6 +639,13 @@ const LoadRunes = (): void => {
     }
 }
 
+const LoadBuild = (): void => {
+    if (_Build) { return }
+    else {
+        _Build = JSON.parse(readFileSync(`${process.cwd()}/cache/builds.json`, "utf-8")) as ScrapProps;
+    }
+}
+
 const FilterRunes = (activePlayer: ActivePlayer): RelevantProps | void => {
     if (!_Runes) { return };
     let runes = activePlayer.fullRunes.generalRunes.map(rune => rune.id.toString());
@@ -736,3 +766,8 @@ const BonusStats = (b: CoreStats, c: ChampionStats | CoreStats): CoreStats => {
         abilityPower: c.abilityPower
     };
 };
+
+// (async () => {
+//     let x = JSON.parse(readFileSync(`./services/exampledefault.json`, "utf-8")) as DataProps;
+//     LoadBuild();
+// })()

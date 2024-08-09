@@ -1,22 +1,24 @@
 import dotenv from "dotenv";
 import { readFileSync, writeFileSync } from "fs";
 import { ChampionIDs, Champions, EvalItemStats, FullChampions, Items, KeyReplaces, TargetChampion, TargetItem } from "./interfaces";
+import { WebScraper } from "./scrap.service";
 
 dotenv.config()
 
 const chacheDIR: string = `${process.cwd()}/cache`;
 
 const riotCDN: string = `${process.env.DD_ENDPOINT}/${process.env.LOL_VERSION}/data/${process.env.LANGUAGE}`
-const champIDs = JSON.parse(readFileSync(`${chacheDIR}/ids.json`, "utf-8")) as ChampionIDs;
 
 const Delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
 
 const Cache = (x: string) => JSON.parse(readFileSync(`${chacheDIR}/${x}.json`, "utf-8"));
 
+const champIDs = Cache("ids") as ChampionIDs;
+
 export const UpdateCache = async () => {
     const s = new Date();
     for (let k of Object.keys(champIDs)) {
-        let j = JSON.parse(readFileSync(`${chacheDIR}/champions/${k}.json`, "utf-8")) as Champions;
+        let j = Cache(`champions/${k}`) as Champions;
         if (j.version !== process.env.LOL_VERSION) {
             let x = await RiotAPI(`champion/${k}`) as Champions;
             if (x) {
@@ -26,7 +28,7 @@ export const UpdateCache = async () => {
             await Delay(400);
         }
     }
-    let h = JSON.parse(readFileSync(`${chacheDIR}/item.json`, "utf-8")) as Items;
+    let h = Cache("item") as Items;
     if (h.version !== process.env.LOL_VERSION) {
         let y = await RiotAPI("item") as Items;
         if (y) {
@@ -34,24 +36,29 @@ export const UpdateCache = async () => {
             CacheItemStats();
         }
     }
-    let c = JSON.parse(readFileSync(`${chacheDIR}/champion.json`, "utf-8"));
+    let c = Cache("champion");
     if (c.version !== process.env.LOL_VERSION) {
         let d = await RiotAPI("champion") as FullChampions;
         if (d) { writeFileSync(`${chacheDIR}/champion.json`, JSON.stringify(d), "utf8"); }
     }
+    await WebScraper();
     const n = new Date();
     const t = (n.getTime() - s.getTime()) / 1000;
     console.log(`UpdateCache completed in ${t} seconds.`);
 };
 
-export const ChampionAPI = async (championName: string): Promise<TargetChampion | void> => {
+export const GetChampionID = (x: string): string | void => {
     for (let [k, v] of Object.entries(champIDs)) {
         for (let t of Object.values(v)) {
-            if (t == championName) { championName = k }
+            if (t == x) { return k; }
         }
     }
-    let x = Cache(`champions/${championName}`) as Champions || await RiotAPI(`champion/${championName}`) as Champions;
-    let y = x?.data[championName];
+}
+
+export const ChampionAPI = async (cn: string): Promise<TargetChampion | void> => {
+    cn = GetChampionID(cn) as string
+    let x = Cache(`champions/${cn}`) as Champions || await RiotAPI(`champion/${cn}`) as Champions;
+    let y = x?.data[cn];
     if (y) {
         return {
             id: y.id,

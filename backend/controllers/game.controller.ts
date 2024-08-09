@@ -21,7 +21,7 @@ export const LastByCode = async (req: Request, res: Response, next: NextFunction
                 if (data) {
                     let gameData = JSON.parse(data.game_data);
                     try {
-                        let x = await Calculate(item, gameData);
+                        let x = await Calculate(gameData, item);
                         res.status(200).json({ success: true, data: Object.assign(games, { game: JSON.stringify(x) }) });
                     }
                     catch (e) {
@@ -46,7 +46,7 @@ export const NextGame = async (req: Request, res: Response, next: NextFunction) 
         });
         if (data) {
             let gameData = JSON.parse(data.game_data);
-            let x = await Calculate(item, gameData);
+            let x = await Calculate(gameData, item);
             res.status(200).json({ data: x });
         }
         else { res.status(404).json({ message: 'Cannot find this gamedata.' }); }

@@ -582,6 +582,8 @@ export interface LocalRunes {
     data: LocalRune;
 }
 
+export type ScrapProps = Record<string, Record<"top" | "jungle" | "mid" | "adc" | "support", string[]>>;
+
 export interface DragonProps {
     earth: number;
     fire: number;
