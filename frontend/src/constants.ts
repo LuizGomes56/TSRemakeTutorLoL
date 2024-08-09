@@ -1,5 +1,7 @@
 export const EndPoint = "http://localhost:3000";
 export const RefreshTime = 1000;
+export const MaxRequests = 5;
+export const PreviewCode = "401085";
 
 export const Style = {
     damages: {
@@ -10,7 +12,7 @@ export const Style = {
     }
 }
 
-const path = /*EndPoint +*/"/img" // Local file frontend, instead of Backend;
+const path = "/img";
 
 export const spell = (id: string) => `${path}/spell/${id}.png`;
 export const item = (id: string) => `${path}/item/${id}.png`;
@@ -30,22 +32,5 @@ export const allStats: string[] = [
     "Health",
     "Armor",
     "Magic Resist",
-    "Attack Speed",
-    // "Lethality",
-    // "Ability Haste",
-    // "Life Steal",
-    // "Base Health Regen",
-    // "Base Mana Regen",
-    // "Crit",
-    // "Critical Strike Damage",
-    // "Gold Per 10 Minutes",
-    // "Heal and Shield Power",
-    // "Level",
-    // "Mana",
-    // "Move Speed",
-    // "Melee",
-    // "Omnivamp",
-    // "Onhit",
-    // "Ranged",
-    // "Tenacity"
-]; // Dropdown Filter Options
+    "Attack Speed"
+];

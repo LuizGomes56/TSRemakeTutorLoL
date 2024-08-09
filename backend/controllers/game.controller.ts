@@ -7,7 +7,7 @@ const prisma = new PrismaClient();
 export const LastByCode = async (req: Request, res: Response, next: NextFunction) => {
     try {
         let { code, item } = req.body;
-        if (!code) { res.status(404).send({ success: false, message: 'No code found or unknown format type.' }); return; }
+        if (!code) { res.status(200).send({ success: false, message: 'No code found or unknown format type.' }); return; }
         let games = await prisma.games.findFirst({
             where: { game_code: String(code) },
             orderBy: { created_at: 'desc' }
@@ -26,14 +26,14 @@ export const LastByCode = async (req: Request, res: Response, next: NextFunction
                     }
                     catch (e) {
                         console.error(e);
-                        res.status(404).json({ success: false, message: `Cannot evaluate gamedata status. ${e}` });
+                        res.status(200).json({ success: false, message: `Cannot evaluate gamedata status. ${e}` });
                     }
                 }
-                else { res.status(404).json({ success: false, message: 'Cannot find this gamedata.' }); }
+                else { res.status(200).json({ success: false, message: 'Cannot find this gamedata.' }); }
             }
-            catch (e) { res.status(404).json({ success: false, message: `Cannot finish operation. ${e}` }); }
+            catch (e) { res.status(403).json({ success: false, message: `Cannot finish operation. ${e}` }); }
         }
-        else { res.status(404).send({ success: false, message: 'Cannot find any current game.' }); }
+        else { res.status(200).send({ success: false, message: 'Cannot find any current game.' }); }
     } catch (err) { next(err); }
 };
 

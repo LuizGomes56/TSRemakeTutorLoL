@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { champion } from "../constants";
 import { DataProps, Ply } from "../interfaces";
 
@@ -38,11 +39,23 @@ const Scores = ({ x, y }: { x: Ply[], y?: (i: number) => void }) => (
     })
 );
 
-export default function Scoreboard({ game, setChecked }: { game: DataProps, setChecked: React.Dispatch<React.SetStateAction<boolean[]>> }) {
+export default function Scoreboard({ game, setChecked, code }: { game: DataProps, setChecked: React.Dispatch<React.SetStateAction<boolean[]>>, code: string }) {
+    let [copied, setCopied] = useState<boolean>(false);
+
     let a = game.allPlayers;
     let b = game.activePlayer;
     let e = a.filter(p => p.team !== b.team);
     let t = a.filter(p => p.team === b.team);
+
+
+    const copyToClipboard = () => {
+        navigator.clipboard.writeText(code);
+        setCopied(true);
+
+        setTimeout(() => {
+            setCopied(false);
+        }, 2000);
+    };
 
     const toggleChecked = (index: number) => {
         setChecked(prev => {
@@ -53,8 +66,12 @@ export default function Scoreboard({ game, setChecked }: { game: DataProps, setC
     };
 
     return (
-        <>
-            <div className="grid grid-cols-2 bg-zinc-900 shade">
+        <div className="shade">
+            <span onClick={copyToClipboard} className="hover:bg-zinc-800 transition-all duration-200 cursor-pointer flex font-bold gap-2 items-center justify-center text-zinc-300 p-4 bg-zinc-900">
+                {!copied && <img className="h-5" src="/copy.svg" alt="" />}
+                <p>{copied ? `Code copied to clipboard` : `Game code - ${code}`}</p>
+            </span>
+            <div className="grid grid-cols-2 bg-zinc-900">
                 {["Allies", "Show / Hide Enemies"].map((x, i) => (
                     <div key={x + i} className="h-12 flex items-center justify-center">
                         <span className="font-bold dropshadow text-zinc-300">{x}</span>
@@ -63,6 +80,6 @@ export default function Scoreboard({ game, setChecked }: { game: DataProps, setC
                 <div><Scores x={t} /></div>
                 <div><Scores x={e} y={toggleChecked} /></div>
             </div>
-        </>
+        </div>
     )
 }

@@ -87,7 +87,7 @@ export default function Tool(t: Property) {
     }, []);
 
     return (
-        <>
+        <div className="shade">
             <Searchbutton click={OpenSearch} />
             <Suggestion x={t.tool} />
 
@@ -98,7 +98,7 @@ export default function Tool(t: Property) {
 
             {search && <Dropdown map={t.map} ref={dropdownRef} onItemClick={t.onItemClick} />}
 
-            <div className="overflow-auto shade">
+            <div className="overflow-auto">
                 <table>
                     <thead>
                         <TableHeader
@@ -126,6 +126,6 @@ export default function Tool(t: Property) {
                 </table>
                 {tip && <Tooltip x={tip} />}
             </div>
-        </>
+        </div>
     );
 }

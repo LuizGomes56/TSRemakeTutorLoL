@@ -4,7 +4,7 @@ export interface RequestBody {
 }
 
 export interface Response {
-    sucess: boolean;
+    success: boolean;
     message?: string;
     data: {
         champion_name: string;

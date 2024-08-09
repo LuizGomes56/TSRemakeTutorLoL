@@ -2,10 +2,10 @@ import { Tip } from "../interfaces";
 
 export default function Tooltip({ x }: { x: Tip }) {
     return x ? (
-        <div className="z-50 fixed left-1/2 top-1/4 transform -translate-x-1/2 border border-zinc-500 max-w-96 flex flex-col gap-2 bg-zinc-900 text-white p-3 rounded">
-            <div className="border-b border-b-zinc-500 pb-2 flex justify-between items-center gap-6 min-w-48 w-full">
+        <div className="z-50 fixed left-1/2 top-1/4 transform -translate-x-1/2 border border-zinc-700 max-w-96 flex flex-col gap-2 bg-zinc-900 text-white p-3 rounded">
+            <div className="border-b border-b-zinc-700 pb-2 flex justify-between items-center gap-6 min-w-48 w-full">
                 <span className="flex items-center gap-2">
-                    <img src={x.s} alt={x.n} className="rounded h-8 w-8" />
+                    <img src={x.s} alt={x.n} className="shade h-8 w-8" />
                     <h3 className="text-lg font-bold">{x.n}</h3>
                 </span>
                 <span className="flex items-center">

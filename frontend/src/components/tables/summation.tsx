@@ -17,9 +17,9 @@ const TextCells = ({ enemy, instance }: { enemy: Ply, instance: Tag[] }) => {
     })
     return (
         <>
-            <td className="px-3 text-sm">{Math.round(s)}</td>
-            <td className="px-3 text-sm">{Math.round(h - s)}</td>
-            <td className="px-3 text-sm">{Math.round(100 * s / h) + "%"}</td>
+            <td className="px-3 text-sm min-w-16">{Math.round(s)}</td>
+            <td className="px-3 text-sm min-w-16">{Math.round(h - s)}</td>
+            <td className="px-3 text-sm min-w-16">{Math.round(100 * s / h) + "%"}</td>
         </>
     )
 }
