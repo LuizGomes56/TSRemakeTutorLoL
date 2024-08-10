@@ -12,7 +12,7 @@ import Awaiter from './components/awaiter';
 import Break from './components/break';
 
 const FetchGame = async (code: string, item: string, rec: boolean): Promise<DataProps | null> => {
-    // const T1 = new Date();
+    const T1 = new Date();
     var o: RequestBody = { code: code, item, rec };
     try {
         let x = await fetch(EndPoint + "/api/game/last", {
@@ -21,9 +21,9 @@ const FetchGame = async (code: string, item: string, rec: boolean): Promise<Data
             headers: { "Content-Type": "application/json" }
         });
         let y = await x.json() as Response;
-        // const T2 = new Date();
-        // const TIME = (T2.getTime() - T1.getTime()) / 1000;
-        // console.log(TIME)
+        const T2 = new Date();
+        const TIME = (T2.getTime() - T1.getTime()) / 1000;
+        console.log(TIME)
         if (y.success) { return JSON.parse(y.data.game) as DataProps; }
         else { throw new Error(y.message) }
     }

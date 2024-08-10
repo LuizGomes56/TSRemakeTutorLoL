@@ -1,5 +1,5 @@
 import { readFileSync } from "fs";
-import { ChampionAPI, EvaluateItemStats, GetChampionID, ItemAPI } from "./lol.service";
+import { ChampionAPI, EvaluateItemStats, ItemAPI } from "./lol.service";
 import {
     RelevantProps, Acp, ActivePlayer, AllPropsCS, AllStatsProps, ChampionStats,
     CoreStats, Damage, Damages, DataProps, DefAbilities, DragonProps, EvalItemStats, Event,
@@ -16,6 +16,7 @@ var _Items: undefined | LocalItems;
 var _Runes: undefined | LocalRunes;
 var _Build: undefined | ScrapProps;
 let Recm: undefined | string[];
+let ChampionCache: Record<string, TargetChampion> = {};
 
 const AssignChampion = async (g: DataProps): Promise<void> => {
     let k = g.activePlayer.summonerName;
@@ -24,11 +25,18 @@ const AssignChampion = async (g: DataProps): Promise<void> => {
     if (y) {
         g.activePlayer.team = y.team;
         await Promise.all(x.map(async (p, i) => {
-            let c = await ChampionAPI(p.championName) as TargetChampion;
-            if (c) { g.allPlayers[i].champion = c; }
+            if (ChampionCache[p.championName]) { g.allPlayers[i].champion = ChampionCache[p.championName]; }
+            else {
+                let c = await ChampionAPI(p.championName) as TargetChampion;
+                if (c) {
+                    ChampionCache[p.championName] = c;
+                    g.allPlayers[i].champion = c;
+                }
+            }
         }));
     }
 };
+
 
 let j: Record<string, number> = {};
 
@@ -58,10 +66,20 @@ export const Calculate = async (g: DataProps, rec: boolean, t: string, w: boolea
 
     for (let player of allPlayers) {
         if (player.summonerName === activePlayer.summonerName) {
-            if (!Recm) { Recm = Recommendation(player) as string[]; }
+            Recm = Recommendation(player.champion.id, player.position) as string[];
+            if (w) {
+                let l = player.items.map(h => h.itemID.toString());
+                Recm = Recm.filter(item => !l.includes(item));
+                l.forEach(key => {
+                    if (key in j) {
+                        delete j[key];
+                    }
+                });
+            }
             if (rec && w) {
-                for (let p of Recm) { j[p] = 0; }
-                t = Recm[0];
+                for (let p of Recm) {
+                    j[p] = 0;
+                }
             }
 
             activePlayer.champion = player.champion;
@@ -240,11 +258,9 @@ let Positions = {
     SUPPORT: "support"
 }
 
-const Recommendation = (x: Ply): string[] | void => {
+const Recommendation = (x: string, c: string): string[] | void => {
     if (!_Build) { return };
-    let y = GetChampionID(x.championName);
-    let w = _Build[y as keyof typeof _Build];
-    let c = x.position;
+    let w = _Build[x as keyof typeof _Build];
     if (c.length == 0) { c = Object.keys(Positions)[2] }
     let d = Positions[c as keyof typeof Positions];
     let z = w[d as keyof typeof w];

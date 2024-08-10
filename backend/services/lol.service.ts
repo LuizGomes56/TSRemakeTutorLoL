@@ -15,6 +15,10 @@ const Cache = (x: string) => JSON.parse(readFileSync(`${chacheDIR}/${x}.json`, "
 
 const champIDs = Cache("ids") as ChampionIDs;
 
+let ChampionCache: Record<string, TargetChampion> = {};
+let ItemCache: Record<string, TargetItem> = {};
+let StatsCache: Record<string, EvalItemStats> = {};
+
 export const UpdateCache = async () => {
     const s = new Date();
     for (let k of Object.keys(champIDs)) {
@@ -47,7 +51,7 @@ export const UpdateCache = async () => {
     console.log(`UpdateCache completed in ${t} seconds.`);
 };
 
-export const GetChampionID = (x: string): string | void => {
+const GetChampionID = (x: string): string | void => {
     for (let [k, v] of Object.entries(champIDs)) {
         for (let t of Object.values(v)) {
             if (t == x) { return k; }
@@ -56,11 +60,12 @@ export const GetChampionID = (x: string): string | void => {
 }
 
 export const ChampionAPI = async (cn: string): Promise<TargetChampion | void> => {
-    cn = GetChampionID(cn) as string
+    cn = GetChampionID(cn) as string;
+    if (ChampionCache[cn]) { return ChampionCache[cn]; }
     let x = Cache(`champions/${cn}`) as Champions || await RiotAPI(`champion/${cn}`) as Champions;
     let y = x?.data[cn];
     if (y) {
-        return {
+        let z = {
             id: y.id,
             name: y.name,
             stats: y.stats,
@@ -71,15 +76,18 @@ export const ChampionAPI = async (cn: string): Promise<TargetChampion | void> =>
                 cooldown: z.cooldown,
             })),
             passive: y.passive
-        } as TargetChampion
+        } as TargetChampion;
+        ChampionCache[cn] = z;
+        return z;
     }
 }
 
 export const ItemAPI = async (itemName: string): Promise<TargetItem | void> => {
+    if (ItemCache[itemName]) { return ItemCache[itemName]; }
     let x = Cache("item") as Items || await RiotAPI("item") as Items;
     let y = x?.data[itemName];
     if (y) {
-        return {
+        let z = {
             name: y.name,
             description: y.description,
             stats: y.stats,
@@ -87,6 +95,8 @@ export const ItemAPI = async (itemName: string): Promise<TargetItem | void> => {
             maps: y.maps,
             from: y.from
         }
+        ItemCache[itemName] = z;
+        return z;
     }
 }
 
@@ -197,6 +207,8 @@ export const CacheItemStats = async (): Promise<any> => {
 }
 
 export const EvaluateItemStats = async (item: string): Promise<EvalItemStats> => {
+    if (StatsCache[item]) { return StatsCache[item] as EvalItemStats; };
     let t = Cache("stats") as Record<string, EvalItemStats>;
+    StatsCache[item] = t[item as keyof typeof t];
     return t[item as keyof typeof t];
 }
