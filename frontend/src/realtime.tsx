@@ -23,7 +23,7 @@ const FetchGame = async (code: string, item: string, rec: boolean): Promise<Data
         let y = await x.json() as Response;
         // const T2 = new Date();
         // const TIME = (T2.getTime() - T1.getTime()) / 1000;
-        // console.log(TIME) Get the average time to get a response from the server
+        // console.log(TIME)
         if (y.success) { return JSON.parse(y.data.game) as DataProps; }
         else { throw new Error(y.message) }
     }

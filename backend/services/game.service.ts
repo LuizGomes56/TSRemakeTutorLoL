@@ -145,18 +145,19 @@ export const Calculate = async (g: DataProps, rec: boolean, t: string, w: boolea
         }
     }
 
+    if (w) {
+        let q = await EvaluateItemStats(t);
+        let m = q ? q.stats.raw : undefined;
+        let n = q ? q.name : undefined;
+        let r = q ? q.gold.total : undefined;
 
-    let q = await EvaluateItemStats(t);
-    let m = q ? q.stats.raw : undefined;
-    let n = q ? q.name : undefined;
-    let r = q ? q.gold.total : undefined;
-
-    activePlayer.tool = {
-        id: t,
-        name: n,
-        active: ItemActiveness(t),
-        gold: r,
-        raw: m
+        activePlayer.tool = {
+            id: t,
+            name: n,
+            active: ItemActiveness(t),
+            gold: r,
+            raw: m
+        }
     }
 
     return g as DataProps;
@@ -221,8 +222,8 @@ const AssignStats = async (key: string, s: Acp, a: string[]): Promise<void> => {
                     let y = ["3089", "223089", "8002"];
                     let x = a.filter(i => y.includes(i));
                     let z = 1.35;
-                    if (x) { s.championStats[d] += z * v; }
-                    else if (!x && y.includes(key)) { s.championStats[d] = key == "8002" ? 1.5 : z * (s.championStats[d] + v); }
+                    if (y.includes(key)) { s.championStats[d] = (s.championStats[d] + v) * z; }
+                    else if (x.length > 0) { s.championStats[d] += (x.includes("8002") ? 1.5 : z) * v; }
                     else { s.championStats[d] += v; }
                 }
                 else { s.championStats[d] += v; }
@@ -250,35 +251,6 @@ const Recommendation = (x: Ply): string[] | void => {
     return z;
 }
 
-let tc: Record<string, DataProps> = {};
-
-const Test = async (g: DataProps, rec: boolean, t: string) => {
-    let ck = `${g.activePlayer.summonerName}-${t}`;
-    if (tc[ck]) { return tc[ck]; }
-
-    let f = {
-        canUse: false,
-        consumable: false,
-        count: 1,
-        displayName: "",
-        itemID: Number(t),
-        price: 0,
-        rawDescription: "",
-        rawDisplayName: "",
-        slot: 0
-    }
-    let y = g.allPlayers.find(x => x.summonerName == g.activePlayer.summonerName);
-    if (!y) { return; }
-    y.items.push(f);
-    await AssignStats(t, g.activePlayer, y.items.map(i => i.itemID.toString()));
-    let k = await Calculate(g, rec, t, false);
-
-    tc[ck] = k;
-    return k;
-}
-
-
-/* Extremely inefficient, the slowest code ever
 const Test = async (g: DataProps, rec: boolean, t: string) => {
     let f = {
         canUse: false,
@@ -298,7 +270,6 @@ const Test = async (g: DataProps, rec: boolean, t: string) => {
     let k = await Calculate(g, rec, t, false);
     return k;
 }
-*/
 
 const FilterSpell = (spell: SummonerSpells): string[] => {
     const valid = ["SummonerDot"];

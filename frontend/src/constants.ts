@@ -1,5 +1,5 @@
 export const EndPoint = "http://localhost:3000";
-export const RefreshTime = 1500;
+export const RefreshTime = 1250;
 export const MaxRequests = 15;
 export const PreviewCode = "401085";
 
