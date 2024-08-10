@@ -1,4 +1,4 @@
-import { readFileSync, writeFileSync } from "fs";
+import { readFileSync } from "fs";
 import { ChampionAPI, EvaluateItemStats, GetChampionID, ItemAPI } from "./lol.service";
 import {
     RelevantProps, Acp, ActivePlayer, AllPropsCS, AllStatsProps, ChampionStats,
@@ -29,30 +29,25 @@ const AssignChampion = async (g: DataProps): Promise<void> => {
     }
 };
 
-export const Calculate = async (g: DataProps, t: string, w: boolean = true): Promise<DataProps> => {
+export const Calculate = async (g: DataProps, rec: boolean, t: string, w: boolean = true): Promise<DataProps> => {
     let activePlayer = g.activePlayer;
     let allPlayers = g.allPlayers;
     let events = g.events;
     let map = g.gameData.mapNumber;
 
-    let f;
-    let h;
-
     LoadItems();
     LoadRunes();
     LoadBuild();
 
-    if (w) {
-        f = structuredClone(g);
-        h = await Test(f, t);
+    let hx;
+    let fx;
+
+    if (!rec && w && t) {
+        fx = structuredClone(g);
+        hx = await Test(fx, rec, t);
     }
 
     await AssignChampion(g);
-
-    let q = await EvaluateItemStats(t);
-    let m = q ? q.stats.raw : undefined;
-    let n = q ? q.name : undefined;
-    let r = q ? q.gold.total : undefined;
 
     let all = allPlayers.map(p => ({ name: p.summonerName, team: p.team }));
 
@@ -64,13 +59,6 @@ export const Calculate = async (g: DataProps, t: string, w: boolean = true): Pro
 
             activePlayer.championName = player.championName;
             activePlayer.skin = player.skinID;
-            activePlayer.tool = {
-                id: t,
-                name: n,
-                active: h ? h.activePlayer.relevant.items.min.includes(t) : false,
-                gold: r,
-                raw: m
-            }
 
             LoadChampion(id);
 
@@ -107,8 +95,8 @@ export const Calculate = async (g: DataProps, t: string, w: boolean = true): Pro
                 runes: map != 30 ? Runes(relv.runes.min, stats) : {},
                 spell: Spell(relv.spell.min, activePlayer.level)
             }
-            if (h) {
-                let o = h.allPlayers.filter(p => p.team !== activePlayer.team)[i].damage;
+            if (hx) {
+                let o = hx.allPlayers.filter(p => p.team !== activePlayer.team)[i].damage;
                 let s = Tool(o, player.damage);
                 player.tool = {
                     dif: s.dif,
@@ -116,8 +104,44 @@ export const Calculate = async (g: DataProps, t: string, w: boolean = true): Pro
                     sum: s.sum
                 }
             };
+            if (w && rec) {
+                let j: Record<string, number> = {};
+                let b = Recommendation(g) as string[];
+                for (let u of b) {
+                    j[u] = 0;
+                    let f = structuredClone(g);
+                    let a = await Test(f, rec, u) as DataProps;
+                    let c = a.allPlayers.filter(p => p.team !== a.activePlayer.team);
+                    let o = c[i].damage;
+                    let s = Tool(o, player.damage);
+                    j[u] += s.sum;
+                }
+                t = Object.entries(j).reduce((m, [k, v]) => v > j[m] ? k : m, Object.keys(j)[0]);
+                let x = structuredClone(g);
+                let y = await Test(x, rec, t) as DataProps;
+                let z = y.allPlayers.filter(p => p.team !== y.activePlayer.team);
+                let l = z[i].damage;
+                let p = Tool(l, player.damage);
+                player.tool = {
+                    dif: p.dif,
+                    max: l,
+                    sum: p.sum,
+                    rec: j
+                }
+            }
             i++;
         }
+    }
+    let q = await EvaluateItemStats(t);
+    let m = q ? q.stats.raw : undefined;
+    let n = q ? q.name : undefined;
+    let r = q ? q.gold.total : undefined;
+    activePlayer.tool = {
+        id: t,
+        name: n,
+        active: false,
+        gold: r,
+        raw: m
     }
     return g as DataProps;
 }
@@ -207,13 +231,14 @@ const Recommendation = (x: DataProps): string[] | void => {
         let y = GetChampionID(b.championName);
         let w = _Build[y as keyof typeof _Build];
         let c = b.position;
+        if (c.length == 0) { c = Object.keys(Positions)[2] }
         let d = Positions[c as keyof typeof Positions];
         let z = w[d as keyof typeof w];
         return z;
     }
 }
 
-const Test = async (g: DataProps, t: string) => {
+const Test = async (g: DataProps, rec: boolean, t: string) => {
     let f = {
         canUse: false,
         consumable: false,
@@ -227,11 +252,14 @@ const Test = async (g: DataProps, t: string) => {
     }
     let y = g.allPlayers.find(x => x.summonerName == g.activePlayer.summonerName);
     if (!y) { return; }
-    y.items.push(f);
-    await AssignStats(t, g.activePlayer, y.items.map(i => i.itemID.toString()));
-
-    let k = await Calculate(g, t, false);
-    return k;
+    let w = y.items.find(q => q.itemID == f.itemID);
+    if (!w) {
+        y.items.push(f);
+        await AssignStats(t, g.activePlayer, y.items.map(i => i.itemID.toString()));
+        let k = await Calculate(g, rec, t, false);
+        return k;
+    }
+    else { return g }
 }
 
 const FilterSpell = (spell: SummonerSpells): string[] => {
@@ -766,8 +794,3 @@ const BonusStats = (b: CoreStats, c: ChampionStats | CoreStats): CoreStats => {
         abilityPower: c.abilityPower
     };
 };
-
-// (async () => {
-//     let x = JSON.parse(readFileSync(`./services/exampledefault.json`, "utf-8")) as DataProps;
-//     LoadBuild();
-// })()

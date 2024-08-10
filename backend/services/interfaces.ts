@@ -610,6 +610,7 @@ interface ToolProps {
     dif?: Damages;
     max: Damages;
     sum: number;
+    rec?: Record<string, number>;
 }
 
 export interface RelevantProps {

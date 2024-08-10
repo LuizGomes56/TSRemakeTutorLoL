@@ -1,6 +1,7 @@
 export interface RequestBody {
     code: string;
     item: string;
+    rec: boolean;
 }
 
 export interface Response {
@@ -263,6 +264,7 @@ interface ToolProps {
     dif?: Damages;
     max: Damages;
     sum: number;
+    rec?: Record<string, number>;
 }
 
 export interface Tag {

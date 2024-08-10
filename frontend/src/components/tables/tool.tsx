@@ -7,10 +7,13 @@ import Suggestion from "../suggestion";
 import Searchbutton from "../searchbutton";
 import Dropdown from "../dropdown";
 import TableHeader from "./cells/thead";
+import ToggleRecommendation from "../togglerecommendation";
 
 type Property = PropertyProps & {
     tool: ToolInfo;
     map: string;
+    recommend: boolean;
+    onRecommendClick: () => void;
     onItemClick: (item: string) => void;
 }
 
@@ -88,7 +91,11 @@ export default function Tool(t: Property) {
 
     return (
         <div className="shade">
-            <Searchbutton click={OpenSearch} />
+
+            <div className="flex items-center">
+                <ToggleRecommendation x={t.recommend} ClickEvent={t.onRecommendClick} />
+                {!t.recommend && <Searchbutton click={OpenSearch} />}
+            </div>
             <Suggestion x={t.tool} />
 
             {/* <div className="flex">

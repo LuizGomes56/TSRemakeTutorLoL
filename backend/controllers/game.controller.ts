@@ -6,7 +6,7 @@ const prisma = new PrismaClient();
 
 export const LastByCode = async (req: Request, res: Response, next: NextFunction) => {
     try {
-        let { code, item } = req.body;
+        let { code, item, rec } = req.body;
         if (!code) { res.status(200).send({ success: false, message: 'No code found or unknown format type.' }); return; }
         let games = await prisma.games.findFirst({
             where: { game_code: String(code) },
@@ -21,7 +21,7 @@ export const LastByCode = async (req: Request, res: Response, next: NextFunction
                 if (data) {
                     let gameData = JSON.parse(data.game_data);
                     try {
-                        let x = await Calculate(gameData, item);
+                        let x = await Calculate(gameData, rec, item);
                         res.status(200).json({ success: true, data: Object.assign(games, { game: JSON.stringify(x) }) });
                     }
                     catch (e) {
@@ -38,7 +38,7 @@ export const LastByCode = async (req: Request, res: Response, next: NextFunction
 };
 
 export const NextGame = async (req: Request, res: Response, next: NextFunction) => {
-    let { game_id, item } = req.body;
+    let { game_id, item, rec } = req.body;
     try {
         const data = await prisma.game_data.findFirst({
             where: { game_id: game_id },
@@ -46,7 +46,7 @@ export const NextGame = async (req: Request, res: Response, next: NextFunction) 
         });
         if (data) {
             let gameData = JSON.parse(data.game_data);
-            let x = await Calculate(gameData, item);
+            let x = await Calculate(gameData, rec, item);
             res.status(200).json({ data: x });
         }
         else { res.status(404).json({ message: 'Cannot find this gamedata.' }); }

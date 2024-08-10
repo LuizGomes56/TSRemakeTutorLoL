@@ -11,8 +11,8 @@ import Card from './components/card';
 import Awaiter from './components/awaiter';
 import Break from './components/break';
 
-const FetchGame = async (code: string, item: string): Promise<DataProps | null> => {
-    var o: RequestBody = { code: code, item };
+const FetchGame = async (code: string, item: string, rec: boolean): Promise<DataProps | null> => {
+    var o: RequestBody = { code: code, item, rec };
     try {
         let x = await fetch(EndPoint + "/api/game/last", {
             method: "POST",
@@ -34,6 +34,7 @@ export default function Page() {
     let [start, setStart] = useState<boolean>(false);
     let [code, setCode] = useState<string>("");
     let [attempts, setAttempts] = useState<number>(0);
+    let [recommend, setRecommend] = useState<boolean>(false);
 
     useEffect(() => {
         const disableContextMenu = (event: MouseEvent) => { event.preventDefault(); };
@@ -61,16 +62,16 @@ export default function Page() {
 
     useEffect(() => {
         const interval = setInterval(() => {
-            LoadData(code, selectedItem, attempts);
+            LoadData(code, selectedItem, recommend, attempts);
         }, RefreshTime);
 
         return () => clearInterval(interval);
-    }, [code, selectedItem, attempts]);
+    }, [code, selectedItem, recommend, attempts]);
 
-    const LoadData = async (code: string, item: string, errors: number) => {
+    const LoadData = async (code: string, item: string, rec: boolean, errors: number) => {
         if (errors >= MaxRequests) { return; }
         else if (code.length < 6) { setAttempts(5); }
-        let a = await FetchGame(code, item);
+        let a = await FetchGame(code, item, rec);
         if (a) {
             setGame(a);
             setStart(true);
@@ -94,6 +95,8 @@ export default function Page() {
         if (n.length == 6) { setAttempts(0); }
     }
 
+    const ToggleRecommend = () => recommend ? setRecommend(false) : setRecommend(true);
+
     return <>
         {code.length == 6 && start ? (
             game ? (
@@ -106,6 +109,16 @@ export default function Page() {
                         <div onClick={ReturnToMenu} className="cursor-pointer justify-center p-4 w-full bg-[#300415] hover:bg-pink-950 transition-all duration-200 flex gap-2 items-center shade">
                             <img className="h-5" src="/back.svg" alt="" />
                             <p className="text-white font-bold dropshadow">Go back to menu</p>
+                        </div>
+                        <Break />
+                        <div className="shade flex flex-col gap-2 bg-zinc-900 p-4">
+                            <h1 className="text-center text-white font-bold text-lg">Important information</h1>
+                            <span className="text-zinc-400 px-8">
+                                <p className="list-item my-2">Item recommendations are 100% based on <span className="text-blue-300 font-bold">Damage</span></p>
+                                <p className="list-item my-2">They usually lowers FPS and decrease update rate</p>
+                                <p className="list-item my-2">TutorLoL will not work on <span className="text-blue-300 font-bold">Arena</span><span className="text-blue-300 font-bold">, TFT</span>, and <span className="text-blue-300 font-bold">Swarm</span></p>
+                                <p className="list-item my-2"><span className="text-blue-300 font-bold">Codes</span> expires after <span className="text-blue-300 font-bold">1 hour</span>, even if game is still live</p>
+                            </span>
                         </div>
                     </div>
                     <div className="flex flex-col max-w-4xl lg:w-full lg:max-w-none xl:w-auto xl:max-w-4xl">
@@ -136,7 +149,9 @@ export default function Page() {
                                         enemies={enemies}
                                         map={game.gameData.mapNumber.toString()}
                                         onItemClick={setSelectedItem}
+                                        onRecommendClick={ToggleRecommend}
                                         checked={checked}
+                                        recommend={recommend}
                                     />
                                     <Break />
                                     <Selector
