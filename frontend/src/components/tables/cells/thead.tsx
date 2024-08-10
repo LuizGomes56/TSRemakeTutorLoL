@@ -47,7 +47,7 @@ export default function TableHeader({ abilities, champion, runes, spell, items, 
             {items.min.map((x, i) => (
                 <ImageCells key={i} src={item(x)} alt={x} />
             ))}
-            {tool?.active && <ImageCells src={item(tool.id)} alt={tool.id} />}
+            {tool?.active && !items.min.includes(tool.id) && <ImageCells src={item(tool.id)} alt={tool.id} />}
         </tr>
     );
 }

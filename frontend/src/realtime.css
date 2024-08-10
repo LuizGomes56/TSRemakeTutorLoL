@@ -105,7 +105,8 @@ table span {
     align-items: center;
 }
 
-table h2 {
+table h2,
+.text-shade {
     position: absolute;
     font-weight: bold;
     filter: drop-shadow(1.25px 1.25px 0px black);

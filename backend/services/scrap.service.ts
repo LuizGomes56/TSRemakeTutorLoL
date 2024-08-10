@@ -18,18 +18,21 @@ export const WebScraper = async (): Promise<void> => {
         if (!o[k]) { o[k] = {} as Record<typeof j[number], string[]>; }
         for (let p of j) {
             let url = `${process.env.SCRAP_ENDPOINT}/${k}/build/${p}`;
-            let x = await fetch(url);
-            let html = await x.text();
-            const $ = load(html);
-            let d = $(".m-1q4a7cx");
-            let t = new Array<string>();
-            let r = d.eq(3);
-            r.find("img").each((i, e) => {
-                let v = $(e);
-                let a = v.attr("alt");
-                if (a) { t.push(a); }
-            });
-            o[k][p] = t;
+            try {
+                let x = await fetch(url);
+                let html = await x.text();
+                const $ = load(html);
+                let d = $(".m-1q4a7cx");
+                let t = new Array<string>();
+                let r = d.eq(3);
+                r.find("img").each((i, e) => {
+                    let v = $(e);
+                    let a = v.attr("alt");
+                    if (a) { t.push(a); }
+                });
+                o[k][p] = t;
+            }
+            catch (e) { console.error(`Failed to scrape ${url}:`, e); }
         }
     }
     RewriteKeys(o);

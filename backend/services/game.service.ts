@@ -15,6 +15,7 @@ var _Champion: undefined | LocalChampion;
 var _Items: undefined | LocalItems;
 var _Runes: undefined | LocalRunes;
 var _Build: undefined | ScrapProps;
+let Recm: undefined | string[];
 
 const AssignChampion = async (g: DataProps): Promise<void> => {
     let k = g.activePlayer.summonerName;
@@ -28,6 +29,8 @@ const AssignChampion = async (g: DataProps): Promise<void> => {
         }));
     }
 };
+
+let j: Record<string, number> = {};
 
 export const Calculate = async (g: DataProps, rec: boolean, t: string, w: boolean = true): Promise<DataProps> => {
     let activePlayer = g.activePlayer;
@@ -49,10 +52,18 @@ export const Calculate = async (g: DataProps, rec: boolean, t: string, w: boolea
 
     await AssignChampion(g);
 
+    let enmPlayers = allPlayers.filter(p => p.team !== activePlayer.team);
+
     let all = allPlayers.map(p => ({ name: p.summonerName, team: p.team }));
 
     for (let player of allPlayers) {
         if (player.summonerName === activePlayer.summonerName) {
+            if (!Recm) { Recm = Recommendation(player) as string[]; }
+            if (rec && w) {
+                for (let p of Recm) { j[p] = 0; }
+                t = Recm[0];
+            }
+
             activePlayer.champion = player.champion;
 
             let id = activePlayer.champion.id;
@@ -76,73 +87,78 @@ export const Calculate = async (g: DataProps, rec: boolean, t: string, w: boolea
             break;
         }
     }
+
     let i: number = 0;
-    for (let player of allPlayers) {
-        if (player.team !== activePlayer.team) {
-            player.dragon = Dragon(events, all, player.team);
-            player.baseStats = BaseStats(player.champion.stats, player.level);
-            player.championStats = await PlayerStats(player.baseStats, player.items.map(item => item.itemID.toString()));
-            player.bonusStats = BonusStats(player.baseStats, player.championStats);
+    for (let player of enmPlayers) {
+        player.dragon = Dragon(events, all, player.team);
+        player.baseStats = BaseStats(player.champion.stats, player.level);
+        player.championStats = await PlayerStats(player.baseStats, player.items.map(item => item.itemID.toString()));
+        player.bonusStats = BonusStats(player.baseStats, player.championStats);
 
-            let stats = AllStats(player, activePlayer);
+        let stats = AllStats(player, activePlayer);
 
-            let ablt = activePlayer.abilities;
-            let relv = activePlayer.relevant;
+        let ablt = activePlayer.abilities;
+        let relv = activePlayer.relevant;
 
-            player.damage = {
-                abilities: Abilities(stats, ablt),
-                items: Items(relv.items.min, stats),
-                runes: map != 30 ? Runes(relv.runes.min, stats) : {},
-                spell: Spell(relv.spell.min, activePlayer.level)
+        player.damage = {
+            abilities: Abilities(stats, ablt),
+            items: Items(relv.items.min, stats),
+            runes: map != 30 ? Runes(relv.runes.min, stats) : {},
+            spell: Spell(relv.spell.min, activePlayer.level)
+        }
+        if (hx) {
+            let o = hx.allPlayers.filter(p => p.team !== activePlayer.team)[i].damage;
+            let s = Tool(o, player.damage);
+            player.tool = {
+                dif: s.dif,
+                max: o,
+                sum: s.sum
             }
-            if (hx) {
-                let o = hx.allPlayers.filter(p => p.team !== activePlayer.team)[i].damage;
-                let s = Tool(o, player.damage);
-                player.tool = {
-                    dif: s.dif,
-                    max: o,
-                    sum: s.sum
-                }
-            };
-            if (w && rec) {
-                let j: Record<string, number> = {};
-                let b = Recommendation(g) as string[];
-                for (let u of b) {
-                    j[u] = 0;
-                    let f = structuredClone(g);
-                    let a = await Test(f, rec, u) as DataProps;
-                    let c = a.allPlayers.filter(p => p.team !== a.activePlayer.team);
-                    let o = c[i].damage;
-                    let s = Tool(o, player.damage);
-                    j[u] += s.sum;
-                }
-                t = Object.entries(j).reduce((m, [k, v]) => v > j[m] ? k : m, Object.keys(j)[0]);
-                let x = structuredClone(g);
-                let y = await Test(x, rec, t) as DataProps;
-                let z = y.allPlayers.filter(p => p.team !== y.activePlayer.team);
-                let l = z[i].damage;
-                let p = Tool(l, player.damage);
-                player.tool = {
-                    dif: p.dif,
-                    max: l,
-                    sum: p.sum,
-                    rec: j
-                }
+        };
+        i++;
+    }
+
+    if (rec && w && Recm) {
+        for (let id of Recm) {
+            for (let player of enmPlayers) {
+                let a = structuredClone(g);
+                let b = await Test(a, rec, id);
+                let c = b?.allPlayers.filter(p => p.team !== activePlayer.team)[enmPlayers.indexOf(player)].damage as Damages;
+                let d = Tool(c, player.damage);
+                j[id] += d.sum;
             }
-            i++;
+        }
+
+        t = Object.entries(j).reduce((m, [k, v]) => v > j[m] ? k : m, Object.keys(j)[0]);
+
+        for (let player of enmPlayers) {
+            let a = structuredClone(g);
+            let b = await Test(a, rec, t);
+            let c = b?.allPlayers.filter(p => p.team !== activePlayer.team)[enmPlayers.indexOf(player)].damage as Damages;
+            let d = Tool(c, player.damage);
+            player.tool = {
+                dif: d.dif,
+                max: c,
+                sum: d.sum,
+                rec: j
+            }
         }
     }
+
+
     let q = await EvaluateItemStats(t);
     let m = q ? q.stats.raw : undefined;
     let n = q ? q.name : undefined;
     let r = q ? q.gold.total : undefined;
+
     activePlayer.tool = {
         id: t,
         name: n,
-        active: false,
+        active: ItemActiveness(t),
         gold: r,
         raw: m
     }
+
     return g as DataProps;
 }
 
@@ -223,21 +239,46 @@ let Positions = {
     SUPPORT: "support"
 }
 
-const Recommendation = (x: DataProps): string[] | void => {
+const Recommendation = (x: Ply): string[] | void => {
     if (!_Build) { return };
-    let a = x.activePlayer;
-    let b = x.allPlayers.find(p => p.summonerName == a.summonerName);
-    if (b) {
-        let y = GetChampionID(b.championName);
-        let w = _Build[y as keyof typeof _Build];
-        let c = b.position;
-        if (c.length == 0) { c = Object.keys(Positions)[2] }
-        let d = Positions[c as keyof typeof Positions];
-        let z = w[d as keyof typeof w];
-        return z;
-    }
+    let y = GetChampionID(x.championName);
+    let w = _Build[y as keyof typeof _Build];
+    let c = x.position;
+    if (c.length == 0) { c = Object.keys(Positions)[2] }
+    let d = Positions[c as keyof typeof Positions];
+    let z = w[d as keyof typeof w];
+    return z;
 }
 
+let tc: Record<string, DataProps> = {};
+
+const Test = async (g: DataProps, rec: boolean, t: string) => {
+    let ck = `${g.activePlayer.summonerName}-${t}`;
+    if (tc[ck]) { return tc[ck]; }
+
+    let f = {
+        canUse: false,
+        consumable: false,
+        count: 1,
+        displayName: "",
+        itemID: Number(t),
+        price: 0,
+        rawDescription: "",
+        rawDisplayName: "",
+        slot: 0
+    }
+    let y = g.allPlayers.find(x => x.summonerName == g.activePlayer.summonerName);
+    if (!y) { return; }
+    y.items.push(f);
+    await AssignStats(t, g.activePlayer, y.items.map(i => i.itemID.toString()));
+    let k = await Calculate(g, rec, t, false);
+
+    tc[ck] = k;
+    return k;
+}
+
+
+/* Extremely inefficient, the slowest code ever
 const Test = async (g: DataProps, rec: boolean, t: string) => {
     let f = {
         canUse: false,
@@ -252,15 +293,12 @@ const Test = async (g: DataProps, rec: boolean, t: string) => {
     }
     let y = g.allPlayers.find(x => x.summonerName == g.activePlayer.summonerName);
     if (!y) { return; }
-    let w = y.items.find(q => q.itemID == f.itemID);
-    if (!w) {
-        y.items.push(f);
-        await AssignStats(t, g.activePlayer, y.items.map(i => i.itemID.toString()));
-        let k = await Calculate(g, rec, t, false);
-        return k;
-    }
-    else { return g }
+    y.items.push(f);
+    await AssignStats(t, g.activePlayer, y.items.map(i => i.itemID.toString()));
+    let k = await Calculate(g, rec, t, false);
+    return k;
 }
+*/
 
 const FilterSpell = (spell: SummonerSpells): string[] => {
     const valid = ["SummonerDot"];
@@ -694,6 +732,12 @@ const FilterRunes = (activePlayer: ActivePlayer): RelevantProps | void => {
 }
 
 const Order = (x: string[]): string[] => x.sort((a, b) => parseInt(a) - parseInt(b));
+
+const ItemActiveness = (i: string): boolean => {
+    if (!_Items) { return false }
+    let y = Object.keys(_Items.data);
+    return y.includes(i);
+}
 
 const FilterItems = (player: Player): RelevantProps | void => {
     if (!_Items) { return }

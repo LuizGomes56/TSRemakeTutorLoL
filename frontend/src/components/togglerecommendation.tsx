@@ -1,3 +1,3 @@
 export default function ToggleRecommendation({ x, ClickEvent }: { x: boolean, ClickEvent: () => void }) {
-    return <button type="button" onClick={ClickEvent} className="h-14 w-full bg-zinc-900 text-zinc-300 font-bold hover:bg-zinc-800 transition-all duration-200">Recommend items: {x ? "ON" : "OFF"}</button>
+    return <button type="button" onClick={ClickEvent} className="text-sm sm:text-base h-14 w-full bg-zinc-900 text-zinc-300 font-bold hover:bg-zinc-800 transition-all duration-200">Recommend items {x ? <span className="font-bold text-emerald-300">ON</span> : <span className="font-bold text-rose-300">OFF</span>}</button>
 }

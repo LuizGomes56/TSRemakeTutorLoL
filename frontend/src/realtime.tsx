@@ -12,6 +12,7 @@ import Awaiter from './components/awaiter';
 import Break from './components/break';
 
 const FetchGame = async (code: string, item: string, rec: boolean): Promise<DataProps | null> => {
+    // const T1 = new Date();
     var o: RequestBody = { code: code, item, rec };
     try {
         let x = await fetch(EndPoint + "/api/game/last", {
@@ -20,6 +21,9 @@ const FetchGame = async (code: string, item: string, rec: boolean): Promise<Data
             headers: { "Content-Type": "application/json" }
         });
         let y = await x.json() as Response;
+        // const T2 = new Date();
+        // const TIME = (T2.getTime() - T1.getTime()) / 1000;
+        // console.log(TIME) Get the average time to get a response from the server
         if (y.success) { return JSON.parse(y.data.game) as DataProps; }
         else { throw new Error(y.message) }
     }
@@ -70,7 +74,7 @@ export default function Page() {
 
     const LoadData = async (code: string, item: string, rec: boolean, errors: number) => {
         if (errors >= MaxRequests) { return; }
-        else if (code.length < 6) { setAttempts(5); }
+        else if (code.length < 6) { setAttempts(MaxRequests); }
         let a = await FetchGame(code, item, rec);
         if (a) {
             setGame(a);
@@ -118,6 +122,7 @@ export default function Page() {
                                 <p className="list-item my-2">They usually lowers FPS and decrease update rate</p>
                                 <p className="list-item my-2">TutorLoL will not work on <span className="text-blue-300 font-bold">Arena</span><span className="text-blue-300 font-bold">, TFT</span>, and <span className="text-blue-300 font-bold">Swarm</span></p>
                                 <p className="list-item my-2"><span className="text-blue-300 font-bold">Codes</span> expires after <span className="text-blue-300 font-bold">1 hour</span>, even if game is still live</p>
+                                <p className="list-item my-2">Game information is updated every <span className="text-blue-300 font-bold">{RefreshTime / 1000} second(s)</span></p>
                             </span>
                         </div>
                     </div>

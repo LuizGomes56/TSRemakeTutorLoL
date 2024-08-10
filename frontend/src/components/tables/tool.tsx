@@ -8,6 +8,7 @@ import Searchbutton from "../searchbutton";
 import Dropdown from "../dropdown";
 import TableHeader from "./cells/thead";
 import ToggleRecommendation from "../togglerecommendation";
+import Recommendation from "../recommendation";
 
 type Property = PropertyProps & {
     tool: ToolInfo;
@@ -96,12 +97,11 @@ export default function Tool(t: Property) {
                 <ToggleRecommendation x={t.recommend} ClickEvent={t.onRecommendClick} />
                 {!t.recommend && <Searchbutton click={OpenSearch} />}
             </div>
-            <Suggestion x={t.tool} />
-
-            {/* <div className="flex">
-                {<Suggestion x={t.tool} />}
-                {<Recommendation />}
-            </div> */}
+            {!t.recommend ? <Suggestion x={t.tool} /> :
+                <div className="flex flex-col">
+                    {<Suggestion x={t.tool} />}
+                    {<Recommendation x={t.enemies} />}
+                </div>}
 
             {search && <Dropdown map={t.map} ref={dropdownRef} onItemClick={t.onItemClick} />}
 

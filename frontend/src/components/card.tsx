@@ -7,7 +7,7 @@ export default function Card({ game }: { game: DataProps }) {
     let c = a.champion;
     let t = game.gameData.gameTime;
     let m = Math.round(t / 60);
-    let s = Math.round(t % 60);
+    let s = Math.floor(t % 60);
 
     let [imageSrc, setImageSrc] = useState(centered(`${c.id}_${a.skin}`));
 
