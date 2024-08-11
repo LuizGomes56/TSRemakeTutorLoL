@@ -15,6 +15,7 @@ export const WebScraper = async (): Promise<void> => {
     let o = {} as ScrapProps;
 
     for (let k in c.data) {
+        console.log(k);
         if (!o[k]) { o[k] = {} as Record<typeof j[number], string[]>; }
         for (let p of j) {
             let url = `${process.env.SCRAP_ENDPOINT}/${k}/build/${p}`;
@@ -23,8 +24,14 @@ export const WebScraper = async (): Promise<void> => {
                 let html = await x.text();
                 const $ = load(html);
                 let d = $(".m-1q4a7cx");
+                let w = $(".m-s76v8c");
                 let t = new Array<string>();
                 let r = d.eq(3);
+                w.find("img").each((i, e) => {
+                    let o = $(e);
+                    let g = o.attr("alt");
+                    if (g) { t.push(g); }
+                });
                 r.find("img").each((i, e) => {
                     let v = $(e);
                     let a = v.attr("alt");

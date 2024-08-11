@@ -65,6 +65,7 @@ export default function Page() {
     }, []);
 
     useEffect(() => {
+        LoadData(code, selectedItem, recommend, attempts);
         const interval = setInterval(() => {
             LoadData(code, selectedItem, recommend, attempts);
         }, RefreshTime);
@@ -174,13 +175,7 @@ export default function Page() {
                         })()}
                     </div>
                 </div>
-            ) : (<>
-                <Loading />
-            </>)
-        ) : (
-            <>
-                <Awaiter onCodeChange={onCodeChange} attempts={attempts} />
-            </>
-        )}
+            ) : <Loading />
+        ) : <Awaiter onCodeChange={onCodeChange} attempts={attempts} />}
     </>
 }

@@ -1,17 +1,29 @@
 import dotenv from "dotenv";
-import { readFileSync, writeFileSync } from "fs";
+import { existsSync, readFileSync, writeFileSync } from "fs";
 import { ChampionIDs, Champions, EvalItemStats, FullChampions, Items, KeyReplaces, TargetChampion, TargetItem } from "./interfaces";
 import { WebScraper } from "./scrap.service";
 
 dotenv.config()
 
-const chacheDIR: string = `${process.cwd()}/cache`;
+const cacheDIR: string = `${process.cwd()}/cache`;
 
 const riotCDN: string = `${process.env.DD_ENDPOINT}/${process.env.LOL_VERSION}/data/${process.env.LANGUAGE}`
 
+export const RiotAPI = async (file: string): Promise<any | void> => {
+    let url = `${riotCDN}/${file}.json`;
+    try {
+        let request = await fetch(url)
+        let response = await request.json();
+        return response;
+    }
+    catch (e) {
+        console.log(e)
+    }
+};
+
 const Delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
 
-const Cache = (x: string) => JSON.parse(readFileSync(`${chacheDIR}/${x}.json`, "utf-8"));
+const Cache = (x: string) => JSON.parse(readFileSync(`${cacheDIR}/${x}.json`, "utf-8"));
 
 const champIDs = Cache("ids") as ChampionIDs;
 
@@ -19,14 +31,41 @@ let ChampionCache: Record<string, TargetChampion> = {};
 let ItemCache: Record<string, TargetItem> = {};
 let StatsCache: Record<string, EvalItemStats> = {};
 
+const UpdateChampionIDs = async () => {
+    try {
+        let a = Cache("lang") as string[];
+        const b = `${cacheDIR}/ids.json`;
+        let c: Record<string, Record<string, string>> = {};
+        for (let i = 0; i < a.length; i++) {
+            const d = a[i];
+            const f = await RiotAPI("champion") as FullChampions;
+            const g = f.data;
+            for (const h in g) {
+                const j = g[h].name;
+                if (!c[h]) { c[h] = {}; }
+                c[h][d] = j;
+            }
+        }
+        let k: Record<string, Record<string, string>> = {};
+        if (existsSync(b)) { k = JSON.parse(readFileSync(b, 'utf-8')); }
+        Object.keys(c).forEach(l => {
+            if (!k[l]) { k[l] = {}; }
+            Object.assign(k[l], c[l]);
+        });
+        writeFileSync(b, JSON.stringify(k, null, 2));
+        console.log('Champion IDs data has been written to ids.json');
+    } catch (e) { console.error('Error:', e); }
+};
+
 export const UpdateCache = async () => {
     const s = new Date();
+    await UpdateChampionIDs();
     for (let k of Object.keys(champIDs)) {
         let j = Cache(`champions/${k}`) as Champions;
         if (j.version !== process.env.LOL_VERSION) {
             let x = await RiotAPI(`champion/${k}`) as Champions;
             if (x) {
-                writeFileSync(`${chacheDIR}/champions/${k}.json`, JSON.stringify(x), "utf-8");
+                writeFileSync(`${cacheDIR}/champions/${k}.json`, JSON.stringify(x), "utf-8");
                 console.log(`${k}.json updated`);
             }
             await Delay(400);
@@ -36,19 +75,20 @@ export const UpdateCache = async () => {
     if (h.version !== process.env.LOL_VERSION) {
         let y = await RiotAPI("item") as Items;
         if (y) {
-            writeFileSync(`${chacheDIR}/item.json`, JSON.stringify(y), "utf-8");
+            writeFileSync(`${cacheDIR}/item.json`, JSON.stringify(y), "utf-8");
             CacheItemStats();
         }
     }
     let c = Cache("champion");
     if (c.version !== process.env.LOL_VERSION) {
         let d = await RiotAPI("champion") as FullChampions;
-        if (d) { writeFileSync(`${chacheDIR}/champion.json`, JSON.stringify(d), "utf8"); }
+        if (d) { writeFileSync(`${cacheDIR}/champion.json`, JSON.stringify(d), "utf8"); }
     }
+    console.log("Starting Web Scrapper");
     await WebScraper();
     const n = new Date();
     const t = (n.getTime() - s.getTime()) / 1000;
-    console.log(`UpdateCache completed in ${t} seconds.`);
+    console.log(`Cache update completed in ${t} seconds.`);
 };
 
 const GetChampionID = (x: string): string | void => {
@@ -114,18 +154,6 @@ export const AllStats = async (): Promise<Record<string, EvalItemStats>> => {
     let x = Cache("stats") as Record<string, EvalItemStats>;
     return x;
 }
-
-export const RiotAPI = async (file: string): Promise<any | void> => {
-    let url = `${riotCDN}/${file}.json`;
-    try {
-        let request = await fetch(url)
-        let response = await request.json();
-        return response;
-    }
-    catch (e) {
-        console.log(e)
-    }
-};
 
 export const CacheItemStats = async (): Promise<any> => {
     let q = Cache("replacements") as KeyReplaces;
@@ -203,7 +231,7 @@ export const CacheItemStats = async (): Promise<any> => {
             maps: x.maps
         } as EvalItemStats;
     }
-    writeFileSync(`${chacheDIR}/stats.json`, JSON.stringify(h), "utf8");
+    writeFileSync(`${cacheDIR}/stats.json`, JSON.stringify(h), "utf8");
 }
 
 export const EvaluateItemStats = async (item: string): Promise<EvalItemStats> => {
