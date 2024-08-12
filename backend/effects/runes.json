@@ -46,8 +46,8 @@
             "name": "Sudden Impact",
             "type": "true",
             "min": {
-                "melee": "20 + (60 / 17 * (level - 1)",
-                "ranged": "20 + (60 / 17 * (level - 1)"
+                "melee": "20 + (60 / 17 * (level - 1))",
+                "ranged": "20 + (60 / 17 * (level - 1))"
             }
         },
         "8214": {

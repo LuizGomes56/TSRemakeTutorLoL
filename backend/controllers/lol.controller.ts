@@ -1,14 +1,14 @@
 import { Request, Response, NextFunction } from 'express';
-import { AllChampions, AllItems, AllStats, ChampionAPI, RiotAPI, UpdateCache } from '../services/lol.service';
+import { AllChampions, AllItems, AllStats, Cache, ChampionAPI, EveryChampion, UpdateCache } from '../services/lol.service';
 import dotenv from "dotenv";
 import path from "path";
-import { Champions, EvalItemStats, FullChampions, Items } from '../services/types-realtime';
+import { Champions, EvalItemStats, Items, KeyReplaces, LocalRunes, RunesReforged } from '../services/types-realtime';
+import { readFileSync } from 'fs';
 const download = require("download");
 
 dotenv.config();
 
-// const imgDIR: string = `${process.cwd()}/public/img`; BACKEND DIRECTORY
-const imgDIR: string = path.join(process.cwd(), '..', 'frontend', 'public', 'img'); // FRONTEND DIRECTORY
+const imgDIR: string = path.join(process.cwd(), '..', 'frontend', 'public', 'img');
 const riotCDN: string = `${process.env.DD_ENDPOINT}/${process.env.LOL_VERSION}/img`;
 const msg: string = "Downloaded all files in queue.";
 const end: string = "Download Completed: ";
@@ -143,7 +143,7 @@ export const FetchArts = async () => {
     try {
         let c = await AllChampions();
         for (let k of Object.keys(c?.data)) {
-            let t = await RiotAPI(`champion/${k}`) as Champions;
+            let t = await Cache(`champions/${k}`) as Champions;
             for (let y of t.data[k].skins) {
                 let r = y.num;
                 for (let w of ["centered", "splash"]) {
@@ -188,7 +188,7 @@ export const ControllerRunes = async (req: Request, res: Response, next: NextFun
 
 export const FetchRunes = async () => {
     try {
-        let c = await RiotAPI("runesReforged");
+        let c = await Cache("runesReforged");
         let j: string = `${process.env.CANISBACK_ENDPOINT}`;
         for (let k in c) {
             let r = c[k];
@@ -242,12 +242,48 @@ export const ItemList = async (req: Request, res: Response, next: NextFunction) 
 
 export const ChampionList = async (req: Request, res: Response, next: NextFunction) => {
     try {
-        let x = await AllChampions() as FullChampions;
-        let y = Object.keys(x.data);
-        res.status(200).json(y);
+        let x = await EveryChampion() as Record<string, { name: string }>;
+        res.status(200).json(x);
     }
     catch (e) {
         res.status(404).json({ success: false, message: "Unable to reach champion file." });
+        next(e);
+    }
+}
+
+export const RuneList = async (req: Request, res: Response, next: NextFunction) => {
+    try {
+        let x = Cache("runesReforged") as RunesReforged;
+        let t: Record<string, { name: string }> = {};
+        let y = x.data;
+        for (let z of y) {
+            for (let w of z.slots) {
+                for (let q of w.runes) {
+                    t[q.id] = { name: q.name };
+                }
+            }
+        }
+        let r = JSON.parse(readFileSync(`${process.cwd()}/effects/runes.json`, "utf-8")) as LocalRunes;
+        let u = Object.keys(r.data);
+        let v = ["8017", "8138", "8233", "8008", "8120", "8136", "8143", "8236", "8010", "8369"];
+        let s = u.concat(v);
+        for (let g of Object.keys(t)) { if (!s.includes(g)) { delete t[g]; } }
+        res.status(200).json(t);
+    }
+    catch (e) {
+        res.status(404).json({ success: false, message: "Unable to reach rune file." });
+        next(e);
+    }
+}
+
+export const ControllerReplacements = async (req: Request, res: Response, next: NextFunction) => {
+    try {
+        let x = Cache("replacements") as KeyReplaces;
+        let y = x.keys;
+        res.status(200).json(y);
+    }
+    catch (e) {
+        res.status(404).json({ success: false, message: "Unable to reach replacements file." });
         next(e);
     }
 }

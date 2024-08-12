@@ -15,7 +15,7 @@ export const WebScraper = async (): Promise<void> => {
     let o = {} as ScrapProps;
 
     for (let k in c.data) {
-        console.log(k);
+        console.log("Scrapping", k);
         if (!o[k]) { o[k] = {} as Record<typeof j[number], string[]>; }
         for (let p of j) {
             let url = `${process.env.SCRAP_ENDPOINT}/${k}/build/${p}`;

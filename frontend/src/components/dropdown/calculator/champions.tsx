@@ -30,16 +30,16 @@ export default function DropdownChampions() {
     }
 
     return (
-        <div className="flex flex-col">
-            {cell ? Object.keys(cell).map((x, i) => {
+        <div className="flex flex-col max-h-32 overflow-y-auto">
+            {cell && Object.keys(cell).map((x, i) => {
                 let c = cell[x];
                 return (
-                    <div key={x + i} className="bg-zinc-800 p-2">
-                        <img src={champion(x)} alt="" />
-                        <span>{c.name}</span>
+                    <div key={x + i} className="p-1 flex gap-2 items-center">
+                        <img className="h-6" src={champion(x)} alt="" />
+                        <span className="dropshadow text-zinc-300 text-sm">{c.name}</span>
                     </div>
                 )
-            }) : ""}
+            })}
         </div>
     )
 }

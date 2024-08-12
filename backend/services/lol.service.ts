@@ -1,6 +1,6 @@
 import dotenv from "dotenv";
 import { existsSync, readFileSync, writeFileSync } from "fs";
-import { ChampionIDs, Champions, EvalItemStats, FullChampions, Items, KeyReplaces, TargetChampion, TargetItem } from "./types-realtime";
+import { ChampionIDs, Champions, EvalItemStats, FullChampions, Items, KeyReplaces, Runes, RunesReforged, TargetChampion, TargetItem } from "./types-realtime";
 import { WebScraper } from "./scrap.service";
 
 dotenv.config()
@@ -23,7 +23,7 @@ export const RiotAPI = async (file: string): Promise<any | void> => {
 
 const Delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
 
-const Cache = (x: string) => JSON.parse(readFileSync(`${cacheDIR}/${x}.json`, "utf-8"));
+export const Cache = (x: string) => JSON.parse(readFileSync(`${cacheDIR}/${x}.json`, "utf-8"));
 
 const champIDs = Cache("ids") as ChampionIDs;
 
@@ -60,9 +60,10 @@ const UpdateChampionIDs = async () => {
 export const UpdateCache = async () => {
     const s = new Date();
     await UpdateChampionIDs();
+    let p = process.env.LOL_VERSION;
     for (let k of Object.keys(champIDs)) {
         let j = Cache(`champions/${k}`) as Champions;
-        if (j.version !== process.env.LOL_VERSION) {
+        if (j.version !== p) {
             let x = await RiotAPI(`champion/${k}`) as Champions;
             if (x) {
                 writeFileSync(`${cacheDIR}/champions/${k}.json`, JSON.stringify(x), "utf-8");
@@ -72,19 +73,27 @@ export const UpdateCache = async () => {
         }
     }
     let h = Cache("item") as Items;
-    if (h.version !== process.env.LOL_VERSION) {
+    if (h.version !== p) {
         let y = await RiotAPI("item") as Items;
         if (y) {
             writeFileSync(`${cacheDIR}/item.json`, JSON.stringify(y), "utf-8");
             CacheItemStats();
         }
     }
+    let w = Cache("runesReforged") as RunesReforged;
+    if (w.version !== p) {
+        let q = await RiotAPI("runesReforged") as RunesReforged;
+        let z = {
+            version: p,
+            data: q
+        }
+        if (q) { writeFileSync(`${cacheDIR}/runesReforged.json`, JSON.stringify(z), "utf-8"); }
+    }
     let c = Cache("champion");
-    if (c.version !== process.env.LOL_VERSION) {
+    if (c.version !== p) {
         let d = await RiotAPI("champion") as FullChampions;
         if (d) { writeFileSync(`${cacheDIR}/champion.json`, JSON.stringify(d), "utf8"); }
     }
-    console.log("Starting Web Scrapper");
     await WebScraper();
     const n = new Date();
     const t = (n.getTime() - s.getTime()) / 1000;
@@ -138,6 +147,11 @@ export const ItemAPI = async (itemName: string): Promise<TargetItem | void> => {
         ItemCache[itemName] = z;
         return z;
     }
+}
+
+export const AllRunes = async (): Promise<RunesReforged> => {
+    let x = Cache("runesReforged") as RunesReforged || await RiotAPI("runesReforged") as RunesReforged;
+    return x;
 }
 
 export const AllChampions = async (): Promise<FullChampions> => {

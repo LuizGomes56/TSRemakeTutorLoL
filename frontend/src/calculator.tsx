@@ -10,6 +10,9 @@ import Loading from "./components/loading";
 import Scoreboard from "./components/scoreboard";
 import Card from "./components/card";
 import DropdownChampions from "./components/dropdown/calculator/champions";
+import DropdownItems from "./components/dropdown/calculator/items";
+import DropdownRunes from "./components/dropdown/calculator/runes";
+import Replacements from "./replacements";
 
 const FetchGame = async (data: BrowserData, item: string, rec: boolean): Promise<DataProps | null> => {
     const T1 = new Date();
@@ -55,15 +58,15 @@ export default function Calculator() {
                 armorPenetrationPercent: 1.0,
                 magicResist: 0.0,
                 maxHealth: 0.0,
-                resourceMax: 0.0,
-                resourceType: "MANA"
+                resourceMax: 0.0
             },
             level: 18,
             runes: [],
             items: [],
             team: "CHAOS",
             summonerName: "You",
-            championName: "Neeko"
+            championName: "Neeko",
+            championId: "Neeko"
         },
         allPlayers: [
             {
@@ -95,10 +98,14 @@ export default function Calculator() {
     let [start, setStart] = useState<boolean>(false);
     let [recommend, setRecommend] = useState<boolean>(false);
 
+    let [dropChampion, setDropChampion] = useState<boolean>(false);
+    let [dropItems, setDropItems] = useState<boolean>(false);
+    let [dropRunes, setDropRunes] = useState<boolean>(false);
+
     // DisableDevTools();
 
     useEffect(() => {
-        LoadData(data, selectedItem, recommend);
+        // LoadData(data, selectedItem, recommend);
     }, [data, selectedItem, recommend]);
 
     const LoadData = async (data: BrowserData, item: string, rec: boolean) => {
@@ -120,15 +127,26 @@ export default function Calculator() {
     const ToggleRecommend = () => recommend ? setRecommend(false) : setRecommend(true);
 
     return (
-        <>
+        <div className="grid grid-cols-2 gap-4 p-2">
             <div className="flex flex-col gap-2 bg-zinc-900">
                 <div className="p-2 gap-2 flex items-center">
-                    {["Yourself", "Enemies"].map((x, i) => <div key={i} className="bg-zinc-800 dropshadow text-white p-2 border border-zinc-600">{x}</div>)}
+                    {["Yourself", "Enemies"].map((x, i) => <div key={x + i} className="bg-zinc-800 dropshadow text-white p-2 border border-zinc-600">{x}</div>)}
                 </div>
-                <div>
-                    <span>{data.activePlayer.championName}</span>
+                <div className="flex flex-col bg-zinc-800 border border-zinc-600 p-4">
+                    <span className="text-white font-bold">{data.activePlayer.championName}</span>
                     <DropdownChampions />
                 </div>
+                <div className="flex flex-col bg-zinc-800 border border-zinc-600 p-4">
+                    <span className="text-white font-bold">Items</span>
+                    <DropdownItems />
+                </div>
+                <div className="flex flex-col bg-zinc-800 border border-zinc-600 p-4">
+                    <span className="text-white font-bold">Runes</span>
+                    <DropdownRunes />
+                </div>
+            </div>
+            <div className="flex flex-col gap-2 bg-zinc-800">
+                <Replacements championStats={data.activePlayer.championStats} />
             </div>
             {/* {game ? (
                 <div className="container mx-auto xl:flex xl:gap-5">
@@ -198,6 +216,6 @@ export default function Calculator() {
                     </div>
                 </div>
             ) : <Loading />} */}
-        </>
+        </div>
     )
 }

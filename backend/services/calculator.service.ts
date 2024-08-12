@@ -1,10 +1,12 @@
+type Team = "CHAOS" | "ORDER";
+
 interface ActivePlayer {
     abilities: {
-        E: { abilityLevel: number },
-        Q: { abilityLevel: number },
-        R: { abilityLevel: number },
-        W: { abilityLevel: number }
-    }
+        E: { abilityLevel: number };
+        Q: { abilityLevel: number };
+        R: { abilityLevel: number };
+        W: { abilityLevel: number };
+    };
     championStats: {
         abilityPower: number;
         armor: number;
@@ -22,9 +24,14 @@ interface ActivePlayer {
         maxHealth: number;
         resourceMax: number;
         resourceType: string;
-    }
+    };
+    team: Team;
+    items: string[];
+    runes: string[];
     level: number;
     summonerName: string;
+    championName: string;
+    championId: string;
 }
 
 interface AllPlayers {
@@ -33,8 +40,8 @@ interface AllPlayers {
     level: number;
     runes: string[];
     summonerName: string;
-    team: "ORDER" | "CHAOS";
-}[]
+    team: Team;
+}
 
 interface Dragons {
     ORDER: string[];
@@ -43,7 +50,7 @@ interface Dragons {
 
 type BrowserData = {
     activePlayer: ActivePlayer;
-    allPlayers: AllPlayers;
+    allPlayers: AllPlayers[];
     dragons: Dragons;
     mapNumber: number;
 }

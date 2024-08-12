@@ -551,13 +551,18 @@ interface Slot {
     runes: Rune[];
 }
 
-interface Runes {
+export interface Runes {
     id: number;
     key: string;
     icon: string;
     name: string;
     slots: Slot[];
-}[]
+}
+
+export interface RunesReforged {
+    version: string;
+    data: Runes[]
+}
 
 interface RuneDamage {
     name: string;
