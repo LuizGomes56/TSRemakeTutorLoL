@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { centered } from "../constants";
-import { DataProps } from "../interfaces";
+import { DataProps } from "../types-realtime";
 
 export default function Card({ game }: { game: DataProps }) {
     let a = game.activePlayer;

@@ -1,5 +1,5 @@
 import { useEffect, useState, forwardRef } from "react"
-import { EvalItemStats } from "../interfaces";
+import { EvalItemStats } from "../types-realtime";
 import Searchbar from "./dropdown/searchbar";
 import { EndPoint } from "../constants";
 import Filters from "./dropdown/filters";

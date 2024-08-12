@@ -1,5 +1,5 @@
 import { champion } from "../../constants";
-import { Ply, Tag } from "../../interfaces";
+import { Ply, Tag } from "../../types-realtime";
 import ChampionCells from "./cells/champion";
 import ImageCells from "./cells/image";
 

@@ -1,4 +1,4 @@
-import { Damage, PropertyProps, Tip, ToolInfo } from "../../interfaces"
+import { Damage, PropertyProps, Tip, ToolInfo } from "../../types-realtime"
 import { Style, champion } from "../../constants";
 import { useState, useEffect, useRef } from "react";
 import Tooltip from "../tooltip";

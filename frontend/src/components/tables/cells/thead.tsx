@@ -1,5 +1,5 @@
 import { item, rune, spell } from '../../../constants';
-import { RequiredProps, ToolInfo } from '../../../interfaces';
+import { RequiredProps, ToolInfo } from '../../../types-realtime';
 import ImageCells from './image';
 import VoidCells from './void';
 

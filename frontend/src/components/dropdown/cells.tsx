@@ -1,5 +1,5 @@
 import { item } from "../../constants";
-import { EvalItemStats } from "../../interfaces";
+import { EvalItemStats } from "../../types-realtime";
 
 const Cells = ({ x, t, m, f, onItemClick }: { x: Record<string, EvalItemStats>, t: string, m: string, f: string[], onItemClick: (item: string) => void }) => {
     const LetterFinder = (n: string, q: string): Boolean => {

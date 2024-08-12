@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { item, rune, spell } from "../constants";
-import { PropertyProps, RelevantProps, RequiredProps, Tag } from "../interfaces";
+import { PropertyProps, RelevantProps, RequiredProps, Tag } from "../types-realtime";
 import Summation from "./tables/summation";
 
 const SubText = {

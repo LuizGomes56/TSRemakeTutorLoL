@@ -1,0 +1,61 @@
+{
+    "activePlayer": {
+        "abilities": {
+            "E": {
+                "abilityLevel": 5
+            },
+            "Q": {
+                "abilityLevel": 5
+            },
+            "R": {
+                "abilityLevel": 3
+            },
+            "W": {
+                "abilityLevel": 5
+            }
+        },
+        "championStats": {
+            "abilityPower": 0.0,
+            "armor": 0.0,
+            "attackDamage": 0.0,
+            "attackRange": 0.0,
+            "attackSpeed": 0.0,
+            "critChance": 0.0,
+            "critDamage": 0.0,
+            "currentHealth": 0.0,
+            "magicPenetrationFlat": 0.0,
+            "magicPenetrationPercent": 1.0,
+            "physicalLethality": 0.0,
+            "armorPenetrationPercent": 1.0,
+            "magicResist": 0.0,
+            "maxHealth": 0.0,
+            "resourceMax": 0.0,
+            "resourceType": "MANA"
+        },
+        "level": 12,
+        "summonerName": "Dollynh0solador"
+    },
+    "allPlayers": [
+        {
+            "championName": "Mordekaiser",
+            "items": [],
+            "level": 18,
+            "runes": [],
+            "summonerName": "Enemy 1",
+            "team": "ORDER"
+        },
+        {
+            "championName": "Yasuo",
+            "items": [],
+            "level": 18,
+            "runes": [],
+            "summonerName": "Enemy 2",
+            "team": "ORDER"
+        }
+    ],
+    "dragons": {
+        "ORDER": [],
+        "CHAOS": []
+    },
+    "mapNumber": 11
+}

@@ -1,4 +1,4 @@
-import { Acp, AllPropsCS } from "./interfaces";
+import { Acp, AllPropsCS } from "./types-realtime";
 
 const Penetration = (v: number, u: number): number => { return u * (1 + v); }
 

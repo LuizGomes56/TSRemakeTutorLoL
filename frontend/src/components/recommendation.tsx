@@ -1,5 +1,5 @@
 import { item } from "../constants"
-import { Ply } from "../interfaces"
+import { Ply } from "../types-realtime"
 
 export default function Recommendation({ x }: { x: Ply[] }) {
     let y = {} as Record<string, number>;
@@ -21,7 +21,7 @@ export default function Recommendation({ x }: { x: Ply[] }) {
                 <img className="h-8" src={`/suggestion.png`} alt="" />
                 <p className="dropshadow">Recommendations</p>
             </span>
-            <div className="grid grid-cols-3 gap-2 sm:flex sm:justify-between">
+            <div className="grid grid-cols-3 md:grid-cols-5 gap-2 lg:grid-cols-7">
                 {t.map(([c, w], i) => (
                     <div key={c + i} className="flex items-center hover:bg-zinc-600 transition-all duration-300 w-full bg-zinc-800 p-1 rounded shade">
                         <span className="flex items-center justify-center relative">

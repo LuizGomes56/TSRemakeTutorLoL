@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { champion } from "../constants";
-import { DataProps, Ply } from "../interfaces";
+import { DataProps, Ply } from "../types-realtime";
 
 const Scores = ({ x, y }: { x: Ply[], y?: (i: number) => void }) => (
     x.map((p, i) => {

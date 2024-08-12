@@ -6,7 +6,7 @@ import {
     GameEvents, LocalChampion, LocalItems, LocalRunes, Player, Ply,
     ReplacementsProps, Stats, SummonerSpells, TargetChampion, TargetItem,
     ScrapProps
-} from "./interfaces";
+} from "./types-realtime";
 import { ToolKeyDependent, ToolKeyless } from "./consts";
 
 const Effects: string = `${process.cwd()}/effects`;
@@ -36,7 +36,6 @@ const AssignChampion = async (g: DataProps): Promise<void> => {
         }));
     }
 };
-
 
 let j: Record<string, number> = {};
 
@@ -76,11 +75,7 @@ export const Calculate = async (g: DataProps, rec: boolean, t: string, w: boolea
                     }
                 });
             }
-            if (rec && w) {
-                for (let p of Recm) {
-                    j[p] = 0;
-                }
-            }
+            if (rec && w) { for (let p of Recm) { j[p] = 0; } }
 
             activePlayer.champion = player.champion;
 
@@ -250,7 +245,7 @@ const AssignStats = async (key: string, s: Acp, a: string[]): Promise<void> => {
     }
 }
 
-let Positions = {
+const Positions = {
     TOP: "top",
     JUNGLE: "jungle",
     MIDDLE: "mid",

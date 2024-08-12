@@ -2,7 +2,7 @@ import { Request, Response, NextFunction } from 'express';
 import { AllChampions, AllItems, AllStats, ChampionAPI, RiotAPI, UpdateCache } from '../services/lol.service';
 import dotenv from "dotenv";
 import path from "path";
-import { Champions, EvalItemStats, FullChampions, Items } from '../services/interfaces';
+import { Champions, EvalItemStats, FullChampions, Items } from '../services/types-realtime';
 const download = require("download");
 
 dotenv.config();

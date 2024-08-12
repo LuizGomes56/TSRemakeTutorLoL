@@ -1,6 +1,6 @@
 import dotenv from "dotenv";
 import { existsSync, readFileSync, writeFileSync } from "fs";
-import { ChampionIDs, Champions, EvalItemStats, FullChampions, Items, KeyReplaces, TargetChampion, TargetItem } from "./interfaces";
+import { ChampionIDs, Champions, EvalItemStats, FullChampions, Items, KeyReplaces, TargetChampion, TargetItem } from "./types-realtime";
 import { WebScraper } from "./scrap.service";
 
 dotenv.config()
@@ -143,6 +143,15 @@ export const ItemAPI = async (itemName: string): Promise<TargetItem | void> => {
 export const AllChampions = async (): Promise<FullChampions> => {
     let x = Cache("champion") as FullChampions || await RiotAPI("champion") as FullChampions;
     return x;
+}
+
+export const EveryChampion = async (): Promise<Record<string, { name: string }>> => {
+    let x = Cache("champion") as FullChampions || await RiotAPI("champion") as FullChampions;
+    let y: Record<string, { name: string }> = {};
+    for (let [k, v] of Object.entries(x.data)) {
+        y[k] = { name: v.name };
+    }
+    return y;
 }
 
 export const AllItems = async (): Promise<Items> => {

@@ -1,4 +1,4 @@
-import { ToolInfo } from "../interfaces";
+import { ToolInfo } from "../types-realtime";
 import { stat, item } from "../constants";
 
 export default function Suggestion({ x }: { x: ToolInfo }) {

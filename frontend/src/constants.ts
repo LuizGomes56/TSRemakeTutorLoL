@@ -1,3 +1,5 @@
+import { useEffect } from 'react';
+
 export const EndPoint = "http://localhost:3000";
 export const RefreshTime = 950;
 export const MaxRequests = 15;
@@ -34,3 +36,34 @@ export const allStats: string[] = [
     "Magic Resist",
     "Attack Speed"
 ];
+
+export const DisableDevTools = () => {
+    useEffect(() => {
+        const disableContextMenu = (event: MouseEvent) => {
+            event.preventDefault();
+        };
+
+        const disableDevTools = (event: KeyboardEvent) => {
+            if (event.ctrlKey && event.shiftKey && event.key === 'I') {
+                event.preventDefault();
+            }
+            if (event.ctrlKey && event.shiftKey && event.key === 'J') {
+                event.preventDefault();
+            }
+            if (event.ctrlKey && event.key === 'U') {
+                event.preventDefault();
+            }
+            if (event.key === 'F12') {
+                event.preventDefault();
+            }
+        };
+
+        document.addEventListener('contextmenu', disableContextMenu);
+        document.addEventListener('keydown', disableDevTools);
+
+        return () => {
+            document.removeEventListener('contextmenu', disableContextMenu);
+            document.removeEventListener('keydown', disableDevTools);
+        };
+    }, []);
+};

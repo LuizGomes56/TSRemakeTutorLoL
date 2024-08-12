@@ -1,5 +1,5 @@
 import { champion } from "../constants";
-import { Ply } from "../interfaces";
+import { Ply } from "../types-realtime";
 
 const PlayerToggler = ({ players, toggleChecked }: { players: Ply[], toggleChecked: (index: number) => void }) => {
     return (

@@ -1,6 +1,6 @@
 import dotenv from "dotenv";
 import { AllChampions, AllItems } from "./lol.service";
-import { FullChampions, Items, ScrapProps } from "./interfaces";
+import { FullChampions, Items, ScrapProps } from "./types-realtime";
 import { load } from "cheerio";
 import { writeFileSync } from "fs";
 
