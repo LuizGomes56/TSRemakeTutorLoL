@@ -702,6 +702,7 @@ export interface KeyReplaces {
     percentages: string[];
     keys: Record<string, string>;
     extras: Record<string, Record<keyof ChampionStats, number>>;
+    inputs: { name: string, img: string, key: string, letter: boolean }[];
 }
 
 export interface EvalItemStats {

@@ -1,6 +1,6 @@
 import dotenv from "dotenv";
 import { existsSync, readFileSync, writeFileSync } from "fs";
-import { ChampionIDs, Champions, EvalItemStats, FullChampions, Items, KeyReplaces, Runes, RunesReforged, TargetChampion, TargetItem } from "./types-realtime";
+import { ChampionIDs, Champions, EvalItemStats, FullChampions, Items, KeyReplaces, RunesReforged, TargetChampion, TargetItem } from "./types-realtime";
 import { WebScraper } from "./scrap.service";
 
 dotenv.config()
@@ -236,11 +236,7 @@ export const CacheItemStats = async (): Promise<any> => {
             delete res[f];
         }
 
-        if (e[item]) {
-            for (let [p, q] of Object.entries(e[item])) {
-                res[p] = res[p] ? res[p] += q : q;
-            }
-        }
+        if (e[item]) { for (let [p, q] of Object.entries(e[item])) { res[p] = res[p] ? res[p] += q : q; } }
 
         h[item] = {
             name: x.name,

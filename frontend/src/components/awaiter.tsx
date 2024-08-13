@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { EndPoint, MaxRequests, PreviewCode } from "../constants";
+import { EndPoint, Keydown, MaxRequests, PreviewCode } from "../constants";
 
 const GetVersion = async () => {
     try {
@@ -29,11 +29,6 @@ export default function Awaiter({ onCodeChange, attempts }: { onCodeChange: (cod
     const InputEvent = (e: React.ChangeEvent<HTMLInputElement>) => {
         let v = e.target.value;
         if (/^\d{0,6}$/.test(v)) { onCodeChange(v); }
-    };
-
-    const Keydown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-        if (e.ctrlKey && ["a", "c", "v", "x"].includes(e.key.toLowerCase())) { return; }
-        if (!/^\d$/.test(e.key) && !["Backspace", "Delete", "ArrowLeft", "ArrowRight"].includes(e.key)) { e.preventDefault(); }
     };
 
     const setInputToHash = () => {

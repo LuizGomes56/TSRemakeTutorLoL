@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { BrowserData } from "./types-calculator"
 import { DataProps, Response } from "./types-realtime"
-import { DisableDevTools, EndPoint } from "./constants";
+import { centered, DisableDevTools, EndPoint, Keydown, spell } from "./constants";
 import Break from "./components/break";
 import Sources from "./components/tables/sources";
 import Tool from "./components/tables/tool";
@@ -61,8 +61,8 @@ export default function Calculator() {
                 resourceMax: 0.0
             },
             level: 18,
-            runes: [],
-            items: [],
+            runes: ["8002"],
+            items: ["4645"],
             team: "CHAOS",
             summonerName: "You",
             championName: "Neeko",
@@ -102,9 +102,18 @@ export default function Calculator() {
     let [dropItems, setDropItems] = useState<boolean>(false);
     let [dropRunes, setDropRunes] = useState<boolean>(false);
 
+    let [acpChampion, setAcpChampion] = useState<string>("");
+    let [acpItems, setAcpItems] = useState<string[]>([]);
+    let [acpRunes, setAcpRunes] = useState<string[]>([]);
+
     // DisableDevTools();
 
     useEffect(() => {
+        let acp = data.activePlayer;
+
+        setAcpItems(acp.items);
+        setAcpRunes(acp.runes);
+
         // LoadData(data, selectedItem, recommend);
     }, [data, selectedItem, recommend]);
 
@@ -117,36 +126,66 @@ export default function Calculator() {
         }
     }
 
-    const ReturnToMenu = () => {
-        setGame(null);
-        setStart(false);
-        setChecked([]);
-        setSelectedItem("4403");
-    }
-
     const ToggleRecommend = () => recommend ? setRecommend(false) : setRecommend(true);
 
     return (
-        <div className="grid grid-cols-2 gap-4 p-2">
-            <div className="flex flex-col gap-2 bg-zinc-900">
-                <div className="p-2 gap-2 flex items-center">
-                    {["Yourself", "Enemies"].map((x, i) => <div key={x + i} className="bg-zinc-800 dropshadow text-white p-2 border border-zinc-600">{x}</div>)}
+        <div className="container mx-auto bg-slate-900 flex">
+            <div className="flex flex-col">
+                <div className="relative flex">
+                    <img src={centered(data.activePlayer.championId + "_0")} className="clip h-24" alt="" />
+                    <h2 className="font-bold font-inter text-sky-200 text-shade absolute left-6 bottom-2 leading-none">
+                        {data.activePlayer.championName}
+                    </h2>
                 </div>
-                <div className="flex flex-col bg-zinc-800 border border-zinc-600 p-4">
-                    <span className="text-white font-bold">{data.activePlayer.championName}</span>
+                <Replacements championStats={data.activePlayer.championStats} />
+            </div>
+            <div className="flex gap-4 bg-slate-950 p-4">
+                <div className="flex flex-col gap-4">
+                    <span className="flex justify-between items-center gap-2 px-2">
+                        <h2 className="font-bold font-inter text-sky-300">Champions</h2>
+                        <img className="h-5" src="/chevdown.svg" alt="" />
+                    </span>
                     <DropdownChampions />
+                    <div className="grid grid-cols-2 gap-2 p-2 bg-slate-900 rounded border border-slate-700">
+                        {Object.keys(data.activePlayer.abilities).sort((a, b) => {
+                            let w = ["Q", "W", "E", "R"];
+                            return w.indexOf(a) - w.indexOf(b);
+                        }).map((t, i) => {
+                            let c = data.activePlayer.abilities;
+                            let v = c[t as keyof typeof c];
+                            return (
+                                <label key={t + i} className="flex gap-2 items-center">
+                                    <div className="relative flex items-center justify-center">
+                                        <img className="h-8 rounded" src={spell(data.activePlayer.championId + t)} alt="" />
+                                        <h2 className="font-bold font-inter text-slate-200 text-shade absolute leading-none">{t}</h2>
+                                    </div>
+                                    <input
+                                        onKeyDown={Keydown}
+                                        type="text"
+                                        inputMode="numeric"
+                                        maxLength={1}
+                                        className="flex-grow w-8 focus:outline-none focus:ring-1 focus:ring-zinc-400 text-sm rounded bg-slate-800 h-8 text-center text-zinc-300"
+                                        placeholder={v.abilityLevel.toString()}
+                                    />
+                                </label>
+                            )
+                        })}
+                    </div>
                 </div>
-                <div className="flex flex-col bg-zinc-800 border border-zinc-600 p-4">
-                    <span className="text-white font-bold">Items</span>
+                <div className="flex flex-col gap-4">
+                    <span className="flex justify-between items-center gap-2 px-2">
+                        <h2 className="font-bold font-inter text-sky-300">Items</h2>
+                        <img className="h-5" src="/chevdown.svg" alt="" />
+                    </span>
                     <DropdownItems />
                 </div>
-                <div className="flex flex-col bg-zinc-800 border border-zinc-600 p-4">
-                    <span className="text-white font-bold">Runes</span>
+                <div className="flex flex-col gap-4">
+                    <span className="flex justify-between items-center gap-2 px-2">
+                        <h2 className="font-bold font-inter text-sky-300">Runes</h2>
+                        <img className="h-5" src="/chevdown.svg" alt="" />
+                    </span>
                     <DropdownRunes />
                 </div>
-            </div>
-            <div className="flex flex-col gap-2 bg-zinc-800">
-                <Replacements championStats={data.activePlayer.championStats} />
             </div>
             {/* {game ? (
                 <div className="container mx-auto xl:flex xl:gap-5">

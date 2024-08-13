@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { champion, EndPoint } from "../../../constants";
+import { champion, EndPoint, Style } from "../../../constants";
 
 type ChampionResponse = Record<string, { name: string }>
 
@@ -30,13 +30,13 @@ export default function DropdownChampions() {
     }
 
     return (
-        <div className="flex flex-col max-h-32 overflow-y-auto">
+        <div className={Style.dropdown.main}>
             {cell && Object.keys(cell).map((x, i) => {
                 let c = cell[x];
                 return (
-                    <div key={x + i} className="p-1 flex gap-2 items-center">
-                        <img className="h-6" src={champion(x)} alt="" />
-                        <span className="dropshadow text-zinc-300 text-sm">{c.name}</span>
+                    <div key={x + i} className={Style.dropdown.cell}>
+                        <img className={Style.dropdown.image} src={champion(x)} alt="" />
+                        <span className={Style.dropdown.text}>{c.name}</span>
                     </div>
                 )
             })}

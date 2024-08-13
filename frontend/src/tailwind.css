@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+    font-family: 'Inter';
+    src: url('/fonts/inter/Inter-VariableFont_opsz.wght.ttf') format('truetype');
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url('/fonts/inter/Inter-Italic-VariableFont_opsz.wght.ttf') format('truetype');
+    font-style: italic;
+}

@@ -279,7 +279,7 @@ export const RuneList = async (req: Request, res: Response, next: NextFunction) 
 export const ControllerReplacements = async (req: Request, res: Response, next: NextFunction) => {
     try {
         let x = Cache("replacements") as KeyReplaces;
-        let y = x.keys;
+        let y = x.inputs;
         res.status(200).json(y);
     }
     catch (e) {
@@ -289,7 +289,7 @@ export const ControllerReplacements = async (req: Request, res: Response, next: 
 }
 
 export const ControllerUpdate = async (req: Request, res: Response, next: NextFunction) => {
-    const Functions = [FetchPassives, FetchSpells, FetchRunes, FetchCache, FetchChampions, FetchItems, FetchArts];
+    const Functions = [FetchCache, FetchPassives, FetchSpells, FetchRunes, FetchChampions, FetchItems, FetchArts];
     const f = new Date();
     for (const fn of Functions) {
         try { await fn(); }

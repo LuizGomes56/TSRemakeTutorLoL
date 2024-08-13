@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { EndPoint, rune } from "../../../constants"
+import { EndPoint, rune, Style } from "../../../constants"
 
 type RuneResponse = Record<string, { name: string }>;
 
@@ -29,13 +29,13 @@ export default function DropdownRunes() {
     }
 
     return (
-        <div className="flex flex-col max-h-32 overflow-y-auto">
+        <div className={Style.dropdown.main}>
             {cells && Object.keys(cells).map((x, i) => {
                 let c = cells[x];
                 return (
-                    <div key={c.name + x + i} className="p-1 flex gap-2 items-center">
-                        <img className="h-6" src={rune(x)} alt="" />
-                        <span className="text-zinc-300 dropshadow text-sm">{c.name}</span>
+                    <div key={c.name + x + i} className={Style.dropdown.cell}>
+                        <img className={Style.dropdown.image} src={rune(x)} alt="" />
+                        <span className={Style.dropdown.text}>{c.name}</span>
                     </div>
                 )
             })}

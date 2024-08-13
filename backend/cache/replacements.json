@@ -22,6 +22,81 @@
         "Mana": "resourceMax",
         "Ability Power": "abilityPower"
     },
+    "inputs": [
+        {
+            "name": "Level",
+            "img": "Level",
+            "key": "level"
+        },
+        {
+            "name": "Ability Power",
+            "img": "AbilityPower",
+            "key": "abilityPower"
+        },
+        {
+            "name": "Attack Damage",
+            "img": "AttackDamage",
+            "key": "attackDamage"
+        },
+        {
+            "name": "Armor Pen",
+            "img": "ArmorPenetration",
+            "key": "armorPenetrationPercent",
+            "letter": true
+        },
+        {
+            "name": "Magic Pen",
+            "img": "MagicPenetration",
+            "key": "magicPenetrationPercent",
+            "letter": true
+        },
+        {
+            "name": "Lethality",
+            "img": "ArmorPenetration",
+            "key": "physicalLethality",
+            "acronym": "Lethality"
+        },
+        {
+            "name": "Magic Pen",
+            "img": "MagicPenetration",
+            "key": "magicPenetrationFlat"
+        },
+        {
+            "name": "Chance",
+            "img": "CriticalStrikeChance",
+            "key": "critChance"
+        },
+        {
+            "name": "Damage",
+            "img": "CriticalStrikeDamage",
+            "key": "critDamage"
+        },
+        {
+            "name": "Health",
+            "img": "Health",
+            "key": "maxHealth"
+        },
+        {
+            "name": "Armor",
+            "img": "Armor",
+            "key": "armor"
+        },
+        {
+            "name": "Magic Resist",
+            "img": "MagicResist",
+            "key": "magicResist"
+        },
+        {
+            "name": "Mana",
+            "img": "Mana",
+            "key": "resourceMax"
+        },
+        {
+            "name": "Attack Speed",
+            "img": "AttackSpeed",
+            "key": "attackSpeed"
+        }
+    ],
     "extras": {
         "3071": {
             "armorPenetrationPercent": -0.3
