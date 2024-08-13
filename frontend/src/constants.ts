@@ -13,7 +13,7 @@ export const Style = {
         mixed: "text-purple-700"
     },
     dropdown: {
-        main: "w-56 flex flex-col max-h-64 overflow-y-auto bg-slate-900 rounded px-2 border border-slate-700",
+        main: "flex flex-col max-h-64 overflow-y-auto bg-slate-900 rounded px-2 border border-slate-700",
         cell: "p-1 flex gap-2 items-center hover:bg-slate-700 transition-all duration-200",
         image: "h-6",
         text: "text-sky-200 font-inter font-medium dropshadow text-sm"

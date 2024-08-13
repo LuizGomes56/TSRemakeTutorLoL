@@ -3,7 +3,7 @@ import { DataProps, RequestBody, Response } from './types-realtime';
 import Sources from './components/tables/sources';
 import Tool from './components/tables/tool';
 import { DisableDevTools, EndPoint, MaxRequests, RefreshTime } from './constants';
-import './realtime.css';
+import './constants.css';
 import Selector from './components/selector';
 import Scoreboard from './components/scoreboard';
 import Loading from './components/loading';

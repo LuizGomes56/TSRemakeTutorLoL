@@ -17,7 +17,7 @@ const FetchChampions = async function () {
     return null;
 }
 
-export default function DropdownChampions() {
+export default function DropdownChampions({ visible }: { visible: boolean }) {
     let [cell, setCell] = useState<ChampionResponse | null>(null);
 
     useEffect(() => {
@@ -30,7 +30,7 @@ export default function DropdownChampions() {
     }
 
     return (
-        <div className={Style.dropdown.main}>
+        <div className={`${Style.dropdown.main} ${visible ? "" : "hidden"}`}>
             {cell && Object.keys(cell).map((x, i) => {
                 let c = cell[x];
                 return (

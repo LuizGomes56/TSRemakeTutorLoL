@@ -15,7 +15,7 @@ const FetchItems = async (): Promise<Record<string, EvalItemStats> | null> => {
     return null;
 }
 
-export default function DropdownItems() {
+export default function DropdownItems({ visible }: { visible: boolean }) {
     let [cells, setCells] = useState<Record<string, EvalItemStats> | null>(null);
 
     useEffect(() => {
@@ -28,7 +28,7 @@ export default function DropdownItems() {
     }
 
     return (
-        <div className={Style.dropdown.main}>
+        <div className={`${Style.dropdown.main} ${visible ? "" : "hidden"}`}>
             {cells && Object.keys(cells).map((x, i) => {
                 let c = cells[x];
                 return c.gold.purchasable && c.maps["11"] && (

@@ -16,7 +16,7 @@ const FetchRunes = async (): Promise<RuneResponse | null> => {
     return null;
 }
 
-export default function DropdownRunes() {
+export default function DropdownRunes({ visible }: { visible: boolean }) {
     let [cells, setCells] = useState<RuneResponse | null>(null);
 
     useEffect(() => {
@@ -29,7 +29,7 @@ export default function DropdownRunes() {
     }
 
     return (
-        <div className={Style.dropdown.main}>
+        <div className={`${Style.dropdown.main} ${visible ? "" : "hidden"}`}>
             {cells && Object.keys(cells).map((x, i) => {
                 let c = cells[x];
                 return (

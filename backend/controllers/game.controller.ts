@@ -1,6 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 import { PrismaClient } from '@prisma/client';
 import { Calculate } from '../services/game.service';
+// import { Calculator } from '../services/calculator.service';
 
 const prisma = new PrismaClient();
 
@@ -53,3 +54,14 @@ export const NextGame = async (req: Request, res: Response, next: NextFunction) 
     }
     catch (e) { res.status(404).json({ message: `Cannot finish operation. ${e}` }); }
 };
+
+// export const GetCalculator = async (req: Request, res: Response, next: NextFunction) => {
+//     let { data, item, rec } = req.body;
+//     try {
+//         if (data) {
+//             let x = await Calculator(data, rec, item);
+//             res.status(200).json({ data: x });
+//         }
+//     }
+//     catch (e) { res.status(404).json({ message: `Cannot finish operation. ${e}` }); }
+// }

@@ -29,33 +29,28 @@
             "armorPenetrationPercent": 1.0,
             "magicResist": 0.0,
             "maxHealth": 0.0,
-            "resourceMax": 0.0,
-            "resourceType": "MANA"
+            "resourceMax": 0.0
         },
-        "level": 12,
-        "summonerName": "Dollynh0solador"
+        "level": 18,
+        "summonerName": "You",
+        "items": [],
+        "runes": [],
+        "team": "CHAOS",
+        "championName": "Neeko",
+        "championId": "Neeko"
     },
     "allPlayers": [
         {
             "championName": "Mordekaiser",
             "items": [],
             "level": 18,
-            "runes": [],
             "summonerName": "Enemy 1",
-            "team": "ORDER"
-        },
-        {
-            "championName": "Yasuo",
-            "items": [],
-            "level": 18,
-            "runes": [],
-            "summonerName": "Enemy 2",
             "team": "ORDER"
         }
     ],
     "dragons": {
-        "ORDER": [],
-        "CHAOS": []
+        "CHAOS": [],
+        "ORDER": []
     },
     "mapNumber": 11
 }

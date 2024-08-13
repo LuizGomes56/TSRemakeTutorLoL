@@ -263,17 +263,7 @@ const Recommendation = (x: string, c: string): string[] | void => {
 }
 
 const Test = async (g: DataProps, rec: boolean, t: string) => {
-    let f = {
-        canUse: false,
-        consumable: false,
-        count: 1,
-        displayName: "",
-        itemID: Number(t),
-        price: 0,
-        rawDescription: "",
-        rawDisplayName: "",
-        slot: 0
-    }
+    let f = { itemID: Number(t) }
     let y = g.allPlayers.find(x => x.summonerName == g.activePlayer.summonerName);
     if (!y) { return; }
     y.items.push(f);

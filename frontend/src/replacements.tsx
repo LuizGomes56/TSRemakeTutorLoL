@@ -30,7 +30,7 @@ export default function Replacements({ championStats }: { championStats: Champio
     }
 
     return (
-        <div className="px-12 flex flex-col gap-1 bg-slate-900 py-6">
+        <div className="px-12 flex flex-col gap-1 bg-slate-900 pb-3">
             {replacements && replacements.map((x, i) => {
                 let v = x.name + i;
                 let w = x.key == "level" ? 18 : championStats[x.key as keyof ChampionStats];

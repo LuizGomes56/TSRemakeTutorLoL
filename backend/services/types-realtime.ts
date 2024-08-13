@@ -231,80 +231,80 @@ export interface LocalChampion {
 
 interface DefAbility {
     abilityLevel?: number;
-    displayName: string;
-    id: string;
-    rawDescription: string;
-    rawDisplayName: string;
+    displayName?: string;
+    id?: string;
+    rawDescription?: string;
+    rawDisplayName?: string;
 }
 
 export interface ChampionStats {
-    abilityHaste: number;
+    abilityHaste?: number;
     abilityPower: number;
     armor: number;
-    armorPenetrationFlat: number;
+    armorPenetrationFlat?: number;
     armorPenetrationPercent: number;
     attackDamage: number;
     attackRange: number;
     attackSpeed: number;
-    bonusArmorPenetrationPercent: number;
-    bonusMagicPenetrationPercent: number;
+    bonusArmorPenetrationPercent?: number;
+    bonusMagicPenetrationPercent?: number;
     critChance: number;
     critDamage: number;
     currentHealth: number;
-    healShieldPower: number;
-    healthRegenRate: number;
-    lifeSteal: number;
-    magicLethality: number;
+    healShieldPower?: number;
+    healthRegenRate?: number;
+    lifeSteal?: number;
+    magicLethality?: number;
     magicPenetrationFlat: number;
     magicPenetrationPercent: number;
     magicResist: number;
     maxHealth: number;
-    moveSpeed: number;
-    omnivamp: number;
+    moveSpeed?: number;
+    omnivamp?: number;
     physicalLethality: number;
-    physicalVamp: number;
+    physicalVamp?: number;
     resourceMax: number;
-    resourceRegenRate: number;
-    resourceType: string;
-    resourceValue: number;
-    spellVamp: number;
-    tenacity: number;
+    resourceRegenRate?: number;
+    resourceType?: string;
+    resourceValue?: number;
+    spellVamp?: number;
+    tenacity?: number;
 }
 
 interface DefRune {
-    displayName: string;
+    displayName?: string;
     id: number;
-    rawDescription: string;
-    rawDisplayName: string;
+    rawDescription?: string;
+    rawDisplayName?: string;
 }
 
 interface FullRunes {
     generalRunes: DefRune[];
-    keystone: DefRune;
-    primaryRuneTree: DefRune;
-    secondaryRuneTree: DefRune;
-    statRunes: {
+    keystone?: DefRune;
+    primaryRuneTree?: DefRune;
+    secondaryRuneTree?: DefRune;
+    statRunes?: {
         id: number;
         rawDescription: string;
     }[];
 }
 
 interface DefItem {
-    canUse: boolean;
-    consumable: boolean;
-    count: number;
-    displayName: string;
+    canUse?: boolean;
+    consumable?: boolean;
+    count?: number;
+    displayName?: string;
     itemID: number;
-    price: number;
-    rawDescription: string;
-    rawDisplayName: string;
-    slot: number;
+    price?: number;
+    rawDescription?: string;
+    rawDisplayName?: string;
+    slot?: number;
 }
 
 interface SummonerSpell {
-    displayName: string;
+    displayName?: string;
     rawDescription: string;
-    rawDisplayName: string;
+    rawDisplayName?: string;
 }
 
 export interface SummonerSpells {
@@ -314,41 +314,41 @@ export interface SummonerSpells {
 
 interface Scores {
     assists: number;
-    creepScore: number;
+    creepScore?: number;
     deaths: number;
     kills: number;
-    wardScore: number;
+    wardScore?: number;
 }
 
 interface PlayerRunes {
-    keystone: DefRune;
-    primaryRuneTree: DefRune;
-    secondaryRuneTree: DefRune;
+    keystone?: DefRune;
+    primaryRuneTree?: DefRune;
+    secondaryRuneTree?: DefRune;
 }
 
 export interface Player {
     championName: string;
-    isBot: boolean;
-    isDead: boolean;
+    isBot?: boolean;
+    isDead?: boolean;
     items: DefItem[];
     level: number;
     position: string;
-    rawChampionName: string;
-    rawSkinName: string;
-    respawnTimer: number;
-    runes: PlayerRunes;
+    rawChampionName?: string;
+    rawSkinName?: string;
+    respawnTimer?: number;
+    runes?: PlayerRunes;
     scores: Scores;
     skinID: number;
-    skinName: string;
+    skinName?: string;
     summonerName: string;
     summonerSpells: SummonerSpells;
     team: string;
 }
 
 export interface Event {
-    EventID: number;
-    EventName: string;
-    EventTime: number;
+    EventID?: number;
+    EventName?: string;
+    EventTime?: number;
     Assisters?: string[];
     KillerName?: string;
     VictimName?: string;
@@ -364,16 +364,16 @@ export interface GameEvents {
 }
 
 interface GameData {
-    gameMode: string;
+    gameMode?: string;
     gameTime: number;
-    mapName: string;
+    mapName?: string;
     mapNumber: number;
-    mapTerrain: string;
+    mapTerrain?: string;
 }
 
 export interface DefAbilities {
     E: DefAbility;
-    Passive: DefAbility;
+    Passive?: DefAbility;
     Q: DefAbility;
     R: DefAbility;
     W: DefAbility;
@@ -382,11 +382,11 @@ export interface DefAbilities {
 export interface ActivePlayer {
     abilities: DefAbilities;
     championStats: ChampionStats;
-    currentGold: number;
+    currentGold?: number;
     fullRunes: FullRunes;
     level: number;
     summonerName: string;
-    teamRelativeColors: boolean;
+    teamRelativeColors?: boolean;
 }
 
 interface GameProps {
