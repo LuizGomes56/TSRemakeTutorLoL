@@ -16,7 +16,7 @@ const FetchRunes = async (): Promise<RuneResponse | null> => {
     return null;
 }
 
-export default function DropdownRunes({ visible }: { visible: boolean }) {
+export default function DropdownRunes({ visible, onRuneSelect }: { visible: boolean, onRuneSelect: (runeId: string) => void }) {
     let [cells, setCells] = useState<RuneResponse | null>(null);
 
     useEffect(() => {
@@ -33,7 +33,7 @@ export default function DropdownRunes({ visible }: { visible: boolean }) {
             {cells && Object.keys(cells).map((x, i) => {
                 let c = cells[x];
                 return (
-                    <div key={c.name + x + i} className={Style.dropdown.cell}>
+                    <div key={c.name + x + i} className={Style.dropdown.cell} onClick={() => onRuneSelect(x)}>
                         <img className={Style.dropdown.image} src={rune(x)} alt="" />
                         <span className={Style.dropdown.text}>{c.name}</span>
                     </div>

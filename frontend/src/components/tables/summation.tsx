@@ -1,9 +1,10 @@
 import { champion } from "../../constants";
+import { CalculatorProps } from "../../types-calculator";
 import { Ply, Tag } from "../../types-realtime";
 import ChampionCells from "./cells/champion";
 import ImageCells from "./cells/image";
 
-const TextCells = ({ enemy, instance }: { enemy: Ply, instance: Tag[] }) => {
+const TextCells = ({ enemy, instance }: { enemy: Ply | CalculatorProps["allPlayers"][number], instance: Tag[] }) => {
     let s = 0;
     let h = enemy.championStats.maxHealth;
     instance.forEach(x => {
@@ -24,7 +25,7 @@ const TextCells = ({ enemy, instance }: { enemy: Ply, instance: Tag[] }) => {
     )
 }
 
-export default function Summation({ enemies, instance, checked }: { enemies: Ply[], instance: Tag[], checked: boolean[] }) {
+export default function Summation({ enemies, instance, checked }: { enemies: Ply[] | CalculatorProps["allPlayers"], instance: Tag[], checked: boolean[] }) {
     return (
         <>
             <div className="overflow-auto">

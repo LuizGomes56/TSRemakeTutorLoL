@@ -1,3 +1,4 @@
+import { CalculatorProps } from "./types-calculator";
 import { Acp, AllPropsCS } from "./types-realtime";
 
 const Penetration = (v: number, u: number): number => { return u * (1 + v); }
@@ -30,7 +31,7 @@ export const ToolKeyDependent: Record<string, (k: keyof AllPropsCS, v: number, u
     "226694": (k, v, u) => f(k, v, u)
 }
 
-export const ToolKeyless: Record<string, (g: Acp) => void> = {
+export const ToolKeyless: Record<string, (g: Acp | CalculatorProps["activePlayer"]) => void> = {
     "4637": (g) => { g.championStats.abilityPower += 0.02 * (g.bonusStats.maxHealth + g.championStats.maxHealth); },
     "4633": (g) => { g.championStats.abilityPower += 0.02 * (g.bonusStats.maxHealth + g.championStats.maxHealth); },
     "3040": (g) => { g.championStats.abilityPower += 0.02 * Number(g.bonusStats.resourceMax); },

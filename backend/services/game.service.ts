@@ -176,7 +176,7 @@ export const Calculate = async (g: DataProps, rec: boolean, t: string, w: boolea
     return g as DataProps;
 }
 
-const Tool = (h: Damages, g: Damages): { dif: Damages, sum: number } => {
+export const Tool = (h: Damages, g: Damages): { dif: Damages, sum: number } => {
     const Diff = (x: Damage, y: Damage): Damage => {
         return {
             min: x.min - y.min,
@@ -256,10 +256,13 @@ const Positions = {
 const Recommendation = (x: string, c: string): string[] | void => {
     if (!_Build) { return };
     let w = _Build[x as keyof typeof _Build];
-    if (c.length == 0) { c = Object.keys(Positions)[2] }
-    let d = Positions[c as keyof typeof Positions];
-    let z = w[d as keyof typeof w];
-    return z;
+    if (w) {
+        if (c.length == 0) { c = Object.keys(Positions)[2] }
+        let d = Positions[c as keyof typeof Positions];
+        let z = w[d as keyof typeof w];
+        return z;
+    }
+    else { return [] }
 }
 
 const Test = async (g: DataProps, rec: boolean, t: string) => {
@@ -282,7 +285,7 @@ const FilterSpell = (spell: SummonerSpells): string[] => {
         .map(match => match![1]);
 };
 
-const Spell = (s: string[], lvl: number): Record<string, Damage> => {
+export const Spell = (s: string[], lvl: number): Record<string, Damage> => {
     let j: Record<string, Damage> = {};
     const cases: Record<string, () => Damage> = {
         SummonerDot: () => {
@@ -341,7 +344,7 @@ const Runes = (runes: string[], stats: AllStatsProps): Record<string, Damage> =>
     return j;
 }
 
-const Evaluate = (x: string | null | undefined, y: string | null | undefined, z: AllStatsProps, w?: Record<string, number>): [number, number | null] => {
+export const Evaluate = (x: string | null | undefined, y: string | null | undefined, z: AllStatsProps, w?: Record<string, number>): [number, number | null] => {
     let r = Replacements(z);
     let t = w ? { ...r, ...w } : r;
 
@@ -396,7 +399,7 @@ const Abilities = (stats: AllStatsProps, b: DefAbilities): Record<string, Damage
     for (let i of d) {
         let r = i.charAt(0) as keyof typeof b;
         let y = x?.[i];
-        let l: number = r == "Passive" ? stats.activePlayer.level : b[r].abilityLevel || 0;
+        let l: number = r.startsWith("P") ? stats.activePlayer.level : b[r].abilityLevel || 0;
 
         let ty = y?.type;
         let ar = y?.area;
@@ -407,7 +410,7 @@ const Abilities = (stats: AllStatsProps, b: DefAbilities): Record<string, Damage
 
             let [n, m] = Evaluate(min, max, stats);
 
-            if (ty) { typ[ty](n, m) }
+            if (ty && typ[ty]) { typ[ty](n, m) }
 
             res[i] = {
                 min: n,
@@ -441,7 +444,7 @@ const Abilities = (stats: AllStatsProps, b: DefAbilities): Record<string, Damage
     return res;
 };
 
-const Replacements = (stats: AllStatsProps): ReplacementsProps => {
+export const Replacements = (stats: AllStatsProps): ReplacementsProps => {
     let x = stats.activePlayer;
     let y = stats.player;
     let z = stats.property;
@@ -648,7 +651,7 @@ const AllStats = (player: Ply, activePlayer: Acp): AllStatsProps => {
     }
 }
 
-const PlayerStats = async (a: CoreStats, b: string[]): Promise<CoreStats> => {
+export const PlayerStats = async (a: CoreStats, b: string[]): Promise<CoreStats> => {
     let [maxHealth, magicResist, armor, resourceMax, abilityPower, attackDamage] = [0, 0, 0, 0, 0, 0];
     for (let i of b) {
         let x = await ItemAPI(i) as TargetItem;
@@ -703,7 +706,7 @@ const FilterRunes = (activePlayer: ActivePlayer): RelevantProps | void => {
     }
 }
 
-const Order = (x: string[]): string[] => x.sort((a, b) => parseInt(a) - parseInt(b));
+export const Order = (x: string[]): string[] => x.sort((a, b) => parseInt(a) - parseInt(b));
 
 const ItemActiveness = (i: string): boolean => {
     if (!_Items) { return false }
@@ -789,7 +792,7 @@ const Dragon = (event: GameEvents, all: { name: string, team: string }[], team: 
 
 const StatFormula = (a: number, b: number, c: number) => a + b * (c - 1) * (0.7025 + 0.0175 * (c - 1));
 
-const BaseStats = (b: Stats, c: number): CoreStats => {
+export const BaseStats = (b: Stats, c: number): CoreStats => {
     return {
         maxHealth: StatFormula(b.hp, b.hpperlevel, c),
         armor: StatFormula(b.armor, b.armorperlevel, c),
@@ -800,7 +803,7 @@ const BaseStats = (b: Stats, c: number): CoreStats => {
     }
 }
 
-const BonusStats = (b: CoreStats, c: ChampionStats | CoreStats): CoreStats => {
+export const BonusStats = (b: CoreStats, c: ChampionStats | CoreStats): CoreStats => {
     return {
         maxHealth: c.maxHealth - b.maxHealth,
         armor: c.armor - b.armor,

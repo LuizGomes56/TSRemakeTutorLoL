@@ -30,9 +30,9 @@
       "area": true,
       "min": [
         "(10 + 0.6 * currentAD) * physicalMod",
-        "(25 + 0.67.5 * currentAD) * physicalMod",
+        "(25 + 0.675 * currentAD) * physicalMod",
         "(40 + 0.75 * currentAD) * physicalMod",
-        "(55 + 0.82.5 * currentAD) * physicalMod",
+        "(55 + 0.825 * currentAD) * physicalMod",
         "(70 + 0.9 * currentAD) * physicalMod"
       ],
       "max": [

@@ -11,6 +11,14 @@ export default {
             }
         },
     },
-    plugins: [],
+    plugins: [
+        function ({ addVariant, e }) {
+            addVariant('darkblue', ({ modifySelectors, separator }) => {
+                modifySelectors(({ className }) => {
+                    return `.darkblue .${e(`darkblue${separator}${className}`)}`;
+                });
+            });
+        },
+    ],
 }
 

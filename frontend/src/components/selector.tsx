@@ -125,7 +125,7 @@ export default function Selector(t: PropertyProps) {
     return (
         <>
             {
-                <div className="grid grid-cols-2 md:grid-cols-[1fr,1fr,auto] justify-center shade p-4 bg-zinc-900 gap-4 sm:gap-6 md:gap-8">
+                <div className="darkblue:bg-[#10192b] grid grid-cols-2 md:grid-cols-[1fr,1fr,auto] justify-center shade p-4 bg-zinc-900 gap-4 sm:gap-6 md:gap-8">
                     <div className="flex flex-col gap-4 flex-auto justify-self-center md:justify-self-auto">
                         <Section
                             h="Minimum"

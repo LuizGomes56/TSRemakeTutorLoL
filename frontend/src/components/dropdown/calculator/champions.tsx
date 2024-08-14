@@ -17,7 +17,7 @@ const FetchChampions = async function () {
     return null;
 }
 
-export default function DropdownChampions({ visible }: { visible: boolean }) {
+export default function DropdownChampions({ visible, onChampionSelect }: { visible: boolean, onChampionSelect: (championId: string, championName: string) => void }) {
     let [cell, setCell] = useState<ChampionResponse | null>(null);
 
     useEffect(() => {
@@ -29,12 +29,16 @@ export default function DropdownChampions({ visible }: { visible: boolean }) {
         setCell(x);
     }
 
+    const Selection = (championId: string, championName: string) => {
+        onChampionSelect(championId, championName);
+    }
+
     return (
         <div className={`${Style.dropdown.main} ${visible ? "" : "hidden"}`}>
             {cell && Object.keys(cell).map((x, i) => {
                 let c = cell[x];
                 return (
-                    <div key={x + i} className={Style.dropdown.cell}>
+                    <div key={x + i} className={Style.dropdown.cell} onClick={() => Selection(x, c.name)}>
                         <img className={Style.dropdown.image} src={champion(x)} alt="" />
                         <span className={Style.dropdown.text}>{c.name}</span>
                     </div>

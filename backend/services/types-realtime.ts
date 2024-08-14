@@ -373,7 +373,7 @@ interface GameData {
 
 export interface DefAbilities {
     E: DefAbility;
-    Passive?: DefAbility;
+    Passive: DefAbility;
     Q: DefAbility;
     R: DefAbility;
     W: DefAbility;
@@ -611,7 +611,7 @@ export interface Damages {
     spell: Record<string, Damage> | {};
 }
 
-interface ToolProps {
+export interface ToolProps {
     dif?: Damages;
     max: Damages;
     sum: number;
@@ -623,7 +623,7 @@ export interface RelevantProps {
     max: string[];
 };
 
-type ToolInfo = {
+export type ToolInfo = {
     id: string;
     name: string | undefined;
     active: boolean;

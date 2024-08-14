@@ -1,3 +1,5 @@
+import { CalculatorProps } from "./types-calculator";
+
 export interface RequestBody {
     code: string;
     item: string;
@@ -17,7 +19,7 @@ export interface Response {
     }
 }
 
-interface CoreStats {
+export interface CoreStats {
     maxHealth: number;
     armor: number;
     magicResist: number;
@@ -65,7 +67,7 @@ interface Stats {
     attackspeed: number;
 }
 
-interface TargetChampion {
+export interface TargetChampion {
     id: string;
     name: string;
     stats: Stats;
@@ -245,7 +247,7 @@ export interface GameProps {
     gameData: GameData;
 }
 
-interface DragonProps {
+export interface DragonProps {
     earth: number;
     fire: number;
     chemtech: number;
@@ -260,7 +262,7 @@ export interface Damage {
     onhit?: boolean;
 }
 
-interface ToolProps {
+export interface ToolProps {
     dif?: Damages;
     max: Damages;
     sum: number;
@@ -289,7 +291,7 @@ export type RequiredProps = {
 }
 
 export type PropertyProps = RequiredProps & {
-    enemies: Ply[];
+    enemies: Ply[] | CalculatorProps["allPlayers"];
     checked: boolean[];
 }
 
@@ -326,7 +328,7 @@ interface ExtendsActivePlayer {
     };
 }
 
-interface Damages {
+export interface Damages {
     abilities: Record<string, Damage> | {};
     items: Record<string, Damage> | {};
     runes: Record<string, Damage> | {};

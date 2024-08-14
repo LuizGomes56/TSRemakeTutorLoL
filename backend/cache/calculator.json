@@ -52,5 +52,6 @@
         "CHAOS": [],
         "ORDER": []
     },
-    "mapNumber": 11
+    "mapNumber": 11,
+    "position": "MIDDLE"
 }

@@ -29,29 +29,29 @@
       "type": "physical",
       "area": true,
       "min": [
-        "(5 + (0.8 * currentAD)) * physicalMod",
-        "(25 + (0.8 * currentAD)) * physicalMod",
-        "(45 + (0.8 * currentAD)) * physicalMod",
-        "(65 + (0.8 * currentAD)) * physicalMod",
-        "(85 + (0.8 * currentAD)) * physicalMod"
+        "(5 + 0.8 * currentAD) * physicalMod",
+        "(25 + 0.8 * currentAD) * physicalMod",
+        "(45 + 0.8 * currentAD) * physicalMod",
+        "(65 + 0.8 * currentAD) * physicalMod",
+        "(85 + 0.8 * currentAD) * physicalMod"
       ],
       "max": [
-        "2 * (5 + (0.8 * currentAD)) * physicalMod",
-        "2 * (25 + (0.8 * currentAD)) * physicalMod",
-        "2 * (45 + (0.8 * currentAD)) * physicalMod",
-        "2 * (65 + (0.8 * currentAD)) * physicalMod",
-        "2 * (85 + (0.8 * currentAD)) * physicalMod"
+        "2 * (5 + 0.8 * currentAD) * physicalMod",
+        "2 * (25 + 0.8 * currentAD) * physicalMod",
+        "2 * (45 + 0.8 * currentAD) * physicalMod",
+        "2 * (65 + 0.8 * currentAD) * physicalMod",
+        "2 * (85 + 0.8 * currentAD) * physicalMod"
       ]
     },
     "E": {
       "type": "physical",
       "area": true,
       "min": [
-        "(25 + (0.175 * bonusAD)) * physicalMod",
-        "(40 + (0.175 * bonusAD)) * physicalMod",
-        "(55 + (0.175 * bonusAD)) * physicalMod",
-        "(70 + (0.175 * bonusAD)) * physicalMod",
-        "(85 + (0.175 * bonusAD)) * physicalMod"
+        "(25 + 0.175 * bonusAD) * physicalMod",
+        "(40 + 0.175 * bonusAD) * physicalMod",
+        "(55 + 0.175 * bonusAD) * physicalMod",
+        "(70 + 0.175 * bonusAD) * physicalMod",
+        "(85 + 0.175 * bonusAD) * physicalMod"
       ],
       "max": []
     },
@@ -59,14 +59,14 @@
       "type": "physical",
       "area": false,
       "min": [
-        "((20 + (0.1 * currentAD)) * (1 + critChance)) * physicalMod",
-        "((25 + (0.1 * currentAD)) * (1 + critChance)) * physicalMod",
-        "((30 + (0.1 * currentAD)) * (1 + critChance)) * physicalMod"
+        "(20 + 0.1 * currentAD) * (1 + critChance / 100) * physicalMod",
+        "(25 + 0.1 * currentAD) * (1 + critChance / 100) * physicalMod",
+        "(30 + 0.1 * currentAD) * (1 + critChance / 100) * physicalMod"
       ],
       "max": [
-        "15 * ((20 + (0.1 * currentAD)) * (1 + critChance)) * physicalMod",
-        "15 * ((25 + (0.1 * currentAD)) * (1 + critChance)) * physicalMod",
-        "15 * ((30 + (0.1 * currentAD)) * (1 + critChance)) * physicalMod"
+        "15 * (20 + 0.1 * currentAD) * (1 + critChance / 100) * physicalMod",
+        "15 * (25 + 0.1 * currentAD) * (1 + critChance / 100) * physicalMod",
+        "15 * (30 + 0.1 * currentAD) * (1 + critChance / 100) * physicalMod"
       ]
     }
   }

@@ -3,7 +3,7 @@ import { stat, item } from "../constants";
 
 export default function Suggestion({ x }: { x: ToolInfo }) {
     return (
-        <div className="bg-neutral-900 text-white p-3">
+        <div className="bg-neutral-900 text-white p-3 darkblue:bg-[#10192b]">
             <div className="border-b border-b-zinc-600 mb-2 pb-2 flex justify-between items-center gap-6 min-w-48 w-full">
                 <span className="flex items-center gap-2">
                     <img className="h-8 rounded w-8 shade" src={item(x.id)} alt="Item" />

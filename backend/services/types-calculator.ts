@@ -1,3 +1,5 @@
+import { CoreStats, Damages, DragonProps, RelevantProps, TargetChampion, ToolInfo, ToolProps } from "./types-realtime";
+
 type Team = "CHAOS" | "ORDER";
 
 export type ChampionStats = {
@@ -24,6 +26,7 @@ interface ActivePlayer {
         Q: { abilityLevel: number };
         R: { abilityLevel: number };
         W: { abilityLevel: number };
+        Passive: {}
     };
     championStats: ChampionStats;
     team: Team;
@@ -54,4 +57,41 @@ export type BrowserData = {
     dragons: Dragons;
     mapNumber: number;
     position: string;
+    statbased: boolean;
+}
+
+export interface ExtendsActivePlayer {
+    championName: string;
+    champion: TargetChampion;
+    dragon: DragonProps;
+    items: string[];
+    baseStats: CoreStats;
+    bonusStats: CoreStats;
+    team: string;
+    skin: number;
+    tool: ToolInfo;
+    relevant: {
+        abilities: RelevantProps;
+        items: RelevantProps;
+        runes: RelevantProps;
+        spell: RelevantProps;
+    };
+}
+
+export interface ExtendsPlayer {
+    champion: TargetChampion;
+    dragon: DragonProps;
+    bonusStats: CoreStats;
+    baseStats: CoreStats;
+    championStats: CoreStats;
+    damage: Damages;
+    tool?: ToolProps;
+}
+
+export type Acp = ActivePlayer & ExtendsActivePlayer;
+export type Ply = AllPlayers & ExtendsPlayer;
+
+export interface CalculatorProps extends BrowserData {
+    activePlayer: Acp;
+    allPlayers: Array<Ply>;
 }
