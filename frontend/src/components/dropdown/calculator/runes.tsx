@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { EndPoint, rune, Style } from "../../../constants"
+import { fuzzySearch } from "../../../types-calculator";
 
 type RuneResponse = Record<string, { name: string }>;
 
@@ -16,7 +17,7 @@ const FetchRunes = async (): Promise<RuneResponse | null> => {
     return null;
 }
 
-export default function DropdownRunes({ visible, onRuneSelect }: { visible: boolean, onRuneSelect: (runeId: string) => void }) {
+export default function DropdownRunes({ visible, onRuneSelect, searchQuery }: { visible: boolean, onRuneSelect: (runeId: string) => void, searchQuery: string }) {
     let [cells, setCells] = useState<RuneResponse | null>(null);
 
     useEffect(() => {
@@ -30,7 +31,7 @@ export default function DropdownRunes({ visible, onRuneSelect }: { visible: bool
 
     return (
         <div className={`${Style.dropdown.main} ${visible ? "" : "hidden"}`}>
-            {cells && Object.keys(cells).map((x, i) => {
+            {cells && Object.keys(cells).filter(runeId => fuzzySearch(searchQuery, cells[runeId].name)).map((x, i) => {
                 let c = cells[x];
                 return (
                     <div key={c.name + x + i} className={Style.dropdown.cell} onClick={() => onRuneSelect(x)}>

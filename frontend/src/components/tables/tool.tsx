@@ -1,7 +1,7 @@
-import { Damage, PropertyProps, Tip, ToolInfo } from "../../types-realtime"
+import { Damage, PropertyProps /*, Tip */, ToolInfo } from "../../types-realtime"
 import { Style, champion } from "../../constants";
 import { useState, useEffect, useRef } from "react";
-import Tooltip from "../tooltip";
+// import Tooltip from "../tooltip";
 import ChampionCells from "./cells/champion";
 import Suggestion from "../suggestion";
 import Searchbutton from "../searchbutton";
@@ -67,15 +67,15 @@ const TextCells = ({ max, dif, tool }: { max: Record<string, Damage>, dif: Recor
 };
 
 export default function Tool(t: Property) {
-    var [tip, setTip] = useState<Tip | null>(null);
+    // var [tip, setTip] = useState<Tip | null>(null);
     var [search, setSearch] = useState<boolean>(false);
     var dropdownRef = useRef<HTMLDivElement>(null);
 
-    const MouseOver = (s: string, n?: string, d?: string, r?: number[]) => () => {
-        setTip({ s, n, d, r });
-    };
+    // const MouseOver = (s: string, n?: string, d?: string, r?: number[]) => () => {
+    //     setTip({ s, n, d, r });
+    // };
 
-    const MouseOut = () => setTip(null);
+    // const MouseOut = () => setTip(null);
 
     const OpenSearch = () => setSearch(true);
 
@@ -115,8 +115,8 @@ export default function Tool(t: Property) {
                             spell={t.spell}
                             items={t.items}
                             tool={t.tool}
-                            onMouseOver={MouseOver}
-                            onMouseOut={MouseOut}
+                        // onMouseOver={MouseOver}
+                        // onMouseOut={MouseOut}
                         />
                     </thead>
                     <tbody>
@@ -131,7 +131,7 @@ export default function Tool(t: Property) {
                         ))}
                     </tbody>
                 </table>
-                {tip && <Tooltip x={tip} />}
+                {/* {tip && <Tooltip x={tip} />} */}
             </div>
         </div>
     );

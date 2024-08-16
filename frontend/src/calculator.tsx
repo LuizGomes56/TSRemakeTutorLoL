@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { BrowserData, CalculatorProps, ChampionStats, InitialDataState } from "./types-calculator"
 import { centered, DisableDevTools, EndPoint, item, rune, spell } from "./constants";
 import Break from "./components/break";
@@ -11,6 +11,8 @@ import DropdownItems from "./components/dropdown/calculator/items";
 import DropdownRunes from "./components/dropdown/calculator/runes";
 import Replacements from "./replacements";
 import "./calculator.css";
+import EnemyReplacements from "./components/enemyreplacements";
+import { CoreStats } from "./types-realtime";
 
 const FetchGame = async (data: BrowserData, item: string, rec: boolean): Promise<CalculatorProps | null> => {
     const T1 = new Date();
@@ -40,11 +42,91 @@ export default function Calculator() {
     let [recommend, setRecommend] = useState<boolean>(false);
     let [statbased, setStatbased] = useState<boolean>(true);
 
-    let [dropChampion, setDropChampion] = useState<boolean>(true);
-    let [dropItems, setDropItems] = useState<boolean>(true);
-    let [dropRunes, setDropRunes] = useState<boolean>(true);
+    let championRef = useRef<HTMLDivElement>(null);
+    let itemRef = useRef<HTMLDivElement>(null);
+    let runeRef = useRef<HTMLDivElement>(null);
 
-    // DisableDevTools();
+    let enmChampionRefs = useRef<Array<HTMLDivElement | null>>(Array(5).fill(null));
+    let enmItemRefs = useRef<Array<HTMLDivElement | null>>(Array(5).fill(null));
+
+    let [enmStatbased, setEnmStatbased] = useState<boolean[]>(new Array<boolean>(5).fill(true));
+
+    let [dropChampion, setDropChampion] = useState<boolean>(false);
+    let [dropItems, setDropItems] = useState<boolean>(false);
+    let [dropRunes, setDropRunes] = useState<boolean>(false);
+
+    let [searchChampion, setSearchChampion] = useState("");
+    let [searchItem, setSearchItem] = useState("");
+    let [searchRune, setSearchRune] = useState("");
+
+    let [enmDropChampions, setEnmDropChampions] = useState<boolean[]>(new Array(5).fill(false));
+    let [enmDropItems, setEnmDropItems] = useState<boolean[]>(new Array(5).fill(false));
+
+    let [enmSearchChampion, setEnmSearchChampion] = useState<string[]>(new Array<string>(5).fill(""));
+    let [enmSearchItems, setEnmSearchItems] = useState<string[]>(new Array<string>(5).fill(""));
+
+    DisableDevTools();
+
+    const EnemyStatbasedChange = (i: number) => {
+        setEnmStatbased(b => {
+            const a = [...b];
+            a[i] = !a[i];
+            return a;
+        });
+        setData(p => {
+            const u = [...p.allPlayers];
+            u[i] = {
+                ...u[i],
+                statbased: !u[i].statbased,
+            };
+            return {
+                ...p,
+                allPlayers: u
+            };
+        });
+    };
+
+    const ActivePlayerCloseDropdown = (event: MouseEvent) => {
+        if (championRef.current && !championRef.current.contains(event.target as Node)) { setDropChampion(false); }
+        if (itemRef.current && !itemRef.current.contains(event.target as Node)) { setDropItems(false); }
+        if (runeRef.current && !runeRef.current.contains(event.target as Node)) { setDropRunes(false); }
+    };
+
+    const CloseDropdowns = (e: MouseEvent) => {
+        enmChampionRefs.current.forEach((r, i) => {
+            if (r && !r.contains(e.target as Node)) {
+                setEnmDropChampions(p => {
+                    const u = [...p];
+                    u[i] = false;
+                    return u;
+                });
+            }
+        });
+
+        enmItemRefs.current.forEach((r, i) => {
+            if (r && !r.contains(e.target as Node)) {
+                setEnmDropItems(p => {
+                    const u = [...p];
+                    u[i] = false;
+                    return u;
+                });
+            }
+        });
+    };
+
+    useEffect(() => {
+        document.addEventListener("mousedown", ActivePlayerCloseDropdown);
+        return () => {
+            document.removeEventListener("mousedown", ActivePlayerCloseDropdown);
+        };
+    }, []);
+
+    useEffect(() => {
+        document.addEventListener("mousedown", CloseDropdowns);
+        return () => {
+            document.removeEventListener("mousedown", CloseDropdowns);
+        };
+    }, []);
 
     useEffect(() => {
         document.body.classList.add("darkblue");
@@ -115,6 +197,35 @@ export default function Calculator() {
         });
     };
 
+    const EnemyChampionSelect = (index: number, championId: string, championName: string) => {
+        setData(prevData => ({
+            ...prevData,
+            allPlayers: prevData.allPlayers.map((player, i) =>
+                i === index
+                    ? {
+                        ...player,
+                        championName: championName,
+                        championId: championId
+                    }
+                    : player
+            )
+        }));
+    };
+
+    const EnemyItemSelect = (index: number, itemId: string) => {
+        setData(prevData => ({
+            ...prevData,
+            allPlayers: prevData.allPlayers.map((player, i) =>
+                i === index
+                    ? {
+                        ...player,
+                        items: player.items.includes(itemId) ? player.items : [...player.items, itemId]
+                    }
+                    : player
+            )
+        }));
+    };
+
     const ItemRemove = (itemId: string) => {
         setData(prevData => ({
             ...prevData,
@@ -157,18 +268,111 @@ export default function Calculator() {
         }));
     }
 
+    const EnemySearchChampionChange = (i: number, v: string) => {
+        setEnmSearchChampion(p => {
+            const u = [...p];
+            u[i] = v;
+            return u;
+        });
+    };
+
+    const EnemySearchItemChange = (i: number, v: string) => {
+        setEnmSearchItems(p => {
+            const u = [...p];
+            u[i] = v;
+            return u;
+        });
+    };
+
+    const EnemyDropChampionFocus = (i: number) => {
+        setEnmDropChampions(p => {
+            const u = [...p];
+            u[i] = true;
+            return u;
+        });
+    };
+
+    const EnemyDropItemFocus = (i: number) => {
+        setEnmDropItems(p => {
+            const u = [...p];
+            u[i] = true;
+            return u;
+        });
+    };
+
+    const EnemyItemRemove = (i: number, d: string) => {
+        setData(p => {
+            const u = [...p.allPlayers];
+            u[i].items = u[i].items.filter(item => item !== d);
+            return { ...p, allPlayers: u };
+        });
+    };
+
     return (
-        <div className="container mx-auto bg-slate-950 flex flex-col lg:flex-row lg:justify-center">
-            <div className="flex flex-col bg-slate-900 mb-4">
-                <div className="relative flex mb-3">
+        <div className="bg-slate-950 flex flex-col xl:flex-row xl:justify-center">
+            <div className="flex flex-col bg-slate-900 xl:max-h-screen xl:overflow-y-auto min-w-80">
+                <div className="relative flex">
                     <img src={centered(data.activePlayer.championId + "_0")} className="clip h-32" alt="" />
                     <h2 className="font-bold font-inter text-sky-200 text-shade absolute left-6 bottom-2 leading-none">
                         {data.activePlayer.championName}
                     </h2>
                 </div>
-                <div className="px-12 flex flex-col gap-1 my-1 relative">
-                    <label className="mb-3 cursor-pointer xl:w-60 flex items-center justify-center bg-slate-800 rounded h-9 border border-slate-700">
-                        <p className="dropshadow text-sky-300 text-sm font-inter">Stats based on items {statbased ? <span className="text-emerald-300 dropshadow px-2">YES</span> : <span className="text-red-300 dropshadow px-2">NO</span>}</p>
+                <div className="flex flex-col gap-4 bg-slate-900 w-full p-4">
+                    <div ref={championRef} className="flex flex-col gap-2 w-full">
+                        <span className="relative flex items-center">
+                            <input
+                                type="text"
+                                value={searchChampion}
+                                onChange={(e) => setSearchChampion(e.target.value)}
+                                placeholder="Search Champions"
+                                className="w-full pl-10 pr-4 py-2 border border-slate-700 h-11 rounded bg-slate-800 text-sky-400 placeholder:text-sky-200 focus:outline-none placeholder:font-light placeholder:font-inter"
+                                onFocus={() => setDropChampion(true)}
+                            />
+                            <img className="h-5 absolute left-3" src="/bluesearch.svg" alt="" />
+                        </span>
+                        <DropdownChampions visible={dropChampion} onChampionSelect={ChampionSelect} searchQuery={searchChampion} />
+                    </div>
+                    <div ref={itemRef} className="flex flex-col gap-2 w-full">
+                        <span className="relative flex items-center">
+                            <input
+                                type="text"
+                                value={searchItem}
+                                onChange={(e) => setSearchItem(e.target.value)}
+                                placeholder="Search Items"
+                                className="w-full pl-10 pr-4 py-2 border border-slate-700 h-11 rounded bg-slate-800 text-sky-400 placeholder:text-sky-200 focus:outline-none placeholder:font-light placeholder:font-inter"
+                                onFocus={() => setDropItems(true)}
+                            />
+                            <img className="h-5 absolute left-3" src="/bluesearch.svg" alt="" />
+                        </span>
+                        <DropdownItems visible={dropItems} onItemSelect={ItemSelect} searchQuery={searchItem} />
+                        {data.activePlayer.items.length > 0 && <div className="flex flex-wrap gap-2 p-2 bg-slate-900 rounded border border-slate-700">
+                            {data.activePlayer.items.map((t, i) => (
+                                <img onClick={() => ItemRemove(t)} key={t + i} className="h-8 rounded cursor-pointer outline-none hover:outline-2 hover:outline-sky-500 hover:outline-offset-2" src={item(t)} alt="" />
+                            ))}
+                        </div>}
+                    </div>
+                    <div ref={runeRef} className="flex flex-col gap-2 w-full">
+                        <span className="relative flex items-center">
+                            <input
+                                type="text"
+                                value={searchRune}
+                                onChange={(e) => setSearchRune(e.target.value)}
+                                placeholder="Search Runes"
+                                className="w-full pl-10 pr-4 py-2 border border-slate-700 h-11 rounded bg-slate-800 text-sky-400 placeholder:text-sky-200 focus:outline-none placeholder:font-light placeholder:font-inter"
+                                onFocus={() => setDropRunes(true)}
+                            />
+                            <img className="h-5 absolute left-3" src="/bluesearch.svg" alt="" />
+                        </span>
+                        <DropdownRunes visible={dropRunes} onRuneSelect={RuneSelect} searchQuery={searchRune} />
+                        {data.activePlayer.runes.length > 0 && <div className="flex flex-wrap gap-2 p-2 bg-slate-900 rounded border border-slate-700">
+                            {data.activePlayer.runes.map((t, i) => (
+                                <img key={t + i} onClick={() => RuneRemove(t)} className="h-8 rounded cursor-pointer outline-none hover:outline-2 hover:outline-sky-500 hover:outline-offset-2" src={rune(t)} alt="" />
+                            ))}
+                        </div>}
+                    </div>
+                    <label title="It will lock all stat inputs if enabled" className="relative pl-10 cursor-pointer flex items-center gap-1 bg-slate-800 rounded h-11 border border-slate-700">
+                        <img className="absolute h-5 left-3" src="/stats.svg" alt="" />
+                        <p className="font-light text-sky-200 font-inter">Stats based on items {statbased ? <span className="text-emerald-300 dropshadow px-1">ON</span> : <span className="text-red-300 dropshadow px-1">OFF</span>}</p>
                         <input
                             onChange={StatbasedChange}
                             type="checkbox"
@@ -176,6 +380,8 @@ export default function Calculator() {
                             className="absolute opacity-0"
                         />
                     </label>
+                </div>
+                <div className="px-12 flex flex-col gap-1 mb-1 relative">
                     {Object.keys(data.activePlayer.abilities).sort((a, b) => {
                         let w = ["Q", "W", "E", "R"];
                         return w.indexOf(a) - w.indexOf(b);
@@ -206,7 +412,7 @@ export default function Calculator() {
                             <label key={t + i} className="flex gap-2 items-center justify-between">
                                 <span className="flex items-center gap-2">
                                     <div className="relative flex items-center justify-center">
-                                        <img className="shade h-6 rounded" src={spell(data.activePlayer.championId + t)} alt="" />
+                                        <img className="shade h-7 rounded" src={spell(data.activePlayer.championId + t)} alt="" />
                                         <h2 className="font-bold font-inter text-xs text-slate-200 text-shade absolute leading-none">{t}</h2>
                                     </div>
                                     <p className="dropshadow text-sky-300 text-sm font-inter">Level</p>
@@ -227,43 +433,9 @@ export default function Calculator() {
                         )
                     })}
                 </div>
-                <Replacements championStats={data.activePlayer.championStats} onStatChange={StatInput} />
+                <Replacements championStats={game ? game.activePlayer.championStats : data.activePlayer.championStats} onStatChange={StatInput} inputDisabled={statbased} />
             </div>
-            <div className="flex flex-col w-full items-center p-4 max-w-4xl">
-                <div className="flex flex-col lg:flex-row gap-4 bg-slate-950 w-full">
-                    <div className="flex flex-col gap-2 w-full">
-                        <span onClick={() => setDropChampion(prev => prev ? false : true)} className="cursor-pointer flex justify-between items-center gap-2 rounded px-4 py-2 hover:bg-slate-800 transition-all duration-200">
-                            <h2 className="font-bold font-inter text-sky-300">Champions</h2>
-                            <img className="h-5" src="/chevdown.svg" alt="" />
-                        </span>
-                        <DropdownChampions visible={dropChampion} onChampionSelect={ChampionSelect} />
-                    </div>
-                    <div className="flex flex-col gap-2 w-full">
-                        <span onClick={() => setDropItems(prev => prev ? false : true)} className="cursor-pointer flex justify-between items-center gap-2 rounded px-4 py-2 hover:bg-slate-800 transition-all duration-200">
-                            <h2 className="font-bold font-inter text-sky-300">Items</h2>
-                            <img className="h-5" src="/chevdown.svg" alt="" />
-                        </span>
-                        <DropdownItems visible={dropItems} onItemSelect={ItemSelect} />
-                        {data.activePlayer.items.length > 0 && <div className="flex flex-wrap gap-2 p-2 bg-slate-900 rounded border border-slate-700">
-                            {data.activePlayer.items.map((t, i) => (
-                                <img onClick={() => ItemRemove(t)} key={t + i} className="h-8 rounded cursor-pointer outline-none hover:outline-2 hover:outline-sky-500 hover:outline-offset-2" src={item(t)} alt="" />
-                            ))}
-                        </div>}
-                    </div>
-                    <div className="flex flex-col gap-2 w-full">
-                        <span onClick={() => setDropRunes(prev => prev ? false : true)} className="cursor-pointer flex justify-between items-center gap-2 rounded px-4 py-2 hover:bg-slate-800 transition-all duration-200">
-                            <h2 className="font-bold font-inter text-sky-300">Runes</h2>
-                            <img className="h-5" src="/chevdown.svg" alt="" />
-                        </span>
-                        <DropdownRunes visible={dropRunes} onRuneSelect={RuneSelect} />
-                        {data.activePlayer.runes.length > 0 && <div className="flex flex-wrap gap-2 p-2 bg-slate-900 rounded border border-slate-700">
-                            {data.activePlayer.runes.map((t, i) => (
-                                <img key={t + i} onClick={() => RuneRemove(t)} className="h-8 rounded cursor-pointer outline-none hover:outline-2 hover:outline-sky-500 hover:outline-offset-2" src={rune(t)} alt="" />
-                            ))}
-                        </div>}
-                    </div>
-                </div>
-                <Break />
+            <div className="flex flex-col w-full items-center xl:p-5 my-5 xl:my-0 xl:max-w-4xl xl:overflow-y-auto xl:max-h-screen">
                 {game ? (
                     <div className="flex flex-col w-full">
                         {(() => {
@@ -310,6 +482,71 @@ export default function Calculator() {
                         })()}
                     </div>
                 ) : <Loading />}
+                <div
+                    className="w-full p-3 hover:bg-blue-950 cursor-pointer hover:text-xl transition-all duration-200 bg-slate-800 text-sky-300 font-semibold text-lg text-center mt-5"
+                    onClick={() => setData(InitialDataState)}>
+                    Reset to default
+                </div>
+            </div>
+            <div className="flex flex-col bg-slate-900 xl:overflow-y-auto xl:max-h-screen min-w-80">
+                {game && game.allPlayers.map((x, i) => {
+                    return (
+                        <div key={x.champion.id + i}>
+                            <div className="relative flex">
+                                <img src={centered(game.allPlayers[game.allPlayers.indexOf(x)].champion.id + "_0")} className="clip h-32" alt="" />
+                                <h2 className="font-bold font-inter text-sky-200 text-shade absolute left-6 bottom-2 leading-none">
+                                    {game.allPlayers[game.allPlayers.indexOf(x)].champion.name}
+                                </h2>
+                            </div>
+                            <div className="flex flex-col gap-4 bg-slate-900 w-full p-4">
+                                <div ref={el => enmChampionRefs.current[i] = el} className="flex flex-col gap-2 w-full">
+                                    <span className="relative flex items-center">
+                                        <input
+                                            type="text"
+                                            value={enmSearchChampion[i]}
+                                            onChange={(e) => EnemySearchChampionChange(i, e.target.value)}
+                                            placeholder="Search Champions"
+                                            className="w-full pl-10 pr-4 py-2 border border-slate-700 h-11 rounded bg-slate-800 text-sky-400 placeholder:text-sky-200 focus:outline-none placeholder:font-light placeholder:font-inter"
+                                            onFocus={() => EnemyDropChampionFocus(i)}
+                                        />
+                                        <img className="h-5 absolute left-3" src="/bluesearch.svg" alt="" />
+                                    </span>
+                                    <DropdownChampions visible={enmDropChampions[i]} onChampionSelect={(championId, championName) => EnemyChampionSelect(i, championId, championName)} searchQuery={enmSearchChampion[i]} />
+                                </div>
+                                <div ref={el => enmItemRefs.current[i] = el} className="flex flex-col gap-2 w-full">
+                                    <span className="relative flex items-center">
+                                        <input
+                                            type="text"
+                                            value={enmSearchItems[i]}
+                                            onChange={(e) => EnemySearchItemChange(i, e.target.value)}
+                                            placeholder="Search Items"
+                                            className="w-full pl-10 pr-4 py-2 border border-slate-700 h-11 rounded bg-slate-800 text-sky-400 placeholder:text-sky-200 focus:outline-none placeholder:font-light placeholder:font-inter"
+                                            onFocus={() => EnemyDropItemFocus(i)}
+                                        />
+                                        <img className="h-5 absolute left-3" src="/bluesearch.svg" alt="" />
+                                    </span>
+                                    <DropdownItems visible={enmDropItems[i]} onItemSelect={(itemId) => EnemyItemSelect(i, itemId)} searchQuery={enmSearchItems[i]} />
+                                    {x.items.length > 0 && <div className="flex flex-wrap gap-2 p-2 bg-slate-900 rounded border border-slate-700">
+                                        {x.items.map((t, j) => (
+                                            <img onClick={() => EnemyItemRemove(i, t)} key={t + j} className="h-8 rounded cursor-pointer outline-none hover:outline-2 hover:outline-sky-500 hover:outline-offset-2" src={item(t)} alt="" />
+                                        ))}
+                                    </div>}
+                                </div>
+                                <label title="It will lock all stat inputs if enabled" className="relative pl-10 cursor-pointer flex items-center gap-1 bg-slate-800 rounded h-11 border border-slate-700">
+                                    <img className="absolute h-5 left-3" src="/stats.svg" alt="" />
+                                    <p className="font-light text-sky-200 font-inter">Stats based on items {enmStatbased[i] ? <span className="text-emerald-300 dropshadow px-1">ON</span> : <span className="text-red-300 dropshadow px-1">OFF</span>}</p>
+                                    <input
+                                        onChange={() => EnemyStatbasedChange(i)}
+                                        type="checkbox"
+                                        checked={enmStatbased[i]}
+                                        className="absolute opacity-0"
+                                    />
+                                </label>
+                            </div>
+                            <EnemyReplacements championStats={game.allPlayers[game.allPlayers.indexOf(x)].championStats as CoreStats} onStatChange={(StatInput)} inputDisabled={enmStatbased[i]} />
+                        </div>
+                    )
+                })}
             </div>
         </div>
     )

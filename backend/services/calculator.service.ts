@@ -37,8 +37,104 @@ const AssignChampion = async (g: CalculatorProps): Promise<void> => {
     }));
 }
 
-const AssignItemStats = async (g: CalculatorProps): Promise<void> => {
-    // To assign stats based on current items for active player
+const AssignItemStats = async (g: CalculatorProps): Promise<number> => {
+    let _as = 0;
+    let w = g.activePlayer;
+    let m = w.championStats;
+    let x = w.items;
+    let _m = ["3089", "223089", "8002"];
+    x = x.filter(s => !_m.includes(s)).concat(x.filter(u => _m.includes(u)));
+    let t = false;
+    for (let y of x) {
+        _as += await AssignStats(y, g.activePlayer, []) as number;
+        /*
+        let z = await EvaluateItemStats(y) as EvalItemStats;
+        let b = z.stats.mod;
+        let c = Object.keys(b) as Array<keyof typeof b>;;
+        for (let d of c) {
+            if (d == "attackSpeed") { _as += parseFloat(b[d]) }
+            if (!d.includes("Percent") && typeof m[d] === "number") {
+                m[d] += (typeof b[d] === "number" ? b[d] : 0);
+            }
+            else { t = true }
+        }
+        */
+    }
+    if (m.critChance > 100) { m.critChance = 100 };
+    let e = w.baseStats;
+    let f = Object.keys(e);
+    for (let h of f) {
+        m[h as keyof typeof m] += e[h as keyof typeof e] || 0;
+    }
+    let k: Record<string, number> = {
+        Ashe: 100,
+        Yasuo: 157.5,
+        Yone: 157.5,
+        Jhin: 150.5
+    }
+    let l = w.champion.id;
+    m.critDamage += Object.keys(k).includes(l) ? k[l] : 175;
+    let n: Record<string, (o: typeof w.abilities, q?: string) => void> = {
+        Darius: (o, q) => {
+            let v = o.E.abilityLevel;
+            if (v > 0) {
+                if (q) { q += `(1 - ${(15 + 5 * v) / 100})` }
+                else { m.armorPenetrationPercent += 15 + 5 * v; }
+            }
+        },
+        Pantheon: (o, q) => {
+            let v = o.R.abilityLevel;
+            if (v > 0) {
+                if (q) { q += `(1 - ${(10 * v) / 100})` }
+                else { m.armorPenetrationPercent += 10 * v; }
+            }
+        },
+        Nilah: (o, q) => {
+            let v = o.Q.abilityLevel;
+            if (v > 0) {
+                if (q) { q += `(1 - ${(m.critChance / 3) / 100})` }
+                else { m.armorPenetrationPercent += m.critChance / 3; }
+            }
+        },
+        Mordekaiser: (o, q) => {
+            let v = o.E.abilityLevel;
+            if (v > 0) {
+                if (q) { q += `(1 - ${(2.5 + 2.5 * v) / 100})` }
+                else { m.magicPenetrationPercent += 2.5 + 2.5 * v; }
+            }
+        }
+    }
+
+    const _R = (i: string, k: string, t: keyof typeof m): void => {
+        let _d = parseFloat(i.replace("%", ""));
+        k += `(1 - ${_d / 100})`;
+        let _e = eval(k.replace(/\)\(/g, ') * ('));
+        m[t] = 100 * (1 - _e);
+    }
+
+    let p = [3033, 3035, 3036, 3071, 3135, 3137, 3302, 4010, 4015, 4630, 6694, 7037, 223033, 223036, 223071, 228005, 443135];
+    let r = p.filter(q => x.includes(q.toString()));
+    let _c = Object.keys(n) as Array<keyof typeof n>;
+    if (t) {
+        let s: string = '';
+        let u: string = '';
+        for (let v of r) {
+            let _a = await EvaluateItemStats(v.toString()) as EvalItemStats;
+            let _b = _a.stats.mod;
+            let _ar = _b.armorPenetrationPercent;
+            let _mr = _b.magicPenetrationPercent;
+            if (_ar) {
+                if (_c.includes(l)) { n[l](w.abilities, s); }
+                _R(_ar, s, "armorPenetrationPercent");
+            }
+            if (_mr) {
+                if (_c.includes(l)) { n[l](w.abilities, u); }
+                _R(_mr, u, "magicPenetrationPercent");
+            }
+        }
+    }
+    else { if (_c.includes(l)) { n[l](w.abilities); } }
+    return _as;
 }
 
 let j: Record<string, number> = {};
@@ -52,7 +148,18 @@ export const Calculator = async (g: CalculatorProps, rec: boolean, t: string, w:
     LoadBuild();
     LoadChampion(activePlayer.championId);
 
-    if (g.statbased) { AssignItemStats(g); }
+    await AssignChampion(g);
+
+    let st = activePlayer.champion.stats;
+
+    let base = BaseStats(st, activePlayer.level);
+    activePlayer.baseStats = base;
+
+    if (g.statbased && w) {
+        let x = await AssignItemStats(g);
+        let a = st.attackspeedperlevel * (activePlayer.level - 1) * (0.7025 + 0.0175 * (activePlayer.level - 1));
+        activePlayer.championStats.attackSpeed = st.attackspeed * (1 + (x + a) / 100);
+    }
 
     let hx;
     let fx;
@@ -61,8 +168,6 @@ export const Calculator = async (g: CalculatorProps, rec: boolean, t: string, w:
         fx = structuredClone(g);
         hx = await Test(fx, rec, t);
     }
-
-    await AssignChampion(g);
 
     Recm = Recommendation(activePlayer.champion.id, g.position) as string[];
     if (w) {
@@ -76,8 +181,6 @@ export const Calculator = async (g: CalculatorProps, rec: boolean, t: string, w:
     }
     if (rec && w) { for (let p of Recm) { j[p] = 0; } }
 
-    let base = BaseStats(activePlayer.champion.stats, activePlayer.level);
-    activePlayer.baseStats = base;
     activePlayer.bonusStats = BonusStats(base, activePlayer.championStats);
     activePlayer.relevant = {
         abilities: FilterAbilities(activePlayer.championId) || { min: [], max: [] },
@@ -184,12 +287,16 @@ const Recommendation = (x: string, c: string): string[] | void => {
     else { return [] }
 }
 
-const AssignStats = async (key: string, s: CalculatorProps["activePlayer"], a: string[]): Promise<void> => {
+const AssignStats = async (key: string, s: CalculatorProps["activePlayer"], a: string[]): Promise<number> => {
     let e = await EvaluateItemStats(key) as EvalItemStats;
+    let q = 0;
     if (e) {
         if (ToolKeyless[key]) { ToolKeyless[key](s); }
         for (let [k, v] of Object.entries(e.stats.mod)) {
             let d = k as keyof AllPropsCS;
+            if (d == "attackSpeed") { q += parseFloat(v as string); }
+            if (typeof (v) == "string") { v = parseFloat(v); }
+            else if (!v) { v = 0; }
             if (ToolKeyDependent[key]) {
                 let fn = ToolKeyDependent[key];
                 if (key == "6694") { fn(d, (25 + 0.11 * (s.championStats.physicalLethality + 15)) / 100, s.championStats); }
@@ -202,12 +309,13 @@ const AssignStats = async (key: string, s: CalculatorProps["activePlayer"], a: s
                     let z = 1.35;
                     if (y.includes(key)) { s.championStats[d] = (s.championStats[d] + v) * z; }
                     else if (x.length > 0) { s.championStats[d] += (x.includes("8002") ? 1.5 : z) * v; }
-                    else { s.championStats[d] += v; }
+                    else { s.championStats[d] += v }
                 }
-                else { s.championStats[d] += v; }
+                else { s.championStats[d] += v }
             };
         }
     }
+    return q
 }
 
 const Test = async (g: CalculatorProps, rec: boolean, t: string): Promise<CalculatorProps> => {
@@ -229,9 +337,7 @@ export const AllStats = (player: CalculatorProps["allPlayers"][number], activePl
     let [acpMod, pphyMod, pmagMod, pgenMod] = [1, 1, 1, 1];
 
     const chspec: Record<string, () => void> = {
-        Kassadin: () => {
-            pmagMod -= 0.1;
-        },
+        Kassadin: () => pmagMod -= 0.1,
         Ornn: () => {
             const mlt = (x: any): void => {
                 let n = 1.1;
@@ -253,8 +359,16 @@ export const AllStats = (player: CalculatorProps["allPlayers"][number], activePl
 
     if (chspec[player.champion.id]) { chspec[player.champion.id]() }
 
-    let rar = Math.max(0, pcs.armor * acs.armorPenetrationPercent - acs.physicalLethality);
-    let rmr = Math.max(0, pcs.magicResist * acs.magicPenetrationPercent - acs.magicPenetrationFlat);
+    let c = acs.armorPenetrationPercent;
+    let d = acs.magicPenetrationPercent;
+    let a = (100 - c) / 100;
+    let b = (100 - d) / 100;
+
+    let f: boolean = c > 0 && c < 1;
+    let e: boolean = d > 0 && d < 1;
+
+    let rar = Math.max(0, pcs.armor * (f ? c : a) - acs.physicalLethality);
+    let rmr = Math.max(0, pcs.magicResist * (e ? d : b) - acs.magicPenetrationFlat);
 
     let physical = 100 / (100 + rar);
     let magic = 100 / (100 + rmr);
@@ -262,16 +376,16 @@ export const AllStats = (player: CalculatorProps["allPlayers"][number], activePl
     let adp = 0.35 * abs.attackDamage >= 0.2 * acs.abilityPower;
     let add = adp ? physical : magic;
 
-    let sft: Record<string, { long: string; short: string; }> = {
-        Gnar: { long: "Gnar", short: "MegaGnar" },
-        Elise: { long: "Elise", short: "EliseMelee" },
-        Jayce: { long: "JayceRanged", short: "Jayce" },
-        Nidalee: { long: "Nidalee", short: "NidaleeMelee" }
-    };
+    // let sft: Record<string, { long: string; short: string; }> = {
+    //     Gnar: { long: "Gnar", short: "MegaGnar" },
+    //     Elise: { long: "Elise", short: "EliseMelee" },
+    //     Jayce: { long: "JayceRanged", short: "Jayce" },
+    //     Nidalee: { long: "Nidalee", short: "NidaleeMelee" }
+    // };
 
-    let championName = activePlayer.championName as keyof typeof sft;
-    let chd = sft[championName]?.[acs.attackRange > 350 ? "long" : "short"];
-    if (chd) { activePlayer.champion.id = chd; }
+    // let championName = activePlayer.championName as keyof typeof sft;
+    // let chd = sft[championName]?.[acs.attackRange > 350 ? "long" : "short"];
+    // if (chd) { activePlayer.champion.id = chd; }
 
     let ohp = pcs.maxHealth / acs.maxHealth;
     let ehp = pcs.maxHealth - acs.maxHealth;
@@ -481,7 +595,7 @@ const Abilities = (stats: AllStatsProps, b: DefAbilities): Record<string, Damage
 };
 
 const Items = (items: string[], stats: AllStatsProps): Record<string, Damage> => {
-    let j: Record<string, Damage> = {};
+    let t: Record<string, Damage> = {};
 
     let f = stats.activePlayer.form;
 
@@ -492,7 +606,7 @@ const Items = (items: string[], stats: AllStatsProps): Record<string, Damage> =>
             let max = item.max?.[f];
             let total = item.effect?.[stats.activePlayer.level - 1];
             let [n, m] = Evaluate(min, max, stats, total ? { total } : undefined);
-            j[k] = {
+            t[k] = {
                 min: n,
                 max: m,
                 type: item.type,
@@ -501,27 +615,27 @@ const Items = (items: string[], stats: AllStatsProps): Record<string, Damage> =>
             };
         }
     }
-    return j;
+    return t;
 }
 
 const Runes = (runes: string[], stats: AllStatsProps): Record<string, Damage> => {
     if (!runes.length || !_Runes) { return {}; }
 
-    let j: Record<string, Damage> = {};
+    let t: Record<string, Damage> = {};
 
     for (let k of runes) {
         let rune = _Runes.data[k];
         if (rune) {
             let min = rune.min[stats.activePlayer.form];
             let [n] = Evaluate(min, null, stats);
-            j[k] = {
+            t[k] = {
                 min: n,
                 type: rune.type == "adaptative" ? stats.activePlayer.adaptative.type : rune.type,
                 name: rune.name
             };
         }
     }
-    return j;
+    return t;
 }
 
 const FilterItems = (items: string[]): RelevantProps | void => {
@@ -544,13 +658,13 @@ const FilterItems = (items: string[]): RelevantProps | void => {
 
 const FilterAbilities = (id: string): RelevantProps | void => {
     let x = _Champion?.[id];
-    let j: string[] = [];
+    let w: string[] = [];
     if (x) {
-        for (let [k, v] of Object.entries(x)) { if (v.max?.length) { j.push(k) } };
+        for (let [k, v] of Object.entries(x)) { if (v.max?.length) { w.push(k) } };
         let t = Object.keys(x);
         return {
             min: t.concat(["A", "C"]),
-            max: j
+            max: w
         };
     }
 }

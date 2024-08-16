@@ -229,7 +229,7 @@ export const CacheItemStats = async (): Promise<any> => {
 
         for (let [f, g] of Object.entries(res)) {
             if (f == "Magic Penetration") {
-                if (typeof (g) == "string") { res["magicPenetrationPercent"] = -1 * parseInt(g.replace("%", "")) / 100 }
+                if (typeof (g) == "string") { res["magicPenetrationPercent"] = g }
                 else { res["magicPenetrationFlat"] = g; }
             }
             else if (r[f]) { res[r[f]] = g }

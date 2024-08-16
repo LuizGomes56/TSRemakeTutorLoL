@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
-import { EndPoint, stat } from "./constants";
-import { ChampionStats } from "./types-calculator";
+import { EndPoint, stat } from "../constants";
+import { ChampionStats } from "../types-calculator";
+import { CoreStats } from "../types-realtime";
 
 type Replaces = { name: string, img: string, key: string, letter: boolean }[];
 
@@ -17,7 +18,7 @@ const FetchReplacements = async (): Promise<Replaces | null> => {
     return null;
 }
 
-export default function Replacements({ championStats, onStatChange, inputDisabled }: { championStats: ChampionStats, onStatChange: (key: keyof ChampionStats, value: number, level?: boolean) => void, inputDisabled: boolean }) {
+export default function EnemyReplacements({ championStats, onStatChange, inputDisabled }: { championStats: CoreStats, onStatChange: (key: keyof ChampionStats, value: number, level?: boolean) => void, inputDisabled: boolean }) {
     let [replacements, setReplacements] = useState<Replaces | null>(null);
 
     useEffect(() => {
@@ -29,7 +30,7 @@ export default function Replacements({ championStats, onStatChange, inputDisable
         if (a) { setReplacements(a); }
     }
 
-    const StatChange = (k: keyof ChampionStats, t?: boolean) => (e: React.ChangeEvent<HTMLInputElement>) => {
+    const StatChange = (k: keyof CoreStats, t?: boolean) => (e: React.ChangeEvent<HTMLInputElement>) => {
         let v = e.target.value === "" ? 0 : parseFloat(e.target.value);
         if (!isNaN(v)) {
             if (t) { v = Math.max(1, Math.min(18, Math.floor(v))); }
@@ -48,12 +49,12 @@ export default function Replacements({ championStats, onStatChange, inputDisable
     };
 
     return (
-        <div className="px-12 flex flex-col gap-1 bg-slate-900 pb-3">
+        <div className="px-12 flex flex-col gap-1 bg-slate-900 pb-4">
             {replacements && replacements.map((x, i) => {
                 let v = x.name + i;
                 let t = x.key == "level";
-                let w = t ? 18 : championStats[x.key as keyof ChampionStats];
-                return (
+                let w = t ? 18 : championStats[x.key as keyof CoreStats];
+                return ["level", "maxHealth", "armor", "magicResist"].includes(x.key) && (
                     <div key={v} className="flex items-center h-7 gap-4 justify-between">
                         <div className="md:flex-auto items-center">
                             <div className="flex gap-2 items-center">
@@ -66,15 +67,15 @@ export default function Replacements({ championStats, onStatChange, inputDisable
                         </div>
                         <label htmlFor={v}>
                             <input
-                                disabled={x.key == "attackSpeed" ? true : inputDisabled}
+                                disabled={inputDisabled}
                                 onKeyDown={LevelKeydown(t)}
                                 type="text"
                                 inputMode="numeric"
                                 maxLength={6}
                                 className="focus:outline-none focus:ring-1 focus:ring-zinc-400 text-sm rounded bg-slate-800 h-7 text-center text-zinc-300 w-16"
                                 id={v}
-                                placeholder={x.key == "attackSpeed" ? w.toFixed(2).toString() : Math.round(w).toString()}
-                                onChange={StatChange(x.key as keyof ChampionStats, t)}
+                                placeholder={w ? Math.round(w).toString() : "0"}
+                                onChange={StatChange(x.key as keyof CoreStats, t)}
                             />
                         </label>
                     </div>

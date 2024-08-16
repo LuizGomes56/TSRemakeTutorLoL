@@ -41,10 +41,10 @@ const Dropdown = forwardRef<HTMLDivElement, { map: string, onItemClick: (item: s
     }
 
     return (
-        <div ref={ref} className="p-1 z-50 bg-neutral-950 fixed left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 min-w-80 lg:min-w-[445px]">
+        <div ref={ref} className="darkblue:bg-slate-950 darkblue:border-slate-700 border-zinc-700 border-2 bg-zinc-950 p-1 z-50 fixed left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 min-w-80 lg:min-w-[445px]">
             <Searchbar event={InputEvent} text={text} />
             {obj &&
-                <div className="mt-1 flex gap-1 max-h-80">
+                <div className="flex max-h-80 mt-1">
                     <Filters onFilter={FilterEvent} />
                     <Cells x={obj} t={text} m={map} f={filter} onItemClick={onItemClick} />
                 </div>}

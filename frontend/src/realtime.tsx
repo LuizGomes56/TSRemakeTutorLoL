@@ -99,9 +99,9 @@ export default function Page() {
                             <p className="text-white font-bold dropshadow">Go back to menu</p>
                         </div>
                         <Break />
-                        <div className="shade flex flex-col gap-2 bg-zinc-900 p-4">
+                        <div className="shade flex flex-col gap-2 darkblue:bg-slate-900 bg-zinc-900 p-4">
                             <h1 className="text-center text-white font-bold text-lg">Important information</h1>
-                            <span className="text-zinc-400 px-8">
+                            <span className="darkblue:text-slate-400 text-zinc-400 px-8">
                                 <p className="list-item my-2">Item recommendations are 100% based on <span className="text-blue-300 font-bold">Damage</span></p>
                                 <p className="list-item my-2">They usually lowers FPS and decrease update rate</p>
                                 <p className="list-item my-2">TutorLoL will not work on <span className="text-blue-300 font-bold">Arena</span><span className="text-blue-300 font-bold">, TFT</span>, and <span className="text-blue-300 font-bold">Swarm</span></p>

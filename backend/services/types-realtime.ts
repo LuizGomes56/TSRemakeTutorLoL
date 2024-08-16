@@ -708,7 +708,11 @@ export interface KeyReplaces {
 export interface EvalItemStats {
     name: string;
     stats: {
-        mod: AllPropsCS;
+        mod: Omit<AllPropsCS, 'armorPenetrationPercent' | 'magicPenetrationPercent' | 'attackSpeed'> & {
+            armorPenetrationPercent: string;
+            magicPenetrationPercent: string;
+            attackSpeed: string;
+        };
         raw: any;
     };
     stack: boolean;

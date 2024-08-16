@@ -13,6 +13,7 @@ const GetVersion = async () => {
 export default function Awaiter({ onCodeChange, attempts }: { onCodeChange: (code: string) => void, attempts: number }) {
     let [hash, setHash] = useState<string>("");
     let [version, setVersion] = useState<string>("14.10");
+    let [darkblue, setDarkblue] = useState<boolean>(true);
     let inputRef = useRef<HTMLInputElement>(null);
     let u = attempts >= 5;
 
@@ -38,14 +39,14 @@ export default function Awaiter({ onCodeChange, attempts }: { onCodeChange: (cod
         }
     };
 
-    let t = u ? "bg-zinc-700" : "bg-sky-950";
+    let t = u ? "bg-zinc-700 darkblue:bg-slate-700" : "bg-sky-950";
 
     return (
         <div className="h-screen flex items-center flex-col w-full">
-            <div className="sm:bg-zinc-900 py-8 px-2 sm:px-16 h-full sm:border border-zinc-800">
+            <div className="sm:bg-zinc-900 darkblue:bg-slate-900 py-8 px-2 sm:px-16 h-full sm:border border-zinc-800">
                 <div className="flex flex-col items-center gap-2">
                     <div className={`flex items-center w-full py-3 px-4 gap-3.5 ${t} border border-zinc-600`}>
-                        <span className="shade rounded p-2 bg-zinc-700">
+                        <span className="shade rounded p-2 bg-zinc-700 darkblue:bg-slate-700">
                             <img className={`w-6 h-6 min-w-6 min-h-6 ${u ? "" : "animate-spin"}`} src={`/${u ? "warning" : "load"}.svg`} alt="W" />
                         </span>
                         <span>
@@ -53,8 +54,22 @@ export default function Awaiter({ onCodeChange, attempts }: { onCodeChange: (cod
                             <p className="text-zinc-400 text-xs sm:text-sm dropshadow">Leave champion selection to load your data</p>
                         </span>
                     </div>
-                    <div className="flex items-center gap-4 p-4 w-full bg-zinc-800 border border-zinc-700">
-                        <span className="shade bg-zinc-700 p-2 rounded">
+                    <div
+                        onClick={() => {
+                            document.body.classList.toggle("darkblue");
+                            setDarkblue(p => p ? false : true);
+                        }}
+                        className="flex items-center gap-4 cursor-pointer p-4 w-full bg-zinc-800 darkblue:bg-slate-800 border border-zinc-700">
+                        <span className="shade bg-zinc-700 darkblue:bg-slate-700 p-2 rounded">
+                            <img className="w-6 h-6 min-w-6 min-h-6" src="/darkmode.svg" alt="" />
+                        </span>
+                        <span>
+                            <p className="dropshadow text-white">{darkblue ? "Dark mode" : "Darkblue mode"}</p>
+                            <p className="dropshadow text-zinc-400 text-xs sm:text-sm">Click to activate a {darkblue ? "dark" : "darkblue"} theme</p>
+                        </span>
+                    </div>
+                    <div className="flex items-center gap-4 p-4 w-full bg-zinc-800 darkblue:bg-slate-800 border border-zinc-700">
+                        <span className="shade bg-zinc-700 darkblue:bg-slate-700 p-2 rounded">
                             <img className="w-6 h-6 min-w-6 min-h-6" src="/version.svg" alt="" />
                         </span>
                         <span>
@@ -62,9 +77,9 @@ export default function Awaiter({ onCodeChange, attempts }: { onCodeChange: (cod
                             <p className="dropshadow text-zinc-400 text-xs sm:text-sm">League's version used to calculate damages</p>
                         </span>
                     </div>
-                    <div className="flex justify-center flex-col gap-4 p-4 w-full bg-zinc-800 hover:bg-zinc-700 hover:border-zinc-500 border border-zinc-700 hover:bg-zinc-750 transition-all duration-300">
+                    <div className="flex justify-center flex-col gap-4 p-4 w-full darkblue:bg-slate-800 darkblue:hover:bg-slate-700 bg-zinc-800 hover:bg-zinc-700 hover:border-zinc-500 border border-zinc-700 hover:bg-zinc-750 transition-all duration-300">
                         <div className="flex items-center gap-4">
-                            <span className="shade bg-zinc-700 p-2 rounded">
+                            <span className="shade bg-zinc-700 darkblue:bg-slate-700 p-2 rounded">
                                 <img className="w-6 h-6 min-w-6 min-h-6" src="/code.svg" alt="" />
                             </span>
                             <span>
@@ -82,13 +97,13 @@ export default function Awaiter({ onCodeChange, attempts }: { onCodeChange: (cod
                                 inputMode="numeric"
                                 maxLength={6}
                                 placeholder="000000"
-                                className="focus:outline-none focus:ring-1 text-lg focus:ring-zinc-400 rounded text-white w-full h-10 font-mono bg-zinc-700 placeholder:text-zinc-400 placeholder:text-lg font-bold text-center border border-zinc-500"
+                                className="focus:outline-none focus:ring-1 text-lg focus:ring-zinc-400 rounded text-white w-full h-10 font-mono bg-zinc-700 darkblue:bg-slate-700 placeholder:text-zinc-400 placeholder:text-lg font-bold text-center border border-zinc-500"
                             />
-                            <img onClick={setInputToHash} className="right-0 absolute h-10 bg-zinc-700 hover:bg-zinc-500 transition-all duration-200 rounded-r border-y border-r border-zinc-500" src="/return.svg" alt="" />
+                            <img onClick={setInputToHash} className="right-0 absolute h-10 bg-zinc-700 darkblue:bg-slate-700 hover:bg-zinc-500 transition-all duration-200 rounded-r border-y border-r border-zinc-500" src="/return.svg" alt="" />
                         </div>
                     </div>
-                    <a href="/calculator" className="flex items-center gap-4 cursor-pointer p-4 w-full bg-zinc-800 hover:bg-zinc-700 hover:border-zinc-500 border border-zinc-700 hover:bg-zinc-750 transition-all duration-300">
-                        <span className="shade bg-zinc-700 p-2 rounded">
+                    <a href="/calculator" className="flex items-center gap-4 cursor-pointer p-4 w-full darkblue:bg-slate-800 darkblue:hover:bg-slate-700 bg-zinc-800 hover:bg-zinc-700 hover:border-zinc-500 border border-zinc-700 hover:bg-zinc-750 transition-all duration-300">
+                        <span className="shade bg-zinc-700 darkblue:bg-slate-700 p-2 rounded">
                             <img className="w-6 h-6 min-w-6 min-h-6" src="/calculator.svg" alt="" />
                         </span>
                         <span>
@@ -96,8 +111,8 @@ export default function Awaiter({ onCodeChange, attempts }: { onCodeChange: (cod
                             <p className="dropshadow text-zinc-400 text-xs sm:text-sm">Test builds and damage outside of a game</p>
                         </span>
                     </a>
-                    <div onClick={() => onCodeChange(PreviewCode)} className="flex items-center gap-4 cursor-pointer p-4 w-full bg-zinc-800 hover:bg-zinc-700 hover:border-zinc-500 border border-zinc-700 hover:bg-zinc-750 transition-all duration-300">
-                        <span className="shade bg-zinc-700 p-2 rounded">
+                    <div onClick={() => onCodeChange(PreviewCode)} className="flex items-center gap-4 cursor-pointer p-4 w-full darkblue:bg-slate-800 darkblue:hover:bg-slate-700 bg-zinc-800 hover:bg-zinc-700 hover:border-zinc-500 border border-zinc-700 hover:bg-zinc-750 transition-all duration-300">
+                        <span className="shade bg-zinc-700 darkblue:bg-slate-700 p-2 rounded">
                             <img className="w-6 h-6 min-w-6 min-h-6" src="/preview.svg" alt="" />
                         </span>
                         <span>
@@ -105,8 +120,8 @@ export default function Awaiter({ onCodeChange, attempts }: { onCodeChange: (cod
                             <p className="dropshadow text-zinc-400 text-xs sm:text-sm">How your game information will be displayed</p>
                         </span>
                     </div>
-                    {u && <div onClick={() => onCodeChange(hash)} className="flex items-center gap-4 cursor-pointer p-4 w-full bg-zinc-700 hover:bg-zinc-600 hover:border-zinc-400 transition-all duration-300 border border-zinc-600">
-                        <span className="shade bg-zinc-700 p-2 rounded">
+                    {u && <div onClick={() => onCodeChange(hash)} className="flex items-center gap-4 cursor-pointer p-4 w-full bg-zinc-700 darkblue:bg-slate-700 hover:bg-zinc-600 hover:border-zinc-400 transition-all duration-300 border border-zinc-600">
+                        <span className="shade bg-zinc-700 darkblue:bg-slate-700 p-2 rounded">
                             <img className="w-6 h-6 min-w-6 min-h-6" src="/retry.svg" alt="" />
                         </span>
                         <span>

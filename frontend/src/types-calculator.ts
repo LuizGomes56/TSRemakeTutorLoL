@@ -43,6 +43,7 @@ interface AllPlayers {
     level: number;
     summonerName: string;
     team: Team;
+    statbased: boolean;
 }
 
 interface Dragons {
@@ -85,56 +86,61 @@ export const InitialDataState: BrowserData = {
             critDamage: 0.0,
             currentHealth: 0.0,
             magicPenetrationFlat: 0.0,
-            magicPenetrationPercent: 1.0,
+            magicPenetrationPercent: 0.0,
             physicalLethality: 0.0,
-            armorPenetrationPercent: 1.0,
+            armorPenetrationPercent: 0.0,
             magicResist: 0.0,
             maxHealth: 0.0,
             resourceMax: 0.0
         },
         level: 18,
         team: "CHAOS",
-        items: [],
-        runes: [],
+        items: ["3089", "4645", "3020", "3135", "3157", "3115"],
+        runes: ["8112", "8143"],
         summonerName: "You",
         championName: "Neeko",
         championId: "Neeko"
     },
     allPlayers: [
         {
-            championName: "Mordekaiser",
-            items: [],
+            championName: "Gwen",
+            items: ["3102"],
             level: 18,
             summonerName: "Enemy 1",
-            team: "ORDER"
+            team: "ORDER",
+            statbased: true
         },
         {
-            championName: "Viego",
-            items: [],
+            championName: "Nunu",
+            items: ["4401", "6665", "3111", "3065", "3068", "2502"],
             level: 18,
             summonerName: "Enemy 2",
-            team: "ORDER"
+            team: "ORDER",
+            statbased: true
         },
         {
             championName: "Ahri",
             items: [],
             level: 18,
             summonerName: "Enemy 3",
-            team: "ORDER"
+            team: "ORDER",
+            statbased: true
         },
         {
-            championName: "Ezreal",
+            championName: "Ashe",
             items: [],
             level: 18,
             summonerName: "Enemy 4",
-            team: "ORDER"
+            team: "ORDER",
+            statbased: true
         },
         {
-            championName: "Lulu",
+            championName: "Braum",
             items: [],
             level: 18,
             summonerName: "Enemy 5",
-            team: "ORDER"
+            team: "ORDER",
+            statbased: true
         }
     ],
     dragons: {
@@ -181,3 +187,14 @@ export interface CalculatorProps extends BrowserData {
     activePlayer: Acp;
     allPlayers: Array<Ply>;
 }
+
+export const fuzzySearch = (q: string, n: string): boolean => {
+    const a = q.replace(/\s+/g, '').toLowerCase();
+    const b = n.replace(/\s+/g, '').toLowerCase();
+    let i = 0;
+    for (let c of b) {
+        if (c === a[i]) { i++; }
+        if (i === a.length) { return true; }
+    }
+    return false;
+};

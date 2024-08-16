@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { champion, EndPoint, Style } from "../../../constants";
+import { fuzzySearch } from "../../../types-calculator";
 
 type ChampionResponse = Record<string, { name: string }>
 
@@ -17,7 +18,7 @@ const FetchChampions = async function () {
     return null;
 }
 
-export default function DropdownChampions({ visible, onChampionSelect }: { visible: boolean, onChampionSelect: (championId: string, championName: string) => void }) {
+export default function DropdownChampions({ visible, onChampionSelect, searchQuery }: { visible: boolean, onChampionSelect: (championId: string, championName: string) => void, searchQuery: string }) {
     let [cell, setCell] = useState<ChampionResponse | null>(null);
 
     useEffect(() => {
@@ -35,7 +36,7 @@ export default function DropdownChampions({ visible, onChampionSelect }: { visib
 
     return (
         <div className={`${Style.dropdown.main} ${visible ? "" : "hidden"}`}>
-            {cell && Object.keys(cell).map((x, i) => {
+            {cell && Object.keys(cell).filter(championId => fuzzySearch(searchQuery, cell[championId].name)).map((x, i) => {
                 let c = cell[x];
                 return (
                     <div key={x + i} className={Style.dropdown.cell} onClick={() => Selection(x, c.name)}>

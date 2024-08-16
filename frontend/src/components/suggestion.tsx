@@ -18,7 +18,7 @@ export default function Suggestion({ x }: { x: ToolInfo }) {
                 {x.raw && Object.keys(x.raw).map((y, i) => (
                     <div key={i} className="flex items-center gap-2">
                         <img className="h-4" src={stat(y.replace(/\s+/g, ""))} alt="Stat" />
-                        <span className="text-sm dropshadow text-zinc-300">{`${x.raw![y as keyof typeof x.raw]} ${Object.keys(x.raw)[i]}`}</span>
+                        <span className="text-sm dropshadow darkblue:text-blue-200 text-zinc-300">{`${x.raw![y as keyof typeof x.raw]} ${Object.keys(x.raw)[i]}`}</span>
                     </div>
                 ))}
             </div>

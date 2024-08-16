@@ -16,14 +16,14 @@ export default function Card({ game }: { game: DataProps }) {
     return (
         <>
             <div className="flex gap-5 flex-col">
-                <div className="bg-zinc-900 shade">
+                <div className="bg-zinc-900 shade darkblue:bg-slate-900">
                     <img
                         className="clip h-24 sm:h-40 md:h-48 lg:h-64 xl:h-32"
                         src={imageSrc}
                         alt={c.name}
                         onError={handleImageError}
                     />
-                    <span className="flex font-bold items-center justify-between text-zinc-300 p-4">
+                    <span className="flex font-bold items-center justify-between darkblue:text-slate-300 text-zinc-300 p-4">
                         <p>{a.summonerName} - {a.championName}</p>
                         <p>{m}m {s}s</p>
                     </span>

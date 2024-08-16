@@ -1,7 +1,7 @@
 import { CalculatorProps } from "./types-calculator";
 import { Acp, AllPropsCS } from "./types-realtime";
 
-const Penetration = (v: number, u: number): number => { return u * (1 + v); }
+const Penetration = (v: number, u: number): number => v > 1 ? 1 * (1 - v / 100) : u * (1 + v);
 
 let m: string = "magicPenetrationPercent";
 let a: string = "armorPenetrationPercent";

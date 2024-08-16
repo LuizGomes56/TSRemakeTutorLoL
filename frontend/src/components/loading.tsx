@@ -10,7 +10,7 @@ export default function Loading() {
             <div className="lg:w-3/5 w-full flex flex-col mt-5 gap-5">
                 <Load />
                 <Load />
-                <div className="bg-neutral-900 grid grid-cols-3 p-4 gap-4">
+                <div className="darkblue:bg-slate-900 bg-neutral-900 grid grid-cols-3 p-4 gap-4">
                     <Load />
                     <Load />
                     <Load />

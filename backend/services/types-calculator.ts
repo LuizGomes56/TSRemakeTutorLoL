@@ -44,6 +44,7 @@ interface AllPlayers {
     level: number;
     summonerName: string;
     team: Team;
+    statbased: boolean;
 }
 
 interface Dragons {

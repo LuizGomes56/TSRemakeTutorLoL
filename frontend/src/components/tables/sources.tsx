@@ -1,7 +1,7 @@
-import { Damage, PropertyProps, Tip } from "../../types-realtime"
+import { Damage, PropertyProps /*, Tip */ } from "../../types-realtime"
 import { Style, champion } from "../../constants";
-import { useState } from "react";
-import Tooltip from "../tooltip";
+// import { useState } from "react";
+// import Tooltip from "../tooltip";
 import ChampionCells from "./cells/champion";
 import TableHeader from "./cells/thead";
 
@@ -20,6 +20,7 @@ const TextCells = ({ damage }: { damage: Record<string, Damage> }) => (
 );
 
 export default function Sources(t: PropertyProps) {
+    /*
     let [tip, setTip] = useState<Tip | null>(null);
 
     const MouseOver = (s: string, n?: string, d?: string, r?: number[]) => () => {
@@ -27,7 +28,7 @@ export default function Sources(t: PropertyProps) {
     };
 
     const MouseOut = () => setTip(null);
-
+    */
     return (
         <div className="overflow-auto shade">
             <table>
@@ -38,8 +39,8 @@ export default function Sources(t: PropertyProps) {
                         runes={t.runes}
                         spell={t.spell}
                         items={t.items}
-                        onMouseOver={MouseOver}
-                        onMouseOut={MouseOut}
+                    // onMouseOver={MouseOver}
+                    // onMouseOut={MouseOut}
                     />
                 </thead>
                 <tbody>
@@ -54,7 +55,7 @@ export default function Sources(t: PropertyProps) {
                     ))}
                 </tbody>
             </table>
-            {tip && <Tooltip x={tip} />}
+            {/* {tip && <Tooltip x={tip} />} */}
         </div>
     );
 }

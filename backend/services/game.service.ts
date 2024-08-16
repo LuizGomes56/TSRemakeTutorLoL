@@ -225,10 +225,12 @@ const AssignStats = async (key: string, s: Acp, a: string[]): Promise<void> => {
         if (ToolKeyless[key]) { ToolKeyless[key](s); }
         for (let [k, v] of Object.entries(e.stats.mod)) {
             let d = k as keyof AllPropsCS;
+            if (typeof (v) == "string") { v = parseFloat(v); }
+            else if (!v) { v = 0; }
             if (ToolKeyDependent[key]) {
                 let fn = ToolKeyDependent[key];
                 if (key == "6694") { fn(d, (25 + 0.11 * (s.championStats.physicalLethality + 15)) / 100, s.championStats); }
-                else { fn(d, v, s.championStats); }
+                else { fn(d, v as number, s.championStats); }
             }
             else {
                 if (d == "abilityPower") {
@@ -237,9 +239,9 @@ const AssignStats = async (key: string, s: Acp, a: string[]): Promise<void> => {
                     let z = 1.35;
                     if (y.includes(key)) { s.championStats[d] = (s.championStats[d] + v) * z; }
                     else if (x.length > 0) { s.championStats[d] += (x.includes("8002") ? 1.5 : z) * v; }
-                    else { s.championStats[d] += v; }
+                    else { s.championStats[d] += v }
                 }
-                else { s.championStats[d] += v; }
+                else { s.championStats[d] += v }
             };
         }
     }
@@ -286,7 +288,7 @@ const FilterSpell = (spell: SummonerSpells): string[] => {
 };
 
 export const Spell = (s: string[], lvl: number): Record<string, Damage> => {
-    let j: Record<string, Damage> = {};
+    let t: Record<string, Damage> = {};
     const cases: Record<string, () => Damage> = {
         SummonerDot: () => {
             return {
@@ -296,12 +298,12 @@ export const Spell = (s: string[], lvl: number): Record<string, Damage> => {
             }
         }
     }
-    s.forEach(d => { if (cases.hasOwnProperty(d)) { j[d] = cases[d](); } });
-    return j;
+    s.forEach(d => { if (cases.hasOwnProperty(d)) { t[d] = cases[d](); } });
+    return t;
 }
 
 const Items = (items: string[], stats: AllStatsProps): Record<string, Damage> => {
-    let j: Record<string, Damage> = {};
+    let t: Record<string, Damage> = {};
 
     let f = stats.activePlayer.form;
 
@@ -312,7 +314,7 @@ const Items = (items: string[], stats: AllStatsProps): Record<string, Damage> =>
             let max = item.max?.[f];
             let total = item.effect?.[stats.activePlayer.level - 1];
             let [n, m] = Evaluate(min, max, stats, total ? { total } : undefined);
-            j[k] = {
+            t[k] = {
                 min: n,
                 max: m,
                 type: item.type,
@@ -321,27 +323,27 @@ const Items = (items: string[], stats: AllStatsProps): Record<string, Damage> =>
             };
         }
     }
-    return j;
+    return t;
 }
 
 const Runes = (runes: string[], stats: AllStatsProps): Record<string, Damage> => {
     if (!runes.length || !_Runes) { return {}; }
 
-    let j: Record<string, Damage> = {};
+    let t: Record<string, Damage> = {};
 
     for (let k of runes) {
         let rune = _Runes.data[k];
         if (rune) {
             let min = rune.min[stats.activePlayer.form];
             let [n] = Evaluate(min, null, stats);
-            j[k] = {
+            t[k] = {
                 min: n,
                 type: rune.type == "adaptative" ? stats.activePlayer.adaptative.type : rune.type,
                 name: rune.name
             };
         }
     }
-    return j;
+    return t;
 }
 
 export const Evaluate = (x: string | null | undefined, y: string | null | undefined, z: AllStatsProps, w?: Record<string, number>): [number, number | null] => {
@@ -449,7 +451,7 @@ export const Replacements = (stats: AllStatsProps): ReplacementsProps => {
     let y = stats.player;
     let z = stats.property;
     let k = x.championStats;
-    let j = x.baseStats;
+    let t = x.baseStats;
     let n = x.bonusStats;
     let m = y.championStats;
     return {
@@ -473,11 +475,11 @@ export const Replacements = (stats: AllStatsProps): ReplacementsProps => {
         critChance: k.critChance,
         critDamage: k.critDamage,
         adaptative: x.adaptative.ratio,
-        baseHP: j.maxHealth,
-        baseMana: j.resourceMax || 0,
-        baseArmor: j.armor,
-        baseMR: j.magicResist,
-        baseAD: j.attackDamage,
+        baseHP: t.maxHealth,
+        baseMana: t.resourceMax || 0,
+        baseArmor: t.armor,
+        baseMR: t.magicResist,
+        baseAD: t.attackDamage,
         bonusAD: n.attackDamage,
         bonusHP: n.maxHealth,
         bonusArmor: n.armor,
@@ -536,16 +538,16 @@ const AllStats = (player: Ply, activePlayer: Acp): AllStatsProps => {
     let adp = 0.35 * abs.attackDamage >= 0.2 * acs.abilityPower;
     let add = adp ? physical : magic;
 
-    let sft: Record<string, { long: string; short: string; }> = {
-        Gnar: { long: "Gnar", short: "MegaGnar" },
-        Elise: { long: "Elise", short: "EliseMelee" },
-        Jayce: { long: "JayceRanged", short: "Jayce" },
-        Nidalee: { long: "Nidalee", short: "NidaleeMelee" }
-    };
+    // let sft: Record<string, { long: string; short: string; }> = {
+    //     Gnar: { long: "Gnar", short: "MegaGnar" },
+    //     Elise: { long: "Elise", short: "EliseMelee" },
+    //     Jayce: { long: "JayceRanged", short: "Jayce" },
+    //     Nidalee: { long: "Nidalee", short: "NidaleeMelee" }
+    // };
 
-    let championName = activePlayer.championName as keyof typeof sft;
-    let chd = sft[championName]?.[acs.attackRange > 350 ? "long" : "short"];
-    if (chd) { activePlayer.champion.id = chd; }
+    // let championName = activePlayer.championName as keyof typeof sft;
+    // let chd = sft[championName]?.[acs.attackRange > 350 ? "long" : "short"];
+    // if (chd) { activePlayer.champion.id = chd; }
 
     let ohp = pcs.maxHealth / acs.maxHealth;
     let ehp = pcs.maxHealth - acs.maxHealth;
@@ -749,13 +751,13 @@ const LoadChampion = (id: string): void => {
 
 const FilterAbilities = (id: string): RelevantProps | void => {
     let x = _Champion?.[id];
-    let j: string[] = [];
+    let w: string[] = [];
     if (x) {
-        for (let [k, v] of Object.entries(x)) { if (v.max?.length) { j.push(k) } };
+        for (let [k, v] of Object.entries(x)) { if (v.max?.length) { w.push(k) } };
         let t = Object.keys(x);
         return {
             min: t.concat(["A", "C"]),
-            max: j
+            max: w
         };
     }
 }

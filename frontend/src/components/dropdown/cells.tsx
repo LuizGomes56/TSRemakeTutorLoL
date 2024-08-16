@@ -12,7 +12,7 @@ const Cells = ({ x, t, m, f, onItemClick }: { x: Record<string, EvalItemStats>, 
     };
 
     return (
-        <div className="grid grid-cols-1 lg:grid-cols-2 content-start w-full overflow-y-auto gap-1 bg-zinc-900">
+        <div className="grid grid-cols-1 lg:grid-cols-2 content-start w-full overflow-y-auto gap-1 darkblue:bg-slate-900 bg-zinc-900">
             {Object.keys(x).filter(k => {
                 let z = x[k];
                 const h = f.every(s => {
@@ -23,7 +23,7 @@ const Cells = ({ x, t, m, f, onItemClick }: { x: Record<string, EvalItemStats>, 
             }).map((c, i) => {
                 let a = x[c];
                 return (
-                    <div key={c + i} onClick={() => onItemClick(c)} className="cursor-pointer h-8 text-zinc-300 flex items-center gap-2 px-1.5 bg-zinc-900 hover:text-blue-300 hover:font-bold hover:bg-blue-950 transition-all duration-200">
+                    <div key={c + i} onClick={() => onItemClick(c)} className="cursor-pointer h-8 darkblue:text-blue-200 text-zinc-300 flex items-center gap-2 px-1.5 darkblue:bg-slate-900 bg-zinc-900 darkblue:hover:text-sky-400 hover:text-blue-300 hover:font-bold darkblue:hover:bg-blue-950 hover:bg-blue-950 transition-all duration-200">
                         <img className="h-5" src={item(c)} alt={c} />
                         <p className="select-none text-sm dropshadow">{a.name}</p>
                     </div>
