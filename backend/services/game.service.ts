@@ -39,7 +39,7 @@ const AssignChampion = async (g: DataProps): Promise<void> => {
 
 let j: Record<string, number> = {};
 
-export const Calculate = async (g: DataProps, rec: boolean, t: string, w: boolean = true): Promise<DataProps> => {
+export const Calculate = async (g: DataProps, rec: boolean, t: string, w: boolean = true): Promise<DataProps | undefined> => {
     let activePlayer = g.activePlayer;
     let allPlayers = g.allPlayers;
     let events = g.events;
@@ -90,7 +90,7 @@ export const Calculate = async (g: DataProps, rec: boolean, t: string, w: boolea
             activePlayer.baseStats = base;
             activePlayer.bonusStats = BonusStats(base, activePlayer.championStats);
 
-            activePlayer.items = player.items.map(item => item.itemID.toString());
+            activePlayer.items = player.items?.map(item => item.itemID.toString());
             activePlayer.relevant = {
                 abilities: FilterAbilities(id) || { min: [], max: [] },
                 items: FilterItems(player) || { min: [], max: [] },
@@ -101,8 +101,22 @@ export const Calculate = async (g: DataProps, rec: boolean, t: string, w: boolea
         }
     }
 
+    let sft: Record<string, { long: string; short: string; }> = {
+        Gnar: { long: "Gnar", short: "MegaGnar" },
+        Elise: { long: "Elise", short: "EliseMelee" },
+        Jayce: { long: "JayceRanged", short: "Jayce" },
+        Nidalee: { long: "Nidalee", short: "NidaleeMelee" }
+    };
+
+    let cpn = activePlayer.championName as keyof typeof sft;
+    let chd = sft[cpn]?.[activePlayer.championStats.attackRange > 325 ? "long" : "short"];
+    if (chd) { activePlayer.champion.id = chd; }
+
+    if (Object.keys(_Champion as LocalChampion)[0] !== activePlayer.champion.id) { return undefined; }
+
     let i: number = 0;
     for (let player of enmPlayers) {
+        if (!Array.isArray(player.items)) { player.items = [] };
         player.dragon = Dragon(events, all, player.team);
         player.baseStats = BaseStats(player.champion.stats, player.level);
         player.championStats = await PlayerStats(player.baseStats, player.items.map(item => item.itemID.toString()));
@@ -537,17 +551,6 @@ const AllStats = (player: Ply, activePlayer: Acp): AllStatsProps => {
 
     let adp = 0.35 * abs.attackDamage >= 0.2 * acs.abilityPower;
     let add = adp ? physical : magic;
-
-    // let sft: Record<string, { long: string; short: string; }> = {
-    //     Gnar: { long: "Gnar", short: "MegaGnar" },
-    //     Elise: { long: "Elise", short: "EliseMelee" },
-    //     Jayce: { long: "JayceRanged", short: "Jayce" },
-    //     Nidalee: { long: "Nidalee", short: "NidaleeMelee" }
-    // };
-
-    // let championName = activePlayer.championName as keyof typeof sft;
-    // let chd = sft[championName]?.[acs.attackRange > 350 ? "long" : "short"];
-    // if (chd) { activePlayer.champion.id = chd; }
 
     let ohp = pcs.maxHealth / acs.maxHealth;
     let ehp = pcs.maxHealth - acs.maxHealth;

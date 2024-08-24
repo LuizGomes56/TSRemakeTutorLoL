@@ -19,6 +19,8 @@ type Property = PropertyProps & {
 }
 
 const TextCells = ({ max, dif, tool }: { max: Record<string, Damage>, dif: Record<string, Damage>, tool?: string }) => {
+    if (!dif || !max) { return null; }
+
     let m = Object.keys(max);
     if (tool) {
         let w = m.indexOf(tool);

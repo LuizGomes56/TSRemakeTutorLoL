@@ -28,11 +28,11 @@ const Scores = ({ x, y }: { x: Ply[], y?: (i: number) => void }) => (
                     </span>
                 </div>
                 <span className="w-fit xl:place-self-center xl:min-w-16 justify-between flex items-center gap-1 leading-5 lg:text-sm text-sm darkblue:text-slate-300 text-zinc-300">
-                    <p>{s.kills}</p>
+                    <p>{s.kills || 0}</p>
                     <p>/</p>
-                    <p>{s.deaths}</p>
+                    <p>{s.deaths || 0}</p>
                     <p>/</p>
-                    <p>{s.assists}</p>
+                    <p>{s.assists || 0}</p>
                 </span>
             </label>
         )

@@ -139,7 +139,7 @@ const AssignItemStats = async (g: CalculatorProps): Promise<number> => {
 
 let j: Record<string, number> = {};
 
-export const Calculator = async (g: CalculatorProps, rec: boolean, t: string, w: boolean = true): Promise<CalculatorProps> => {
+export const Calculator = async (g: CalculatorProps, rec: boolean, t: string, w: boolean = true): Promise<CalculatorProps | undefined> => {
     let activePlayer = g.activePlayer;
     let allPlayers = g.allPlayers;
 
@@ -151,6 +151,19 @@ export const Calculator = async (g: CalculatorProps, rec: boolean, t: string, w:
     await AssignChampion(g);
 
     let st = activePlayer.champion.stats;
+
+    // let sft: Record<string, { long: string; short: string; }> = {
+    //     Gnar: { long: "Gnar", short: "MegaGnar" },
+    //     Elise: { long: "Elise", short: "EliseMelee" },
+    //     Jayce: { long: "JayceRanged", short: "Jayce" },
+    //     Nidalee: { long: "Nidalee", short: "NidaleeMelee" }
+    // };
+
+    // let cpn = activePlayer.championName as keyof typeof sft;
+    // let chd = sft[cpn]?.[activePlayer.championStats.attackRange > 325 ? "long" : "short"];
+    // if (chd) { activePlayer.champion.id = chd; }
+
+    // if (Object.keys(_Champion as LocalChampion)[0] !== activePlayer.champion.id) { return undefined; }
 
     let base = BaseStats(st, activePlayer.level);
     activePlayer.baseStats = base;
@@ -322,7 +335,7 @@ const Test = async (g: CalculatorProps, rec: boolean, t: string): Promise<Calcul
     g.activePlayer.items.push(t);
     await AssignStats(t, g.activePlayer, g.activePlayer.items);
     let k = await Calculator(g, rec, t, false);
-    return k;
+    return k as CalculatorProps;
 }
 
 export const AllStats = (player: CalculatorProps["allPlayers"][number], activePlayer: CalculatorProps["activePlayer"]): AllStatsProps => {

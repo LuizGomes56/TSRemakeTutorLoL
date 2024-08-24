@@ -109,7 +109,7 @@ const GetChampionID = (x: string): string | void => {
 }
 
 export const ChampionAPI = async (cn: string): Promise<TargetChampion | void> => {
-    cn = GetChampionID(cn) as string || cn;
+    cn = GetChampionID(cn) as string || cn.replace(/\s+/g, "");
     if (ChampionCache[cn]) { return ChampionCache[cn]; }
     let x = Cache(`champions/${cn}`) as Champions || await RiotAPI(`champion/${cn}`) as Champions;
     let y = x?.data[cn];

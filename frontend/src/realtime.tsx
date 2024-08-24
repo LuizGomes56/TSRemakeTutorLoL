@@ -48,7 +48,7 @@ export default function Page() {
     }, []);
 
     useEffect(() => {
-        LoadData(code, selectedItem, recommend, attempts);
+        LoadData(window.location.hash.substring(1), selectedItem, recommend, attempts);
         const interval = setInterval(() => {
             LoadData(code, selectedItem, recommend, attempts);
         }, RefreshTime);
@@ -73,7 +73,7 @@ export default function Page() {
         setGame(null);
         setStart(false);
         setChecked([]);
-        setAttempts(0);
+        setAttempts(MaxRequests);
         setSelectedItem("4403");
         setCode(h.length ? h.substring(1) : "");
     }

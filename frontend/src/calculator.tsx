@@ -35,6 +35,7 @@ const FetchGame = async (data: BrowserData, item: string, rec: boolean): Promise
 }
 
 export default function Calculator() {
+    let [hash, setHash] = useState<string>("");
     let [data, setData] = useState<BrowserData>(InitialDataState);
     let [game, setGame] = useState<CalculatorProps | null>(null);
     let [selectedItem, setSelectedItem] = useState<string>("4403");
@@ -66,6 +67,10 @@ export default function Calculator() {
     let [enmSearchItems, setEnmSearchItems] = useState<string[]>(new Array<string>(5).fill(""));
 
     DisableDevTools();
+
+    useEffect(() => {
+        setHash(window.location.hash);
+    }, [])
 
     const EnemyStatbasedChange = (i: number) => {
         setEnmStatbased(b => {
@@ -443,6 +448,14 @@ export default function Calculator() {
                             let { abilities, items, runes, spell } = relevant;
                             return (
                                 <>
+                                    {hash.length > 0 && (
+                                        <>
+                                            <a href={`/${hash}`} className="font-inter cursor-pointer h-12 content-center text-blue-300 text-lg dropshadow hover:bg-blue-900 transition-all duration-200 bg-blue-950 text-center">
+                                                Return to Realtime with code = {hash.substring(1)}
+                                            </a>
+                                            <Break />
+                                        </>
+                                    )}
                                     <Sources
                                         abilities={abilities}
                                         champion={champion}
