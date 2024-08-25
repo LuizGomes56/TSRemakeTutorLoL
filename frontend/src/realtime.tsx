@@ -48,11 +48,9 @@ export default function Page() {
     }, []);
 
     useEffect(() => {
-        LoadData(window.location.hash.substring(1), selectedItem, recommend, attempts);
         const interval = setInterval(() => {
             LoadData(code, selectedItem, recommend, attempts);
         }, RefreshTime);
-
         return () => clearInterval(interval);
     }, [code, selectedItem, recommend, attempts]);
 
