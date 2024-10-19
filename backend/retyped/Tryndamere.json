@@ -1,0 +1,1 @@
+{"E":{"type":"physical","area":true,"min":["(80 + (0.8 * currentAP) + (1.3 * bonusAD)) * physicalMod","(110 + (0.8 * currentAP) + (1.3 * bonusAD)) * physicalMod","(140 + (0.8 * currentAP) + (1.3 * bonusAD)) * physicalMod","(170 + (0.8 * currentAP) + (1.3 * bonusAD)) * physicalMod","(200 + (0.8 * currentAP) + (1.3 * bonusAD)) * physicalMod"],"max":[]}}

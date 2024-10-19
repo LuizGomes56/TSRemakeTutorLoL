@@ -1,0 +1,12 @@
+{
+    "R": {
+        "type": "physical",
+        "area": true,
+        "min": [
+            "(125 + 0.2 * bonusAD + currentAP) * physicalMod",
+            "(175 + 0.2 * bonusAD + currentAP) * physicalMod",
+            "(225 + 0.2 * bonusAD + currentAP) * physicalMod"
+        ],
+        "max": []
+    }
+}
