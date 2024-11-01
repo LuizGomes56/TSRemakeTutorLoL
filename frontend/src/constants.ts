@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-export const EndPoint = "http://localhost:3000";
+export const EndPoint = "http://localhost:8080";
 export const RefreshTime = 950;
 export const MaxRequests = 15;
 export const PreviewCode = "401085";

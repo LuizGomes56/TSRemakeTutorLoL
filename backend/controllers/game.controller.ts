@@ -22,7 +22,10 @@ export const LastByCode = async (req: Request, res: Response, next: NextFunction
                 if (data) {
                     let gameData = JSON.parse(data.game_data);
                     try {
+                        const start = performance.now();
                         let x = await Calculate(gameData, rec, item);
+                        const elapsed = performance.now() - start;
+                        console.log(`Elapsed time: ${elapsed.toFixed(4)} ms`);
                         res.status(200).json({ success: true, data: Object.assign(games, { game: JSON.stringify(x) }) });
                     }
                     catch (e) {

@@ -13,23 +13,79 @@ import Break from './components/break';
 
 const FetchGame = async (code: string, item: string, rec: boolean): Promise<DataProps | null> => {
     const T1 = new Date();
-    var o: RequestBody = { code: code, item, rec };
+    const o: RequestBody = { code, item, rec };
     try {
-        let x = await fetch(EndPoint + "/api/game/last", {
+        const x = await fetch(`${EndPoint}/api/game/last`, {
             method: "POST",
             body: JSON.stringify(o),
             headers: { "Content-Type": "application/json" }
         });
-        let y = await x.json() as Response;
+        const y = await x.json() as Response;
         const T2 = new Date();
         const TIME = (T2.getTime() - T1.getTime()) / 1000;
-        console.log(TIME)
-        if (y.success) { return JSON.parse(y.data.game) as DataProps; }
-        else { throw new Error(y.message) }
+        console.log(TIME);
+        if (y.success) {
+            const data = JSON.parse(y.data.game) as DataProps;
+            if (EndPoint.includes(":8080")) {
+                data.allPlayers.forEach(player => {
+                    if (player.damage.abilities) {
+                        player.damage.abilities = sortAbilitiesMap(player.damage.abilities);
+                    }
+                    if (player.tool?.dif?.abilities) {
+                        player.tool.dif.abilities = sortAbilitiesMap(player.tool.dif.abilities);
+                    }
+                    if (player.tool?.max.abilities) {
+                        player.tool.max.abilities = sortAbilitiesMap(player.tool.max.abilities);
+                    }
+                });
+                data.activePlayer.relevant.abilities.min = sortAbilitiesArray(data.activePlayer.relevant.abilities.min);
+            }
+            return data;
+        } else {
+            throw new Error(y.message);
+        }
+    } catch (e) {
+        console.log(e);
     }
-    catch (e) { console.log(e); }
     return null;
 }
+
+const sortAbilitiesMap = (abilities: Record<string, any>): Record<string, any> => {
+    const order = ["P", "Q", "W", "E", "R", "A", "C"];
+
+    const entries = Object.entries(abilities);
+
+    entries.sort(([keyA], [keyB]) => {
+        const indexA = order.indexOf(keyA[0]);
+        const indexB = order.indexOf(keyB[0]);
+
+        if (indexA === indexB) {
+            return keyA.localeCompare(keyB);
+        }
+        return indexA - indexB;
+    });
+
+    const sortedAbilities: Record<string, any> = {};
+    for (const [key, value] of entries) {
+        sortedAbilities[key] = value;
+    }
+
+    return sortedAbilities;
+};
+
+const sortAbilitiesArray = (abilities: string[]): string[] => {
+    const order = ["P", "Q", "W", "E", "R", "A", "C"];
+
+    return abilities.sort((a, b) => {
+        const indexA = order.indexOf(a[0]);
+        const indexB = order.indexOf(b[0]);
+
+        if (indexA === indexB) {
+            return a.localeCompare(b);
+        }
+        return indexA - indexB;
+    });
+};
 
 export default function Page() {
     let [game, setGame] = useState<DataProps | null>(null);
